@@ -26,10 +26,8 @@ Simply run the executable found in the root. This will start the Astrovibe Attac
 
 # Authors and Members of GreedyGuppyGames
 
-Jacob A. Hiers- jahiers@email.sc.edu  
-Christopher Kelbe- ckelbe@email.sc.edu  
 Bennett Marra- bmarra@email.sc.edu  
+Christopher Kelbe- ckelbe@email.sc.edu  
+Jacob A. Hiers- jahiers@email.sc.edu  
 Oliver Mills- omills@email.sc.edu  
 Tristan L. Williams- tlw1@email.sc.edu  
-
-
