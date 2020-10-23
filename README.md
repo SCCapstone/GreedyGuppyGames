@@ -4,9 +4,10 @@ Welcome to the readme created by GreedyGuppyGames, Astrovibe Attackpod is a fun 
 tower defense game set in space! Protect your base from invading
 aliens and creatures by placing turrets, flamethrowers and more.
 Upgrading towers and selling them are just some aspects to the economy factor Astrovibe.
+Do what you can to survive the incoming wave.
 
 
-Do what you can to survive the incoming waves of enemies!
+
 
 
 
