@@ -6,7 +6,7 @@ aliens and creatures by placing turrets, flamethrowers and more.
 Upgrading towers and selling them are just some aspects to the economy factor Astrovibe.
 
 
-Do what you can to survive the incoming waves of enemies!
+Do what you can to survive the incoming waves of test conflicts!
 
 
 
