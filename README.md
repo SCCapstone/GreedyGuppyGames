@@ -16,7 +16,7 @@ the game.
 
 ## Setup
 After cloning the repo there will be an executable. 
-CATS ARE DELICIOUS
+CATS ARE VERY DELICIOUS
 No extra setup will be requirelold
 
 
