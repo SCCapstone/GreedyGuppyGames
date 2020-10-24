@@ -16,12 +16,12 @@ the game.
 
 ## Setup
 After cloning the repo there will be an executable. 
-No extra setup will be required
+No extra setup will be required.
 
 
 ## Running
 
-Simply run the executable found in the root. This will start the Astrovibe Attackpod game
+Simply run the executable found in the root. This will start the Astrovibe Attackpod game.
 
 
 # Authors and Members of GreedyGuppyGames
