@@ -17,7 +17,7 @@ the game.
 
 ## Setup
 After cloning the repo there will be an executable. 
-No extra setup will be required
+No extra setup will be require
 
 
 ## Running
