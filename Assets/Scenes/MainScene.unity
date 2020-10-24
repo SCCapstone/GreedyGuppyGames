@@ -321,11 +321,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardTurret:
-    prefab: {fileID: 3871337919550805516, guid: 4ab55c2d34fad7b479c334e9e828c193,
+    prefab: {fileID: 3481009559661011739, guid: 150b8e78d0ebb174d918449c188c7a5b,
       type: 3}
     cost: 100
   anotherTurret:
-    prefab: {fileID: 3888732822005249103, guid: cf3b038aea4f79b428dc5d0510cd3067,
+    prefab: {fileID: 1161168588940831137, guid: 40b931dc585d2cd4d80b99a540626b4e,
       type: 3}
     cost: 150
 --- !u!1001 &49207510
@@ -7447,7 +7447,7 @@ PrefabInstance:
     - target: {fileID: 3458342144830200536, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectAnotherTurret
+      value: SelectCannonTurret
       objectReference: {fileID: 0}
     - target: {fileID: 3458342144830200536, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
@@ -7463,6 +7463,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458342144830200536, guid: d853c664b9a48734d8bb35d3b13b3c7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3458342144830200537, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
@@ -7482,7 +7487,7 @@ PrefabInstance:
     - target: {fileID: 3458342144830200538, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
       propertyPath: m_Name
-      value: AnotherTurret
+      value: CannonTurret
       objectReference: {fileID: 0}
     - target: {fileID: 3458342144830200539, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
@@ -23429,8 +23434,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1811356957786347753, guid: b6d2d797288ab6c4d961167c6968ca55,
     type: 3}
   spawnPoint: {fileID: 1381169643}
-  timeBetweenWaves: 20
-  countdown: 11
+  timeBetweenWaves: 7
+  countdown: 5
   waveCountdownText: {fileID: 1862606961}
 --- !u!4 &2051447963
 Transform:
@@ -23458,7 +23463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1ec5c49aa4d444e8fbb8a47f307a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefab: {fileID: 3871337919550805516, guid: 4ab55c2d34fad7b479c334e9e828c193,
+  standardTurretPrefab: {fileID: 3481009559661011739, guid: 150b8e78d0ebb174d918449c188c7a5b,
     type: 3}
   anotherTurretPrefab: {fileID: 3888732822005249103, guid: cf3b038aea4f79b428dc5d0510cd3067,
     type: 3}
@@ -24579,7 +24584,7 @@ PrefabInstance:
     - target: {fileID: 3458342144830200536, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectStandardTurret
+      value: SelectBasicTurret
       objectReference: {fileID: 0}
     - target: {fileID: 3458342144830200536, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
@@ -24596,10 +24601,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3458342144830200536, guid: d853c664b9a48734d8bb35d3b13b3c7a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Shop, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3458342144830200538, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
       propertyPath: m_Name
-      value: StandardTurretItem
+      value: BasicTurret
       objectReference: {fileID: 0}
     - target: {fileID: 3458342144830200539, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}

@@ -10,12 +10,12 @@ public class Shop : MonoBehaviour
     void Start() {
         buildManager = BuildManager.instance;
     }
-    public void SelectStandardTurret() {
+    public void SelectBasicTurret() {
         Debug.Log("Standard Turret Selected");
         buildManager.SelectTurretToBuild(standardTurret);
     }
 
-    public void SelectAnotherTurret() {
+    public void SelectCannonTurret() {
         Debug.Log("Another Turret Selected");
         buildManager.SelectTurretToBuild(anotherTurret);
     }
