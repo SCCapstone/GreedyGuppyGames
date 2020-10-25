@@ -1,289 +1,293 @@
-﻿using UnityEngine;
+﻿// <copyright file="KeyboardMouseInput.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using UnityEngine;
 using UnityInput = UnityEngine.Input;
 
 namespace Core.Input
 {
-	/// <summary>
-	/// Base control scheme for desktop devices, which performs CameraRig motion
-	/// </summary>
-	public class KeyboardMouseInput : CameraInputScheme
-	{
-		/// <summary>
-		/// Pan threshold (how near to the edge before we pan. Also the denominator for RMB pan)
-		/// </summary>
-		public float screenPanThreshold = 40f;
+    /// <summary>
+    /// Base control scheme for desktop devices, which performs CameraRig motion
+    /// </summary>
+    public class KeyboardMouseInput : CameraInputScheme
+    {
+        /// <summary>
+        /// Pan threshold (how near to the edge before we pan. Also the denominator for RMB pan)
+        /// </summary>
+        public float screenPanThreshold = 40f;
 
-		/// <summary>
-		/// Pan speed for edge panning
-		/// </summary>
-		public float mouseEdgePanSpeed = 30f;
+        /// <summary>
+        /// Pan speed for edge panning
+        /// </summary>
+        public float mouseEdgePanSpeed = 30f;
 
-		/// <summary>
-		/// Pan speed for RMB panning
-		/// </summary>
-		public float mouseRmbPanSpeed = 15f;
-		
-		
-		/// <summary>
-		/// Gets whether the scheme should be activated or not
-		/// </summary>
-		public override bool shouldActivate
-		{
-			get
-			{
-				if (UnityInput.touchCount > 0)
-				{
-					return false;
-				}
-				bool anyKey = UnityInput.anyKey;
-				bool buttonPressedThisFrame = InputController.instance.mouseButtonPressedThisFrame;
-				bool movedMouseThisFrame = InputController.instance.mouseMovedOnThisFrame;
+        /// <summary>
+        /// Pan speed for RMB panning
+        /// </summary>
+        public float mouseRmbPanSpeed = 15f;
 
-				return (anyKey || buttonPressedThisFrame || movedMouseThisFrame);
-			}
-		}
+        /// <summary>
+        /// Gets whether the scheme should be activated or not
+        /// </summary>
+        public override bool shouldActivate
+        {
+            get
+            {
+                if (UnityInput.touchCount > 0)
+                {
+                    return false;
+                }
 
-		/// <summary>
-		/// This is the default scheme on desktop devices
-		/// </summary>
-		public override bool isDefault
-		{
-			get
-			{
+                bool anyKey = UnityInput.anyKey;
+                bool buttonPressedThisFrame = InputController.instance.mouseButtonPressedThisFrame;
+                bool movedMouseThisFrame = InputController.instance.mouseMovedOnThisFrame;
+
+                return (anyKey || buttonPressedThisFrame || movedMouseThisFrame);
+            }
+        }
+
+        /// <summary>
+        /// This is the default scheme on desktop devices
+        /// </summary>
+        public override bool isDefault
+        {
+            get
+            {
 #if UNITY_STANDALONE || UNITY_EDITOR
-				return true;
+                return true;
 #else
 				return false;
 #endif
-			}
-		}
+            }
+        }
 
-		/// <summary>
-		/// Register input events
-		/// </summary>
-		protected virtual void OnEnable()
-		{
-			if (!InputController.instanceExists)
-			{
-				Debug.LogError("[UI] Keyboard and Mouse UI requires InputController");
-				return;
-			}
+        /// <summary>
+        /// Register input events
+        /// </summary>
+        protected virtual void OnEnable()
+        {
+            if (!InputController.instanceExists)
+            {
+                Debug.LogError("[UI] Keyboard and Mouse UI requires InputController");
+                return;
+            }
 
-			InputController controller = InputController.instance;
+            InputController controller = InputController.instance;
 
-			controller.spunWheel += OnWheel;
-			controller.dragged += OnDrag;
-			controller.pressed += OnPress;
-		}
+            controller.spunWheel += this.OnWheel;
+            controller.dragged += this.OnDrag;
+            controller.pressed += this.OnPress;
+        }
 
-		/// <summary>
-		/// Deregister input events
-		/// </summary>
-		protected virtual void OnDisable()
-		{
-			if (!InputController.instanceExists)
-			{
-				return;
-			}
+        /// <summary>
+        /// Deregister input events
+        /// </summary>
+        protected virtual void OnDisable()
+        {
+            if (!InputController.instanceExists)
+            {
+                return;
+            }
 
-			InputController controller = InputController.instance;
+            InputController controller = InputController.instance;
 
-			controller.pressed -= OnPress;
-			controller.dragged -= OnDrag;
-			controller.spunWheel -= OnWheel;
-		}
-		
-		/// <summary>
-		/// Handle camera panning behaviour
-		/// </summary>
-		protected virtual void Update()
-		{
-			if (cameraRig != null)
-			{
-				DoScreenEdgePan();
-				DoKeyboardPan();
-				DecayZoom();
-			}
-		}
+            controller.pressed -= this.OnPress;
+            controller.dragged -= this.OnDrag;
+            controller.spunWheel -= this.OnWheel;
+        }
 
-		/// <summary>
-		/// Called when we drag
-		/// </summary>
-		protected virtual void OnDrag(PointerActionInfo pointer)
-		{
-			if (cameraRig != null)
-			{
-				DoRightMouseDragPan(pointer);
-			}
-		}
+        /// <summary>
+        /// Handle camera panning behaviour
+        /// </summary>
+        protected virtual void Update()
+        {
+            if (this.cameraRig != null)
+            {
+                this.DoScreenEdgePan();
+                this.DoKeyboardPan();
+                this.DecayZoom();
+            }
+        }
 
-		/// <summary>
-		/// Called on mouse wheel input
-		/// </summary>
-		protected virtual void OnWheel(WheelInfo wheel)
-		{
-			if (cameraRig != null)
-			{
-				DoWheelZoom(wheel);
-			}
-		}
+        /// <summary>
+        /// Called when we drag
+        /// </summary>
+        protected virtual void OnDrag(PointerActionInfo pointer)
+        {
+            if (this.cameraRig != null)
+            {
+                this.DoRightMouseDragPan(pointer);
+            }
+        }
 
-		/// <summary>
-		/// Called on input press, for MMB panning
-		/// </summary>
-		protected virtual void OnPress(PointerActionInfo pointer)
-		{
-			if (cameraRig != null)
-			{
-				DoMiddleMousePan(pointer);
-			}
-		}
+        /// <summary>
+        /// Called on mouse wheel input
+        /// </summary>
+        protected virtual void OnWheel(WheelInfo wheel)
+        {
+            if (this.cameraRig != null)
+            {
+                this.DoWheelZoom(wheel);
+            }
+        }
 
-		/// <summary>
-		/// Perform mouse screen-edge panning
-		/// </summary>
-		protected void DoScreenEdgePan()
-		{
-			Vector2 mousePos = UnityInput.mousePosition;
+        /// <summary>
+        /// Called on input press, for MMB panning
+        /// </summary>
+        protected virtual void OnPress(PointerActionInfo pointer)
+        {
+            if (this.cameraRig != null)
+            {
+                this.DoMiddleMousePan(pointer);
+            }
+        }
 
-			bool mouseInside = (mousePos.x >= 0) &&
-			                   (mousePos.x < Screen.width) &&
-			                   (mousePos.y >= 0) &&
-			                   (mousePos.y < Screen.height);
+        /// <summary>
+        /// Perform mouse screen-edge panning
+        /// </summary>
+        protected void DoScreenEdgePan()
+        {
+            Vector2 mousePos = UnityInput.mousePosition;
 
-			// Mouse can be outside of our window
-			if (mouseInside)
-			{
-				PanWithScreenCoordinates(mousePos, screenPanThreshold, mouseEdgePanSpeed);
-			}
-		}
+            bool mouseInside = (mousePos.x >= 0) &&
+                               (mousePos.x < Screen.width) &&
+                               (mousePos.y >= 0) &&
+                               (mousePos.y < Screen.height);
 
-		/// <summary>
-		/// Perform keyboard panning
-		/// </summary>
-		protected void DoKeyboardPan()
-		{
-			// Calculate zoom ratio
-			float zoomRatio = GetPanSpeedForZoomLevel();
-			
-			// Left
-			if (UnityInput.GetKey(KeyCode.LeftArrow) || UnityInput.GetKey(KeyCode.A))
-			{
-				cameraRig.PanCamera(Vector3.left * Time.deltaTime * mouseEdgePanSpeed * zoomRatio);
+            // Mouse can be outside of our window
+            if (mouseInside)
+            {
+                this.PanWithScreenCoordinates(mousePos, this.screenPanThreshold, this.mouseEdgePanSpeed);
+            }
+        }
 
-				cameraRig.StopTracking();
-			}
+        /// <summary>
+        /// Perform keyboard panning
+        /// </summary>
+        protected void DoKeyboardPan()
+        {
+            // Calculate zoom ratio
+            float zoomRatio = this.GetPanSpeedForZoomLevel();
 
-			// Right
-			if (UnityInput.GetKey(KeyCode.RightArrow) || UnityInput.GetKey(KeyCode.D))
-			{
-				cameraRig.PanCamera(Vector3.right * Time.deltaTime * mouseEdgePanSpeed * zoomRatio);
+            // Left
+            if (UnityInput.GetKey(KeyCode.LeftArrow) || UnityInput.GetKey(KeyCode.A))
+            {
+                this.cameraRig.PanCamera(Vector3.left * Time.deltaTime * this.mouseEdgePanSpeed * zoomRatio);
 
-				cameraRig.StopTracking();
-			}
+                this.cameraRig.StopTracking();
+            }
 
-			// Down
-			if (UnityInput.GetKey(KeyCode.DownArrow) || UnityInput.GetKey(KeyCode.S))
-			{
-				cameraRig.PanCamera(Vector3.back * Time.deltaTime * mouseEdgePanSpeed * zoomRatio);
+            // Right
+            if (UnityInput.GetKey(KeyCode.RightArrow) || UnityInput.GetKey(KeyCode.D))
+            {
+                this.cameraRig.PanCamera(Vector3.right * Time.deltaTime * this.mouseEdgePanSpeed * zoomRatio);
 
-				cameraRig.StopTracking();
-			}
+                this.cameraRig.StopTracking();
+            }
 
-			// Up
-			if (UnityInput.GetKey(KeyCode.UpArrow) || UnityInput.GetKey(KeyCode.W))
-			{
-				cameraRig.PanCamera(Vector3.forward * Time.deltaTime * mouseEdgePanSpeed * zoomRatio);
+            // Down
+            if (UnityInput.GetKey(KeyCode.DownArrow) || UnityInput.GetKey(KeyCode.S))
+            {
+                this.cameraRig.PanCamera(Vector3.back * Time.deltaTime * this.mouseEdgePanSpeed * zoomRatio);
 
-				cameraRig.StopTracking();
-			}
-		}
+                this.cameraRig.StopTracking();
+            }
 
-		/// <summary>
-		/// Decay the zoom if it's springy
-		/// </summary>
-		protected void DecayZoom()
-		{
-			cameraRig.ZoomDecay();
-		}
+            // Up
+            if (UnityInput.GetKey(KeyCode.UpArrow) || UnityInput.GetKey(KeyCode.W))
+            {
+                this.cameraRig.PanCamera(Vector3.forward * Time.deltaTime * this.mouseEdgePanSpeed * zoomRatio);
 
-		/// <summary>
-		/// Pan with right mouse
-		/// </summary>
-		/// <param name="pointer">The drag pointer event</param>
-		protected void DoRightMouseDragPan(PointerActionInfo pointer)
-		{
-			var mouseInfo = pointer as MouseButtonInfo;
-			if ((mouseInfo != null) &&
-			    (mouseInfo.mouseButtonId == 1))
-			{
-				// Calculate zoom ratio
-				float zoomRatio = GetPanSpeedForZoomLevel();
+                this.cameraRig.StopTracking();
+            }
+        }
 
-				Vector2 panVector = mouseInfo.currentPosition - mouseInfo.startPosition;
-				panVector = (panVector * Time.deltaTime * mouseRmbPanSpeed * zoomRatio) / screenPanThreshold;
+        /// <summary>
+        /// Decay the zoom if it's springy
+        /// </summary>
+        protected void DecayZoom()
+        {
+            this.cameraRig.ZoomDecay();
+        }
 
-				var camVector = new Vector3(panVector.x, 0, panVector.y);
-				cameraRig.PanCamera(camVector);
+        /// <summary>
+        /// Pan with right mouse
+        /// </summary>
+        /// <param name="pointer">The drag pointer event</param>
+        protected void DoRightMouseDragPan(PointerActionInfo pointer)
+        {
+            var mouseInfo = pointer as MouseButtonInfo;
+            if ((mouseInfo != null) &&
+                (mouseInfo.mouseButtonId == 1))
+            {
+                // Calculate zoom ratio
+                float zoomRatio = this.GetPanSpeedForZoomLevel();
 
-				cameraRig.StopTracking();
-			}
-		}
+                Vector2 panVector = mouseInfo.currentPosition - mouseInfo.startPosition;
+                panVector = (panVector * Time.deltaTime * this.mouseRmbPanSpeed * zoomRatio) / this.screenPanThreshold;
 
-		/// <summary>
-		/// Perform mouse wheel zooming
-		/// </summary>
-		protected void DoWheelZoom(WheelInfo wheel)
-		{
-			float prevZoomDist = cameraRig.zoomDist;
-			cameraRig.ZoomCameraRelative(wheel.zoomAmount * -1);
+                var camVector = new Vector3(panVector.x, 0, panVector.y);
+                this.cameraRig.PanCamera(camVector);
 
-			// Calculate actual zoom change after clamping
-			float zoomChange = cameraRig.zoomDist / prevZoomDist;
+                this.cameraRig.StopTracking();
+            }
+        }
 
-			// First get floor position of cursor
-			Ray ray = cameraRig.cachedCamera.ScreenPointToRay(UnityInput.mousePosition);
+        /// <summary>
+        /// Perform mouse wheel zooming
+        /// </summary>
+        protected void DoWheelZoom(WheelInfo wheel)
+        {
+            float prevZoomDist = this.cameraRig.zoomDist;
+            this.cameraRig.ZoomCameraRelative(wheel.zoomAmount * -1);
 
-			Vector3 worldPos = Vector3.zero;
-			float dist;
+            // Calculate actual zoom change after clamping
+            float zoomChange = this.cameraRig.zoomDist / prevZoomDist;
 
-			if (cameraRig.floorPlane.Raycast(ray, out dist))
-			{
-				worldPos = ray.GetPoint(dist);
-			}
+            // First get floor position of cursor
+            Ray ray = this.cameraRig.cachedCamera.ScreenPointToRay(UnityInput.mousePosition);
 
-			// Vector from our current look pos to this point 
-			Vector3 offsetValue = worldPos - cameraRig.lookPosition;
+            Vector3 worldPos = Vector3.zero;
+            float dist;
 
-			// Pan towards or away from our zoom center
-			cameraRig.PanCamera(offsetValue * (1 - zoomChange));
-		}
+            if (this.cameraRig.floorPlane.Raycast(ray, out dist))
+            {
+                worldPos = ray.GetPoint(dist);
+            }
 
-		/// <summary>
-		/// Pan with middle mouse
-		/// </summary>
-		/// <param name="pointer">Pointer with press event</param>
-		protected void DoMiddleMousePan(PointerActionInfo pointer)
-		{
-			var mouseInfo = pointer as MouseButtonInfo;
+            // Vector from our current look pos to this point
+            Vector3 offsetValue = worldPos - this.cameraRig.lookPosition;
 
-			// Pan to mouse position on MMB
-			if ((mouseInfo != null) &&
-			    (mouseInfo.mouseButtonId == 2))
-			{
-				// First get floor position of cursor
-				Ray ray = cameraRig.cachedCamera.ScreenPointToRay(UnityInput.mousePosition);
+            // Pan towards or away from our zoom center
+            this.cameraRig.PanCamera(offsetValue * (1 - zoomChange));
+        }
 
-				float dist;
+        /// <summary>
+        /// Pan with middle mouse
+        /// </summary>
+        /// <param name="pointer">Pointer with press event</param>
+        protected void DoMiddleMousePan(PointerActionInfo pointer)
+        {
+            var mouseInfo = pointer as MouseButtonInfo;
 
-				if (cameraRig.floorPlane.Raycast(ray, out dist))
-				{
-					Vector3 worldPos = ray.GetPoint(dist);
-					cameraRig.PanTo(worldPos);
-				}
+            // Pan to mouse position on MMB
+            if ((mouseInfo != null) &&
+                (mouseInfo.mouseButtonId == 2))
+            {
+                // First get floor position of cursor
+                Ray ray = this.cameraRig.cachedCamera.ScreenPointToRay(UnityInput.mousePosition);
 
-				cameraRig.StopTracking();
-			}
-		}
-	}
+                float dist;
+
+                if (this.cameraRig.floorPlane.Raycast(ray, out dist))
+                {
+                    Vector3 worldPos = ray.GetPoint(dist);
+                    this.cameraRig.PanTo(worldPos);
+                }
+
+                this.cameraRig.StopTracking();
+            }
+        }
+    }
 }

@@ -1,45 +1,49 @@
-﻿using System;
+﻿// <copyright file="SerializableInterface.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using System;
 
 namespace Core.Utilities
 {
-	/// <summary>
-	/// Abstract base for serializable interface wrapper objects
-	/// </summary>
-	public abstract class SerializableInterface
-	{
-		/// <summary>
-		/// Unity component that gets serialized that is of our interface type
-		/// </summary>
-		public UnityEngine.Object unityObjectReference;
-	}
+    /// <summary>
+    /// Abstract base for serializable interface wrapper objects
+    /// </summary>
+    public abstract class SerializableInterface
+    {
+        /// <summary>
+        /// Unity component that gets serialized that is of our interface type
+        /// </summary>
+        public UnityEngine.Object unityObjectReference;
+    }
 
-	/// <summary>
-	/// A generic solution to allow the serialization of interfaces in Unity game objects
-	/// </summary>
-	/// <typeparam name="T">Any interface implementing ISerializableInterface</typeparam>
-	[Serializable]
-	public class SerializableInterface<T> : SerializableInterface where T: ISerializableInterface
-	{
-		T m_InterfaceReference;
-		
-		/// <summary>
-		/// Retrieves the interface from the unity component and caches it
-		/// </summary>
-		public T GetInterface()
-		{
-			if (m_InterfaceReference == null && unityObjectReference != null)
-			{
-				m_InterfaceReference = (T)(ISerializableInterface)unityObjectReference;
-			}
+    /// <summary>
+    /// A generic solution to allow the serialization of interfaces in Unity game objects
+    /// </summary>
+    /// <typeparam name="T">Any interface implementing ISerializableInterface</typeparam>
+    [Serializable]
+    public class SerializableInterface<T> : SerializableInterface where T : ISerializableInterface
+    {
+        private T m_InterfaceReference;
 
-			return m_InterfaceReference;
-		}
-	}
+        /// <summary>
+        /// Retrieves the interface from the unity component and caches it
+        /// </summary>
+        public T GetInterface()
+        {
+            if (this.m_InterfaceReference == null && this.unityObjectReference != null)
+            {
+                this.m_InterfaceReference = (T)(ISerializableInterface)this.unityObjectReference;
+            }
 
-	/// <summary>
-	/// Base interface from which all serializable interfaces must derive
-	/// </summary>
-	public interface ISerializableInterface
-	{
-	}
+            return this.m_InterfaceReference;
+        }
+    }
+
+    /// <summary>
+    /// Base interface from which all serializable interfaces must derive
+    /// </summary>
+    public interface ISerializableInterface
+    {
+    }
 }

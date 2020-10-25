@@ -1,5 +1,9 @@
-﻿using UnityEngine;
+﻿// <copyright file="WaveSpawner.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
@@ -15,31 +19,35 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveIndex = 0;
 
-    void Update () {
-        if (countdown <= 0f) {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
+    private void Update()
+    {
+        if (this.countdown <= 0f)
+        {
+            this.StartCoroutine(this.SpawnWave());
+            this.countdown = this.timeBetweenWaves;
         }
 
-        countdown -= Time.deltaTime;
+        this.countdown -= Time.deltaTime;
 
-        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+        this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
 
-        waveCountdownText.text = string.Format("{0:00.00}", countdown);
+        this.waveCountdownText.text = string.Format("{0:00.00}", this.countdown);
     }
 
-    IEnumerator SpawnWave () {
-        waveIndex++;
+    private IEnumerator SpawnWave()
+    {
+        this.waveIndex++;
         PlayerStats.Rounds++;
 
-        for (int i = 0; i < waveIndex; i++) {
-            SpawnEnemy();
+        for (int i = 0; i < this.waveIndex; i++)
+        {
+            this.SpawnEnemy();
             yield return new WaitForSeconds(0.5f);
         }
     }
 
-    void SpawnEnemy () {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+    private void SpawnEnemy()
+    {
+        Instantiate(this.enemyPrefab, this.spawnPoint.position, this.spawnPoint.rotation);
     }
-
 }

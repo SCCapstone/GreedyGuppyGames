@@ -1,22 +1,29 @@
-﻿using UnityEngine;
+﻿// <copyright file="Shop.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
     public TurretBlueprint standardTurret;
     public TurretBlueprint anotherTurret;
+    private BuildManager buildManager;
 
-    BuildManager buildManager;
-
-    void Start() {
-        buildManager = BuildManager.instance;
+    private void Start()
+    {
+        this.buildManager = BuildManager.instance;
     }
-    public void SelectBasicTurret() {
+
+    public void SelectBasicTurret()
+    {
         Debug.Log("Standard Turret Selected");
-        buildManager.SelectTurretToBuild(standardTurret);
+        this.buildManager.SelectTurretToBuild(this.standardTurret);
     }
 
-    public void SelectCannonTurret() {
+    public void SelectCannonTurret()
+    {
         Debug.Log("Another Turret Selected");
-        buildManager.SelectTurretToBuild(anotherTurret);
+        this.buildManager.SelectTurretToBuild(this.anotherTurret);
     }
 }

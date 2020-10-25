@@ -1,6 +1,10 @@
-﻿namespace Core.Input
+﻿// <copyright file="MouseCursorInfo.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+namespace Core.Input
 {
-	class MouseCursorInfo : PointerInfo
-	{
-	}
+    internal class MouseCursorInfo : PointerInfo
+    {
+    }
 }

@@ -1,3 +1,7 @@
+// <copyright file="PostProcessingComponent.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 using UnityEngine.Rendering;
 
 namespace UnityEngine.PostProcessing
@@ -14,10 +18,10 @@ namespace UnityEngine.PostProcessing
         public abstract bool active { get; }
 
         public virtual void OnEnable()
-        {}
+        { }
 
         public virtual void OnDisable()
-        {}
+        { }
 
         public abstract PostProcessingModel GetModel();
     }
@@ -29,13 +33,13 @@ namespace UnityEngine.PostProcessing
 
         public virtual void Init(PostProcessingContext pcontext, T pmodel)
         {
-            context = pcontext;
-            model = pmodel;
+            this.context = pcontext;
+            this.model = pmodel;
         }
 
         public override PostProcessingModel GetModel()
         {
-            return model;
+            return this.model;
         }
     }
 
@@ -53,6 +57,6 @@ namespace UnityEngine.PostProcessing
         where T : PostProcessingModel
     {
         public virtual void Prepare(Material material)
-        {}
+        { }
     }
 }

@@ -1,37 +1,40 @@
-using UnityEngine;
-using System.Collections;
+// <copyright file="LookCamera.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
 
-public class LookCamera : MonoBehaviour 
+using UnityEngine;
+
+public class LookCamera : MonoBehaviour
 {
     public float speedNormal = 10.0f;
-    public float speedFast   = 50.0f;
+    public float speedFast = 50.0f;
 
     public float mouseSensitivityX = 5.0f;
-	public float mouseSensitivityY = 5.0f;
-    
-	float rotY = 0.0f;
-    
-	void Start()
-	{
-		if (GetComponent<Rigidbody>())
-			GetComponent<Rigidbody>().freezeRotation = true;
-	}
+    public float mouseSensitivityY = 5.0f;
+    private float rotY = 0.0f;
 
-	void Update()
-	{	
-        // rotation        
-        if (Input.GetMouseButton(1)) 
+    private void Start()
+    {
+        if (this.GetComponent<Rigidbody>())
         {
-            float rotX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivityX;
-            rotY += Input.GetAxis("Mouse Y") * mouseSensitivityY;
-            rotY = Mathf.Clamp(rotY, -89.5f, 89.5f);
-            transform.localEulerAngles = new Vector3(-rotY, rotX, 0.0f);
+            this.GetComponent<Rigidbody>().freezeRotation = true;
         }
-		
-		if (Input.GetKey(KeyCode.U))
-		{
-			gameObject.transform.localPosition = new Vector3(0.0f, 3500.0f, 0.0f);
-		}
+    }
 
-	}
+    private void Update()
+    {
+        // rotation
+        if (Input.GetMouseButton(1))
+        {
+            float rotX = this.transform.localEulerAngles.y + Input.GetAxis("Mouse X") * this.mouseSensitivityX;
+            this.rotY += Input.GetAxis("Mouse Y") * this.mouseSensitivityY;
+            this.rotY = Mathf.Clamp(this.rotY, -89.5f, 89.5f);
+            this.transform.localEulerAngles = new Vector3(-this.rotY, rotX, 0.0f);
+        }
+
+        if (Input.GetKey(KeyCode.U))
+        {
+            this.gameObject.transform.localPosition = new Vector3(0.0f, 3500.0f, 0.0f);
+        }
+    }
 }

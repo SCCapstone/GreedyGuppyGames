@@ -1,29 +1,33 @@
+// <copyright file="MaterialFactory.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 using System;
 using System.Collections.Generic;
 
 namespace UnityEngine.PostProcessing
 {
-    using UnityObject = Object;
-
     public sealed class MaterialFactory : IDisposable
     {
-        Dictionary<string, Material> m_Materials;
+        private Dictionary<string, Material> m_Materials;
 
         public MaterialFactory()
         {
-            m_Materials = new Dictionary<string, Material>();
+            this.m_Materials = new Dictionary<string, Material>();
         }
 
         public Material Get(string shaderName)
         {
             Material material;
 
-            if (!m_Materials.TryGetValue(shaderName, out material))
+            if (!this.m_Materials.TryGetValue(shaderName, out material))
             {
                 var shader = Shader.Find(shaderName);
 
                 if (shader == null)
+                {
                     throw new ArgumentException(string.Format("Shader not found ({0})", shaderName));
+                }
 
                 material = new Material(shader)
                 {
@@ -31,7 +35,7 @@ namespace UnityEngine.PostProcessing
                     hideFlags = HideFlags.DontSave
                 };
 
-                m_Materials.Add(shaderName, material);
+                this.m_Materials.Add(shaderName, material);
             }
 
             return material;
@@ -39,14 +43,14 @@ namespace UnityEngine.PostProcessing
 
         public void Dispose()
         {
-            var enumerator = m_Materials.GetEnumerator();
+            var enumerator = this.m_Materials.GetEnumerator();
             while (enumerator.MoveNext())
             {
                 var material = enumerator.Current.Value;
                 GraphicsUtils.Destroy(material);
             }
 
-            m_Materials.Clear();
+            this.m_Materials.Clear();
         }
     }
 }

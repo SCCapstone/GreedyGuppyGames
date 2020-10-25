@@ -1,3 +1,7 @@
+// <copyright file="PostProcessingContext.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 namespace UnityEngine.PostProcessing
 {
     public class PostProcessingContext
@@ -12,30 +16,30 @@ namespace UnityEngine.PostProcessing
 
         public void Interrupt()
         {
-            interrupted = true;
+            this.interrupted = true;
         }
 
         public PostProcessingContext Reset()
         {
-            profile = null;
-            camera = null;
-            materialFactory = null;
-            renderTextureFactory = null;
-            interrupted = false;
+            this.profile = null;
+            this.camera = null;
+            this.materialFactory = null;
+            this.renderTextureFactory = null;
+            this.interrupted = false;
             return this;
         }
 
         #region Helpers
         public bool isGBufferAvailable
         {
-            get { return camera.actualRenderingPath == RenderingPath.DeferredShading; }
+            get { return this.camera.actualRenderingPath == RenderingPath.DeferredShading; }
         }
 
         public bool isHdr
         {
             // No UNITY_5_6_OR_NEWER defined in early betas of 5.6
 #if UNITY_5_6 || UNITY_5_6_OR_NEWER
-            get { return camera.allowHDR; }
+            get { return this.camera.allowHDR; }
 #else
             get { return camera.hdr; }
 #endif
@@ -43,17 +47,17 @@ namespace UnityEngine.PostProcessing
 
         public int width
         {
-            get { return camera.pixelWidth; }
+            get { return this.camera.pixelWidth; }
         }
 
         public int height
         {
-            get { return camera.pixelHeight; }
+            get { return this.camera.pixelHeight; }
         }
 
         public Rect viewport
         {
-            get { return camera.rect; } // Normalized coordinates
+            get { return this.camera.rect; } // Normalized coordinates
         }
         #endregion
     }

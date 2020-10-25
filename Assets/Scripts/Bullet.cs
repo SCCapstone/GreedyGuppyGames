@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿// <copyright file="Bullet.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
     private Transform target;
 
     public float speed = 70f;
@@ -10,63 +13,75 @@ public class Bullet : MonoBehaviour
     public float explosionRadius = 0f;
     public GameObject impactEffect;
 
-    public void Seek (Transform _target) {
-        target = _target;
+    public void Seek(Transform aTarget)
+    {
+        this.target = aTarget;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (target == null) {
-            Destroy(gameObject);
+        if (this.target == null)
+        {
+            Destroy(this.gameObject);
             return;
         }
 
-        Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
+        Vector3 dir = this.target.position - this.transform.position;
+        float distanceThisFrame = this.speed * Time.deltaTime;
 
-        if (dir.magnitude <= distanceThisFrame) {
-            HitTarget();
+        if (dir.magnitude <= distanceThisFrame)
+        {
+            this.HitTarget();
             return;
         }
 
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
-
+        this.transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        this.transform.LookAt(this.target);
     }
 
-    void HitTarget() {
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+    private void HitTarget()
+    {
+        GameObject effectIns = (GameObject)Instantiate(this.impactEffect, this.transform.position, this.transform.rotation);
         Destroy(effectIns, 2f);
 
-        if (explosionRadius > 0f) {
-            Explode();
+        if (this.explosionRadius > 0f)
+        {
+            this.Explode();
         }
-        else {
-            Damage(target);
+        else
+        {
+            this.Damage(this.target);
         }
-        Destroy(gameObject);
+
+        Destroy(this.gameObject);
     }
 
-    void Explode () {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-        foreach (Collider collider in colliders) {
-            if (collider.tag == "Enemy") {
-                Damage(collider.transform);
+    private void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(this.transform.position, this.explosionRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
+                this.Damage(collider.transform);
             }
         }
     }
 
-    void Damage (Transform enemy) {
+    private void Damage(Transform enemy)
+    {
         Enemy e = enemy.GetComponent<Enemy>();
 
-        if(e != null) {
-            e.TakeDamage(damage);
+        if (e != null)
+        {
+            e.TakeDamage(this.damage);
         }
     }
 
-    private void OnDrawGizmosSelected() {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, this.explosionRadius);
     }
 }

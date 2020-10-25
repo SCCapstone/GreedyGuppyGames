@@ -1,241 +1,250 @@
-﻿using TowerDefense.Level;
+﻿// <copyright file="TowerUI.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using TowerDefense.Level;
 using TowerDefense.Towers;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace TowerDefense.UI.HUD
 {
-	/// <summary>
-	/// Controls the UI objects that draw the tower data
-	/// </summary>
-	[RequireComponent(typeof(Canvas))]
-	public class TowerUI : MonoBehaviour
-	{
-		/// <summary>
-		/// The text object for the name
-		/// </summary>
-		public Text towerName;
+    /// <summary>
+    /// Controls the UI objects that draw the tower data
+    /// </summary>
+    [RequireComponent(typeof(Canvas))]
+    public class TowerUI : MonoBehaviour
+    {
+        /// <summary>
+        /// The text object for the name
+        /// </summary>
+        public Text towerName;
 
-		/// <summary>
-		/// The text object for the description
-		/// </summary>
-		public Text description;
-		
-		public Text upgradeDescription;
+        /// <summary>
+        /// The text object for the description
+        /// </summary>
+        public Text description;
 
-		/// <summary>
-		/// The attached sell button
-		/// </summary>
-		public Button sellButton;
+        public Text upgradeDescription;
 
-		/// <summary>
-		/// The attached upgrade button
-		/// </summary>
-		public Button upgradeButton;
+        /// <summary>
+        /// The attached sell button
+        /// </summary>
+        public Button sellButton;
 
-		/// <summary>
-		/// Component to display the relevant information of the tower
-		/// </summary>
-		public TowerInfoDisplay towerInfoDisplay;
+        /// <summary>
+        /// The attached upgrade button
+        /// </summary>
+        public Button upgradeButton;
 
-		public RectTransform panelRectTransform;
+        /// <summary>
+        /// Component to display the relevant information of the tower
+        /// </summary>
+        public TowerInfoDisplay towerInfoDisplay;
 
-		public GameObject[] confirmationButtons;
+        public RectTransform panelRectTransform;
 
-		/// <summary>
-		/// The main game camera
-		/// </summary>
-		protected Camera m_GameCamera;
+        public GameObject[] confirmationButtons;
 
-		/// <summary>
-		/// The current tower to draw
-		/// </summary>
-		protected Tower m_Tower;
+        /// <summary>
+        /// The main game camera
+        /// </summary>
+        protected Camera m_GameCamera;
 
-		/// <summary>
-		/// The canvas attached to the gameObject
-		/// </summary>
-		protected Canvas m_Canvas;
+        /// <summary>
+        /// The current tower to draw
+        /// </summary>
+        protected Tower m_Tower;
 
-		/// <summary>
-		/// Draws the tower data on to the canvas
-		/// </summary>
-		/// <param name="towerToShow">
-		/// The tower to gain info from
-		/// </param>
-		public virtual void Show(Tower towerToShow)
-		{
-			if (towerToShow == null)
-			{
-				return;
-			}
-			m_Tower = towerToShow;
-			AdjustPosition();
+        /// <summary>
+        /// The canvas attached to the gameObject
+        /// </summary>
+        protected Canvas m_Canvas;
 
-			m_Canvas.enabled = true;
+        /// <summary>
+        /// Draws the tower data on to the canvas
+        /// </summary>
+        /// <param name="towerToShow">
+        /// The tower to gain info from
+        /// </param>
+        public virtual void Show(Tower towerToShow)
+        {
+            if (towerToShow == null)
+            {
+                return;
+            }
 
-			int sellValue = m_Tower.GetSellLevel();
-			if (sellButton != null)
-			{
-				sellButton.gameObject.SetActive(sellValue > 0);
-			}
-			if (upgradeButton != null)
-			{
-				upgradeButton.interactable = 
-					LevelManager.instance.currency.CanAfford(m_Tower.GetCostForNextLevel());
-				bool maxLevel = m_Tower.isAtMaxLevel;
-				upgradeButton.gameObject.SetActive(!maxLevel);
-				if (!maxLevel)
-				{
-					upgradeDescription.text =
-						m_Tower.levels[m_Tower.currentLevel + 1].upgradeDescription.ToUpper();
-				}
-			}
-			LevelManager.instance.currency.currencyChanged += OnCurrencyChanged;
-			towerInfoDisplay.Show(towerToShow);
-			foreach (var button in confirmationButtons)
-			{
-				button.SetActive(false);
-			}
-		}
+            this.m_Tower = towerToShow;
+            this.AdjustPosition();
 
-		/// <summary>
-		/// Hides the tower info UI and the radius visualizer
-		/// </summary>
-		public virtual void Hide()
-		{
-			m_Tower = null;
-			if (GameUI.instanceExists)
-			{
-				GameUI.instance.HideRadiusVisualizer();
-			}
-			m_Canvas.enabled = false;
-			LevelManager.instance.currency.currencyChanged -= OnCurrencyChanged;
-		}
+            this.m_Canvas.enabled = true;
 
-		/// <summary>
-		/// Upgrades the tower through <see cref="GameUI"/>
-		/// </summary>
-		public void UpgradeButtonClick()
-		{
-			GameUI.instance.UpgradeSelectedTower();
-		}
+            int sellValue = this.m_Tower.GetSellLevel();
+            if (this.sellButton != null)
+            {
+                this.sellButton.gameObject.SetActive(sellValue > 0);
+            }
 
-		/// <summary>
-		/// Sells the tower through <see cref="GameUI"/>
-		/// </summary>
-		public void SellButtonClick()
-		{
-			GameUI.instance.SellSelectedTower();
-		}
+            if (this.upgradeButton != null)
+            {
+                this.upgradeButton.interactable =
+                    LevelManager.instance.currency.CanAfford(this.m_Tower.GetCostForNextLevel());
+                bool maxLevel = this.m_Tower.isAtMaxLevel;
+                this.upgradeButton.gameObject.SetActive(!maxLevel);
+                if (!maxLevel)
+                {
+                    this.upgradeDescription.text =
+                        this.m_Tower.levels[this.m_Tower.currentLevel + 1].upgradeDescription.ToUpper();
+                }
+            }
 
-		/// <summary>
-		/// Get the text attached to the buttons
-		/// </summary>
-		protected virtual void Awake()
-		{
-			m_Canvas = GetComponent<Canvas>();
-		}
+            LevelManager.instance.currency.currencyChanged += this.OnCurrencyChanged;
+            this.towerInfoDisplay.Show(towerToShow);
+            foreach (var button in this.confirmationButtons)
+            {
+                button.SetActive(false);
+            }
+        }
 
-		/// <summary>
-		/// Fires when tower is selected/deselected
-		/// </summary>
-		/// <param name="newTower"></param>
-		protected virtual void OnUISelectionChanged(Tower newTower)
-		{
-			if (newTower != null)
-			{
-				Show(newTower);
-			}
-			else
-			{
-				Hide();
-			}
-		}
+        /// <summary>
+        /// Hides the tower info UI and the radius visualizer
+        /// </summary>
+        public virtual void Hide()
+        {
+            this.m_Tower = null;
+            if (GameUI.instanceExists)
+            {
+                GameUI.instance.HideRadiusVisualizer();
+            }
 
-		/// <summary>
-		/// Subscribe to mouse button action
-		/// </summary>
-		protected virtual void Start()
-		{
-			m_GameCamera = Camera.main;
-			m_Canvas.enabled = false;
-			if (GameUI.instanceExists)
-			{
-				GameUI.instance.selectionChanged += OnUISelectionChanged;
-				GameUI.instance.stateChanged += OnGameUIStateChanged;
-			}
-		}
+            this.m_Canvas.enabled = false;
+            LevelManager.instance.currency.currencyChanged -= this.OnCurrencyChanged;
+        }
 
-		/// <summary>
-		/// Adjust position when the camera moves
-		/// </summary>
-		protected virtual void Update()
-		{
-			AdjustPosition();
-		}
+        /// <summary>
+        /// Upgrades the tower through <see cref="GameUI"/>
+        /// </summary>
+        public void UpgradeButtonClick()
+        {
+            GameUI.instance.UpgradeSelectedTower();
+        }
 
-		/// <summary>
-		/// Unsubscribe from currencyChanged
-		/// </summary>
-		protected virtual void OnDisable()
-		{
-			if (LevelManager.instanceExists)
-			{
-				LevelManager.instance.currency.currencyChanged -= OnCurrencyChanged;
-			}
-		}
+        /// <summary>
+        /// Sells the tower through <see cref="GameUI"/>
+        /// </summary>
+        public void SellButtonClick()
+        {
+            GameUI.instance.SellSelectedTower();
+        }
 
-		/// <summary>
-		/// Adjust the position of the UI
-		/// </summary>
-		protected void AdjustPosition()
-		{
-			if (m_Tower == null)
-			{
-				return;
-			}
-			Vector3 point = m_GameCamera.WorldToScreenPoint(m_Tower.position);
-			point.z = 0;
-			panelRectTransform.transform.position = point;
-		}
+        /// <summary>
+        /// Get the text attached to the buttons
+        /// </summary>
+        protected virtual void Awake()
+        {
+            this.m_Canvas = this.GetComponent<Canvas>();
+        }
 
-		/// <summary>
-		/// Fired when the <see cref="GameUI"/> state changes
-		/// If the new state is <see cref="GameUI.State.GameOver"/> we need to hide the <see cref="TowerUI"/>
-		/// </summary>
-		/// <param name="oldState">The previous state</param>
-		/// <param name="newState">The state to transition to</param>
-		protected void OnGameUIStateChanged(GameUI.State oldState, GameUI.State newState)
-		{
-			if (newState == GameUI.State.GameOver)
-			{
-				Hide();
-			}
-		}
+        /// <summary>
+        /// Fires when tower is selected/deselected
+        /// </summary>
+        /// <param name="newTower"></param>
+        protected virtual void OnUISelectionChanged(Tower newTower)
+        {
+            if (newTower != null)
+            {
+                this.Show(newTower);
+            }
+            else
+            {
+                this.Hide();
+            }
+        }
 
-		/// <summary>
-		/// Check if player can afford upgrade on currency changed
-		/// </summary>
-		void OnCurrencyChanged()
-		{
-			if (m_Tower != null && upgradeButton != null)
-			{
-				upgradeButton.interactable = 
-					LevelManager.instance.currency.CanAfford(m_Tower.GetCostForNextLevel());
-			}
-		}
+        /// <summary>
+        /// Subscribe to mouse button action
+        /// </summary>
+        protected virtual void Start()
+        {
+            this.m_GameCamera = Camera.main;
+            this.m_Canvas.enabled = false;
+            if (GameUI.instanceExists)
+            {
+                GameUI.instance.selectionChanged += this.OnUISelectionChanged;
+                GameUI.instance.stateChanged += this.OnGameUIStateChanged;
+            }
+        }
 
-		/// <summary>
-		/// Unsubscribe from GameUI selectionChanged and stateChanged
-		/// </summary>
-		void OnDestroy()
-		{
-			if (GameUI.instanceExists)
-			{
-				GameUI.instance.selectionChanged -= OnUISelectionChanged;
-				GameUI.instance.stateChanged -= OnGameUIStateChanged;
-			}
-		}
-	}
+        /// <summary>
+        /// Adjust position when the camera moves
+        /// </summary>
+        protected virtual void Update()
+        {
+            this.AdjustPosition();
+        }
+
+        /// <summary>
+        /// Unsubscribe from currencyChanged
+        /// </summary>
+        protected virtual void OnDisable()
+        {
+            if (LevelManager.instanceExists)
+            {
+                LevelManager.instance.currency.currencyChanged -= this.OnCurrencyChanged;
+            }
+        }
+
+        /// <summary>
+        /// Adjust the position of the UI
+        /// </summary>
+        protected void AdjustPosition()
+        {
+            if (this.m_Tower == null)
+            {
+                return;
+            }
+
+            Vector3 point = this.m_GameCamera.WorldToScreenPoint(this.m_Tower.position);
+            point.z = 0;
+            this.panelRectTransform.transform.position = point;
+        }
+
+        /// <summary>
+        /// Fired when the <see cref="GameUI"/> state changes
+        /// If the new state is <see cref="GameUI.State.GameOver"/> we need to hide the <see cref="TowerUI"/>
+        /// </summary>
+        /// <param name="oldState">The previous state</param>
+        /// <param name="newState">The state to transition to</param>
+        protected void OnGameUIStateChanged(GameUI.State oldState, GameUI.State newState)
+        {
+            if (newState == GameUI.State.GameOver)
+            {
+                this.Hide();
+            }
+        }
+
+        /// <summary>
+        /// Check if player can afford upgrade on currency changed
+        /// </summary>
+        private void OnCurrencyChanged()
+        {
+            if (this.m_Tower != null && this.upgradeButton != null)
+            {
+                this.upgradeButton.interactable =
+                    LevelManager.instance.currency.CanAfford(this.m_Tower.GetCostForNextLevel());
+            }
+        }
+
+        /// <summary>
+        /// Unsubscribe from GameUI selectionChanged and stateChanged
+        /// </summary>
+        private void OnDestroy()
+        {
+            if (GameUI.instanceExists)
+            {
+                GameUI.instance.selectionChanged -= this.OnUISelectionChanged;
+                GameUI.instance.stateChanged -= this.OnGameUIStateChanged;
+            }
+        }
+    }
 }
