@@ -1,5 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// <copyright file="MoneyUI.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +10,8 @@ public class MoneyUI : MonoBehaviour
     public Text moneyText;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        moneyText.text = "$" + PlayerStats.Money;
+        this.moneyText.text = "$" + PlayerStats.Money;
     }
 }
