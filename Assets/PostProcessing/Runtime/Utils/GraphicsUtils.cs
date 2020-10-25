@@ -1,3 +1,7 @@
+// <copyright file="GraphicsUtils.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 namespace UnityEngine.PostProcessing
 {
     using UnityObject = Object;
@@ -18,13 +22,16 @@ namespace UnityEngine.PostProcessing
 #endif
         }
 
-        static Texture2D s_WhiteTexture;
+        private static Texture2D s_WhiteTexture;
+
         public static Texture2D whiteTexture
         {
             get
             {
                 if (s_WhiteTexture != null)
+                {
                     return s_WhiteTexture;
+                }
 
                 s_WhiteTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false);
                 s_WhiteTexture.SetPixel(0, 0, new Color(1f, 1f, 1f, 1f));
@@ -34,13 +41,16 @@ namespace UnityEngine.PostProcessing
             }
         }
 
-        static Mesh s_Quad;
+        private static Mesh s_Quad;
+
         public static Mesh quad
         {
             get
             {
                 if (s_Quad != null)
+                {
                     return s_Quad;
+                }
 
                 var vertices = new[]
                 {
@@ -89,8 +99,10 @@ namespace UnityEngine.PostProcessing
                     GL.TexCoord2(0f, 1f); GL.Vertex3(0f, 1f, 0.1f);
                     GL.TexCoord2(1f, 1f); GL.Vertex3(1f, 1f, 0.1f);
                 }
+
                 GL.End();
             }
+
             GL.PopMatrix();
         }
 
@@ -114,8 +126,10 @@ namespace UnityEngine.PostProcessing
                     GL.TexCoord2(0f, 1f); GL.Vertex3(0f, 1f, 0.1f);
                     GL.TexCoord2(1f, 1f); GL.Vertex3(1f, 1f, 0.1f);
                 }
+
                 GL.End();
             }
+
             GL.PopMatrix();
 
             RenderTexture.active = oldRT;
@@ -129,7 +143,9 @@ namespace UnityEngine.PostProcessing
                 if (Application.isPlaying)
                     UnityObject.Destroy(obj);
                 else
+                {
                     UnityObject.DestroyImmediate(obj);
+                }
 #else
                 UnityObject.Destroy(obj);
 #endif

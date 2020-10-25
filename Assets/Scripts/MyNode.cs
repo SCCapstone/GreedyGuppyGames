@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿// <copyright file="MyNode.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class MyNode : MonoBehaviour
 {
-
     public Color hoverColor;
     public Color noteEnoughMoneyColor;
     public Vector3 positionOffset;
@@ -13,53 +16,83 @@ public class MyNode : MonoBehaviour
 
     private Renderer rend;
     private Color startColor;
+    private BuildManager buildManager;
 
-    BuildManager buildManager;
-
-    private void Start() {
-        rend = GetComponent<Renderer>();
-        startColor = rend.material.color;
-
-        buildManager = BuildManager.instance;
+    private void Start()
+    {
+        this.rend = this.GetComponent<Renderer>();
+        this.startColor = this.rend.material.color;
+        this.buildManager = BuildManager.instance;
     }
 
-    public Vector3 GetBuildPosition () {
-        return transform.position + positionOffset;
+    public Vector3 GetBuildPosition()
+    {
+        return this.transform.position + this.positionOffset;
     }
 
-    private void OnMouseDown() {
-        if (EventSystem.current.IsPointerOverGameObject()) {
+    private void OnMouseDown()
+    {
+        // If the MyNode script is unchecked then we return
+        if (this.gameObject.GetComponent<MyNode>().enabled == false)
+        {
             return;
         }
 
-        if (!buildManager.CanBuild)
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
             return;
+        }
 
-        if (turret != null) {
+        if (!this.buildManager.CanBuild)
+        {
+            return;
+        }
+
+        if (this.turret != null)
+        {
             Debug.Log("Can't build there! - TODO: Dispaly on screen.");
             return;
         }
 
-        buildManager.BuildTurretOn(this);
+        this.buildManager.BuildTurretOn(this);
     }
 
-    private void OnMouseEnter() {
-        if (EventSystem.current.IsPointerOverGameObject()) {
+    private void OnMouseEnter()
+    {
+        // If the MyNode script is unchecked then we return
+        if (this.gameObject.GetComponent<MyNode>().enabled == false)
+        {
             return;
         }
 
-        if (!buildManager.CanBuild)
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
             return;
-
-        if (buildManager.HasMoney) {
-            rend.material.color = hoverColor;
-        } else {
-            rend.material.color = noteEnoughMoneyColor;
         }
-        
+
+        if (!this.buildManager.CanBuild)
+        {
+            return;
+        }
+
+        if (this.buildManager.HasMoney)
+        {
+            this.rend.material.color = this.hoverColor;
+        }
+        else
+        {
+            this.rend.material.color = this.noteEnoughMoneyColor;
+        }
     }
 
-    private void OnMouseExit() {
-        rend.material.color = startColor;
+    private void OnMouseExit()
+    {
+        // If the MyNode script is unchecked then we return
+        if (this.gameObject.GetComponent<MyNode>().enabled == false)
+        {
+            return;
+        }
+
+        this.rend.material.color = this.startColor;
     }
 }

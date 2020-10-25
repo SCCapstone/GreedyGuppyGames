@@ -1,85 +1,91 @@
-﻿using Core.UI;
+﻿// <copyright file="OptionsMenu.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using Core.UI;
 using TowerDefense.Game;
 using UnityEngine.UI;
 
 namespace TowerDefense.UI
 {
-	/// <summary>
-	/// Simple options menu for setting volumes 
-	/// </summary>
-	public class OptionsMenu : SimpleMainMenuPage
-	{
-		public Slider masterSlider;
+    /// <summary>
+    /// Simple options menu for setting volumes
+    /// </summary>
+    public class OptionsMenu : SimpleMainMenuPage
+    {
+        public Slider masterSlider;
 
-		public Slider sfxSlider;
-		
-		public Slider musicSlider;
+        public Slider sfxSlider;
 
-		/// <summary>
-		/// Event fired when sliders change
-		/// </summary>
-		public void UpdateVolumes()
-		{
-			float masterVolume, sfxVolume, musicVolume;
-			GetSliderVolumes(out masterVolume, out sfxVolume, out musicVolume);
+        public Slider musicSlider;
 
-			if (GameManager.instanceExists)
-			{
-				GameManager.instance.SetVolumes(masterVolume, sfxVolume, musicVolume, false);
-			}
-		}
+        /// <summary>
+        /// Event fired when sliders change
+        /// </summary>
+        public void UpdateVolumes()
+        {
+            float masterVolume, sfxVolume, musicVolume;
+            this.GetSliderVolumes(out masterVolume, out sfxVolume, out musicVolume);
 
-		/// <summary>
-		/// Set initial slider values
-		/// </summary>
-		public override void Show()
-		{
-			if (GameManager.instanceExists)
-			{
-				float master, sfx, music;
-				GameManager.instance.GetVolumes(out master, out sfx, out music);
+            if (GameManager.instanceExists)
+            {
+                GameManager.instance.SetVolumes(masterVolume, sfxVolume, musicVolume, false);
+            }
+        }
 
-				if (masterSlider != null)
-				{
-					masterSlider.value = master;
-				}
-				if (sfxSlider != null)
-				{
-					sfxSlider.value = sfx;
-				}
-				if (musicSlider != null)
-				{
-					musicSlider.value = music;
-				}
-			}
+        /// <summary>
+        /// Set initial slider values
+        /// </summary>
+        public override void Show()
+        {
+            if (GameManager.instanceExists)
+            {
+                float master, sfx, music;
+                GameManager.instance.GetVolumes(out master, out sfx, out music);
 
-			base.Show();
-		}
+                if (this.masterSlider != null)
+                {
+                    this.masterSlider.value = master;
+                }
 
-		/// <summary>
-		/// Persist volumes to data store
-		/// </summary>
-		public override void Hide()
-		{
-			float masterVolume, sfxVolume, musicVolume;
-			GetSliderVolumes(out masterVolume, out sfxVolume, out musicVolume);
+                if (this.sfxSlider != null)
+                {
+                    this.sfxSlider.value = sfx;
+                }
 
-			if (GameManager.instanceExists)
-			{
-				GameManager.instance.SetVolumes(masterVolume, sfxVolume, musicVolume, true);
-			}
+                if (this.musicSlider != null)
+                {
+                    this.musicSlider.value = music;
+                }
+            }
 
-			base.Hide();
-		}
+            base.Show();
+        }
 
-		/// <summary>
-		/// Retrieve values from sliders
-		/// </summary>
-		void GetSliderVolumes(out float masterVolume, out float sfxVolume, out float musicVolume)
-		{
-			masterVolume = masterSlider != null ? masterSlider.value : 1;
-			sfxVolume = sfxSlider != null ? sfxSlider.value : 1;
-			musicVolume = musicSlider != null ? musicSlider.value : 1;
-		}
-	}
+        /// <summary>
+        /// Persist volumes to data store
+        /// </summary>
+        public override void Hide()
+        {
+            float masterVolume, sfxVolume, musicVolume;
+            this.GetSliderVolumes(out masterVolume, out sfxVolume, out musicVolume);
+
+            if (GameManager.instanceExists)
+            {
+                GameManager.instance.SetVolumes(masterVolume, sfxVolume, musicVolume, true);
+            }
+
+            base.Hide();
+        }
+
+        /// <summary>
+        /// Retrieve values from sliders
+        /// </summary>
+        private void GetSliderVolumes(out float masterVolume, out float sfxVolume, out float musicVolume)
+        {
+            masterVolume = this.masterSlider != null ? this.masterSlider.value : 1;
+            sfxVolume = this.sfxSlider != null ? this.sfxSlider.value : 1;
+            musicVolume = this.musicSlider != null ? this.musicSlider.value : 1;
+        }
+    }
 }

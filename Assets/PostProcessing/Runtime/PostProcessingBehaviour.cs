@@ -1,3 +1,7 @@
+// <copyright file="PostProcessingBehaviour.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 using System;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
@@ -19,82 +23,84 @@ namespace UnityEngine.PostProcessing
         public Func<Vector2, Matrix4x4> jitteredMatrixFunc;
 
         // Internal helpers
-        Dictionary<Type, KeyValuePair<CameraEvent, CommandBuffer>> m_CommandBuffers;
-        List<PostProcessingComponentBase> m_Components;
-        Dictionary<PostProcessingComponentBase, bool> m_ComponentStates;
-
-        MaterialFactory m_MaterialFactory;
-        RenderTextureFactory m_RenderTextureFactory;
-        PostProcessingContext m_Context;
-        Camera m_Camera;
-        PostProcessingProfile m_PreviousProfile;
-
-        bool m_RenderingInSceneView = false;
+        private Dictionary<Type, KeyValuePair<CameraEvent, CommandBuffer>> m_CommandBuffers;
+        private List<PostProcessingComponentBase> m_Components;
+        private Dictionary<PostProcessingComponentBase, bool> m_ComponentStates;
+        private MaterialFactory m_MaterialFactory;
+        private RenderTextureFactory m_RenderTextureFactory;
+        private PostProcessingContext m_Context;
+        private Camera m_Camera;
+        private PostProcessingProfile m_PreviousProfile;
+        private bool m_RenderingInSceneView = false;
 
         // Effect components
-        BuiltinDebugViewsComponent m_DebugViews;
-        AmbientOcclusionComponent m_AmbientOcclusion;
-        ScreenSpaceReflectionComponent m_ScreenSpaceReflection;
-        FogComponent m_FogComponent;
-        MotionBlurComponent m_MotionBlur;
-        TaaComponent m_Taa;
-        EyeAdaptationComponent m_EyeAdaptation;
-        DepthOfFieldComponent m_DepthOfField;
-        BloomComponent m_Bloom;
-        ChromaticAberrationComponent m_ChromaticAberration;
-        ColorGradingComponent m_ColorGrading;
-        UserLutComponent m_UserLut;
-        GrainComponent m_Grain;
-        VignetteComponent m_Vignette;
-        DitheringComponent m_Dithering;
-        FxaaComponent m_Fxaa;
+        private BuiltinDebugViewsComponent m_DebugViews;
+        private AmbientOcclusionComponent m_AmbientOcclusion;
+        private ScreenSpaceReflectionComponent m_ScreenSpaceReflection;
+        private FogComponent m_FogComponent;
+        private MotionBlurComponent m_MotionBlur;
+        private TaaComponent m_Taa;
+        private EyeAdaptationComponent m_EyeAdaptation;
+        private DepthOfFieldComponent m_DepthOfField;
+        private BloomComponent m_Bloom;
+        private ChromaticAberrationComponent m_ChromaticAberration;
+        private ColorGradingComponent m_ColorGrading;
+        private UserLutComponent m_UserLut;
+        private GrainComponent m_Grain;
+        private VignetteComponent m_Vignette;
+        private DitheringComponent m_Dithering;
+        private FxaaComponent m_Fxaa;
 
-        void OnEnable()
+        private void OnEnable()
         {
-            m_CommandBuffers = new Dictionary<Type, KeyValuePair<CameraEvent, CommandBuffer>>();
-            m_MaterialFactory = new MaterialFactory();
-            m_RenderTextureFactory = new RenderTextureFactory();
-            m_Context = new PostProcessingContext();
+            this.m_CommandBuffers = new Dictionary<Type, KeyValuePair<CameraEvent, CommandBuffer>>();
+            this.m_MaterialFactory = new MaterialFactory();
+            this.m_RenderTextureFactory = new RenderTextureFactory();
+            this.m_Context = new PostProcessingContext();
 
             // Keep a list of all post-fx for automation purposes
-            m_Components = new List<PostProcessingComponentBase>();
+            this.m_Components = new List<PostProcessingComponentBase>();
 
             // Component list
-            m_DebugViews = AddComponent(new BuiltinDebugViewsComponent());
-            m_AmbientOcclusion = AddComponent(new AmbientOcclusionComponent());
-            m_ScreenSpaceReflection = AddComponent(new ScreenSpaceReflectionComponent());
-            m_FogComponent = AddComponent(new FogComponent());
-            m_MotionBlur = AddComponent(new MotionBlurComponent());
-            m_Taa = AddComponent(new TaaComponent());
-            m_EyeAdaptation = AddComponent(new EyeAdaptationComponent());
-            m_DepthOfField = AddComponent(new DepthOfFieldComponent());
-            m_Bloom = AddComponent(new BloomComponent());
-            m_ChromaticAberration = AddComponent(new ChromaticAberrationComponent());
-            m_ColorGrading = AddComponent(new ColorGradingComponent());
-            m_UserLut = AddComponent(new UserLutComponent());
-            m_Grain = AddComponent(new GrainComponent());
-            m_Vignette = AddComponent(new VignetteComponent());
-            m_Dithering = AddComponent(new DitheringComponent());
-            m_Fxaa = AddComponent(new FxaaComponent());
+            this.m_DebugViews = this.AddComponent(new BuiltinDebugViewsComponent());
+            this.m_AmbientOcclusion = this.AddComponent(new AmbientOcclusionComponent());
+            this.m_ScreenSpaceReflection = this.AddComponent(new ScreenSpaceReflectionComponent());
+            this.m_FogComponent = this.AddComponent(new FogComponent());
+            this.m_MotionBlur = this.AddComponent(new MotionBlurComponent());
+            this.m_Taa = this.AddComponent(new TaaComponent());
+            this.m_EyeAdaptation = this.AddComponent(new EyeAdaptationComponent());
+            this.m_DepthOfField = this.AddComponent(new DepthOfFieldComponent());
+            this.m_Bloom = this.AddComponent(new BloomComponent());
+            this.m_ChromaticAberration = this.AddComponent(new ChromaticAberrationComponent());
+            this.m_ColorGrading = this.AddComponent(new ColorGradingComponent());
+            this.m_UserLut = this.AddComponent(new UserLutComponent());
+            this.m_Grain = this.AddComponent(new GrainComponent());
+            this.m_Vignette = this.AddComponent(new VignetteComponent());
+            this.m_Dithering = this.AddComponent(new DitheringComponent());
+            this.m_Fxaa = this.AddComponent(new FxaaComponent());
 
             // Prepare state observers
-            m_ComponentStates = new Dictionary<PostProcessingComponentBase, bool>();
+            this.m_ComponentStates = new Dictionary<PostProcessingComponentBase, bool>();
 
-            foreach (var component in m_Components)
-                m_ComponentStates.Add(component, false);
+            foreach (var component in this.m_Components)
+            {
+                this.m_ComponentStates.Add(component, false);
+            }
 
-            useGUILayout = false;
+            this.useGUILayout = false;
         }
 
-        void OnPreCull()
+        private void OnPreCull()
         {
             // All the per-frame initialization logic has to be done in OnPreCull instead of Update
             // because [ImageEffectAllowedInSceneView] doesn't trigger Update events...
 
-            m_Camera = GetComponent<Camera>();
+            this.m_Camera = this.GetComponent<Camera>();
 
-            if (profile == null || m_Camera == null)
+            if (this.profile == null || this.m_Camera == null)
+            {
                 return;
+            }
 
 #if UNITY_EDITOR
             // Track the scene view camera to disable some effects we don't want to see in the
@@ -103,90 +109,102 @@ namespace UnityEngine.PostProcessing
             //  - Temporal Antialiasing
             //  - Depth of Field
             //  - Motion blur
-            m_RenderingInSceneView = UnityEditor.SceneView.currentDrawingSceneView != null
-                && UnityEditor.SceneView.currentDrawingSceneView.camera == m_Camera;
+            this.m_RenderingInSceneView = UnityEditor.SceneView.currentDrawingSceneView != null
+                && UnityEditor.SceneView.currentDrawingSceneView.camera == this.m_Camera;
 #endif
 
             // Prepare context
-            var context = m_Context.Reset();
-            context.profile = profile;
-            context.renderTextureFactory = m_RenderTextureFactory;
-            context.materialFactory = m_MaterialFactory;
-            context.camera = m_Camera;
+            var context = this.m_Context.Reset();
+            context.profile = this.profile;
+            context.renderTextureFactory = this.m_RenderTextureFactory;
+            context.materialFactory = this.m_MaterialFactory;
+            context.camera = this.m_Camera;
 
             // Prepare components
-            m_DebugViews.Init(context, profile.debugViews);
-            m_AmbientOcclusion.Init(context, profile.ambientOcclusion);
-            m_ScreenSpaceReflection.Init(context, profile.screenSpaceReflection);
-            m_FogComponent.Init(context, profile.fog);
-            m_MotionBlur.Init(context, profile.motionBlur);
-            m_Taa.Init(context, profile.antialiasing);
-            m_EyeAdaptation.Init(context, profile.eyeAdaptation);
-            m_DepthOfField.Init(context, profile.depthOfField);
-            m_Bloom.Init(context, profile.bloom);
-            m_ChromaticAberration.Init(context, profile.chromaticAberration);
-            m_ColorGrading.Init(context, profile.colorGrading);
-            m_UserLut.Init(context, profile.userLut);
-            m_Grain.Init(context, profile.grain);
-            m_Vignette.Init(context, profile.vignette);
-            m_Dithering.Init(context, profile.dithering);
-            m_Fxaa.Init(context, profile.antialiasing);
+            this.m_DebugViews.Init(context, this.profile.debugViews);
+            this.m_AmbientOcclusion.Init(context, this.profile.ambientOcclusion);
+            this.m_ScreenSpaceReflection.Init(context, this.profile.screenSpaceReflection);
+            this.m_FogComponent.Init(context, this.profile.fog);
+            this.m_MotionBlur.Init(context, this.profile.motionBlur);
+            this.m_Taa.Init(context, this.profile.antialiasing);
+            this.m_EyeAdaptation.Init(context, this.profile.eyeAdaptation);
+            this.m_DepthOfField.Init(context, this.profile.depthOfField);
+            this.m_Bloom.Init(context, this.profile.bloom);
+            this.m_ChromaticAberration.Init(context, this.profile.chromaticAberration);
+            this.m_ColorGrading.Init(context, this.profile.colorGrading);
+            this.m_UserLut.Init(context, this.profile.userLut);
+            this.m_Grain.Init(context, this.profile.grain);
+            this.m_Vignette.Init(context, this.profile.vignette);
+            this.m_Dithering.Init(context, this.profile.dithering);
+            this.m_Fxaa.Init(context, this.profile.antialiasing);
 
             // Handles profile change and 'enable' state observers
-            if (m_PreviousProfile != profile)
+            if (this.m_PreviousProfile != this.profile)
             {
-                DisableComponents();
-                m_PreviousProfile = profile;
+                this.DisableComponents();
+                this.m_PreviousProfile = this.profile;
             }
 
-            CheckObservers();
+            this.CheckObservers();
 
             // Find out which camera flags are needed before rendering begins
             // Note that motion vectors will only be available one frame after being enabled
             var flags = DepthTextureMode.None;
-            foreach (var component in m_Components)
+            foreach (var component in this.m_Components)
             {
                 if (component.active)
+                {
                     flags |= component.GetCameraFlags();
+                }
             }
 
             context.camera.depthTextureMode = flags;
 
             // Temporal antialiasing jittering, needs to happen before culling
-            if (!m_RenderingInSceneView && m_Taa.active && !profile.debugViews.willInterrupt)
-                m_Taa.SetProjectionMatrix(jitteredMatrixFunc);
+            if (!this.m_RenderingInSceneView && this.m_Taa.active && !this.profile.debugViews.willInterrupt)
+            {
+                this.m_Taa.SetProjectionMatrix(this.jitteredMatrixFunc);
+            }
         }
 
-        void OnPreRender()
+        private void OnPreRender()
         {
-            if (profile == null)
+            if (this.profile == null)
+            {
                 return;
+            }
 
             // Command buffer-based effects should be set-up here
-            TryExecuteCommandBuffer(m_DebugViews);
-            TryExecuteCommandBuffer(m_AmbientOcclusion);
-            TryExecuteCommandBuffer(m_ScreenSpaceReflection);
-            TryExecuteCommandBuffer(m_FogComponent);
+            this.TryExecuteCommandBuffer(this.m_DebugViews);
+            this.TryExecuteCommandBuffer(this.m_AmbientOcclusion);
+            this.TryExecuteCommandBuffer(this.m_ScreenSpaceReflection);
+            this.TryExecuteCommandBuffer(this.m_FogComponent);
 
-            if (!m_RenderingInSceneView)
-                TryExecuteCommandBuffer(m_MotionBlur);
+            if (!this.m_RenderingInSceneView)
+            {
+                this.TryExecuteCommandBuffer(this.m_MotionBlur);
+            }
         }
 
-        void OnPostRender()
+        private void OnPostRender()
         {
-            if (profile == null || m_Camera == null)
+            if (this.profile == null || this.m_Camera == null)
+            {
                 return;
+            }
 
-            if (!m_RenderingInSceneView && m_Taa.active && !profile.debugViews.willInterrupt)
-                m_Context.camera.ResetProjectionMatrix();
+            if (!this.m_RenderingInSceneView && this.m_Taa.active && !this.profile.debugViews.willInterrupt)
+            {
+                this.m_Context.camera.ResetProjectionMatrix();
+            }
         }
 
         // Classic render target pipeline for RT-based effects
         // Note that any effect that happens after this stack will work in LDR
         [ImageEffectTransformsToLDR]
-        void OnRenderImage(RenderTexture source, RenderTexture destination)
+        private void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-            if (profile == null || m_Camera == null)
+            if (this.profile == null || this.m_Camera == null)
             {
                 Graphics.Blit(source, destination);
                 return;
@@ -194,11 +212,11 @@ namespace UnityEngine.PostProcessing
 
             // Uber shader setup
             bool uberActive = false;
-            bool fxaaActive = m_Fxaa.active;
-            bool taaActive = m_Taa.active && !m_RenderingInSceneView;
-            bool dofActive = m_DepthOfField.active && !m_RenderingInSceneView;
+            bool fxaaActive = this.m_Fxaa.active;
+            bool taaActive = this.m_Taa.active && !this.m_RenderingInSceneView;
+            bool dofActive = this.m_DepthOfField.active && !this.m_RenderingInSceneView;
 
-            var uberMaterial = m_MaterialFactory.Get("Hidden/Post FX/Uber Shader");
+            var uberMaterial = this.m_MaterialFactory.Get("Hidden/Post FX/Uber Shader");
             uberMaterial.shaderKeywords = null;
 
             var src = source;
@@ -206,8 +224,8 @@ namespace UnityEngine.PostProcessing
 
             if (taaActive)
             {
-                var tempRT = m_RenderTextureFactory.Get(src);
-                m_Taa.Render(src, tempRT);
+                var tempRT = this.m_RenderTextureFactory.Get(src);
+                this.m_Taa.Render(src, tempRT);
                 src = tempRT;
             }
 
@@ -216,15 +234,15 @@ namespace UnityEngine.PostProcessing
             // about the final render.
             // At runtime the output will always be the backbuffer or whatever render target is
             // currently set on the camera.
-            if (profile.monitors.onFrameEndEditorOnly != null)
-                dst = m_RenderTextureFactory.Get(src);
+            if (this.profile.monitors.onFrameEndEditorOnly != null)
+                dst = this.m_RenderTextureFactory.Get(src);
 #endif
 
             Texture autoExposure = GraphicsUtils.whiteTexture;
-            if (m_EyeAdaptation.active)
+            if (this.m_EyeAdaptation.active)
             {
                 uberActive = true;
-                autoExposure = m_EyeAdaptation.Prepare(src, uberMaterial);
+                autoExposure = this.m_EyeAdaptation.Prepare(src, uberMaterial);
             }
 
             uberMaterial.SetTexture("_AutoExposure", autoExposure);
@@ -232,164 +250,190 @@ namespace UnityEngine.PostProcessing
             if (dofActive)
             {
                 uberActive = true;
-                m_DepthOfField.Prepare(src, uberMaterial, taaActive, m_Taa.jitterVector, m_Taa.model.settings.taaSettings.motionBlending);
+                this.m_DepthOfField.Prepare(src, uberMaterial, taaActive, this.m_Taa.jitterVector, this.m_Taa.model.settings.taaSettings.motionBlending);
             }
 
-            if (m_Bloom.active)
+            if (this.m_Bloom.active)
             {
                 uberActive = true;
-                m_Bloom.Prepare(src, uberMaterial, autoExposure);
+                this.m_Bloom.Prepare(src, uberMaterial, autoExposure);
             }
 
-            uberActive |= TryPrepareUberImageEffect(m_ChromaticAberration, uberMaterial);
-            uberActive |= TryPrepareUberImageEffect(m_ColorGrading, uberMaterial);
-            uberActive |= TryPrepareUberImageEffect(m_Vignette, uberMaterial);
-            uberActive |= TryPrepareUberImageEffect(m_UserLut, uberMaterial);
+            uberActive |= this.TryPrepareUberImageEffect(this.m_ChromaticAberration, uberMaterial);
+            uberActive |= this.TryPrepareUberImageEffect(this.m_ColorGrading, uberMaterial);
+            uberActive |= this.TryPrepareUberImageEffect(this.m_Vignette, uberMaterial);
+            uberActive |= this.TryPrepareUberImageEffect(this.m_UserLut, uberMaterial);
 
             var fxaaMaterial = fxaaActive
-                ? m_MaterialFactory.Get("Hidden/Post FX/FXAA")
+                ? this.m_MaterialFactory.Get("Hidden/Post FX/FXAA")
                 : null;
 
             if (fxaaActive)
             {
                 fxaaMaterial.shaderKeywords = null;
-                TryPrepareUberImageEffect(m_Grain, fxaaMaterial);
-                TryPrepareUberImageEffect(m_Dithering, fxaaMaterial);
+                this.TryPrepareUberImageEffect(this.m_Grain, fxaaMaterial);
+                this.TryPrepareUberImageEffect(this.m_Dithering, fxaaMaterial);
 
                 if (uberActive)
                 {
-                    var output = m_RenderTextureFactory.Get(src);
+                    var output = this.m_RenderTextureFactory.Get(src);
                     Graphics.Blit(src, output, uberMaterial, 0);
                     src = output;
                 }
 
-                m_Fxaa.Render(src, dst);
+                this.m_Fxaa.Render(src, dst);
             }
             else
             {
-                uberActive |= TryPrepareUberImageEffect(m_Grain, uberMaterial);
-                uberActive |= TryPrepareUberImageEffect(m_Dithering, uberMaterial);
+                uberActive |= this.TryPrepareUberImageEffect(this.m_Grain, uberMaterial);
+                uberActive |= this.TryPrepareUberImageEffect(this.m_Dithering, uberMaterial);
 
                 if (uberActive)
                 {
                     if (!GraphicsUtils.isLinearColorSpace)
+                    {
                         uberMaterial.EnableKeyword("UNITY_COLORSPACE_GAMMA");
+                    }
 
                     Graphics.Blit(src, dst, uberMaterial, 0);
                 }
             }
 
             if (!uberActive && !fxaaActive)
+            {
                 Graphics.Blit(src, dst);
+            }
 
 #if UNITY_EDITOR
-            if (profile.monitors.onFrameEndEditorOnly != null)
+            if (this.profile.monitors.onFrameEndEditorOnly != null)
             {
                 Graphics.Blit(dst, destination);
 
                 var oldRt = RenderTexture.active;
-                profile.monitors.onFrameEndEditorOnly(dst);
+                this.profile.monitors.onFrameEndEditorOnly(dst);
                 RenderTexture.active = oldRt;
             }
 #endif
 
-            m_RenderTextureFactory.ReleaseAll();
+            this.m_RenderTextureFactory.ReleaseAll();
         }
 
-        void OnGUI()
+        private void OnGUI()
         {
             if (Event.current.type != EventType.Repaint)
+            {
                 return;
+            }
 
-            if (profile == null || m_Camera == null)
+            if (this.profile == null || this.m_Camera == null)
+            {
                 return;
+            }
 
-            if (m_EyeAdaptation.active && profile.debugViews.IsModeActive(DebugMode.EyeAdaptation))
-                m_EyeAdaptation.OnGUI();
-            else if (m_ColorGrading.active && profile.debugViews.IsModeActive(DebugMode.LogLut))
-                m_ColorGrading.OnGUI();
-            else if (m_UserLut.active && profile.debugViews.IsModeActive(DebugMode.UserLut))
-                m_UserLut.OnGUI();
+            if (this.m_EyeAdaptation.active && this.profile.debugViews.IsModeActive(DebugMode.EyeAdaptation))
+            {
+                this.m_EyeAdaptation.OnGUI();
+            }
+            else if (this.m_ColorGrading.active && this.profile.debugViews.IsModeActive(DebugMode.LogLut))
+            {
+                this.m_ColorGrading.OnGUI();
+            }
+            else if (this.m_UserLut.active && this.profile.debugViews.IsModeActive(DebugMode.UserLut))
+            {
+                this.m_UserLut.OnGUI();
+            }
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
             // Clear command buffers
-            foreach (var cb in m_CommandBuffers.Values)
+            foreach (var cb in this.m_CommandBuffers.Values)
             {
-                m_Camera.RemoveCommandBuffer(cb.Key, cb.Value);
+                this.m_Camera.RemoveCommandBuffer(cb.Key, cb.Value);
                 cb.Value.Dispose();
             }
 
-            m_CommandBuffers.Clear();
+            this.m_CommandBuffers.Clear();
 
             // Clear components
-            if (profile != null)
-                DisableComponents();
+            if (this.profile != null)
+            {
+                this.DisableComponents();
+            }
 
-            m_Components.Clear();
+            this.m_Components.Clear();
 
             // Reset camera mode
-            if (m_Camera != null)
-                m_Camera.depthTextureMode = DepthTextureMode.None;
+            if (this.m_Camera != null)
+            {
+                this.m_Camera.depthTextureMode = DepthTextureMode.None;
+            }
 
             // Factories
-            m_MaterialFactory.Dispose();
-            m_RenderTextureFactory.Dispose();
+            this.m_MaterialFactory.Dispose();
+            this.m_RenderTextureFactory.Dispose();
             GraphicsUtils.Dispose();
         }
 
         public void ResetTemporalEffects()
         {
-            m_Taa.ResetHistory();
-            m_MotionBlur.ResetHistory();
-            m_EyeAdaptation.ResetHistory();
+            this.m_Taa.ResetHistory();
+            this.m_MotionBlur.ResetHistory();
+            this.m_EyeAdaptation.ResetHistory();
         }
 
         #region State management
 
-        List<PostProcessingComponentBase> m_ComponentsToEnable = new List<PostProcessingComponentBase>();
-        List<PostProcessingComponentBase> m_ComponentsToDisable = new List<PostProcessingComponentBase>();
+        private List<PostProcessingComponentBase> m_ComponentsToEnable = new List<PostProcessingComponentBase>();
+        private List<PostProcessingComponentBase> m_ComponentsToDisable = new List<PostProcessingComponentBase>();
 
-        void CheckObservers()
+        private void CheckObservers()
         {
-            foreach (var cs in m_ComponentStates)
+            foreach (var cs in this.m_ComponentStates)
             {
                 var component = cs.Key;
                 var state = component.GetModel().enabled;
 
                 if (state != cs.Value)
                 {
-                    if (state) m_ComponentsToEnable.Add(component);
-                    else m_ComponentsToDisable.Add(component);
+                    if (state)
+                    {
+                        this.m_ComponentsToEnable.Add(component);
+                    }
+                    else
+                    {
+                        this.m_ComponentsToDisable.Add(component);
+                    }
                 }
             }
 
-            for (int i = 0; i < m_ComponentsToDisable.Count; i++)
+            for (int i = 0; i < this.m_ComponentsToDisable.Count; i++)
             {
-                var c = m_ComponentsToDisable[i];
-                m_ComponentStates[c] = false;
+                var c = this.m_ComponentsToDisable[i];
+                this.m_ComponentStates[c] = false;
                 c.OnDisable();
             }
 
-            for (int i = 0; i < m_ComponentsToEnable.Count; i++)
+            for (int i = 0; i < this.m_ComponentsToEnable.Count; i++)
             {
-                var c = m_ComponentsToEnable[i];
-                m_ComponentStates[c] = true;
+                var c = this.m_ComponentsToEnable[i];
+                this.m_ComponentStates[c] = true;
                 c.OnEnable();
             }
 
-            m_ComponentsToDisable.Clear();
-            m_ComponentsToEnable.Clear();
+            this.m_ComponentsToDisable.Clear();
+            this.m_ComponentsToEnable.Clear();
         }
 
-        void DisableComponents()
+        private void DisableComponents()
         {
-            foreach (var component in m_Components)
+            foreach (var component in this.m_Components)
             {
                 var model = component.GetModel();
                 if (model != null && model.enabled)
+                {
                     component.OnDisable();
+                }
             }
         }
 
@@ -398,76 +442,80 @@ namespace UnityEngine.PostProcessing
         #region Command buffer handling & rendering helpers
         // Placeholders before the upcoming Scriptable Render Loop as command buffers will be
         // executed on the go so we won't need of all that stuff
-        CommandBuffer AddCommandBuffer<T>(CameraEvent evt, string name)
+        private CommandBuffer AddCommandBuffer<T>(CameraEvent evt, string name)
             where T : PostProcessingModel
         {
             var cb = new CommandBuffer { name = name };
             var kvp = new KeyValuePair<CameraEvent, CommandBuffer>(evt, cb);
-            m_CommandBuffers.Add(typeof(T), kvp);
-            m_Camera.AddCommandBuffer(evt, kvp.Value);
+            this.m_CommandBuffers.Add(typeof(T), kvp);
+            this.m_Camera.AddCommandBuffer(evt, kvp.Value);
             return kvp.Value;
         }
 
-        void RemoveCommandBuffer<T>()
+        private void RemoveCommandBuffer<T>()
             where T : PostProcessingModel
         {
             KeyValuePair<CameraEvent, CommandBuffer> kvp;
             var type = typeof(T);
 
-            if (!m_CommandBuffers.TryGetValue(type, out kvp))
+            if (!this.m_CommandBuffers.TryGetValue(type, out kvp))
+            {
                 return;
+            }
 
-            m_Camera.RemoveCommandBuffer(kvp.Key, kvp.Value);
-            m_CommandBuffers.Remove(type);
+            this.m_Camera.RemoveCommandBuffer(kvp.Key, kvp.Value);
+            this.m_CommandBuffers.Remove(type);
             kvp.Value.Dispose();
         }
 
-        CommandBuffer GetCommandBuffer<T>(CameraEvent evt, string name)
+        private CommandBuffer GetCommandBuffer<T>(CameraEvent evt, string name)
             where T : PostProcessingModel
         {
             CommandBuffer cb;
             KeyValuePair<CameraEvent, CommandBuffer> kvp;
 
-            if (!m_CommandBuffers.TryGetValue(typeof(T), out kvp))
+            if (!this.m_CommandBuffers.TryGetValue(typeof(T), out kvp))
             {
-                cb = AddCommandBuffer<T>(evt, name);
+                cb = this.AddCommandBuffer<T>(evt, name);
             }
             else if (kvp.Key != evt)
             {
-                RemoveCommandBuffer<T>();
-                cb = AddCommandBuffer<T>(evt, name);
+                this.RemoveCommandBuffer<T>();
+                cb = this.AddCommandBuffer<T>(evt, name);
             }
             else cb = kvp.Value;
 
             return cb;
         }
 
-        void TryExecuteCommandBuffer<T>(PostProcessingComponentCommandBuffer<T> component)
+        private void TryExecuteCommandBuffer<T>(PostProcessingComponentCommandBuffer<T> component)
             where T : PostProcessingModel
         {
             if (component.active)
             {
-                var cb = GetCommandBuffer<T>(component.GetCameraEvent(), component.GetName());
+                var cb = this.GetCommandBuffer<T>(component.GetCameraEvent(), component.GetName());
                 cb.Clear();
                 component.PopulateCommandBuffer(cb);
             }
-            else RemoveCommandBuffer<T>();
+            else this.RemoveCommandBuffer<T>();
         }
 
-        bool TryPrepareUberImageEffect<T>(PostProcessingComponentRenderTexture<T> component, Material material)
+        private bool TryPrepareUberImageEffect<T>(PostProcessingComponentRenderTexture<T> component, Material material)
             where T : PostProcessingModel
         {
             if (!component.active)
+            {
                 return false;
+            }
 
             component.Prepare(material);
             return true;
         }
 
-        T AddComponent<T>(T component)
+        private T AddComponent<T>(T component)
             where T : PostProcessingComponentBase
         {
-            m_Components.Add(component);
+            this.m_Components.Add(component);
             return component;
         }
 

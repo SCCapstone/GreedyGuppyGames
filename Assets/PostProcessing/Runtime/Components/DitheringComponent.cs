@@ -1,8 +1,12 @@
+// <copyright file="DitheringComponent.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 namespace UnityEngine.PostProcessing
 {
     public sealed class DitheringComponent : PostProcessingComponentRenderTexture<DitheringModel>
     {
-        static class Uniforms
+        private static class Uniforms
         {
             internal static readonly int _DitheringTex = Shader.PropertyToID("_DitheringTex");
             internal static readonly int _DitheringCoords = Shader.PropertyToID("_DitheringCoords");
@@ -12,28 +16,29 @@ namespace UnityEngine.PostProcessing
         {
             get
             {
-                return model.enabled
-                       && !context.interrupted;
+                return this.model.enabled
+                       && !this.context.interrupted;
             }
         }
 
         // Holds 64 64x64 Alpha8 textures (256kb total)
-        Texture2D[] noiseTextures;
-        int textureIndex = 0;
-
-        const int k_TextureCount = 64;
+        private Texture2D[] noiseTextures;
+        private int textureIndex = 0;
+        private const int k_TextureCount = 64;
 
         public override void OnDisable()
         {
-            noiseTextures = null;
+            this.noiseTextures = null;
         }
 
-        void LoadNoiseTextures()
+        private void LoadNoiseTextures()
         {
-            noiseTextures = new Texture2D[k_TextureCount];
+            this.noiseTextures = new Texture2D[k_TextureCount];
 
             for (int i = 0; i < k_TextureCount; i++)
-                noiseTextures[i] = Resources.Load<Texture2D>("Bluenoise64/LDR_LLL1_" + i);
+            {
+                this.noiseTextures[i] = Resources.Load<Texture2D>("Bluenoise64/LDR_LLL1_" + i);
+            }
         }
 
         public override void Prepare(Material uberMaterial)
@@ -46,23 +51,23 @@ namespace UnityEngine.PostProcessing
             rndOffsetX = 0f;
             rndOffsetY = 0f;
 #else
-            if (++textureIndex >= k_TextureCount)
-                textureIndex = 0;
+            if (++this.textureIndex >= k_TextureCount)
+                this.textureIndex = 0;
 
             rndOffsetX = Random.value;
             rndOffsetY = Random.value;
 #endif
 
-            if (noiseTextures == null)
-                LoadNoiseTextures();
+            if (this.noiseTextures == null)
+                this.LoadNoiseTextures();
 
-            var noiseTex = noiseTextures[textureIndex];
+            var noiseTex = this.noiseTextures[this.textureIndex];
 
             uberMaterial.EnableKeyword("DITHERING");
             uberMaterial.SetTexture(Uniforms._DitheringTex, noiseTex);
             uberMaterial.SetVector(Uniforms._DitheringCoords, new Vector4(
-                (float)context.width / (float)noiseTex.width,
-                (float)context.height / (float)noiseTex.height,
+                (float)this.context.width / (float)noiseTex.width,
+                (float)this.context.height / (float)noiseTex.height,
                 rndOffsetX,
                 rndOffsetY
             ));

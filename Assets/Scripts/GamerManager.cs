@@ -1,40 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// <copyright file="GamerManager.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 using UnityEngine;
 
 public class GamerManager : MonoBehaviour
 {
-
     public bool gameEnded;
 
     public GameObject gameOverUI;
 
-    void Start() {
-        gameEnded = false;
+    private void Start()
+    {
+        this.gameEnded = false;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // actually stops the game so it doesn't loop after ending
-        if (gameEnded)
+        if (this.gameEnded)
+        {
             return;
+        }
 
-        //shortcut to end the game quickly for testing
-        if(Input.GetKeyDown("e")) {
-            EndGame();
+        // shortcut to end the game quickly for testing
+        if (Input.GetKeyDown("e"))
+        {
+            this.EndGame();
         }
 
         // ends the game if player is dead
-        if(PlayerStats.Lives <= 0) {
-            EndGame();
+        if (PlayerStats.Lives <= 0)
+        {
+            this.EndGame();
         }
     }
 
-    void EndGame() {
-        gameEnded = true;
+    private void EndGame()
+    {
+        this.gameEnded = true;
 
         // Turns on the game over UI when game is over
-        gameOverUI.SetActive(true);
+        this.gameOverUI.SetActive(true);
     }
 }

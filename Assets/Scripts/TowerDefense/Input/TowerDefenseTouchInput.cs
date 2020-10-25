@@ -1,4 +1,8 @@
-﻿using Core.Input;
+﻿// <copyright file="TowerDefenseTouchInput.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using Core.Input;
 using TowerDefense.UI;
 using TowerDefense.UI.HUD;
 using UnityEngine;
@@ -7,400 +11,410 @@ using State = TowerDefense.UI.HUD.GameUI.State;
 
 namespace TowerDefense.Input
 {
-	[RequireComponent(typeof(GameUI))]
-	public class TowerDefenseTouchInput : TouchInput
-	{
-		/// <summary>
-		/// A percentage of the screen where panning occurs while dragging
-		/// </summary>
-		[Range(0, 0.5f)]
-		public float panAreaScreenPercentage = 0.2f;
+    [RequireComponent(typeof(GameUI))]
+    public class TowerDefenseTouchInput : TouchInput
+    {
+        /// <summary>
+        /// A percentage of the screen where panning occurs while dragging
+        /// </summary>
+        [Range(0, 0.5f)]
+        public float panAreaScreenPercentage = 0.2f;
 
-		/// <summary>
-		/// The object that holds the confirmation buttons
-		/// </summary>
-		public MovingCanvas confirmationButtons;
+        /// <summary>
+        /// The object that holds the confirmation buttons
+        /// </summary>
+        public MovingCanvas confirmationButtons;
 
-		/// <summary>
-		/// The object that holds the invalid selection
-		/// </summary>
-		public MovingCanvas invalidButtons;
+        /// <summary>
+        /// The object that holds the invalid selection
+        /// </summary>
+        public MovingCanvas invalidButtons;
 
-		/// <summary>
-		/// The attached Game UI object
-		/// </summary>
-		GameUI m_GameUI;
+        /// <summary>
+        /// The attached Game UI object
+        /// </summary>
+        private GameUI m_GameUI;
 
-		/// <summary>
-		/// Keeps track of whether or not the ghost tower is selected
-		/// </summary>
-		bool m_IsGhostSelected;
+        /// <summary>
+        /// Keeps track of whether or not the ghost tower is selected
+        /// </summary>
+        private bool m_IsGhostSelected;
 
-		/// <summary>
-		/// The pointer at the edge of the screen
-		/// </summary>
-		TouchInfo m_DragPointer;
+        /// <summary>
+        /// The pointer at the edge of the screen
+        /// </summary>
+        private TouchInfo m_DragPointer;
 
-		/// <summary>
-		/// Called by the confirm button on the UI
-		/// </summary>
-		public void OnTowerPlacementConfirmation()
-		{
-			confirmationButtons.canvasEnabled = false;
-			if (!m_GameUI.IsGhostAtValidPosition())
-			{
-				return;
-			}
-			m_GameUI.BuyTower();
-		}
+        /// <summary>
+        /// Called by the confirm button on the UI
+        /// </summary>
+        public void OnTowerPlacementConfirmation()
+        {
+            this.confirmationButtons.canvasEnabled = false;
+            if (!this.m_GameUI.IsGhostAtValidPosition())
+            {
+                return;
+            }
 
-		/// <summary>
-		/// Called by the close button on the UI
-		/// </summary>
-		public void Cancel()
-		{
-			GameUI.instance.CancelGhostPlacement();
-			confirmationButtons.canvasEnabled = false;
-			invalidButtons.canvasEnabled = false;
-		}
+            this.m_GameUI.BuyTower();
+        }
 
-		/// <summary>
-		/// Register input events
-		/// </summary>
-		protected override void OnEnable()
-		{
-			base.OnEnable();
-			
-			m_GameUI = GetComponent<GameUI>();
-			
-			m_GameUI.stateChanged += OnStateChanged;
-			m_GameUI.ghostBecameValid += OnGhostBecameValid;
+        /// <summary>
+        /// Called by the close button on the UI
+        /// </summary>
+        public void Cancel()
+        {
+            GameUI.instance.CancelGhostPlacement();
+            this.confirmationButtons.canvasEnabled = false;
+            this.invalidButtons.canvasEnabled = false;
+        }
 
-			// Register tap event
-			if (InputController.instanceExists)
-			{
-				InputController.instance.tapped += OnTap;
-				InputController.instance.startedDrag += OnStartDrag;
-			}
+        /// <summary>
+        /// Register input events
+        /// </summary>
+        protected override void OnEnable()
+        {
+            base.OnEnable();
 
-			// disable pop ups
-			confirmationButtons.canvasEnabled = false;
-			invalidButtons.canvasEnabled = false;
-		
-		}
+            this.m_GameUI = this.GetComponent<GameUI>();
 
-		/// <summary>
-		/// Deregister input events
-		/// </summary>
-		protected override void OnDisable()
-		{
-			base.OnDisable();
-			
-			if (confirmationButtons != null)
-			{
-				confirmationButtons.canvasEnabled = false;
-			}
-			if (invalidButtons != null)
-			{
-				invalidButtons.canvasEnabled = false;
-			}
-			if (InputController.instanceExists)
-			{
-				InputController.instance.tapped -= OnTap;
-				InputController.instance.startedDrag -= OnStartDrag;
-			}
-			if (m_GameUI != null)
-			{
-				m_GameUI.stateChanged -= OnStateChanged;
-				m_GameUI.ghostBecameValid -= OnGhostBecameValid;
-			}
-		}
+            this.m_GameUI.stateChanged += this.OnStateChanged;
+            this.m_GameUI.ghostBecameValid += this.OnGhostBecameValid;
 
-		/// <summary>
-		/// Hide UI 
-		/// </summary>
-		protected virtual void Awake()
-		{
-			if (confirmationButtons != null)
-			{
-				confirmationButtons.canvasEnabled = false;
-			}
-			if (invalidButtons != null)
-			{
-				invalidButtons.canvasEnabled = false;
-			}
-		}
+            // Register tap event
+            if (InputController.instanceExists)
+            {
+                InputController.instance.tapped += this.OnTap;
+                InputController.instance.startedDrag += this.OnStartDrag;
+            }
 
-		/// <summary>
-		/// Decay flick
-		/// </summary>
-		protected override void Update()
-		{
-			base.Update();
+            // disable pop ups
+            this.confirmationButtons.canvasEnabled = false;
+            this.invalidButtons.canvasEnabled = false;
+        }
 
-			// Edge pan
-			if (m_DragPointer != null)
-			{
-				EdgePan();
-			}
+        /// <summary>
+        /// Deregister input events
+        /// </summary>
+        protected override void OnDisable()
+        {
+            base.OnDisable();
 
-			if (UnityInput.GetKeyDown(KeyCode.Escape))
-			{
-				switch (m_GameUI.state)
-				{
-					case State.Normal:
-						if (m_GameUI.isTowerSelected)
-						{
-							m_GameUI.DeselectTower();
-						}
-						else
-						{
-							m_GameUI.Pause();
-						}
-						break;
-					case State.Building:
-						m_GameUI.CancelGhostPlacement();
-						break;
-				}
-			}
-		}
+            if (this.confirmationButtons != null)
+            {
+                this.confirmationButtons.canvasEnabled = false;
+            }
 
-		/// <summary>
-		/// Called on input press
-		/// </summary>
-		protected override void OnPress(PointerActionInfo pointer)
-		{
-			base.OnPress(pointer);
-			var touchInfo = pointer as TouchInfo;
-			// Press starts on a ghost? Then we can pick it up
-			if (touchInfo != null)
-			{
-				if (m_GameUI.state == State.Building)
-				{
-					m_IsGhostSelected = m_GameUI.IsPointerOverGhost(pointer);
-					if (m_IsGhostSelected)
-					{
-						m_DragPointer = touchInfo;
-					}
-				}				
-			}
-		}
+            if (this.invalidButtons != null)
+            {
+                this.invalidButtons.canvasEnabled = false;
+            }
 
-		/// <summary>
-		/// Called on input release, for flicks
-		/// </summary>
-		protected override void OnRelease(PointerActionInfo pointer)
-		{
-			// Override normal behaviour. We only want to do flicks if there's no ghost selected
-			// For this reason, we intentionally do not call base
-			var touchInfo = pointer as TouchInfo;
+            if (InputController.instanceExists)
+            {
+                InputController.instance.tapped -= this.OnTap;
+                InputController.instance.startedDrag -= this.OnStartDrag;
+            }
 
-			if (touchInfo != null)
-			{
-				// Show UI on release
-				if (m_GameUI.isBuilding)
-				{
-					Vector2 screenPoint = cameraRig.cachedCamera.WorldToScreenPoint(m_GameUI.GetGhostPosition());
-					if (m_GameUI.IsGhostAtValidPosition() && m_GameUI.IsValidPurchase())
-					{
-						confirmationButtons.canvasEnabled = true;
-						invalidButtons.canvasEnabled = false;
-						confirmationButtons.TryMove(screenPoint);
-					}
-					else
-					{
-						invalidButtons.canvasEnabled = true;
-						confirmationButtons.canvasEnabled = false;
-						confirmationButtons.TryMove(screenPoint);
-					}
-					if (m_IsGhostSelected)
-					{
-						m_GameUI.ReturnToBuildMode();
-					}
-				}
-				if (!m_IsGhostSelected && cameraRig != null)
-				{
-					// Do normal base behaviour here
-					DoReleaseFlick(pointer);
-				}
-				
-				m_IsGhostSelected = false;
+            if (this.m_GameUI != null)
+            {
+                this.m_GameUI.stateChanged -= this.OnStateChanged;
+                this.m_GameUI.ghostBecameValid -= this.OnGhostBecameValid;
+            }
+        }
 
-				// Reset m_DragPointer if released
-				if (m_DragPointer != null && m_DragPointer.touchId == touchInfo.touchId)
-				{
-					m_DragPointer = null;
-				}
-			}
-		}
+        /// <summary>
+        /// Hide UI
+        /// </summary>
+        protected virtual void Awake()
+        {
+            if (this.confirmationButtons != null)
+            {
+                this.confirmationButtons.canvasEnabled = false;
+            }
 
-		/// <summary>
-		/// Called on tap,
-		/// calls confirmation of tower placement
-		/// </summary>
-		protected virtual void OnTap(PointerActionInfo pointerActionInfo)
-		{
-			var touchInfo = pointerActionInfo as TouchInfo;
-			if (touchInfo != null)
-			{
-				if (m_GameUI.state == State.Normal && !touchInfo.startedOverUI)
-				{
-					m_GameUI.TrySelectTower(touchInfo);
-				}
-				else if (m_GameUI.state == State.Building && !touchInfo.startedOverUI)
-				{
-					m_GameUI.TryMoveGhost(touchInfo, false);
-					if (m_GameUI.IsGhostAtValidPosition() && m_GameUI.IsValidPurchase())
-					{
-						confirmationButtons.canvasEnabled = true;
-						invalidButtons.canvasEnabled = false;
-						confirmationButtons.TryMove(touchInfo.currentPosition);
-					}
-					else
-					{
-						invalidButtons.canvasEnabled = true;
-						invalidButtons.TryMove(touchInfo.currentPosition);
-						confirmationButtons.canvasEnabled = false;
-					}
-				}
-			}
-		}
+            if (this.invalidButtons != null)
+            {
+                this.invalidButtons.canvasEnabled = false;
+            }
+        }
 
-		/// <summary>
-		/// Assigns the drag pointer and sets the UI into drag mode
-		/// </summary>
-		/// <param name="pointer"></param>
-		protected virtual void OnStartDrag(PointerActionInfo pointer)
-		{
-			var touchInfo = pointer as TouchInfo;
-			if (touchInfo != null)
-			{
-				if (m_IsGhostSelected)
-				{
-					m_GameUI.ChangeToDragMode();
-					m_DragPointer = touchInfo;
-				}
-			}
-		}
-		
+        /// <summary>
+        /// Decay flick
+        /// </summary>
+        protected override void Update()
+        {
+            base.Update();
 
-		/// <summary>
-		/// Called when we drag
-		/// </summary>
-		protected override void OnDrag(PointerActionInfo pointer)
-		{
-			// Override normal behaviour. We only want to pan if there's no ghost selected
-			// For this reason, we intentionally do not call base
-			var touchInfo = pointer as TouchInfo;
-			if (touchInfo != null)
-			{
-				// Try to pick up the tower if it was dragged off
-				if (m_IsGhostSelected)
-				{
-					m_GameUI.TryMoveGhost(pointer, false);
-				}
-				
-				if (m_GameUI.state == State.BuildingWithDrag)
-				{
-					DragGhost(touchInfo);
-				}
-				else
-				{
-					// Do normal base behaviour only if no ghost selected
-					if (cameraRig != null)
-					{
-						DoDragPan(pointer);
+            // Edge pan
+            if (this.m_DragPointer != null)
+            {
+                this.EdgePan();
+            }
 
-						if (invalidButtons.canvasEnabled)
-						{
-							invalidButtons.TryMove(cameraRig.cachedCamera.WorldToScreenPoint(m_GameUI.GetGhostPosition()));
-						}
-						if (confirmationButtons.canvasEnabled)
-						{
-							confirmationButtons.TryMove(cameraRig.cachedCamera.WorldToScreenPoint(m_GameUI.GetGhostPosition()));
-						}
-					}
-				}
-			}
-		}
+            if (UnityInput.GetKeyDown(KeyCode.Escape))
+            {
+                switch (this.m_GameUI.state)
+                {
+                    case State.Normal:
+                        if (this.m_GameUI.isTowerSelected)
+                        {
+                            this.m_GameUI.DeselectTower();
+                        }
+                        else
+                        {
+                            this.m_GameUI.Pause();
+                        }
 
-		/// <summary>
-		/// Drags the ghost
-		/// </summary>
-		void DragGhost(TouchInfo touchInfo)
-		{
-			if (touchInfo.touchId == m_DragPointer.touchId)
-			{
-				m_GameUI.TryMoveGhost(touchInfo, false);
+                        break;
+                    case State.Building:
+                        this.m_GameUI.CancelGhostPlacement();
+                        break;
+                }
+            }
+        }
 
-				if (invalidButtons.canvasEnabled)
-				{
-					invalidButtons.canvasEnabled = false;
-				}
-				if (confirmationButtons.canvasEnabled)
-				{
-					confirmationButtons.canvasEnabled = false;
-				}
-			}
-		}
+        /// <summary>
+        /// Called on input press
+        /// </summary>
+        protected override void OnPress(PointerActionInfo pointer)
+        {
+            base.OnPress(pointer);
+            var touchInfo = pointer as TouchInfo;
+            // Press starts on a ghost? Then we can pick it up
+            if (touchInfo != null)
+            {
+                if (this.m_GameUI.state == State.Building)
+                {
+                    this.m_IsGhostSelected = this.m_GameUI.IsPointerOverGhost(pointer);
+                    if (this.m_IsGhostSelected)
+                    {
+                        this.m_DragPointer = touchInfo;
+                    }
+                }
+            }
+        }
 
-		/// <summary>
-		/// pans at the edge of the screen
-		/// </summary>
-		void EdgePan()
-		{
-			float edgeWidth = panAreaScreenPercentage * Screen.width;
-			PanWithScreenCoordinates(m_DragPointer.currentPosition, edgeWidth, panSpeed);
-		}
-		
+        /// <summary>
+        /// Called on input release, for flicks
+        /// </summary>
+        protected override void OnRelease(PointerActionInfo pointer)
+        {
+            // Override normal behaviour. We only want to do flicks if there's no ghost selected
+            // For this reason, we intentionally do not call base
+            var touchInfo = pointer as TouchInfo;
 
-		/// <summary>
-		/// If the new state is <see cref="GameUI.State.Building"/> then move the ghost to the center of the screen
-		/// </summary>
-		/// <param name="previousState">
-		/// The previous the GameUI was is in
-		/// </param>
-		/// <param name="currentState">
-		/// The new state the GameUI is in
-		/// </param>
-		void OnStateChanged(State previousState, State currentState)
-		{
-			// Early return for two reasons
-			// 1. We are not moving into Build Mode
-			// 2. We are not actually touching
-			if (UnityInput.touchCount == 0)
-			{
-				return;
-			}
-			if (currentState == State.Building && previousState != State.BuildingWithDrag)
-			{
-				m_GameUI.MoveGhostToCenter();
-				confirmationButtons.canvasEnabled = false;
-				invalidButtons.canvasEnabled = false;
-			}
-			if (currentState == State.BuildingWithDrag)
-			{
-				m_IsGhostSelected = true;
-			}
-		}
+            if (touchInfo != null)
+            {
+                // Show UI on release
+                if (this.m_GameUI.isBuilding)
+                {
+                    Vector2 screenPoint = this.cameraRig.cachedCamera.WorldToScreenPoint(this.m_GameUI.GetGhostPosition());
+                    if (this.m_GameUI.IsGhostAtValidPosition() && this.m_GameUI.IsValidPurchase())
+                    {
+                        this.confirmationButtons.canvasEnabled = true;
+                        this.invalidButtons.canvasEnabled = false;
+                        this.confirmationButtons.TryMove(screenPoint);
+                    }
+                    else
+                    {
+                        this.invalidButtons.canvasEnabled = true;
+                        this.confirmationButtons.canvasEnabled = false;
+                        this.confirmationButtons.TryMove(screenPoint);
+                    }
 
-		/// <summary>
-		/// Displays the correct confirmation buttons when the tower has become valid
-		/// </summary>
-		void OnGhostBecameValid()
-		{
-			// this only needs to be done if the invalid buttons are already on screen
-			if (!invalidButtons.canvasEnabled)
-			{
-				return;
-			}
-			Vector2 screenPoint = cameraRig.cachedCamera.WorldToScreenPoint(m_GameUI.GetGhostPosition());
-			if (!confirmationButtons.canvasEnabled)
-			{
-				confirmationButtons.canvasEnabled = true;
-				invalidButtons.canvasEnabled = false;
-				confirmationButtons.TryMove(screenPoint);
-			}
-		}
-	}
+                    if (this.m_IsGhostSelected)
+                    {
+                        this.m_GameUI.ReturnToBuildMode();
+                    }
+                }
+
+                if (!this.m_IsGhostSelected && this.cameraRig != null)
+                {
+                    // Do normal base behaviour here
+                    this.DoReleaseFlick(pointer);
+                }
+
+                this.m_IsGhostSelected = false;
+
+                // Reset m_DragPointer if released
+                if (this.m_DragPointer != null && this.m_DragPointer.touchId == touchInfo.touchId)
+                {
+                    this.m_DragPointer = null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called on tap,
+        /// calls confirmation of tower placement
+        /// </summary>
+        protected virtual void OnTap(PointerActionInfo pointerActionInfo)
+        {
+            var touchInfo = pointerActionInfo as TouchInfo;
+            if (touchInfo != null)
+            {
+                if (this.m_GameUI.state == State.Normal && !touchInfo.startedOverUI)
+                {
+                    this.m_GameUI.TrySelectTower(touchInfo);
+                }
+                else if (this.m_GameUI.state == State.Building && !touchInfo.startedOverUI)
+                {
+                    this.m_GameUI.TryMoveGhost(touchInfo, false);
+                    if (this.m_GameUI.IsGhostAtValidPosition() && this.m_GameUI.IsValidPurchase())
+                    {
+                        this.confirmationButtons.canvasEnabled = true;
+                        this.invalidButtons.canvasEnabled = false;
+                        this.confirmationButtons.TryMove(touchInfo.currentPosition);
+                    }
+                    else
+                    {
+                        this.invalidButtons.canvasEnabled = true;
+                        this.invalidButtons.TryMove(touchInfo.currentPosition);
+                        this.confirmationButtons.canvasEnabled = false;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Assigns the drag pointer and sets the UI into drag mode
+        /// </summary>
+        /// <param name="pointer"></param>
+        protected virtual void OnStartDrag(PointerActionInfo pointer)
+        {
+            var touchInfo = pointer as TouchInfo;
+            if (touchInfo != null)
+            {
+                if (this.m_IsGhostSelected)
+                {
+                    this.m_GameUI.ChangeToDragMode();
+                    this.m_DragPointer = touchInfo;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when we drag
+        /// </summary>
+        protected override void OnDrag(PointerActionInfo pointer)
+        {
+            // Override normal behaviour. We only want to pan if there's no ghost selected
+            // For this reason, we intentionally do not call base
+            var touchInfo = pointer as TouchInfo;
+            if (touchInfo != null)
+            {
+                // Try to pick up the tower if it was dragged off
+                if (this.m_IsGhostSelected)
+                {
+                    this.m_GameUI.TryMoveGhost(pointer, false);
+                }
+
+                if (this.m_GameUI.state == State.BuildingWithDrag)
+                {
+                    this.DragGhost(touchInfo);
+                }
+                else
+                {
+                    // Do normal base behaviour only if no ghost selected
+                    if (this.cameraRig != null)
+                    {
+                        this.DoDragPan(pointer);
+
+                        if (this.invalidButtons.canvasEnabled)
+                        {
+                            this.invalidButtons.TryMove(this.cameraRig.cachedCamera.WorldToScreenPoint(this.m_GameUI.GetGhostPosition()));
+                        }
+
+                        if (this.confirmationButtons.canvasEnabled)
+                        {
+                            this.confirmationButtons.TryMove(this.cameraRig.cachedCamera.WorldToScreenPoint(this.m_GameUI.GetGhostPosition()));
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Drags the ghost
+        /// </summary>
+        private void DragGhost(TouchInfo touchInfo)
+        {
+            if (touchInfo.touchId == this.m_DragPointer.touchId)
+            {
+                this.m_GameUI.TryMoveGhost(touchInfo, false);
+
+                if (this.invalidButtons.canvasEnabled)
+                {
+                    this.invalidButtons.canvasEnabled = false;
+                }
+
+                if (this.confirmationButtons.canvasEnabled)
+                {
+                    this.confirmationButtons.canvasEnabled = false;
+                }
+            }
+        }
+
+        /// <summary>
+        /// pans at the edge of the screen
+        /// </summary>
+        private void EdgePan()
+        {
+            float edgeWidth = this.panAreaScreenPercentage * Screen.width;
+            this.PanWithScreenCoordinates(this.m_DragPointer.currentPosition, edgeWidth, this.panSpeed);
+        }
+
+        /// <summary>
+        /// If the new state is <see cref="GameUI.State.Building"/> then move the ghost to the center of the screen
+        /// </summary>
+        /// <param name="previousState">
+        /// The previous the GameUI was is in
+        /// </param>
+        /// <param name="currentState">
+        /// The new state the GameUI is in
+        /// </param>
+        private void OnStateChanged(State previousState, State currentState)
+        {
+            // Early return for two reasons
+            // 1. We are not moving into Build Mode
+            // 2. We are not actually touching
+            if (UnityInput.touchCount == 0)
+            {
+                return;
+            }
+
+            if (currentState == State.Building && previousState != State.BuildingWithDrag)
+            {
+                this.m_GameUI.MoveGhostToCenter();
+                this.confirmationButtons.canvasEnabled = false;
+                this.invalidButtons.canvasEnabled = false;
+            }
+
+            if (currentState == State.BuildingWithDrag)
+            {
+                this.m_IsGhostSelected = true;
+            }
+        }
+
+        /// <summary>
+        /// Displays the correct confirmation buttons when the tower has become valid
+        /// </summary>
+        private void OnGhostBecameValid()
+        {
+            // this only needs to be done if the invalid buttons are already on screen
+            if (!this.invalidButtons.canvasEnabled)
+            {
+                return;
+            }
+
+            Vector2 screenPoint = this.cameraRig.cachedCamera.WorldToScreenPoint(this.m_GameUI.GetGhostPosition());
+            if (!this.confirmationButtons.canvasEnabled)
+            {
+                this.confirmationButtons.canvasEnabled = true;
+                this.invalidButtons.canvasEnabled = false;
+                this.confirmationButtons.TryMove(screenPoint);
+            }
+        }
+    }
 }

@@ -1,35 +1,40 @@
-﻿using UnityEngine;
+﻿// <copyright file="ScorePanel.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace TowerDefense.UI
 {
-	/// <summary>
-	/// UI object to display final score
-	/// </summary>
-	public class ScorePanel : MonoBehaviour
-	{
-		/// <summary>
-		/// Objects that represent the stars
-		/// </summary>
-		public Image[] starImages;
+    /// <summary>
+    /// UI object to display final score
+    /// </summary>
+    public class ScorePanel : MonoBehaviour
+    {
+        /// <summary>
+        /// Objects that represent the stars
+        /// </summary>
+        public Image[] starImages;
 
-		public Sprite achievedStarSprite;
+        public Sprite achievedStarSprite;
 
-		/// <summary>
-		/// Show the correct number of stars for the score
-		/// </summary>
-		/// <param name="score">The final score</param>
-		public void SetStars(int score)
-		{
-			if (score <= 0)
-			{
-				return;
-			}
-			score = Mathf.Clamp(score, 0, starImages.Length);
-			for (int i = 0; i < score; i++)
-			{
-				starImages[i].sprite = achievedStarSprite;
-			}
-		}
-	}
+        /// <summary>
+        /// Show the correct number of stars for the score
+        /// </summary>
+        /// <param name="score">The final score</param>
+        public void SetStars(int score)
+        {
+            if (score <= 0)
+            {
+                return;
+            }
+
+            score = Mathf.Clamp(score, 0, this.starImages.Length);
+            for (int i = 0; i < score; i++)
+            {
+                this.starImages[i].sprite = this.achievedStarSprite;
+            }
+        }
+    }
 }
