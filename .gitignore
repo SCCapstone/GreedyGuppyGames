@@ -42,6 +42,15 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+/TEST_Data
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# Probuilder settings
+/com.unity.probuilder
+
+# Version
+/ProjectSettings/ProjectVersion.txt
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
+ProjectSettings/Packages/com.unity.probuilder/Settings.json

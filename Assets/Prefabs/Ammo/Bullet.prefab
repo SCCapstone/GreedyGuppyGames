@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3769287408845221283}
   - component: {fileID: 8490098619483725717}
   - component: {fileID: -860976684746385471}
+  - component: {fileID: 448958782765832105}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -99,3 +100,17 @@ MonoBehaviour:
   explosionRadius: 0
   impactEffect: {fileID: 2220860345030090244, guid: 552376976c794354893d26c863e69a97,
     type: 3}
+--- !u!64 &448958782765832105
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503022687058836579}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
