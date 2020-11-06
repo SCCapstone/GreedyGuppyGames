@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 90ac474f706e26f42aba2f6f6e3906ac
+timeCreated: 1527843879
+licenseType: Store
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Polygonal Alien Magantee
+    100002: //RootNode
+    100004: Rig
+    100006: RigHead
+    100008: RigHeadGizmo
+    100010: RigJawL01
+    100012: RigJawL01Gizmo
+    100014: RigJawL02
+    100016: RigJawL02Gizmo
+    100018: RigJawR01
+    100020: RigJawR01Gizmo
+    100022: RigJawR02
+    100024: RigJawR02Gizmo
+    100026: RigLBLeg1
+    100028: RigLBLeg2
+    100030: RigLBLegAnkle
+    100032: RigLBLegPlatform
+    100034: RigLFLeg1
+    100036: RigLFLeg2
+    100038: RigLFLegAnkle
+    100040: RigLFLegPlatform
+    100042: RigLMLeg1
+    100044: RigLMLeg2
+    100046: RigLMLegAnkle
+    100048: RigLMLegPlatform
+    100050: RigNeck
+    100052: RigPelvis
+    100054: RigPelvisGizmo
+    100056: RigRBLeg1
+    100058: RigRBLeg2
+    100060: RigRBLegAnkle
+    100062: RigRBLegPlatform
+    100064: RigRFLeg1
+    100066: RigRFLeg2
+    100068: RigRFLegAnkle
+    100070: RigRFLegPlatform
+    100072: RigRibcage
+    100074: RigRibcageGizmo
+    100076: RigRMLeg1
+    100078: RigRMLeg2
+    100080: RigRMLegAnkle
+    100082: RigRMLegPlatform
+    100084: RigSpine1
+    100086: RigSpine2
+    100088: RigTail1
+    100090: RigTail1Gizmo
+    100092: RigTail2
+    100094: RigTail2Gizmo
+    100096: RigTail3
+    100098: RigTail3Gizmo
+    400000: Polygonal Alien Magantee
+    400002: //RootNode
+    400004: Rig
+    400006: RigHead
+    400008: RigHeadGizmo
+    400010: RigJawL01
+    400012: RigJawL01Gizmo
+    400014: RigJawL02
+    400016: RigJawL02Gizmo
+    400018: RigJawR01
+    400020: RigJawR01Gizmo
+    400022: RigJawR02
+    400024: RigJawR02Gizmo
+    400026: RigLBLeg1
+    400028: RigLBLeg2
+    400030: RigLBLegAnkle
+    400032: RigLBLegPlatform
+    400034: RigLFLeg1
+    400036: RigLFLeg2
+    400038: RigLFLegAnkle
+    400040: RigLFLegPlatform
+    400042: RigLMLeg1
+    400044: RigLMLeg2
+    400046: RigLMLegAnkle
+    400048: RigLMLegPlatform
+    400050: RigNeck
+    400052: RigPelvis
+    400054: RigPelvisGizmo
+    400056: RigRBLeg1
+    400058: RigRBLeg2
+    400060: RigRBLegAnkle
+    400062: RigRBLegPlatform
+    400064: RigRFLeg1
+    400066: RigRFLeg2
+    400068: RigRFLegAnkle
+    400070: RigRFLegPlatform
+    400072: RigRibcage
+    400074: RigRibcageGizmo
+    400076: RigRMLeg1
+    400078: RigRMLeg2
+    400080: RigRMLegAnkle
+    400082: RigRMLegPlatform
+    400084: RigSpine1
+    400086: RigSpine2
+    400088: RigTail1
+    400090: RigTail1Gizmo
+    400092: RigTail2
+    400094: RigTail2Gizmo
+    400096: RigTail3
+    400098: RigTail3Gizmo
+    4300000: Polygonal Alien Magantee
+    7400000: Walk Forward Fast WO Root
+    9500000: //RootNode
+    13700000: Polygonal Alien Magantee
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk Forward Fast WO Root
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
