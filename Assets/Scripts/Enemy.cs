@@ -3,7 +3,7 @@
 // </copyright>
 
 using UnityEngine;
-
+using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
     public float speed = 10f;
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         this.target = Waypoints.points[0];
+        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
     }
 
     public void TakeDamage(int amount)
@@ -44,7 +45,7 @@ public class Enemy : MonoBehaviour
         // Direction pointing to waypoint
         Vector3 dir = this.target.position - this.transform.position;
         this.transform.Translate(dir.normalized * this.speed * Time.deltaTime, Space.World);
-
+        
         // Checks if we are verrrrry close to a waypoint
         if (Vector3.Distance(this.transform.position, this.target.position) <= 0.4f)
         {
@@ -64,6 +65,8 @@ public class Enemy : MonoBehaviour
         // Not at the end, find next waypoint
         this.wavepointIndex++;
         this.target = Waypoints.points[this.wavepointIndex];
+        // Look at waypoint, rotation stuff
+        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z ), .25f);
     }
 
     private void EndPath()
