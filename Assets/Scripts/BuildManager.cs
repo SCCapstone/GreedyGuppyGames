@@ -8,8 +8,7 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
-    public GameObject standardTurretPrefab;
-    public GameObject anotherTurretPrefab;
+
 
     public GameObject buildEffect;
 
@@ -60,5 +59,11 @@ public class BuildManager : MonoBehaviour
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
         this.turretToBuild = turret;
+    }
+
+    public void ResetTurretToBuild()
+    {
+        Debug.Log("Turret Unselected");
+        this.SelectTurretToBuild(null);
     }
 }
