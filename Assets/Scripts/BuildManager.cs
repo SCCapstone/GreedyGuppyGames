@@ -60,4 +60,10 @@ public class BuildManager : MonoBehaviour
     {
         this.turretToBuild = turret;
     }
+
+    public void ResetTurretToBuild()
+    {
+        Debug.Log("Turret Unselected");
+        this.SelectTurretToBuild(null);
+    }
 }
