@@ -24,7 +24,6 @@ public class MyNode : MonoBehaviour
         this.startColor = this.rend.material.color;
         this.buildManager = BuildManager.instance;
     }
-
     public Vector3 GetBuildPosition()
     {
         return this.transform.position + this.positionOffset;
@@ -55,6 +54,8 @@ public class MyNode : MonoBehaviour
         }
 
         this.buildManager.BuildTurretOn(this);
+        this.buildManager.ResetTurretToBuild();
+        this.rend.material.color = this.startColor;
     }
 
     private void OnMouseEnter()
@@ -94,5 +95,14 @@ public class MyNode : MonoBehaviour
         }
 
         this.rend.material.color = this.startColor;
+    }
+
+    private void OnMouseOver()
+    {
+        // changes the color back if right clicked to deselect tower on the node
+        if (Input.GetMouseButtonDown(1))
+        {
+            this.rend.material.color = this.startColor;
+        }
     }
 }

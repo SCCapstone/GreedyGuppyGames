@@ -8,11 +8,13 @@ public class GamerManager : MonoBehaviour
 {
     public bool gameEnded;
 
+    private BuildManager buildManager;
     public GameObject gameOverUI;
 
     private void Start()
     {
         this.gameEnded = false;
+        this.buildManager = BuildManager.instance;
     }
 
     // Update is called once per frame
@@ -22,6 +24,12 @@ public class GamerManager : MonoBehaviour
         if (this.gameEnded)
         {
             return;
+        }
+
+        // cancels the turret selection on right click
+        if (Input.GetMouseButtonDown(1))
+        {
+            this.buildManager.ResetTurretToBuild();
         }
 
         // shortcut to end the game quickly for testing
