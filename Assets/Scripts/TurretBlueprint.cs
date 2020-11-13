@@ -2,6 +2,7 @@
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
 
+using UnityEditor;
 using UnityEngine;
 
 [System.Serializable]
