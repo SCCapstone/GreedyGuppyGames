@@ -31,11 +31,12 @@ public class Bullet : MonoBehaviour
 
         float distanceThisFrame = this.speed * Time.deltaTime;
 
-        if (dir.magnitude <= distanceThisFrame)
+        //old hit detection
+        /*if (dir.magnitude <= distanceThisFrame)
         {
             this.HitTarget();
             return;
-        }
+        }*/
 
         this.transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         this.transform.LookAt(this.target);
@@ -55,6 +56,7 @@ public class Bullet : MonoBehaviour
             this.Damage(this.target);
         }
 
+        // Destroys the bullet (not the enemy)
         Destroy(this.gameObject);
     }
 
@@ -97,5 +99,24 @@ public class Bullet : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, this.explosionRadius);
+    }
+
+    // What happens when the bullet hits something (yes this replaces HitTarget)
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("I'm colliding with something!");
+        GameObject effectIns = (GameObject)Instantiate(this.impactEffect, this.transform.position, this.transform.rotation);
+        Destroy(effectIns, 2f);
+
+        if (this.explosionRadius > 0f) {
+            this.Explode();
+        }
+        else {
+            this.Damage(col.gameObject.GetComponent<Transform>()); // gets the transform of the gameObject of what was hit and hurst it (the spagetti is ready)
+            Debug.Log("I'm hitting the enemy!");
+        }
+
+        // Destroys the bullet (not the enemy)
+        Destroy(this.gameObject);
     }
 }
