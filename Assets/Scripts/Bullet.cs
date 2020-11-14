@@ -101,7 +101,7 @@ public class Bullet : MonoBehaviour
         Gizmos.DrawWireSphere(this.transform.position, this.explosionRadius);
     }
 
-    // What happens when the bullet hits something (yes this replaces HitTarget)
+    // What happens when the bullet hits something (yes, this mostly replaces HitTarget)
     void OnCollisionEnter(Collision col)
     {
         Debug.Log("I'm colliding with something!");
