@@ -112,7 +112,7 @@ public class Bullet : MonoBehaviour
             this.Explode();
         }
         else {
-            this.Damage(col.gameObject.GetComponent<Transform>()); // gets the transform of the gameObject of what was hit and hurst it (the spagetti is ready)
+            this.Damage(col.gameObject.GetComponent<Transform>()); // gets the transform of the gameObject of what was hit and hurts it (the spaghetti is ready)
             Debug.Log("I'm hitting the enemy!");
         }
 
