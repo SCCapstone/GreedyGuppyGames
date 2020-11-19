@@ -6,7 +6,7 @@ using UnityEngine;
 using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
-    //public Animator anim;
+    public Animator anim;
     
     public float speed = 10f;
 
@@ -17,9 +17,9 @@ public class Enemy : MonoBehaviour
     public GameObject deathEffect;
 
     private Transform target;
-    private int wavepointIndex = 0;
+    protected int wavepointIndex = 0;
 
-    private void Start()
+    public virtual void Start()
     {
         this.target = Waypoints.points[0];
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
@@ -35,12 +35,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    public virtual void Die()
     {
         PlayerStats.Money += this.value;
         GameObject effect = (GameObject)Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
         Destroy(this.gameObject);
+        
     }
 
     private void Update()
@@ -70,6 +71,22 @@ public class Enemy : MonoBehaviour
         this.target = Waypoints.points[this.wavepointIndex];
         // Look at waypoint, rotation stuff
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z ), .25f);
+    }
+
+    public void SetWaypoint (int index)
+    {
+        // Enemy has reached the end
+        if (this.wavepointIndex >= Waypoints.points.Length - 1)
+        {
+            this.EndPath();
+            return; // makes sure the code doesn't skip into next node segment (yes this happens)
+        }
+
+        // Not at the end, find next waypoint
+        this.wavepointIndex = index;
+        this.target = Waypoints.points[this.wavepointIndex];
+        // Look at waypoint, rotation stuff
+        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
     }
 
     private void EndPath()
