@@ -6,6 +6,8 @@ using UnityEngine;
 using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
+    //public Animator anim;
+    
     public float speed = 10f;
 
     public int health = 100;
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
     {
         this.target = Waypoints.points[0];
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        //anim.Play("Walk Forward Slow WO Root", -1, 0);
     }
 
     public void TakeDamage(int amount)
