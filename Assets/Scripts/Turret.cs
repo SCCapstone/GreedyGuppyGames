@@ -43,13 +43,15 @@ public class Turret : MonoBehaviour
         {
             float distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position); // turret to enemy distance
             float enemyDistanceToEnd = Vector3.Distance(enemy.transform.position, Waypoints.points[finalWaypointIndex].position); // enemy to end distance
-            //Debug.Log("Distance "+enemyDistanceToEnd);
+            // Debug.Log("Distance "+enemyDistanceToEnd);
+
             /* Old targeting, targest closest enemy to tower
             if (distanceToEnemy < shortestDistanceToTurret)
             {
                 shortestDistanceToTurret = distanceToEnemy;
                 nearestEnemy = enemy;
-            } */
+            }
+            */
 
             // Targets enemy closest to last waypoint
             if (enemyDistanceToEnd < shortestDistanceToEnd || shortestDistanceToTurret >= this.range)
@@ -57,18 +59,20 @@ public class Turret : MonoBehaviour
                 shortestDistanceToTurret = distanceToEnemy;
                 shortestDistanceToEnd = enemyDistanceToEnd;
                 nearestEnemy = enemy;
-                //Debug.Log("Shortest Distance " + shortestDistance);
-                //Debug.Log("nearest enemy "+nearestEnemy);
+                // Debug.Log("Shortest Distance " + shortestDistance);
+                // Debug.Log("nearest enemy "+nearestEnemy);
             }
         }
 
-        //Debug.Log("nearest enemy " + nearestEnemy);
-        //Debug.Log("Shortest Distance to end" + shortestDistanceToEnd);
-        //Debug.Log("Range " + this.range);
+        // Debug.Log("nearest enemy " + nearestEnemy);
+        // Debug.Log("Shortest Distance to end" + shortestDistanceToEnd);
+        // Debug.Log("Range " + this.range);
+
+        // Sets the target to the chosen enemy
         if (nearestEnemy != null && shortestDistanceToTurret <= this.range)
         {
             this.target = nearestEnemy.transform;
-            Debug.Log(this.target);
+            // Debug.Log(this.target);
         }
         else
         {
