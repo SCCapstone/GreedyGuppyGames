@@ -34,22 +34,45 @@ public class Turret : MonoBehaviour
     private void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(this.enemyTag);
-        float shortestDistance = Mathf.Infinity;
+        float shortestDistanceToEnd = Mathf.Infinity;
+        float shortestDistanceToTurret = Mathf.Infinity;
         GameObject nearestEnemy = null;
+        int finalWaypointIndex = Waypoints.points.Length - 1;
 
         foreach (GameObject enemy in enemies)
         {
-            float distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            float distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position); // turret to enemy distance
+            float enemyDistanceToEnd = Vector3.Distance(enemy.transform.position, Waypoints.points[finalWaypointIndex].position); // enemy to end distance
+            // Debug.Log("Distance "+enemyDistanceToEnd);
+
+            /* Old targeting, targest closest enemy to tower
+            if (distanceToEnemy < shortestDistanceToTurret)
             {
-                shortestDistance = distanceToEnemy;
+                shortestDistanceToTurret = distanceToEnemy;
                 nearestEnemy = enemy;
+            }
+            */
+
+            // Targets enemy closest to last waypoint
+            if (enemyDistanceToEnd < shortestDistanceToEnd || shortestDistanceToTurret >= this.range)
+            {
+                shortestDistanceToTurret = distanceToEnemy;
+                shortestDistanceToEnd = enemyDistanceToEnd;
+                nearestEnemy = enemy;
+                // Debug.Log("Shortest Distance " + shortestDistance);
+                // Debug.Log("nearest enemy "+nearestEnemy);
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= this.range)
+        // Debug.Log("nearest enemy " + nearestEnemy);
+        // Debug.Log("Shortest Distance to end" + shortestDistanceToEnd);
+        // Debug.Log("Range " + this.range);
+
+        // Sets the target to the chosen enemy
+        if (nearestEnemy != null && shortestDistanceToTurret <= this.range)
         {
             this.target = nearestEnemy.transform;
+            // Debug.Log(this.target);
         }
         else
         {
@@ -82,7 +105,6 @@ public class Turret : MonoBehaviour
 
     private void Shoot()
     {
-        // create bullet
         GameObject bulletGO = (GameObject)Instantiate(this.bulletPrefab, this.firePoint.position, this.firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
