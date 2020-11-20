@@ -15,6 +15,9 @@ public class Turret : MonoBehaviour
     public float firerate = 1f;
     private float fireCountdown = 0f;
 
+    //Audio file to be played when turret is firing a bullet
+    public AudioSource GunShot;
+
     [Header("Unity Setup Fields")]
 
     public string enemyTag = "Enemy";
@@ -89,6 +92,10 @@ public class Turret : MonoBehaviour
         {
             bullet.Seek(this.target);
         }
+
+        //Audio for when a "bullet" is fired
+        GunShot.Play();
+        Debug.Log("Audio should have been played");
     }
 
     private void OnDrawGizmosSelected()

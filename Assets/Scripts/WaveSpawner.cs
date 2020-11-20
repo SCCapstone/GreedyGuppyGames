@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
     public Transform grubPrefab;
+    public Transform mamaPrefab;
 
     public Transform spawnPoint;
 
@@ -56,11 +57,15 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < this.waveIndex; i++)
             {
                 this.SpawnEnemy(grubPrefab);
+                if (round1 == 10)
+                {
+                    this.SpawnEnemy(mamaPrefab);
+                }
                 yield return new WaitForSeconds(0.5f);
 
                 Debug.Log("Enemies to spawn: " + this.waveIndex);
             }
-            if(round1 == TEN)
+            if (round1 == TEN)
             {
                 Debug.Log("Round 1 over");
                 this.waveIndex = 5;  //will spawn 5 enemies (after waveIndex increments) at the start of round 2
@@ -108,7 +113,7 @@ public class WaveSpawner : MonoBehaviour
             }
         }
     }
-    
+
     private void SpawnEnemy(Transform enemy)
     {
         Instantiate(enemy, this.spawnPoint.position, this.spawnPoint.rotation);

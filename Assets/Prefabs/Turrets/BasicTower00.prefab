@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   firerate: 1
+  GunShot: {fileID: 1667327856137268113, guid: 5cb174ee02c9ed64da56e38ef47ca556, type: 3}
   enemyTag: Enemy
   partToRotate: {fileID: 6197527391815262645}
   turnSpeed: 10
