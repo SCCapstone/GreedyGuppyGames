@@ -320,11 +320,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad4632d52a1dbf4ba5fe29f2c53dd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurret:
+  BasicTower:
     prefab: {fileID: 3481009559661011739, guid: 150b8e78d0ebb174d918449c188c7a5b,
       type: 3}
     cost: 100
-  anotherTurret:
+  CannonTower:
     prefab: {fileID: 1161168588940831137, guid: 40b931dc585d2cd4d80b99a540626b4e,
       type: 3}
     cost: 150
@@ -11917,7 +11917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1069430703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15900,7 +15900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1381169640
 BoxCollider:
   m_ObjectHideFlags: 0
