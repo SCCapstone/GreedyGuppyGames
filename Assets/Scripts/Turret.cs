@@ -39,47 +39,17 @@ public class Turret : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
-<<<<<<< HEAD
             float distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
-=======
-            float distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position); // turret to enemy distance
-            float enemyDistanceToEnd = Vector3.Distance(enemy.transform.position, Waypoints.points[finalWaypointIndex].position); // enemy to end distance
-            //Debug.Log("Distance "+enemyDistanceToEnd);
-            /* Old targeting, targest closest enemy to tower
-            if (distanceToEnemy < shortestDistanceToTurret)
-            {
-                shortestDistanceToTurret = distanceToEnemy;
-                nearestEnemy = enemy;
-            } */
-
-            // Targets enemy closest to last waypoint
-            if (enemyDistanceToEnd < shortestDistanceToEnd || shortestDistanceToTurret >= this.range)
->>>>>>> parent of f130251... Minor comment updates/formatting
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
-<<<<<<< HEAD
             }
         }
 
         if (nearestEnemy != null && shortestDistance <= this.range)
         {
             this.target = nearestEnemy.transform;
-=======
-                //Debug.Log("Shortest Distance " + shortestDistance);
-                //Debug.Log("nearest enemy "+nearestEnemy);
-            }
-        }
-
-        //Debug.Log("nearest enemy " + nearestEnemy);
-        //Debug.Log("Shortest Distance to end" + shortestDistanceToEnd);
-        //Debug.Log("Range " + this.range);
-        if (nearestEnemy != null && shortestDistanceToTurret <= this.range)
-        {
-            this.target = nearestEnemy.transform;
-            Debug.Log(this.target);
->>>>>>> parent of f130251... Minor comment updates/formatting
         }
         else
         {
