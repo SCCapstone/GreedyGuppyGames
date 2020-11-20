@@ -7,6 +7,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
+    private Vector3 dir;
 
     public float speed = 70f;
     public int damage = 50;
@@ -16,6 +17,7 @@ public class Bullet : MonoBehaviour
     public void Seek(Transform aTarget)
     {
         this.target = aTarget;
+        this.dir = Dumbfire(dir);
     }
 
     // Update is called once per frame
@@ -27,7 +29,6 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        Vector3 dir = this.target.position - this.transform.position;
         float distanceThisFrame = this.speed * Time.deltaTime;
 
         if (dir.magnitude <= distanceThisFrame)
@@ -77,6 +78,19 @@ public class Bullet : MonoBehaviour
         {
             e.TakeDamage(this.damage);
         }
+    }
+
+    // for bullets that don't track their targets after being fired
+    private Vector3 Dumbfire(Vector3 aDir) 
+    {
+        aDir = this.target.position - this.transform.position;
+        return aDir;
+    }
+
+    // When called inside of an Update function this causes bullets to home in on their target
+    private Vector3 Homing(Vector3 aDir) {
+        aDir = this.target.position - this.transform.position;
+        return aDir;
     }
 
     private void OnDrawGizmosSelected()
