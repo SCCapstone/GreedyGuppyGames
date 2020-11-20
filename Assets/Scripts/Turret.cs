@@ -34,45 +34,22 @@ public class Turret : MonoBehaviour
     private void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(this.enemyTag);
-        float shortestDistanceToEnd = Mathf.Infinity;
-        float shortestDistanceToTurret = Mathf.Infinity;
+        float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-        int finalWaypointIndex = Waypoints.points.Length - 1;
 
         foreach (GameObject enemy in enemies)
         {
-            float distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position); // turret to enemy distance
-            float enemyDistanceToEnd = Vector3.Distance(enemy.transform.position, Waypoints.points[finalWaypointIndex].position); // enemy to end distance
-            // Debug.Log("Distance "+enemyDistanceToEnd);
-
-            /* Old targeting, targest closest enemy to tower
-            if (distanceToEnemy < shortestDistanceToTurret)
+            float distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
             {
-                shortestDistanceToTurret = distanceToEnemy;
+                shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
-            }
-            */
-
-            // Targets enemy closest to last waypoint
-            if (enemyDistanceToEnd < shortestDistanceToEnd || shortestDistanceToTurret >= this.range)
-            {
-                shortestDistanceToTurret = distanceToEnemy;
-                shortestDistanceToEnd = enemyDistanceToEnd;
-                nearestEnemy = enemy;
-                // Debug.Log("Shortest Distance " + shortestDistance);
-                // Debug.Log("nearest enemy "+nearestEnemy);
             }
         }
 
-        // Debug.Log("nearest enemy " + nearestEnemy);
-        // Debug.Log("Shortest Distance to end" + shortestDistanceToEnd);
-        // Debug.Log("Range " + this.range);
-
-        // Sets the target to the chosen enemy
-        if (nearestEnemy != null && shortestDistanceToTurret <= this.range)
+        if (nearestEnemy != null && shortestDistance <= this.range)
         {
             this.target = nearestEnemy.transform;
-            // Debug.Log(this.target);
         }
         else
         {
