@@ -23436,7 +23436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fa89e523c6c8f41982c50cd475c79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1811356957786347753, guid: b6d2d797288ab6c4d961167c6968ca55,
+  grubPrefab: {fileID: 1811356957786347753, guid: b6d2d797288ab6c4d961167c6968ca55,
     type: 3}
   spawnPoint: {fileID: 1381169643}
   timeBetweenWaves: 7
