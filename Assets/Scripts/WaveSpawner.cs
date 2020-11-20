@@ -57,16 +57,15 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < this.waveIndex; i++)
             {
                 this.SpawnEnemy(grubPrefab);
-                if (round1 == 10)
-                {
-                    this.SpawnEnemy(mamaPrefab);
-                }
                 yield return new WaitForSeconds(0.5f);
 
                 Debug.Log("Enemies to spawn: " + this.waveIndex);
             }
+            
             if (round1 == TEN)
             {
+                this.SpawnEnemy(mamaPrefab);
+                yield return new WaitForSeconds(7.0f);
                 Debug.Log("Round 1 over");
                 this.waveIndex = 5;  //will spawn 5 enemies (after waveIndex increments) at the start of round 2
                 //pause the game here, wait for player to resume
@@ -87,8 +86,19 @@ public class WaveSpawner : MonoBehaviour
                 Debug.Log("Enemies to spawn: " + this.waveIndex);
             }
             this.waveIndex += 2; //adds 2 enemeis per wave
+            if (round2 == 5)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    this.SpawnEnemy(mamaPrefab);
+                    yield return new WaitForSeconds(0.5f);
+                    
+                }
+            }
             if (round2 == TEN)
             {
+                this.SpawnEnemy(mamaPrefab);
+                yield return new WaitForSeconds(7.0f);
                 Debug.Log("Round 2 over");
                 this.waveIndex = 10;
                 //pause the game here, wait for player to resume
