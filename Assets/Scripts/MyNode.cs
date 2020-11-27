@@ -9,6 +9,7 @@ public class MyNode : MonoBehaviour
 {
     public Color hoverColor;
     public Color noteEnoughMoneyColor;
+    public Color nodeSelectedToUpgradeColor;
     public Vector3 positionOffset;
 
     [Header("Optional")]
@@ -29,16 +30,9 @@ public class MyNode : MonoBehaviour
         return this.transform.position + this.positionOffset;
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
-        // If we don't have anything selected and we can't build return true
-        // To be used for upgrades
-        if (this.buildManager.CanBuild == false && this.turret != null)
-        {
-            // Remove the line below after implementing upgrades
-            Debug.Log("Selecting node for upgrading");
-            return;
-        }
+
         // If the MyNode script is unchecked then we return
         if (this.gameObject.GetComponent<MyNode>().enabled == false)
         {
@@ -94,6 +88,11 @@ public class MyNode : MonoBehaviour
         }
     }
 
+    public void SelectForUpgradeColor()
+    {
+        this.rend.material.color = this.nodeSelectedToUpgradeColor;
+    }
+
     private void OnMouseExit()
     {
         // If the MyNode script is unchecked then we return
@@ -101,7 +100,6 @@ public class MyNode : MonoBehaviour
         {
             return;
         }
-
         this.rend.material.color = this.startColor;
     }
 

@@ -11,6 +11,7 @@ public class BuildManager : MonoBehaviour
 
 
     public GameObject buildEffect;
+    public GameObject myNode;
 
     private TurretBlueprint turretToBuild;
 
@@ -24,7 +25,23 @@ public class BuildManager : MonoBehaviour
 
         instance = this;
     }
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Mouse 1 being pressed");
+            RaycastHit hitInfo = new RaycastHit();
+            bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+            //Debug.Log(hit);
+            if (hit && hitInfo.transform.gameObject.tag == myNode.tag)
+            {
+                Debug.Log("Clicking a node");
+                myNode = hitInfo.transform.gameObject;
+                SelectNodeToUpgrade(myNode);
+            }
+        }
 
+    }
     public bool CanBuild
     {
         get { return this.turretToBuild != null; }
@@ -65,5 +82,23 @@ public class BuildManager : MonoBehaviour
     {
         Debug.Log("Turret Unselected");
         this.SelectTurretToBuild(null);
+    }
+    
+    private void SelectNodeToUpgrade(GameObject node)
+    {
+        node.GetComponent<MyNode>().SelectForUpgradeColor();
+        Debug.Log("test");
+
+        // If we don't have anything selected and we can't build return true
+        // To be used for upgrades
+        /*
+        if (this.CanBuild == false && this.myNode.turret != null)
+        {
+            // Remove the line below after implementing upgrades
+            Debug.Log("Selecting node for upgrading");
+            this.myNode.SelectForUpgradeColor();
+            return;
+        }*/
+
     }
 }
