@@ -31,6 +31,11 @@ public class MyNode : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (this.buildManager.CanBuild == false && this.turret != null)
+        {
+            Debug.Log("test");
+            return;
+        }
         // If the MyNode script is unchecked then we return
         if (this.gameObject.GetComponent<MyNode>().enabled == false)
         {
