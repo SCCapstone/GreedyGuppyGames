@@ -31,9 +31,12 @@ public class MyNode : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // If we don't have anything selected and we can't build return true
+        // To be used for upgrades
         if (this.buildManager.CanBuild == false && this.turret != null)
         {
-            Debug.Log("test");
+            // Remove the line below after implementing upgrades
+            Debug.Log("Selecting node for upgrading");
             return;
         }
         // If the MyNode script is unchecked then we return
