@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class MyNode : MonoBehaviour
 {
     public Color hoverColor;
-    public Color noteEnoughMoneyColor;
+    public Color errorColor;
     public Vector3 positionOffset;
 
     [Header("Optional")]
@@ -78,11 +78,18 @@ public class MyNode : MonoBehaviour
 
         if (this.buildManager.HasMoney)
         {
-            this.rend.material.color = this.hoverColor;
+            if(this.turret == null)
+            {
+                this.rend.material.color = this.hoverColor;
+            }
+            else
+            {
+                this.rend.material.color = this.errorColor;
+            }
         }
         else
         {
-            this.rend.material.color = this.noteEnoughMoneyColor;
+            this.rend.material.color = this.errorColor;
         }
     }
 
