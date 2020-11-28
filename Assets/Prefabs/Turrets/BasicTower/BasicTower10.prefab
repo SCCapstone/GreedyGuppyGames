@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   firerate: 1
+  gunShotAudio: BasicTowerShot
   enemyTag: Enemy
   partToRotate: {fileID: 7202518617915880317}
   turnSpeed: 10
