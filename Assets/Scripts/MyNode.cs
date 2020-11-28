@@ -86,6 +86,12 @@ public class MyNode : MonoBehaviour
         }
     }
 
+    public void DeleteTurret()
+    {
+        Destroy(turret);
+        turret = null;
+    }
+
     private void OnMouseExit()
     {
         // If the MyNode script is unchecked then we return
