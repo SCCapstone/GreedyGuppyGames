@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
 {
     public TurretBlueprint BasicTower;
     public TurretBlueprint CannonTower;
+    public TurretBlueprint MachineTower;
     private BuildManager buildManager;
 
     private void Start()
@@ -23,7 +24,13 @@ public class Shop : MonoBehaviour
 
     public void SelectCannonTurret()
     {
-        Debug.Log("Another Turret Selected");
+        Debug.Log("Cannon Turret Selected");
         this.buildManager.SelectTurretToBuild(this.CannonTower);
+    }
+
+    public void SelectMachineTurret()
+    {
+        Debug.Log("Machine Turret Selected");
+        this.buildManager.SelectTurretToBuild(this.MachineTower);
     }
 }

@@ -359,6 +359,22 @@ MonoBehaviour:
     upgradeCost10: 0
     upgradeCost20: 0
     upgradeCost30: 0
+  MachineTower:
+    prefab: {fileID: 7829677588344929892, guid: af3ad9e1591ee7e4fac7c3a68426d3d3,
+      type: 3}
+    prefabUpgrade01: {fileID: 0}
+    prefabUpgrade02: {fileID: 0}
+    prefabUpgrade03: {fileID: 0}
+    prefabUpgrade10: {fileID: 0}
+    prefabUpgrade20: {fileID: 0}
+    prefabUpgrade30: {fileID: 0}
+    cost: 0
+    upgradeCost01: 0
+    upgradeCost02: 0
+    upgradeCost03: 0
+    upgradeCost10: 0
+    upgradeCost20: 0
+    upgradeCost30: 0
 --- !u!1001 &49207510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20660,7 +20676,7 @@ PrefabInstance:
     - target: {fileID: 3458342144830200536, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectBasicTurret
+      value: SelectMachineTurret
       objectReference: {fileID: 0}
     - target: {fileID: 3458342144830200536, guid: d853c664b9a48734d8bb35d3b13b3c7a,
         type: 3}
