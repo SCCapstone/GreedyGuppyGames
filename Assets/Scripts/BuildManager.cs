@@ -14,6 +14,7 @@ public class BuildManager : MonoBehaviour
     public GameObject myNode;
 
     private TurretBlueprint turretToBuild;
+    private GameObject defaultNode;
 
     private void Awake()
     {
@@ -24,11 +25,14 @@ public class BuildManager : MonoBehaviour
         }
 
         instance = this;
+        defaultNode = myNode;
     }
+    //This update function is for selecting a node to upgrade
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            myNode.GetComponent<MyNode>().ClearUpgradeColor();
             Debug.Log("Mouse 1 being pressed");
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);

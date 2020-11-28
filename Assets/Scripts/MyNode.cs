@@ -30,7 +30,7 @@ public class MyNode : MonoBehaviour
         return this.transform.position + this.positionOffset;
     }
 
-    public void OnMouseDown()
+    private void OnMouseDown()
     {
 
         // If the MyNode script is unchecked then we return
@@ -92,11 +92,18 @@ public class MyNode : MonoBehaviour
     {
         this.rend.material.color = this.nodeSelectedToUpgradeColor;
     }
-
+    public void ClearUpgradeColor()
+    {
+        this.rend.material.color = this.startColor;
+    }
     private void OnMouseExit()
     {
         // If the MyNode script is unchecked then we return
         if (this.gameObject.GetComponent<MyNode>().enabled == false)
+        {
+            return;
+        }
+        if (this.rend.material.color == this.nodeSelectedToUpgradeColor)
         {
             return;
         }
