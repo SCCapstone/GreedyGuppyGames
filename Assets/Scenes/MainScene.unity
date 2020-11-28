@@ -23477,6 +23477,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1381169643}
   timeBetweenWaves: 7
   countdown: 5
+  timeBetweenRounds: 13
   waveCountdownText: {fileID: 1862606961}
 --- !u!4 &2051447963
 Transform:
