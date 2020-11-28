@@ -23615,6 +23615,60 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2053924372}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2063151233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2063151235}
+  - component: {fileID: 2063151234}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2063151234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063151233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e03d35d5b25d1f48a98df14343b8e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BasicTowerShot
+    audioClip: {fileID: 8300000, guid: f82348f044e4641f38816d5c92ce9618, type: 3}
+    volume: 1
+    pitch: 1.5
+    source: {fileID: 0}
+  - name: CannonTowerShot
+    audioClip: {fileID: 8300000, guid: dbb5d987bb85a4b84aa3a9e48e093e7c, type: 3}
+    volume: 1
+    pitch: 1.5
+    source: {fileID: 0}
+--- !u!4 &2063151235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063151233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 43.4, y: 61.300003, z: 34.44}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2071648333
 PrefabInstance:
   m_ObjectHideFlags: 0

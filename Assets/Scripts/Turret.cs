@@ -15,8 +15,8 @@ public class Turret : MonoBehaviour
     public float firerate = 1f;
     private float fireCountdown = 0f;
 
-    //Audio file to be played when turret is firing a bullet
-    public AudioSource GunShot;
+    //Audio file name to be played when turret is firing a bullet
+    public string gunShotAudio;
 
     [Header("Unity Setup Fields")]
 
@@ -117,7 +117,7 @@ public class Turret : MonoBehaviour
         }
 
         //Audio for when a "bullet" is fired
-        GunShot.Play();
+        FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
         Debug.Log("Audio should have been played");
     }
 
