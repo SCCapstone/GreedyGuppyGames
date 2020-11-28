@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    public TurretBlueprint standardTurret;
-    public TurretBlueprint anotherTurret;
+    public TurretBlueprint BasicTower;
+    public TurretBlueprint CannonTower;
     private BuildManager buildManager;
 
     private void Start()
@@ -18,12 +18,12 @@ public class Shop : MonoBehaviour
     public void SelectBasicTurret()
     {
         Debug.Log("Standard Turret Selected");
-        this.buildManager.SelectTurretToBuild(this.standardTurret);
+        this.buildManager.SelectTurretToBuild(this.BasicTower);
     }
 
     public void SelectCannonTurret()
     {
         Debug.Log("Another Turret Selected");
-        this.buildManager.SelectTurretToBuild(this.anotherTurret);
+        this.buildManager.SelectTurretToBuild(this.CannonTower);
     }
 }
