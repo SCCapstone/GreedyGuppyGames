@@ -40,7 +40,7 @@ public class MyNode : MonoBehaviour
 
     private void OnMouseDown()
     {
-
+        Debug.Log("I ran onmousedown");
         // If the MyNode script is unchecked then we return
         if (this.gameObject.GetComponent<MyNode>().enabled == false)
         {
@@ -112,7 +112,7 @@ public class MyNode : MonoBehaviour
     {
         this.rend.material.color = this.nodeSelectedToUpgradeColor;
     }
-    public void ClearUpgradeColor()
+    public void ResetColor()
     {
         this.rend.material.color = this.startColor;
     }
@@ -128,7 +128,7 @@ public class MyNode : MonoBehaviour
         {
             return;
         }
-        this.rend.material.color = this.startColor;
+        this.ResetColor();
     }
 
     private void OnMouseOver()
@@ -136,7 +136,7 @@ public class MyNode : MonoBehaviour
         // changes the color back if right clicked to deselect tower on the node
         if (Input.GetMouseButtonDown(1))
         {
-            this.rend.material.color = this.startColor;
+            this.ResetColor();
         }
     }
 

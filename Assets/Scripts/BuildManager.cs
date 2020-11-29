@@ -3,6 +3,7 @@
 // </copyright>
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class BuildManager : MonoBehaviour
     public UpgradeUI upgradeUI;
 
     public GameObject buildEffect;
-    public GameObject myNode;
+    public GameObject hitObject;
+
+    private MyNode selectedNode;
 
     private TurretBlueprint turretToBuild;
 
@@ -30,17 +33,29 @@ public class BuildManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            myNode.GetComponent<MyNode>().ClearUpgradeColor();
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
+            if (selectedNode != null)
+            {
+                this.DeselectNode();
+            }
+            //hitObject.GetComponent<MyNode>().ClearUpgradeColor();
             //Debug.Log("Mouse 1 being pressed");
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
-            if (hit && hitInfo.transform.gameObject.tag == myNode.tag)
+            if (hit && hitInfo.transform.gameObject.tag == hitObject.tag)
             {
+                
+
+
                 //Debug.Log("Clicking a node");
-                myNode = hitInfo.transform.gameObject;
-                if (myNode.GetComponent<MyNode>().turret != null)
+                hitObject = hitInfo.transform.gameObject;
+                if (hitObject.GetComponent<MyNode>().turret != null)
                 {
-                    SelectNodeToUpgrade(myNode);
+                    SelectNode(hitObject);
                 }
             }
         }
@@ -56,9 +71,6 @@ public class BuildManager : MonoBehaviour
         get { return PlayerStats.Money >= this.turretToBuild.cost; }
     }
 
-
-
-
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
         this.turretToBuild = turret;
@@ -70,17 +82,25 @@ public class BuildManager : MonoBehaviour
         this.SelectTurretToBuild(null);
     }
     
-    private void SelectNodeToUpgrade(GameObject node)
+    public void SelectNode(GameObject node)
     {
+        
         //node.GetComponent<MyNode>().SelectForUpgradeColor();
         if(node == null)
         {
             return;
         }
-        MyNode upgradeNode = node.GetComponent<MyNode>();
-        upgradeNode.SelectForUpgradeColor();
+        selectedNode = node.GetComponent<MyNode>();
+        selectedNode.SelectForUpgradeColor();
         Debug.Log("selected");
-        upgradeUI.SetTurret(upgradeNode);
+        upgradeUI.SetTurret(selectedNode);
+    }
+
+    public void DeselectNode()
+    {
+        selectedNode.ResetColor();
+        selectedNode = null;
+        upgradeUI.Hide();
     }
 
     public TurretBlueprint GetTurretBlueprint()
