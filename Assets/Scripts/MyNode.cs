@@ -159,16 +159,23 @@ public class MyNode : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
 
+        turretBlueprint = blueprint;
         // Debug.Log("Turret build! Money left: " + PlayerStats.Money);
     }
 
     public void UpgradeTurret()
     {
+        
+        Debug.Log("CalledUpgrade");
         GameObject upgradePrefab;
         int upgradePrice;
 
+        Debug.Log("x:" + upgradePathOne);
+        Debug.Log("y:" + upgradePathTwo);
+
         if (upgradePathOne == 0 && upgradePathTwo == 1)
         {
+            Debug.Log("01 Path Upgrade");
             upgradePrefab = turretBlueprint.prefabUpgrade01;
             upgradePrice = turretBlueprint.upgradeCost01;
         }
@@ -209,11 +216,12 @@ public class MyNode : MonoBehaviour
             return;
         }
 
+        
         DeleteTurret();
-
         PlayerStats.Money -= upgradePrice;
 
         GameObject turretUpgrade = (GameObject)Instantiate(upgradePrefab, GetBuildPosition(), Quaternion.identity);
+        Debug.Log("I made it here");
         turret = turretUpgrade;
 
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);

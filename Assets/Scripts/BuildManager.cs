@@ -31,12 +31,12 @@ public class BuildManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             myNode.GetComponent<MyNode>().ClearUpgradeColor();
-            Debug.Log("Mouse 1 being pressed");
+            //Debug.Log("Mouse 1 being pressed");
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
             if (hit && hitInfo.transform.gameObject.tag == myNode.tag)
             {
-                Debug.Log("Clicking a node");
+                //Debug.Log("Clicking a node");
                 myNode = hitInfo.transform.gameObject;
                 if (myNode.GetComponent<MyNode>().turret != null)
                 {
@@ -72,24 +72,15 @@ public class BuildManager : MonoBehaviour
     
     private void SelectNodeToUpgrade(GameObject node)
     {
-        node.GetComponent<MyNode>().SelectForUpgradeColor();
-        Debug.Log("test");
-
-        //UpgradeUI.SetTurret(node);
-
-       
-
-        // If we don't have anything selected and we can't build return true
-        // To be used for upgrades
-        /*
-        if (this.CanBuild == false && this.myNode.turret != null)
+        //node.GetComponent<MyNode>().SelectForUpgradeColor();
+        if(node == null)
         {
-            // Remove the line below after implementing upgrades
-            Debug.Log("Selecting node for upgrading");
-            this.myNode.SelectForUpgradeColor();
             return;
-        }*/
-
+        }
+        MyNode upgradeNode = node.GetComponent<MyNode>();
+        upgradeNode.SelectForUpgradeColor();
+        Debug.Log("selected");
+        upgradeUI.SetTurret(upgradeNode);
     }
 
     public TurretBlueprint GetTurretBlueprint()
