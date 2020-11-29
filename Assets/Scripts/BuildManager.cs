@@ -41,7 +41,10 @@ public class BuildManager : MonoBehaviour
             {
                 Debug.Log("Clicking a node");
                 myNode = hitInfo.transform.gameObject;
-                SelectNodeToUpgrade(myNode);
+                if (myNode.GetComponent<MyNode>().turret != null)
+                {
+                    SelectNodeToUpgrade(myNode);
+                }
             }
         }
 
