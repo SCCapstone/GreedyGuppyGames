@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 7485909352584488158}
   - component: {fileID: 4891834666585962946}
   m_Layer: 0
-  m_Name: MachineGun00 Variant 1
+  m_Name: MachineGun00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,8 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  firerate: 1
-  gunShotAudio: 
+  firerate: 2
+  gunShotAudio: MachineGunTowerShot
   enemyTag: Enemy
   partToRotate: {fileID: 4126898281611459140}
   turnSpeed: 10

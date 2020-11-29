@@ -8,13 +8,12 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
-
+    public UpgradeUI upgradeUI;
 
     public GameObject buildEffect;
     public GameObject myNode;
 
     private TurretBlueprint turretToBuild;
-    private GameObject defaultNode;
 
     private void Awake()
     {
@@ -23,10 +22,9 @@ public class BuildManager : MonoBehaviour
             Debug.Log("More than one BuildManager in scene!");
             return;
         }
-
         instance = this;
-        defaultNode = myNode;
     }
+
     //This update function is for selecting a node to upgrade
     private void Update()
     {
@@ -36,7 +34,6 @@ public class BuildManager : MonoBehaviour
             Debug.Log("Mouse 1 being pressed");
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
-            //Debug.Log(hit);
             if (hit && hitInfo.transform.gameObject.tag == myNode.tag)
             {
                 Debug.Log("Clicking a node");
@@ -59,140 +56,7 @@ public class BuildManager : MonoBehaviour
         get { return PlayerStats.Money >= this.turretToBuild.cost; }
     }
 
-    public void BuildTurretOn(MyNode node)
-    {
-        if (PlayerStats.Money < this.turretToBuild.cost)
-        {
-            Debug.Log("Not enough money to build that!");
-            return;
-        }
 
-        PlayerStats.Money -= this.turretToBuild.cost;
-
-        // Build a turret
-        // GameObject turretToBuild = buildManager.GetTurretToBuild();
-        GameObject turret = (GameObject)Instantiate(this.turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turret;
-
-        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-
-        Debug.Log("Turret build! Money left: " + PlayerStats.Money);
-    }
-
-    public void UpgradeTurret01(MyNode node)
-    {
-        if(PlayerStats.Money < this.turretToBuild.upgradeCost01)
-        {
-            Debug.Log("Not enough money for upgrade");
-            return;
-        }
-
-        node.DeleteTurret();
-
-        PlayerStats.Money -= this.turretToBuild.upgradeCost01;
-
-        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade01, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turretUpgrade;
-
-        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-    }
-
-    public void UpgradeTurret02(MyNode node)
-    {
-        if (PlayerStats.Money < this.turretToBuild.upgradeCost01)
-        {
-            Debug.Log("Not enough money for upgrade");
-            return;
-        }
-
-        node.DeleteTurret();
-
-        PlayerStats.Money -= this.turretToBuild.upgradeCost02;
-
-        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade02, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turretUpgrade;
-
-        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-    }
-
-    public void UpgradeTurret03(MyNode node)
-    {
-        if (PlayerStats.Money < this.turretToBuild.upgradeCost03)
-        {
-            Debug.Log("Not enough money for upgrade");
-            return;
-        }
-
-        node.DeleteTurret();
-
-        PlayerStats.Money -= this.turretToBuild.upgradeCost03;
-
-        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade03, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turretUpgrade;
-
-        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-    }
-
-    public void UpgradeTurret10(MyNode node)
-    {
-        if (PlayerStats.Money < this.turretToBuild.upgradeCost10)
-        {
-            Debug.Log("Not enough money for upgrade");
-            return;
-        }
-
-        node.DeleteTurret();
-
-        PlayerStats.Money -= this.turretToBuild.upgradeCost10;
-
-        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade10, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turretUpgrade;
-
-        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-    }
-
-    public void UpgradeTurret20(MyNode node)
-    {
-        if (PlayerStats.Money < this.turretToBuild.upgradeCost20)
-        {
-            Debug.Log("Not enough money for upgrade");
-            return;
-        }
-
-        node.DeleteTurret();
-
-        PlayerStats.Money -= this.turretToBuild.upgradeCost20;
-
-        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade20, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turretUpgrade;
-
-        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-    }
-
-    public void UpgradeTurret30(MyNode node)
-    {
-        if (PlayerStats.Money < this.turretToBuild.upgradeCost30)
-        {
-            Debug.Log("Not enough money for upgrade");
-            return;
-        }
-
-        node.DeleteTurret();
-
-        PlayerStats.Money -= this.turretToBuild.upgradeCost30;
-
-        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade30, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turretUpgrade;
-
-        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-    }
 
 
     public void SelectTurretToBuild(TurretBlueprint turret)
@@ -202,7 +66,7 @@ public class BuildManager : MonoBehaviour
 
     public void ResetTurretToBuild()
     {
-        Debug.Log("Turret Unselected");
+        // Debug.Log("Turret Unselected");
         this.SelectTurretToBuild(null);
     }
     
@@ -210,6 +74,10 @@ public class BuildManager : MonoBehaviour
     {
         node.GetComponent<MyNode>().SelectForUpgradeColor();
         Debug.Log("test");
+
+        //UpgradeUI.SetTurret(node);
+
+       
 
         // If we don't have anything selected and we can't build return true
         // To be used for upgrades
@@ -222,5 +90,10 @@ public class BuildManager : MonoBehaviour
             return;
         }*/
 
+    }
+
+    public TurretBlueprint GetTurretBlueprint()
+    {
+        return turretToBuild;
     }
 }

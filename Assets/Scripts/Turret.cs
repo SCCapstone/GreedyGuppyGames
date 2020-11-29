@@ -118,7 +118,7 @@ public class Turret : MonoBehaviour
 
         //Audio for when a "bullet" is fired
         FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
-        Debug.Log("Audio should have been played");
+        // Debug.Log("Audio should have been played");
     }
 
     private void OnDrawGizmosSelected()
