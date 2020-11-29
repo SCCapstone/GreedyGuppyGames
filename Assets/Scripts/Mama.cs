@@ -25,6 +25,7 @@ public class Mama : Enemy
             Enemy newEnemy = Instantiate(bugToSpawn).GetComponent<Enemy>();
             newEnemy.transform.forward = transform.forward;
             newEnemy.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + (i * .25f));
+            Debug.Log("Wavepoint index is " + wavepointIndex);
             newEnemy.SetWaypoint(wavepointIndex);
 
         }

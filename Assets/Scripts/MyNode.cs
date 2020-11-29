@@ -8,11 +8,20 @@ using UnityEngine.EventSystems;
 public class MyNode : MonoBehaviour
 {
     public Color hoverColor;
-    public Color noteEnoughMoneyColor;
+    public Color nodeSelectedToUpgradeColor;
+    public Color errorColor;
+    
     public Vector3 positionOffset;
 
-    [Header("Optional")]
+    [HideInInspector]
     public GameObject turret;
+    [HideInInspector]
+    public TurretBlueprint turretBlueprint;
+    [HideInInspector]
+    public int upgradePathOne = 0;
+    [HideInInspector]
+    public int upgradePathTwo = 0;
+
 
     private Renderer rend;
     private Color startColor;
@@ -31,6 +40,7 @@ public class MyNode : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log("I ran onmousedown");
         // If the MyNode script is unchecked then we return
         if (this.gameObject.GetComponent<MyNode>().enabled == false)
         {
@@ -49,11 +59,11 @@ public class MyNode : MonoBehaviour
 
         if (this.turret != null)
         {
-            Debug.Log("Can't build there! - TODO: Dispaly on screen.");
+            // Debug.Log("Can't build there! - TODO: Dispaly on screen.");
             return;
         }
 
-        this.buildManager.BuildTurretOn(this);
+        this.BuildTurret(buildManager.GetTurretBlueprint());
         this.buildManager.ResetTurretToBuild();
         this.rend.material.color = this.startColor;
     }
@@ -78,11 +88,18 @@ public class MyNode : MonoBehaviour
 
         if (this.buildManager.HasMoney)
         {
-            this.rend.material.color = this.hoverColor;
+            if(this.turret == null)
+            {
+                this.rend.material.color = this.hoverColor;
+            }
+            else
+            {
+                this.rend.material.color = this.errorColor;
+            }
         }
         else
         {
-            this.rend.material.color = this.noteEnoughMoneyColor;
+            this.rend.material.color = this.errorColor;
         }
     }
 
@@ -90,6 +107,14 @@ public class MyNode : MonoBehaviour
     {
         Destroy(turret);
         turret = null;
+    }
+    public void SelectForUpgradeColor()
+    {
+        this.rend.material.color = this.nodeSelectedToUpgradeColor;
+    }
+    public void ResetColor()
+    {
+        this.rend.material.color = this.startColor;
     }
 
     private void OnMouseExit()
@@ -99,8 +124,11 @@ public class MyNode : MonoBehaviour
         {
             return;
         }
-
-        this.rend.material.color = this.startColor;
+        if (this.rend.material.color == this.nodeSelectedToUpgradeColor)
+        {
+            return;
+        }
+        this.ResetColor();
     }
 
     private void OnMouseOver()
@@ -108,7 +136,95 @@ public class MyNode : MonoBehaviour
         // changes the color back if right clicked to deselect tower on the node
         if (Input.GetMouseButtonDown(1))
         {
-            this.rend.material.color = this.startColor;
+            this.ResetColor();
         }
+    }
+
+
+    private void BuildTurret(TurretBlueprint blueprint)
+    {
+        if (PlayerStats.Money < blueprint.cost)
+        {
+            // Debug.Log("Not enough money to build that!");
+            return;
+        }
+
+        PlayerStats.Money -= blueprint.cost;
+
+        // Build a turret
+        // GameObject turretToBuild = buildManager.GetTurretToBuild();
+        GameObject aTurret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        turret = aTurret;
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+
+        turretBlueprint = blueprint;
+        // Debug.Log("Turret build! Money left: " + PlayerStats.Money);
+    }
+
+    public void UpgradeTurret()
+    {
+        
+        Debug.Log("CalledUpgrade");
+        GameObject upgradePrefab;
+        int upgradePrice;
+
+        Debug.Log("x:" + upgradePathOne);
+        Debug.Log("y:" + upgradePathTwo);
+
+        if (upgradePathOne == 0 && upgradePathTwo == 1)
+        {
+            Debug.Log("01 Path Upgrade");
+            upgradePrefab = turretBlueprint.prefabUpgrade01;
+            upgradePrice = turretBlueprint.upgradeCost01;
+        }
+        else if(upgradePathOne == 0 && upgradePathTwo == 2)
+        {
+            upgradePrefab = turretBlueprint.prefabUpgrade02;
+            upgradePrice = turretBlueprint.upgradeCost02;
+        }
+        else if (upgradePathOne == 0 && upgradePathTwo == 3)
+        {
+            upgradePrefab = turretBlueprint.prefabUpgrade03;
+            upgradePrice = turretBlueprint.upgradeCost03;
+        }
+        else if (upgradePathOne == 1 && upgradePathTwo == 0)
+        {
+            upgradePrefab = turretBlueprint.prefabUpgrade10;
+            upgradePrice = turretBlueprint.upgradeCost10;
+        }
+        else if (upgradePathOne == 2 && upgradePathTwo == 0)
+        {
+            upgradePrefab = turretBlueprint.prefabUpgrade20;
+            upgradePrice = turretBlueprint.upgradeCost20;
+        }
+        else if (upgradePathOne == 3 && upgradePathTwo == 0)
+        {
+            upgradePrefab = turretBlueprint.prefabUpgrade30;
+            upgradePrice = turretBlueprint.upgradeCost30;
+        }
+        else
+        {
+            Debug.Log("Error while upgrading turret. Upgrade Path values are incorrect");
+            return;
+        }
+
+        if (PlayerStats.Money < upgradePrice)
+        {
+            // Debug.Log("Not enough money for upgrade");
+            return;
+        }
+
+        
+        DeleteTurret();
+        PlayerStats.Money -= upgradePrice;
+
+        GameObject turretUpgrade = (GameObject)Instantiate(upgradePrefab, GetBuildPosition(), Quaternion.identity);
+        Debug.Log("I made it here");
+        turret = turretUpgrade;
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
     }
 }
