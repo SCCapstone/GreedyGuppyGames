@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour
 
     private void Explode()
     {
-        Debug.Log("I'm exploding!!!!");
+        // Debug.Log("I'm exploding!!!!");
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, this.explosionRadius);
         foreach (Collider collider in colliders)
         {
@@ -91,7 +91,7 @@ public class Bullet : MonoBehaviour
     // What happens when the bullet hits something (yes, this mostly replaces HitTarget)
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("I'm colliding with something!");
+        // Debug.Log("I'm colliding with something!");
         GameObject effectIns = (GameObject)Instantiate(this.impactEffect, this.transform.position, this.transform.rotation);
         Destroy(effectIns, 2f);
 
@@ -100,7 +100,7 @@ public class Bullet : MonoBehaviour
         }
         else {
             this.Damage(col.gameObject.GetComponent<Transform>()); // gets the transform of the gameObject of what was hit and hurts it (the spaghetti is ready)
-            Debug.Log("I'm hitting the enemy!");
+            // Debug.Log("I'm hitting the enemy!");
         }
 
         // Destroys the bullet (not the enemy)

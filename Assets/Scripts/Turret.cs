@@ -86,6 +86,7 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        this.fireCountdown -= Time.deltaTime;
         if (this.target == null)
         {
             return;
@@ -103,7 +104,7 @@ public class Turret : MonoBehaviour
             this.fireCountdown = 1f / this.firerate;
         }
 
-        this.fireCountdown -= Time.deltaTime;
+        
     }
 
     private void Shoot()
@@ -118,7 +119,7 @@ public class Turret : MonoBehaviour
 
         //Audio for when a "bullet" is fired
         FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
-        Debug.Log("Audio should have been played");
+        // Debug.Log("Audio should have been played");
     }
 
     private void OnDrawGizmosSelected()

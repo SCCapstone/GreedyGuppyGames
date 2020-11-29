@@ -40,8 +40,8 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        //Plays game music
-        PlayAudio("GameMusic");
+        // Plays game music
+        //PlayAudio("GameMusic");
     }
 
     //Plays an audio clip
