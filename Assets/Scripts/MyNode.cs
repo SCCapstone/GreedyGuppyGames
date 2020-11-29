@@ -8,8 +8,9 @@ using UnityEngine.EventSystems;
 public class MyNode : MonoBehaviour
 {
     public Color hoverColor;
-    public Color noteEnoughMoneyColor;
     public Color nodeSelectedToUpgradeColor;
+    public Color errorColor;
+    
     public Vector3 positionOffset;
 
     [Header("Optional")]
@@ -80,14 +81,26 @@ public class MyNode : MonoBehaviour
 
         if (this.buildManager.HasMoney)
         {
-            this.rend.material.color = this.hoverColor;
+            if(this.turret == null)
+            {
+                this.rend.material.color = this.hoverColor;
+            }
+            else
+            {
+                this.rend.material.color = this.errorColor;
+            }
         }
         else
         {
-            this.rend.material.color = this.noteEnoughMoneyColor;
+            this.rend.material.color = this.errorColor;
         }
     }
 
+    public void DeleteTurret()
+    {
+        Destroy(turret);
+        turret = null;
+    }
     public void SelectForUpgradeColor()
     {
         this.rend.material.color = this.nodeSelectedToUpgradeColor;
@@ -96,6 +109,7 @@ public class MyNode : MonoBehaviour
     {
         this.rend.material.color = this.startColor;
     }
+
     private void OnMouseExit()
     {
         // If the MyNode script is unchecked then we return

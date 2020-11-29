@@ -80,6 +80,121 @@ public class BuildManager : MonoBehaviour
         Debug.Log("Turret build! Money left: " + PlayerStats.Money);
     }
 
+    public void UpgradeTurret01(MyNode node)
+    {
+        if(PlayerStats.Money < this.turretToBuild.upgradeCost01)
+        {
+            Debug.Log("Not enough money for upgrade");
+            return;
+        }
+
+        node.DeleteTurret();
+
+        PlayerStats.Money -= this.turretToBuild.upgradeCost01;
+
+        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade01, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turretUpgrade;
+
+        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+
+    public void UpgradeTurret02(MyNode node)
+    {
+        if (PlayerStats.Money < this.turretToBuild.upgradeCost01)
+        {
+            Debug.Log("Not enough money for upgrade");
+            return;
+        }
+
+        node.DeleteTurret();
+
+        PlayerStats.Money -= this.turretToBuild.upgradeCost02;
+
+        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade02, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turretUpgrade;
+
+        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+
+    public void UpgradeTurret03(MyNode node)
+    {
+        if (PlayerStats.Money < this.turretToBuild.upgradeCost03)
+        {
+            Debug.Log("Not enough money for upgrade");
+            return;
+        }
+
+        node.DeleteTurret();
+
+        PlayerStats.Money -= this.turretToBuild.upgradeCost03;
+
+        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade03, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turretUpgrade;
+
+        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+
+    public void UpgradeTurret10(MyNode node)
+    {
+        if (PlayerStats.Money < this.turretToBuild.upgradeCost10)
+        {
+            Debug.Log("Not enough money for upgrade");
+            return;
+        }
+
+        node.DeleteTurret();
+
+        PlayerStats.Money -= this.turretToBuild.upgradeCost10;
+
+        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade10, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turretUpgrade;
+
+        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+
+    public void UpgradeTurret20(MyNode node)
+    {
+        if (PlayerStats.Money < this.turretToBuild.upgradeCost20)
+        {
+            Debug.Log("Not enough money for upgrade");
+            return;
+        }
+
+        node.DeleteTurret();
+
+        PlayerStats.Money -= this.turretToBuild.upgradeCost20;
+
+        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade20, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turretUpgrade;
+
+        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+
+    public void UpgradeTurret30(MyNode node)
+    {
+        if (PlayerStats.Money < this.turretToBuild.upgradeCost30)
+        {
+            Debug.Log("Not enough money for upgrade");
+            return;
+        }
+
+        node.DeleteTurret();
+
+        PlayerStats.Money -= this.turretToBuild.upgradeCost30;
+
+        GameObject turretUpgrade = (GameObject)Instantiate(this.turretToBuild.prefabUpgrade30, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turretUpgrade;
+
+        GameObject effect = (GameObject)Instantiate(this.buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+
+
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
         this.turretToBuild = turret;
