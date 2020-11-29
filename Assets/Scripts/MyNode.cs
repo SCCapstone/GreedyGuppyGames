@@ -8,7 +8,9 @@ using UnityEngine.EventSystems;
 public class MyNode : MonoBehaviour
 {
     public Color hoverColor;
+    public Color nodeSelectedToUpgradeColor;
     public Color errorColor;
+    
     public Vector3 positionOffset;
 
     [Header("Optional")]
@@ -31,6 +33,7 @@ public class MyNode : MonoBehaviour
 
     private void OnMouseDown()
     {
+
         // If the MyNode script is unchecked then we return
         if (this.gameObject.GetComponent<MyNode>().enabled == false)
         {
@@ -98,6 +101,14 @@ public class MyNode : MonoBehaviour
         Destroy(turret);
         turret = null;
     }
+    public void SelectForUpgradeColor()
+    {
+        this.rend.material.color = this.nodeSelectedToUpgradeColor;
+    }
+    public void ClearUpgradeColor()
+    {
+        this.rend.material.color = this.startColor;
+    }
 
     private void OnMouseExit()
     {
@@ -106,7 +117,10 @@ public class MyNode : MonoBehaviour
         {
             return;
         }
-
+        if (this.rend.material.color == this.nodeSelectedToUpgradeColor)
+        {
+            return;
+        }
         this.rend.material.color = this.startColor;
     }
 
