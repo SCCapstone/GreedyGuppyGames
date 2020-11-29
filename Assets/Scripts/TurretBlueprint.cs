@@ -3,10 +3,12 @@
 // </copyright>
 
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class TurretBlueprint
 {
+    [Header("Turret Prefabs")]
     public GameObject prefab;
     public GameObject prefabUpgrade01;
     public GameObject prefabUpgrade02;
@@ -15,6 +17,8 @@ public class TurretBlueprint
     public GameObject prefabUpgrade20;
     public GameObject prefabUpgrade30;
 
+
+    [Header("Turret Costs")]
     public int cost;
     public int upgradeCost01;
     public int upgradeCost02;
@@ -22,4 +26,12 @@ public class TurretBlueprint
     public int upgradeCost10;
     public int upgradeCost20;
     public int upgradeCost30;
+
+    [Header("Turret Descriptions")]
+    public string upgrade10Text;
+    public string upgrade20Text;
+    public string upgrade30Text;
+    public string upgrade01Text;
+    public string upgrade02Text;
+    public string upgrade03Text;
 }

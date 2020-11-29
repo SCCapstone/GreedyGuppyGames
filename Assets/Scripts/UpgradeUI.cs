@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class UpgradeUI : MonoBehaviour
 {
+    [Header("UI")]
     public GameObject ui;
+
+    [Header("Upgrade Text")]
     public Text upgrade10Text;
     public Text upgrade20Text;
     public Text upgrade30Text;
@@ -13,6 +16,7 @@ public class UpgradeUI : MonoBehaviour
     public Text upgrade02Text;
     public Text upgrade03Text;
 
+    [Header("Upgrade Buttons")]
     public Button upgrade10Button;
     public Button upgrade20Button;
     public Button upgrade30Button;
@@ -29,7 +33,14 @@ public class UpgradeUI : MonoBehaviour
         // transform.position = nodeToUpgrade.GetBuildPosition();
         this.Activate();
 
-        if(nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)
+        upgrade01Text.text = nodeToUpgrade.turretBlueprint.upgrade01Text;
+        upgrade02Text.text = nodeToUpgrade.turretBlueprint.upgrade02Text;
+        upgrade03Text.text = nodeToUpgrade.turretBlueprint.upgrade03Text;
+        upgrade10Text.text = nodeToUpgrade.turretBlueprint.upgrade10Text;
+        upgrade20Text.text = nodeToUpgrade.turretBlueprint.upgrade20Text;
+        upgrade30Text.text = nodeToUpgrade.turretBlueprint.upgrade30Text;
+
+        if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)
         {
             upgrade01Button.interactable = true;
             upgrade02Button.interactable = false;

@@ -343,6 +343,12 @@ MonoBehaviour:
     upgradeCost10: 0
     upgradeCost20: 0
     upgradeCost30: 0
+    upgrade10Text: More Damage
+    upgrade20Text: More Pierce
+    upgrade30Text: Even More Pierce
+    upgrade01Text: Faster Fire Rate
+    upgrade02Text: More Range
+    upgrade03Text: Faster Fire Rate and Projectile Speed
   CannonTower:
     prefab: {fileID: 1161168588940831137, guid: 40b931dc585d2cd4d80b99a540626b4e,
       type: 3}
@@ -359,6 +365,12 @@ MonoBehaviour:
     upgradeCost10: 0
     upgradeCost20: 0
     upgradeCost30: 0
+    upgrade10Text: 
+    upgrade20Text: 
+    upgrade30Text: 
+    upgrade01Text: 
+    upgrade02Text: 
+    upgrade03Text: 
   MachineTower:
     prefab: {fileID: 7829677588344929892, guid: af3ad9e1591ee7e4fac7c3a68426d3d3,
       type: 3}
@@ -375,6 +387,12 @@ MonoBehaviour:
     upgradeCost10: 0
     upgradeCost20: 0
     upgradeCost30: 0
+    upgrade10Text: 
+    upgrade20Text: 
+    upgrade30Text: 
+    upgrade01Text: 
+    upgrade02Text: 
+    upgrade03Text: 
 --- !u!1001 &49207510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1231,7 +1249,7 @@ GameObject:
   - component: {fileID: 102967528}
   - component: {fileID: 102967527}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 02UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3761,7 +3779,7 @@ GameObject:
   - component: {fileID: 293203442}
   - component: {fileID: 293203441}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 30UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4490,7 +4508,7 @@ GameObject:
   - component: {fileID: 354150770}
   - component: {fileID: 354150769}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 10UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7289,7 +7307,7 @@ GameObject:
   - component: {fileID: 633956892}
   - component: {fileID: 633956891}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 03UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9064,7 +9082,7 @@ GameObject:
   - component: {fileID: 760053388}
   - component: {fileID: 760053387}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 20UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16761,12 +16779,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 1375445094}
-  upgrade10Text: {fileID: 0}
-  upgrade20Text: {fileID: 0}
-  upgrade30Text: {fileID: 0}
-  upgrade01Text: {fileID: 0}
-  upgrade02Text: {fileID: 0}
-  upgrade03Text: {fileID: 0}
+  upgrade10Text: {fileID: 354150769}
+  upgrade20Text: {fileID: 760053387}
+  upgrade30Text: {fileID: 293203441}
+  upgrade01Text: {fileID: 1799587089}
+  upgrade02Text: {fileID: 102967527}
+  upgrade03Text: {fileID: 633956891}
   upgrade10Button: {fileID: 1117874280}
   upgrade20Button: {fileID: 803832222}
   upgrade30Button: {fileID: 1361156340}
@@ -23223,7 +23241,7 @@ GameObject:
   - component: {fileID: 1799587090}
   - component: {fileID: 1799587089}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 01UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
