@@ -18,7 +18,7 @@ public class WaveSpawner : MonoBehaviour
     public float countdown = 11f;
     public float timeBetweenRounds = 13f;
 
-    public Text waveCountdownText;
+    public Text roundText;
 
     private int waveIndex = 0;
     private int mamaIndex = 0;
@@ -27,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
     private int round2 = 0;
     private int round3 = 0;
     private int TEN = 10;
+    private int round = 1;
 
     private void Update()
     {
@@ -39,8 +40,7 @@ public class WaveSpawner : MonoBehaviour
         this.countdown -= Time.deltaTime;
 
         this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
-
-        this.waveCountdownText.text = string.Format("{0:00.00}", this.countdown);
+        this.roundText.text = ("Round: "+this.round);
     }
 
     private IEnumerator SpawnWave()
@@ -50,7 +50,7 @@ public class WaveSpawner : MonoBehaviour
             ++round1;
             ++this.waveIndex; //adds a single enemy(Grub) per wave
             PlayerStats.Rounds++;
-            Debug.Log("Grubs to spawn: " + this.waveIndex);
+            // Debug.Log("Grubs to spawn: " + this.waveIndex);
 
             //spawns 1 Grub per loop
             for (int i = 0; i < this.waveIndex; i++)
@@ -61,11 +61,13 @@ public class WaveSpawner : MonoBehaviour
 
             if (round1 == TEN)
             {
-                Debug.Log("Spawning a single mama");
+                // Debug.Log("Spawning a single mama");
                 this.SpawnEnemy(mamaPrefab); //spawns a single mama
-                Debug.Log("Round 1 over");
+                // Debug.Log("Round 1 over");
                 this.waveIndex = 5;  //will spawn 5 enemies (after waveIndex increments) at the start of round 2
                 //pause the game here, wait for player to resume
+                //Moves the round text to round 2
+                ++round;
             }
         }
 
@@ -79,7 +81,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 yield return new WaitForSeconds(timeBetweenRounds);
             }
-            Debug.Log("Grubs to spawn: " + this.waveIndex);
+            // Debug.Log("Grubs to spawn: " + this.waveIndex);
 
             for (int i = 0; i < this.waveIndex; i++)
             {
@@ -92,7 +94,7 @@ public class WaveSpawner : MonoBehaviour
             if (round2 >= 5)
             {
                 ++mamaIndex; //adds a single mama to spawn per wave
-                Debug.Log("Spawn "+mamaIndex+" mama(s)");
+                // Debug.Log("Spawn "+mamaIndex+" mama(s)");
                 for (int i = 0; i < mamaIndex; i++)
                 {
                     this.SpawnEnemy(mamaPrefab);
@@ -103,10 +105,12 @@ public class WaveSpawner : MonoBehaviour
 
             if (round2 == TEN)
             {
-                Debug.Log("Round 2 over");
+                // Debug.Log("Round 2 over");
                 this.waveIndex = 10;
                 this.mamaIndex = 3;
                 //pause the game here, wait for player to resume
+                //Moves the round text to round 3
+                ++round;
             }
         }
         else if (round3 < TEN)  //Round 3: 30 waves  (way too long, will shorten for now)
@@ -117,7 +121,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 yield return new WaitForSeconds(timeBetweenRounds);
             }
-            Debug.Log("Grubs to spawn: " + this.waveIndex);
+            // Debug.Log("Grubs to spawn: " + this.waveIndex);
 
             for (int i = 0; i < this.waveIndex; i++)
             {
@@ -130,7 +134,7 @@ public class WaveSpawner : MonoBehaviour
             if (round2 >= 5)
             {
                 this.mamaIndex += 2; //adds 2 more mamas to spawn per wave
-                Debug.Log("Spawn " + mamaIndex + " mama(s)");
+                // Debug.Log("Spawn " + mamaIndex + " mama(s)");
                 for (int i = 0; i < mamaIndex; i++)
                 {
                     this.SpawnEnemy(mamaPrefab);
@@ -141,7 +145,7 @@ public class WaveSpawner : MonoBehaviour
 
             if (round3 == TEN)
             {
-                Debug.Log("Round 3 over");
+                // Debug.Log("Round 3 over");
                 //pause the game here, wait for player to resume
             }
         }
