@@ -323,13 +323,19 @@ MonoBehaviour:
   BasicTower:
     prefab: {fileID: 3481009559661011739, guid: 150b8e78d0ebb174d918449c188c7a5b,
       type: 3}
-    prefabUpgrade01: {fileID: 0}
-    prefabUpgrade02: {fileID: 0}
-    prefabUpgrade03: {fileID: 0}
-    prefabUpgrade10: {fileID: 0}
-    prefabUpgrade20: {fileID: 0}
-    prefabUpgrade30: {fileID: 0}
-    cost: 0
+    prefabUpgrade01: {fileID: 3587231117177372120, guid: 085e57f64d431b54f88b90604b89a998,
+      type: 3}
+    prefabUpgrade02: {fileID: 3627809187938394338, guid: a6223798065f64c47a9c0f78611c0cdc,
+      type: 3}
+    prefabUpgrade03: {fileID: 3542785872225227665, guid: d422083bae8a5354e8933d1d004f66f8,
+      type: 3}
+    prefabUpgrade10: {fileID: 1947749721117933117, guid: 85b57a25cd0f7f04cb0e251b2564b26c,
+      type: 3}
+    prefabUpgrade20: {fileID: 6735207211339326533, guid: d227e50197a41cc4aabc634cb95aab01,
+      type: 3}
+    prefabUpgrade30: {fileID: 2149617567416882211, guid: de751c0f902e2ac4ca051f139e4314e7,
+      type: 3}
+    cost: 100
     upgradeCost01: 0
     upgradeCost02: 0
     upgradeCost03: 0
@@ -337,14 +343,15 @@ MonoBehaviour:
     upgradeCost20: 0
     upgradeCost30: 0
   CannonTower:
-    prefab: {fileID: 0}
+    prefab: {fileID: 1161168588940831137, guid: 40b931dc585d2cd4d80b99a540626b4e,
+      type: 3}
     prefabUpgrade01: {fileID: 0}
     prefabUpgrade02: {fileID: 0}
     prefabUpgrade03: {fileID: 0}
     prefabUpgrade10: {fileID: 0}
     prefabUpgrade20: {fileID: 0}
     prefabUpgrade30: {fileID: 0}
-    cost: 0
+    cost: 150
     upgradeCost01: 0
     upgradeCost02: 0
     upgradeCost03: 0
