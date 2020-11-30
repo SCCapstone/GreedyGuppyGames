@@ -26690,11 +26690,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mama
       objectReference: {fileID: 0}
-    - target: {fileID: 7593448851829986539, guid: 6db0585589cd2984080fa27841456bca,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6db0585589cd2984080fa27841456bca, type: 3}
 --- !u!1 &576398490284528950
