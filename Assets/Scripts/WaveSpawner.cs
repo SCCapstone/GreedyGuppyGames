@@ -147,7 +147,22 @@ public class WaveSpawner : MonoBehaviour
             {
                 // Debug.Log("Round 3 over");
                 //pause the game here, wait for player to resume
+                this.waveIndex = 10;
             }
+        }
+        else
+        {
+            for (int i = 0; i < this.waveIndex; i++)
+            {
+                this.SpawnEnemy(grubPrefab);
+                yield return new WaitForSeconds(0.5f);
+            }
+            for (int i = 0; i < this.waveIndex; i++)
+            {
+                this.SpawnEnemy(mamaPrefab);
+                yield return new WaitForSeconds(0.5f);
+            }
+            this.waveIndex += 5;
         }
     }
 
