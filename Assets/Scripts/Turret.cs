@@ -38,7 +38,7 @@ public class Turret : MonoBehaviour
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(this.enemyTag);
         float shortestDistanceToEnd = Mathf.Infinity;
-        float shortestDistanceToTurret = Mathf.Infinity;
+        //float shortestDistanceToTurret = Mathf.Infinity;
         GameObject nearestEnemy = null;
         int finalWaypointIndex = Waypoints.points.Length - 1;
 
@@ -59,7 +59,7 @@ public class Turret : MonoBehaviour
             // Targets enemy closest to last waypoint
             if (enemyDistanceToEnd < shortestDistanceToEnd && distanceToEnemy <= this.range)
             {
-                shortestDistanceToTurret = distanceToEnemy;
+                //shortestDistanceToTurret = distanceToEnemy;
                 shortestDistanceToEnd = enemyDistanceToEnd;
                 nearestEnemy = enemy;
                 // Debug.Log("Shortest Distance " + shortestDistance);

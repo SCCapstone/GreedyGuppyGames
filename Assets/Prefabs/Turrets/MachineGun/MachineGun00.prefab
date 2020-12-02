@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  firerate: 2
+  firerate: 5
   gunShotAudio: MachineGunTowerShot
   enemyTag: Enemy
   partToRotate: {fileID: 4126898281611459140}
