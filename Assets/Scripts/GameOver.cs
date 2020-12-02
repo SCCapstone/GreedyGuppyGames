@@ -22,7 +22,7 @@ public class GameOver : MonoBehaviour
 
     public void Menu()
     {
-        Debug.Log("Go to menu.");
+        // Debug.Log("Go to menu.");
     }
 
     public void Quit()

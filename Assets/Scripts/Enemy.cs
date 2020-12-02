@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
-        this.target = Waypoints.points[0];
+        this.target = Waypoints.points[wavepointIndex];
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
         //anim.Play("Walk Forward Slow WO Root", -1, 0);
     }
