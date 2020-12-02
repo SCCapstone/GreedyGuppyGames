@@ -18,7 +18,7 @@ public class WaveSpawner : MonoBehaviour
     public float countdown = 11f;
     public float timeBetweenRounds = 13f;
 
-    public Text waveCountdownText;
+    public Text roundText;
 
     private int waveIndex = 0;
     private int mamaIndex = 0;
@@ -27,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
     private int round2 = 0;
     private int round3 = 0;
     private int TEN = 10;
+    private int round = 1;
 
     private void Update()
     {
@@ -39,8 +40,7 @@ public class WaveSpawner : MonoBehaviour
         this.countdown -= Time.deltaTime;
 
         this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
-
-        this.waveCountdownText.text = string.Format("{0:00.00}", this.countdown);
+        this.roundText.text = ("Round: "+this.round);
     }
 
     private IEnumerator SpawnWave()
@@ -66,6 +66,8 @@ public class WaveSpawner : MonoBehaviour
                 // Debug.Log("Round 1 over");
                 this.waveIndex = 5;  //will spawn 5 enemies (after waveIndex increments) at the start of round 2
                 //pause the game here, wait for player to resume
+                //Moves the round text to round 2
+                ++round;
             }
         }
 
@@ -107,6 +109,8 @@ public class WaveSpawner : MonoBehaviour
                 this.waveIndex = 10;
                 this.mamaIndex = 3;
                 //pause the game here, wait for player to resume
+                //Moves the round text to round 3
+                ++round;
             }
         }
         else if (round3 < TEN)  //Round 3: 30 waves  (way too long, will shorten for now)
