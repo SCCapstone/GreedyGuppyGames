@@ -31,7 +31,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        this.InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        this.InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
     private void UpdateTarget()
@@ -57,7 +57,7 @@ public class Turret : MonoBehaviour
             */
 
             // Targets enemy closest to last waypoint
-            if (enemyDistanceToEnd < shortestDistanceToEnd || shortestDistanceToTurret >= this.range)
+            if (enemyDistanceToEnd < shortestDistanceToEnd && distanceToEnemy <= this.range)
             {
                 shortestDistanceToTurret = distanceToEnemy;
                 shortestDistanceToEnd = enemyDistanceToEnd;
@@ -72,7 +72,7 @@ public class Turret : MonoBehaviour
         // Debug.Log("Range " + this.range);
 
         // Sets the target to the chosen enemy
-        if (nearestEnemy != null && shortestDistanceToTurret <= this.range)
+        if (nearestEnemy != null)
         {
             this.target = nearestEnemy.transform;
             // Debug.Log(this.target);
