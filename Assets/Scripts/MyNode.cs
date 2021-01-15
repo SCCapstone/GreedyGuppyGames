@@ -10,6 +10,7 @@ public class MyNode : MonoBehaviour
     public Color hoverColor;
     public Color nodeSelectedToUpgradeColor;
     public Color errorColor;
+    public bool leftNode = true;
     
     public Vector3 positionOffset;
 
