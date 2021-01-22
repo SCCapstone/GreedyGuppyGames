@@ -7,6 +7,7 @@ public class UpgradeUI : MonoBehaviour
 {
     [Header("UI")]
     public GameObject ui;
+    public RectTransform transformUI;
 
     [Header("Upgrade Text")]
     public Text upgrade10Text;
@@ -31,7 +32,18 @@ public class UpgradeUI : MonoBehaviour
         //Debug.Log("Set Turret");
         nodeToUpgrade = node;
         // transform.position = nodeToUpgrade.GetBuildPosition();
-        this.Activate();
+        if(!node.leftNode)
+        {
+            transformUI.anchorMin = new Vector2(0, 0);
+            transformUI.anchorMax = new Vector2(.25f, 1);
+            this.Activate();
+        }
+        else
+        {
+            transformUI.anchorMin = new Vector2(.75f, 0);
+            transformUI.anchorMax = new Vector2(1, 1);
+            this.Activate();
+        }
 
         upgrade01Text.text = nodeToUpgrade.turretBlueprint.upgrade01Text;
         upgrade02Text.text = nodeToUpgrade.turretBlueprint.upgrade02Text;
