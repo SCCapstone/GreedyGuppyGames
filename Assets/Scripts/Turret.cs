@@ -15,6 +15,8 @@ public class Turret : MonoBehaviour
     public float firerate = 1f;
     private float fireCountdown = 0f;
 
+    //Below is to be used for buffs from the support tower
+
     //Audio file name to be played when turret is firing a bullet
     public string gunShotAudio;
 
