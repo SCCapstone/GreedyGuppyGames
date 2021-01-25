@@ -34,14 +34,14 @@ public class UpgradeUI : MonoBehaviour
         // transform.position = nodeToUpgrade.GetBuildPosition();
         if(!node.leftNode)
         {
-            transformUI.anchorMin = new Vector2(0, 0);
-            transformUI.anchorMax = new Vector2(.25f, 1);
+            transformUI.anchorMin = new Vector2(0, .15f);
+            transformUI.anchorMax = new Vector2(.25f, .95f);
             this.Activate();
         }
         else
         {
-            transformUI.anchorMin = new Vector2(.75f, 0);
-            transformUI.anchorMax = new Vector2(1, 1);
+            transformUI.anchorMin = new Vector2(.75f, 0.15f);
+            transformUI.anchorMax = new Vector2(1, .95f);
             this.Activate();
         }
 
