@@ -8,6 +8,7 @@ public class UpgradeUI : MonoBehaviour
     [Header("UI")]
     public GameObject ui;
     public RectTransform transformUI;
+    private bool UIOpen = false;
 
     [Header("Upgrade Text")]
     public Text upgrade10Text;
@@ -26,6 +27,15 @@ public class UpgradeUI : MonoBehaviour
     public Button upgrade03Button;
 
     private MyNode nodeToUpgrade;
+
+    public void Update()
+    {
+        // if upgrade ui is open and we pause it closes the upgrade ui
+        if(UIOpen && Input.GetKeyDown(KeyCode.Escape))
+        {
+            ui.SetActive(false);
+        }
+    }
 
     public void SetTurret(MyNode node)
     {
@@ -124,12 +134,14 @@ public class UpgradeUI : MonoBehaviour
     public void Activate()
     {
         //Debug.Log("activating");
+        UIOpen = true;
         ui.SetActive(true);
     }
 
     public void Hide()
     {
         Debug.Log("Hiding");
+        UIOpen = false;
         ui.SetActive(false);
     }
 
