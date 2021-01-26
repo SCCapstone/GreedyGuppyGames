@@ -332,6 +332,13 @@ MonoBehaviour:
   electricTowerButton: {fileID: 851373476}
   supportTowerButton: {fileID: 1879985667}
   flameThrowerTowerButton: {fileID: 279823034}
+  basicTowerPrice: {fileID: 0}
+  cannonTowerPrice: {fileID: 0}
+  machineTowerPrice: {fileID: 0}
+  laserTowerPrice: {fileID: 0}
+  electricTowerPrice: {fileID: 0}
+  supportTowerPrice: {fileID: 0}
+  flameThrowerPrice: {fileID: 0}
   BasicTower:
     prefab: {fileID: 3481009559661011739, guid: 150b8e78d0ebb174d918449c188c7a5b,
       type: 3}
@@ -30173,6 +30180,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d853c664b9a48734d8bb35d3b13b3c7a, type: 3}
+--- !u!1001 &5203566866891791848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -37.50849
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.374054
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 45.504578
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726155204162867380, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346521194074389178, guid: deef25e3add4e3642932330e6592171e,
+        type: 3}
+      propertyPath: m_Name
+      value: Beetle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: deef25e3add4e3642932330e6592171e, type: 3}
 --- !u!4 &5470235093769884177
 Transform:
   m_ObjectHideFlags: 0
