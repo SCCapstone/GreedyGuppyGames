@@ -24,6 +24,9 @@ No extra setup will be required.
 
 Simply run the executable found in the root. This will start the Astrovibe Attackpod game.
 
+## Testing
+To run tests, first open the project in Unity and open the Test Runner window. This can be done by clicking on the Window dropdown menu found at the top of the screen, mousing over General, and then selecting Test Runner from the menu. Once the Test Runner is open, unit tests can be run by selecting EditMode and then clicking on the Run All option. Behvaioral tests are found in the PlayMode tab and can also be run by clicking on Run All. You can also select a specifc test and then click Run Selected should you wish to only run a select few tests. Tests will be denoted as passed or failed by the presense of a green check or red x respectively. 
+
 
 # Authors and Members of GreedyGuppyGames
 
