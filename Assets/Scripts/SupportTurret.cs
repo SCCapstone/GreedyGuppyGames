@@ -5,22 +5,57 @@ using UnityEngine;
 public class SupportTurret : MonoBehaviour
 { 
     public float range = 15f;
+    public float fireRateMultiplier = 2f;
     public string towerTag = "Tower";
     // Start is called before the first frame update
     void Start()
     {
-        this.InvokeRepeating("UpdateTargetTower", 0f, 0.2f);
+        this.InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
-    // Update is called once per frame
     void UpdateTarget()
     {
         GameObject[] towers = GameObject.FindGameObjectsWithTag(this.towerTag);
         
         foreach (GameObject tower in towers)
         {
+            // find all towers within range
             float distanceToTower = Vector3.Distance(this.transform.position, tower.transform.position);
+            if (distanceToTower <= this.range)
+            {
+                Turret turret = tower.GetComponent<Turret>();
+                if (turret.buffed2XFireRate == false && turret.buffed4XFireRate == false && turret.buffed6XFireRate == false)
+                {
+                    turret.buffed2XFireRate = true;
+                    turret.firerate = fireRateMultiplier * turret.originalFireRate;
+                }
+                if (turret.buffed4XFireRate == false && turret.buffed6XFireRate == false)
+                {
+                    turret.buffed2XFireRate = false;
+                    turret.buffed4XFireRate = true;
+                    turret.firerate = fireRateMultiplier * turret.originalFireRate;
+                }
+                if (turret.buffed6XFireRate == false)
+                {
+                    turret.buffed2XFireRate = false;
+                    turret.buffed4XFireRate = false;
+                    turret.buffed6XFireRate = true;
+                    turret.firerate = fireRateMultiplier * turret.originalFireRate;
+                }
+
+
+            }
         }
+
+    }
+    // To apply the buffs in the tower radius
+    private void Buff()
+    {
+
+    }
+    //This is to be used when the tower is sold, it will clean out all the buffs it is currently applying
+    private void Cleanup()
+    {
 
     }
 }
