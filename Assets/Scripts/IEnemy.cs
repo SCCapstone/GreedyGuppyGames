@@ -6,7 +6,4 @@
     float GetSpeed();
     int GetHealth();
     int GetValue();
-    void SetSpeed(float _speed);
-    void SetHealth(int _health);
-    void SetValue(int _value);
 }

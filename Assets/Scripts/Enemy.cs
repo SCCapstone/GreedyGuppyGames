@@ -31,19 +31,6 @@ public class Enemy : MonoBehaviour, IEnemy {
         return this.value;
     }
 
-    // Setters
-    public void SetSpeed(float _speed) {
-        this.speed = _speed;
-    }
-
-    public void SetHealth(int _health) {
-        this.health = _health;
-    }
-
-    public void SetValue(int _value) {
-        this.value = _value;
-    }
-
     public virtual void Start() {
         this.target = Waypoints.points[wavepointIndex];
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);

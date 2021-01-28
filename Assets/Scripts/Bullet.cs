@@ -4,7 +4,8 @@
 
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IBullet {
+public class Bullet : MonoBehaviour
+{
     private Transform target;
 
     public float speed = 70f;
@@ -12,13 +13,16 @@ public class Bullet : MonoBehaviour, IBullet {
     public float explosionRadius = 0f;
     public GameObject impactEffect;
 
-    public void Seek(Transform aTarget) {
+    public void Seek(Transform aTarget)
+    {
         this.target = aTarget;
     }
 
     // Update is called once per frame
-    private void Update() {
-        if (this.target == null) {
+    private void Update()
+    {
+        if (this.target == null)
+        {
             Destroy(this.gameObject);
             return;
         }
@@ -37,14 +41,17 @@ public class Bullet : MonoBehaviour, IBullet {
         this.transform.LookAt(this.target);
     }
 
-    private void HitTarget() {
+    private void HitTarget()
+    {
         GameObject effectIns = (GameObject)Instantiate(this.impactEffect, this.transform.position, this.transform.rotation);
         Destroy(effectIns, 2f);
 
-        if (this.explosionRadius > 0f) {
+        if (this.explosionRadius > 0f)
+        {
             this.Explode();
         }
-        else {
+        else
+        {
             this.Damage(this.target);
         }
 
@@ -52,31 +59,38 @@ public class Bullet : MonoBehaviour, IBullet {
         Destroy(this.gameObject);
     }
 
-    private void Explode() {
+    private void Explode()
+    {
         // Debug.Log("I'm exploding!!!!");
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, this.explosionRadius);
-        foreach (Collider collider in colliders) {
-            if (collider.tag == "Enemy") {
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
                 this.Damage(collider.transform);
             }
         }
     }
 
-    private void Damage(Transform enemy) {
+    private void Damage(Transform enemy)
+    {
         Enemy e = enemy.GetComponent<Enemy>();
 
-        if (e != null) {
+        if (e != null)
+        {
             e.TakeDamage(this.damage);
         }
     }
 
-    private void OnDrawGizmosSelected() {
+    private void OnDrawGizmosSelected()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, this.explosionRadius);
     }
 
     // What happens when the bullet hits something (yes, this mostly replaces HitTarget)
-    void OnCollisionEnter(Collision col) {
+    void OnCollisionEnter(Collision col)
+    {
         // Debug.Log("I'm colliding with something!");
         GameObject effectIns = (GameObject)Instantiate(this.impactEffect, this.transform.position, this.transform.rotation);
         Destroy(effectIns, 2f);
