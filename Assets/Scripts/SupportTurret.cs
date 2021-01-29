@@ -7,6 +7,12 @@ public class SupportTurret : MonoBehaviour
     public float range = 15f;
     public float fireRateMultiplier = 2f;
     public string towerTag = "Tower";
+    public bool leftTier1 = false;
+    public bool leftTier2 = false;
+    public bool leftTier3 = false;
+    public bool rightTier1 = false;
+    public bool rightTier2 = false;
+    public bool rightTier3 = false;
     // Start is called before the first frame update
     void Start()
     {
