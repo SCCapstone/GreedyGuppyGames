@@ -38,13 +38,13 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         this.buildManager = BuildManager.instance;
-        basicTowerPrice.text = "$" + BasicTower.cost;
-        cannonTowerPrice.text = "$" + CannonTower.cost;
-        machineTowerPrice.text = "$" + MachineGunTower.cost;
-        laserTowerPrice.text = "$" + LaserTower.cost;
-        electricTowerPrice.text = "$" + ElectricTower.cost;
-        supportTowerPrice.text = "$" + SupportTower.cost;
-        flameThrowerPrice.text = "$" + FlameThrowerTower.cost;
+        // basicTowerPrice.text = "$" + BasicTower.cost;
+        // cannonTowerPrice.text = "$" + CannonTower.cost;
+        // machineTowerPrice.text = "$" + MachineGunTower.cost;
+        // laserTowerPrice.text = "$" + LaserTower.cost;
+        // electricTowerPrice.text = "$" + ElectricTower.cost;
+        // supportTowerPrice.text = "$" + SupportTower.cost;
+        // flameThrowerPrice.text = "$" + FlameThrowerTower.cost;
         
     }
 

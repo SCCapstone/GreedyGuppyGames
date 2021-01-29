@@ -332,6 +332,13 @@ MonoBehaviour:
   electricTowerButton: {fileID: 851373476}
   supportTowerButton: {fileID: 1879985667}
   flameThrowerTowerButton: {fileID: 279823034}
+  basicTowerPrice: {fileID: 0}
+  cannonTowerPrice: {fileID: 0}
+  machineTowerPrice: {fileID: 0}
+  laserTowerPrice: {fileID: 0}
+  electricTowerPrice: {fileID: 0}
+  supportTowerPrice: {fileID: 0}
+  flameThrowerPrice: {fileID: 0}
   BasicTower:
     prefab: {fileID: 3481009559661011739, guid: 150b8e78d0ebb174d918449c188c7a5b,
       type: 3}
@@ -20076,13 +20083,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381169639}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -69.19784, y: 4.28, z: 66.89798}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1388751547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28685,7 +28692,6 @@ MonoBehaviour:
     type: 3}
   mamaPrefab: {fileID: 1370186633007649959, guid: 6db0585589cd2984080fa27841456bca,
     type: 3}
-  spawnPoint: {fileID: 1381169643}
   timeBetweenWaves: 7
   countdown: 5
   timeBetweenRounds: 13
