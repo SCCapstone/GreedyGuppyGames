@@ -79,6 +79,10 @@ public class UpgradeUI : MonoBehaviour
             upgrade10Button.interactable = false;
             upgrade20Button.interactable = true;
             upgrade30Button.interactable = false;
+
+            upgrade01Text.text = "Locked";
+            upgrade02Text.text = "Locked";
+            upgrade03Text.text = "Locked";
         }
         else if (nodeToUpgrade.upgradePathOne == 2 && nodeToUpgrade.upgradePathTwo == 0)
         {
@@ -106,6 +110,10 @@ public class UpgradeUI : MonoBehaviour
             upgrade10Button.interactable = false;
             upgrade20Button.interactable = false;
             upgrade30Button.interactable = false;
+
+            upgrade10Text.text = "Locked";
+            upgrade20Text.text = "Locked";
+            upgrade30Text.text = "Locked";
         }
         else if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 2)
         {
