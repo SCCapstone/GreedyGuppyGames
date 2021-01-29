@@ -22,7 +22,8 @@ public class MyNode : MonoBehaviour
     public int upgradePathOne = 0;
     [HideInInspector]
     public int upgradePathTwo = 0;
-    private int moneySpentOnTurret = 0;
+    [HideInInspector]
+    public int moneySpentOnTurret = 0;
 
 
     private Renderer rend;
@@ -237,6 +238,7 @@ public class MyNode : MonoBehaviour
     {
         ResetNode();
         PlayerStats.Money += (int)(moneySpentOnTurret * Shop.sellPercent);
+        moneySpentOnTurret = 0;
         
     }
 

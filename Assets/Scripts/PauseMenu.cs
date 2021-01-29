@@ -9,6 +9,10 @@ public class PauseMenu : MenuFunctions
 
     public GameObject PauseMenuUI;
 
+    private void Start()
+    {
+        PauseMenuUI.SetActive(false);
+    }
 
     // Update is called once per frame
     private void Update()
