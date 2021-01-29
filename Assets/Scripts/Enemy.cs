@@ -4,7 +4,7 @@
 
 using UnityEngine;
 using DG.Tweening;
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IEnemy
 {
     public Animator anim;
     
@@ -20,12 +20,12 @@ public class Enemy : MonoBehaviour
 
     private Transform target;
     protected int wavepointIndex = 0;
+    // Rotation speed modifier
+    private float rotationSpeed = 5f;
 
     public virtual void Start()
     {
         this.target = Waypoints.points[wavepointIndex];
-        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
-        //anim.Play("Walk Forward Slow WO Root", -1, 0);
     }
 
     public void TakeDamage(int amount)
@@ -43,7 +43,6 @@ public class Enemy : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
         Destroy(this.gameObject);
-        
     }
 
     private void Update()
