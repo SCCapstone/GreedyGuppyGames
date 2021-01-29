@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     public int damage = 50;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
+    public enum damageType {normal, splash};
 
     public void Seek(Transform aTarget)
     {
@@ -52,7 +53,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            this.Damage(this.target);
+            this.Damage(this.target, damageType.normal);
         }
 
         // Destroys the bullet (not the enemy)
@@ -67,18 +68,24 @@ public class Bullet : MonoBehaviour
         {
             if (collider.tag == "Enemy")
             {
-                this.Damage(collider.transform);
+                this.Damage(collider.transform, damageType.splash);
             }
         }
     }
 
-    private void Damage(Transform enemy)
+    private void Damage(Transform enemy, damageType type)
     {
         Enemy e = enemy.GetComponent<Enemy>();
 
         if (e != null)
         {
-            e.TakeDamage(this.damage);
+            switch(type)
+            {
+                case Bullet.damageType.normal: e.TakeDamage(this.damage); break;
+                case Bullet.damageType.splash:
+                    int splashdamage = Mathf.RoundToInt(damage * e.splashModifier); e.TakeDamage(splashdamage); break;
+            }
+            
         }
     }
 
@@ -99,7 +106,7 @@ public class Bullet : MonoBehaviour
             this.Explode();
         }
         else {
-            this.Damage(col.gameObject.GetComponent<Transform>()); // gets the transform of the gameObject of what was hit and hurts it (the spaghetti is ready)
+            this.Damage(col.gameObject.GetComponent<Transform>(), damageType.normal); // gets the transform of the gameObject of what was hit and hurts it (the spaghetti is ready)
             // Debug.Log("I'm hitting the enemy!");
         }
 
