@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 6125981314747334171}
   m_Layer: 0
   m_Name: FlameThrower00
-  m_TagString: Tower
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
