@@ -170,4 +170,10 @@ public class UpgradeUI : MonoBehaviour
 
         this.SetTurret(nodeToUpgrade);
     }
+
+    public void Sell()
+    {
+        this.nodeToUpgrade.SellTurret();
+        Hide();
+    }
 }

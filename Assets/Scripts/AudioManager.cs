@@ -37,7 +37,11 @@ public class AudioManager : MonoBehaviour
         //Allows the AudioManager to transition between scenes
         DontDestroyOnLoad(gameObject);
 
-        //Constructor for internal array for each sound in sounds
+        /**
+         * Constructor for internal array for each sound in sounds
+         * adds the audio clip, volume, pitch, loop, and mixer group to each
+         * music group depends on if it is a sfx or music for the sliders
+         * */
         foreach(Sounds s in musicSounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -111,11 +115,13 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Sound not found");
     }
 
+    // sets music volume for slider using logarithmic scale
     public void SetMusicVolume(float volume)
     {
         audioMixer.SetFloat(MusicMixerGroupName, Mathf.Log10(volume) * 20);
     }
 
+    // sets sfx volume for slider using logarithmic scale
     public void SetSFXVolume(float volume)
     {
         audioMixer.SetFloat(SFXMixerGroupName, Mathf.Log10(volume) * 20);

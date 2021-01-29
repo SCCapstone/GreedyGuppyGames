@@ -13,6 +13,7 @@ public class MenuFunctions : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    //goes to the main menu
     public void Menu()
     {
         // Debug.Log("Go to menu.");
