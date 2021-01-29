@@ -14,8 +14,6 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public int value = 50;
 
-    public float splashModifier = 1;
-
     public GameObject deathEffect;
 
     private Transform target;
