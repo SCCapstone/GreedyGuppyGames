@@ -12,6 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
+
   companyName: Greedy Guppy Games
   productName: Astrovibe Attack Pod
   defaultCursor: {fileID: 0}
