@@ -7775,8 +7775,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90.2294, y: -48.43142}
-  m_SizeDelta: {x: 180.4588, y: 96.86284}
+  m_AnchoredPosition: {x: 90.2294, y: -47.236366}
+  m_SizeDelta: {x: 180.4588, y: 94.47273}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526819537
 MonoBehaviour:
@@ -12174,10 +12174,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 167188427}
   m_HandleRect: {fileID: 103476753}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -18667,8 +18667,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 449.31183, y: -48.43142}
-  m_SizeDelta: {x: 180.4588, y: 96.86284}
+  m_AnchoredPosition: {x: 449.31183, y: -47.236366}
+  m_SizeDelta: {x: 180.4588, y: 94.47273}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185033682
 MonoBehaviour:
@@ -20182,8 +20182,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 269.77063, y: -48.43142}
-  m_SizeDelta: {x: 178.62363, y: 96.86284}
+  m_AnchoredPosition: {x: 269.77063, y: -47.236366}
+  m_SizeDelta: {x: 178.62363, y: 94.47273}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276016914
 MonoBehaviour:
@@ -28698,10 +28698,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 761083561}
   m_HandleRect: {fileID: 607968878}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -31120,7 +31120,7 @@ MonoBehaviour:
     type: 2}
   MusicMixerGroupName: MusicVolume
   SFXMixerGroupName: SFXVolume
-  gameMusicName: GameMusic
+  gameMusicName: MenuMusic
 --- !u!4 &2063151235
 Transform:
   m_ObjectHideFlags: 0
@@ -31421,8 +31421,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 629.7706, y: -48.43142}
-  m_SizeDelta: {x: 180.4588, y: 96.86284}
+  m_AnchoredPosition: {x: 629.7706, y: -47.236366}
+  m_SizeDelta: {x: 180.4588, y: 94.47273}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2089628057
 MonoBehaviour:

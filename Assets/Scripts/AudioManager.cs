@@ -113,11 +113,11 @@ public class AudioManager : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat(MusicMixerGroupName, volume);
+        audioMixer.SetFloat(MusicMixerGroupName, Mathf.Log10(volume) * 20);
     }
 
     public void SetSFXVolume(float volume)
     {
-        audioMixer.SetFloat(SFXMixerGroupName, volume);
+        audioMixer.SetFloat(SFXMixerGroupName, Mathf.Log10(volume) * 20);
     }
 }

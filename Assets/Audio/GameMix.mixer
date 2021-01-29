@@ -25,25 +25,24 @@ AudioMixerController:
   m_AudioMixerGroupViews:
   - guids:
     - 7e1694f41ec304e8e959843f599c04e1
+    - 72e3f7090912d444e8646f0bfe83440c
     - 7f54a00a0735548328305e089a37f69b
+    - b6f150f1f60ee4daf82538c0d63cffc3
     - 6e580e6f2bc0a4aabae2b25b1f395655
-    - 3acfd1f5ac12e49b9b0d3128d2146083
-    - 2414d77d8ced24b5ba3b8b855b36ef79
-    - 6c0c0a089b9134fdfaaf4ab073bf5c36
-    - e25a898f7f2774a06a54ee8a280be1cb
     - 38d43d06b25aa40fca5b2413f4ed6076
+    - 07e8dd6b3ab4041ff927bc7299beaf1c
     - d23b5e60805f14f20b74dd14bbfe550b
     - b7badde613a0c440ebd7768911d15db0
-    - 07e8dd6b3ab4041ff927bc7299beaf1c
-    - c53b5f0874fc64fd9b737532c7749e97
     - 77cb07cd1986b4400bd9d75bd3b452a0
+    - c53b5f0874fc64fd9b737532c7749e97
     - 09591458cb76f42c4986e542d25d7e3e
+    - 2414d77d8ced24b5ba3b8b855b36ef79
     - e8773e527673f4590a669548b3beca88
     - 10d8b6ed6821c4068bbcaedd2c3f87ac
     - 26f4bd816354e49a79df552b89aefb70
-    - b6f150f1f60ee4daf82538c0d63cffc3
-    - 72e3f7090912d444e8646f0bfe83440c
     - 154faabd0a9284e6e8e65b1dfb838ea4
+    - 6c0c0a089b9134fdfaaf4ab073bf5c36
+    - 3acfd1f5ac12e49b9b0d3128d2146083
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
