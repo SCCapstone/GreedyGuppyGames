@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1726155204162867380}
   - component: {fileID: 2252186247932758349}
-  - component: {fileID: 1117582506093430378}
+  - component: {fileID: 6343804541649114181}
   m_Layer: 0
   m_Name: Beetle
   m_TagString: Enemy
@@ -46,22 +46,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1117582506093430378
+--- !u!114 &6343804541649114181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2346521194074389178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3121d924bd0684497d6a8b4ff12d1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ab97650b5fff2943b762712a81eec52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   speed: 10
   health: 100
   value: 50
+  splashModifier: 0.5
   deathEffect: {fileID: 0}
 --- !u!1001 &161111904366434827
 PrefabInstance:
