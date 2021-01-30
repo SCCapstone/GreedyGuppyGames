@@ -27,30 +27,30 @@ public class SupportTurret : MonoBehaviour
         {
             // find all towers within range
             float distanceToTower = Vector3.Distance(this.transform.position, tower.transform.position);
-            if (distanceToTower <= this.range)
-            {
-                Turret turret = tower.GetComponent<Turret>();
-                if (turret.buffed2XFireRate == false && turret.buffed4XFireRate == false && turret.buffed6XFireRate == false)
-                {
-                    turret.buffed2XFireRate = true;
-                    turret.firerate = fireRateMultiplier * turret.originalFireRate;
-                }
-                if (turret.buffed4XFireRate == false && turret.buffed6XFireRate == false)
-                {
-                    turret.buffed2XFireRate = false;
-                    turret.buffed4XFireRate = true;
-                    turret.firerate = fireRateMultiplier * turret.originalFireRate;
-                }
-                if (turret.buffed6XFireRate == false)
-                {
-                    turret.buffed2XFireRate = false;
-                    turret.buffed4XFireRate = false;
-                    turret.buffed6XFireRate = true;
-                    turret.firerate = fireRateMultiplier * turret.originalFireRate;
-                }
+            // if (distanceToTower <= this.range)
+            // {
+            //     Turret turret = tower.GetComponent<Turret>();
+            //     if (turret.buffed2XFireRate == false && turret.buffed4XFireRate == false && turret.buffed6XFireRate == false)
+            //     {
+            //         turret.buffed2XFireRate = true;
+            //         turret.firerate = fireRateMultiplier * turret.originalFireRate;
+            //     }
+            //     if (turret.buffed4XFireRate == false && turret.buffed6XFireRate == false)
+            //     {
+            //         turret.buffed2XFireRate = false;
+            //         turret.buffed4XFireRate = true;
+            //         turret.firerate = fireRateMultiplier * turret.originalFireRate;
+            //     }
+            //     if (turret.buffed6XFireRate == false)
+            //     {
+            //         turret.buffed2XFireRate = false;
+            //         turret.buffed4XFireRate = false;
+            //         turret.buffed6XFireRate = true;
+            //         turret.firerate = fireRateMultiplier * turret.originalFireRate;
+            //     }
 
 
-            }
+            // }
         }
 
     }
