@@ -1,11 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using NSubstitute;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using UnityEditor;
+
 
 namespace Tests
 {
