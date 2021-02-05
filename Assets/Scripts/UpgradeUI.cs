@@ -8,24 +8,139 @@ public class UpgradeUI : MonoBehaviour
     [Header("UI")]
     public GameObject ui;
     public RectTransform transformUI;
+    private bool UIOpen = false;
 
     [Header("Upgrade Text")]
-    public Text upgrade10Text;
-    public Text upgrade20Text;
-    public Text upgrade30Text;
-    public Text upgrade01Text;
-    public Text upgrade02Text;
-    public Text upgrade03Text;
+    public Text upgradeLeftText;
+    public Text upgradeRightText;
 
     [Header("Upgrade Buttons")]
-    public Button upgrade10Button;
-    public Button upgrade20Button;
-    public Button upgrade30Button;
-    public Button upgrade01Button;
-    public Button upgrade02Button;
-    public Button upgrade03Button;
+    public Button upgradeLeftButton;
+    public Button upgradeRightButton;
+
+    [Header("Sell Functionality")]
+    public Text sellText;
 
     private MyNode nodeToUpgrade;
+
+    private void Start()
+    {
+        ui.SetActive(false);
+    }
+    public void Update()
+    {
+        // if upgrade ui is open and we pause it closes the upgrade ui
+        if(UIOpen && Input.GetKeyDown(KeyCode.Escape))
+        {
+            ui.SetActive(false);
+        }
+        if (nodeToUpgrade != null)
+        {
+            sellText.text = "$" + nodeToUpgrade.moneySpentOnTurret * Shop.sellPercent;
+            if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)
+            {
+                upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade10Text;
+                upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade01Text;
+
+                if(nodeToUpgrade.turretBlueprint.upgradeCost01 <= PlayerStats.Money)
+                {
+                    upgradeRightButton.interactable = true;
+                }
+                else
+                {
+                    upgradeRightButton.interactable = false;
+                }
+                if(nodeToUpgrade.turretBlueprint.upgradeCost10 <= PlayerStats.Money)
+                {
+                    upgradeLeftButton.interactable = true;
+                }
+                else
+                {
+                    upgradeLeftButton.interactable = false;
+                }
+            }
+            else if (nodeToUpgrade.upgradePathOne == 1 && nodeToUpgrade.upgradePathTwo == 0)
+            {
+                upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade20Text;
+                upgradeRightButton.interactable = false;
+                upgradeRightText.text = "Locked";
+
+                if(nodeToUpgrade.turretBlueprint.upgradeCost20 <= PlayerStats.Money)
+                {
+                    upgradeLeftButton.interactable = true;
+                }
+                else
+                {
+                    upgradeLeftButton.interactable = false;
+                }
+            }
+            else if (nodeToUpgrade.upgradePathOne == 2 && nodeToUpgrade.upgradePathTwo == 0)
+            {
+                upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade30Text;
+                upgradeRightButton.interactable = false;
+                upgradeRightText.text = "Locked";
+
+                if (nodeToUpgrade.turretBlueprint.upgradeCost30 <= PlayerStats.Money)
+                {
+                    upgradeLeftButton.interactable = true;
+                }
+                else
+                {
+                    upgradeLeftButton.interactable = false;
+                }
+            }
+            else if (nodeToUpgrade.upgradePathOne == 3 && nodeToUpgrade.upgradePathTwo == 0)
+            {
+                upgradeLeftText.text = "Fully Upgraded";
+                upgradeRightText.text = "Locked";
+
+                upgradeRightButton.interactable = false;
+                upgradeLeftButton.interactable = false;
+            }
+            else if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 1)
+            {
+                upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade02Text;
+                upgradeLeftButton.interactable = false;
+                upgradeLeftText.text = "Locked";
+
+                if (nodeToUpgrade.turretBlueprint.upgradeCost02 <= PlayerStats.Money)
+                {
+                    upgradeRightButton.interactable = true;
+                }
+                else
+                {
+                    upgradeRightButton.interactable = false;
+                }
+            }
+            else if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 2)
+            {
+                upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade03Text;
+                upgradeLeftButton.interactable = false;
+                upgradeLeftText.text = "Locked";
+
+                if (nodeToUpgrade.turretBlueprint.upgradeCost03 <= PlayerStats.Money)
+                {
+                    upgradeRightButton.interactable = true;
+                }
+                else
+                {
+                    upgradeRightButton.interactable = false;
+                }
+            }
+            else if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 3)
+            {
+                upgradeRightText.text = "Fully Upgraded";
+                upgradeLeftText.text = "Locked";
+
+                upgradeRightButton.interactable = false;
+                upgradeLeftButton.interactable = false;
+            }
+            else
+            {
+                Debug.LogError("upgrade settings wrong");
+            }
+        }
+    }
 
     public void SetTurret(MyNode node)
     {
@@ -45,91 +160,20 @@ public class UpgradeUI : MonoBehaviour
             this.Activate();
         }
 
-        upgrade01Text.text = nodeToUpgrade.turretBlueprint.upgrade01Text;
-        upgrade02Text.text = nodeToUpgrade.turretBlueprint.upgrade02Text;
-        upgrade03Text.text = nodeToUpgrade.turretBlueprint.upgrade03Text;
-        upgrade10Text.text = nodeToUpgrade.turretBlueprint.upgrade10Text;
-        upgrade20Text.text = nodeToUpgrade.turretBlueprint.upgrade20Text;
-        upgrade30Text.text = nodeToUpgrade.turretBlueprint.upgrade30Text;
-
-        if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)
-        {
-            upgrade01Button.interactable = true;
-            upgrade02Button.interactable = false;
-            upgrade03Button.interactable = false;
-            upgrade10Button.interactable = true;
-            upgrade20Button.interactable = false;
-            upgrade30Button.interactable = false;
-        }
-        else if(nodeToUpgrade.upgradePathOne == 1 && nodeToUpgrade.upgradePathTwo == 0)
-        {
-            upgrade01Button.interactable = false;
-            upgrade02Button.interactable = false;
-            upgrade03Button.interactable = false;
-            upgrade10Button.interactable = false;
-            upgrade20Button.interactable = true;
-            upgrade30Button.interactable = false;
-        }
-        else if (nodeToUpgrade.upgradePathOne == 2 && nodeToUpgrade.upgradePathTwo == 0)
-        {
-            upgrade01Button.interactable = false;
-            upgrade02Button.interactable = false;
-            upgrade03Button.interactable = false;
-            upgrade10Button.interactable = false;
-            upgrade20Button.interactable = false;
-            upgrade30Button.interactable = true;
-        }
-        else if (nodeToUpgrade.upgradePathOne == 3 && nodeToUpgrade.upgradePathTwo == 0)
-        {
-            upgrade01Button.interactable = false;
-            upgrade02Button.interactable = false;
-            upgrade03Button.interactable = false;
-            upgrade10Button.interactable = false;
-            upgrade20Button.interactable = false;
-            upgrade30Button.interactable = false;
-        }
-        else if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 1)
-        {
-            upgrade01Button.interactable = false;
-            upgrade02Button.interactable = true;
-            upgrade03Button.interactable = false;
-            upgrade10Button.interactable = false;
-            upgrade20Button.interactable = false;
-            upgrade30Button.interactable = false;
-        }
-        else if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 2)
-        {
-            upgrade01Button.interactable = false;
-            upgrade02Button.interactable = false;
-            upgrade03Button.interactable = true;
-            upgrade10Button.interactable = false;
-            upgrade20Button.interactable = false;
-            upgrade30Button.interactable = false;
-        }
-        else if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 3)
-        {
-            upgrade01Button.interactable = false;
-            upgrade02Button.interactable = false;
-            upgrade03Button.interactable = false;
-            upgrade10Button.interactable = false;
-            upgrade20Button.interactable = false;
-            upgrade30Button.interactable = false;
-        }
-        else
-        {
-            Debug.LogError("upgrade settings wrong");
-        }
+        
     }
 
     public void Activate()
     {
         //Debug.Log("activating");
+        UIOpen = true;
         ui.SetActive(true);
     }
 
     public void Hide()
     {
         Debug.Log("Hiding");
+        UIOpen = false;
         ui.SetActive(false);
     }
 
@@ -157,5 +201,12 @@ public class UpgradeUI : MonoBehaviour
         nodeToUpgrade.UpgradeTurret();
 
         this.SetTurret(nodeToUpgrade);
+    }
+
+    public void Sell()
+    {
+        this.nodeToUpgrade.SellTurret();
+        this.nodeToUpgrade = null;
+        Hide();
     }
 }

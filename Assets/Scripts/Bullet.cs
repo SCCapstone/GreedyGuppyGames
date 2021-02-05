@@ -4,26 +4,21 @@
 
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
-{
+public class Bullet : MonoBehaviour, IBullet {
     private Transform target;
 
     public float speed = 70f;
     public int damage = 50;
     public float explosionRadius = 0f;
     public GameObject impactEffect;
-    public enum damageType {normal, splash};
 
-    public void Seek(Transform aTarget)
-    {
+    public void Seek(Transform aTarget) {
         this.target = aTarget;
     }
 
     // Update is called once per frame
-    private void Update()
-    {
-        if (this.target == null)
-        {
+    private void Update() {
+        if (this.target == null) {
             Destroy(this.gameObject);
             return;
         }
@@ -42,62 +37,46 @@ public class Bullet : MonoBehaviour
         this.transform.LookAt(this.target);
     }
 
-    private void HitTarget()
-    {
+    private void HitTarget() {
         GameObject effectIns = (GameObject)Instantiate(this.impactEffect, this.transform.position, this.transform.rotation);
         Destroy(effectIns, 2f);
 
-        if (this.explosionRadius > 0f)
-        {
+        if (this.explosionRadius > 0f) {
             this.Explode();
         }
-        else
-        {
-            this.Damage(this.target, damageType.normal);
+        else {
+            this.Damage(this.target);
         }
 
         // Destroys the bullet (not the enemy)
         Destroy(this.gameObject);
     }
 
-    private void Explode()
-    {
+    private void Explode() {
         // Debug.Log("I'm exploding!!!!");
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, this.explosionRadius);
-        foreach (Collider collider in colliders)
-        {
-            if (collider.tag == "Enemy")
-            {
-                this.Damage(collider.transform, damageType.splash);
+        foreach (Collider collider in colliders) {
+            if (collider.tag == "Enemy") {
+                this.Damage(collider.transform);
             }
         }
     }
 
-    private void Damage(Transform enemy, damageType type)
-    {
+    private void Damage(Transform enemy) {
         Enemy e = enemy.GetComponent<Enemy>();
 
-        if (e != null)
-        {
-            switch(type)
-            {
-                case Bullet.damageType.normal: e.TakeDamage(this.damage); break;
-                case Bullet.damageType.splash:
-                    int splashdamage = Mathf.RoundToInt(damage * e.splashModifier); e.TakeDamage(splashdamage); break;
-            }
-            
+        if (e != null) {
+            e.TakeDamage(this.damage);
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
+    private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, this.explosionRadius);
     }
 
     // What happens when the bullet hits something (yes, this mostly replaces HitTarget)
-    void OnCollisionEnter(Collision col)
-    {
+    void OnCollisionEnter(Collision col) {
         // Debug.Log("I'm colliding with something!");
         GameObject effectIns = (GameObject)Instantiate(this.impactEffect, this.transform.position, this.transform.rotation);
         Destroy(effectIns, 2f);
@@ -106,7 +85,7 @@ public class Bullet : MonoBehaviour
             this.Explode();
         }
         else {
-            this.Damage(col.gameObject.GetComponent<Transform>(), damageType.normal); // gets the transform of the gameObject of what was hit and hurts it (the spaghetti is ready)
+            this.Damage(col.gameObject.GetComponent<Transform>()); // gets the transform of the gameObject of what was hit and hurts it (the spaghetti is ready)
             // Debug.Log("I'm hitting the enemy!");
         }
 
