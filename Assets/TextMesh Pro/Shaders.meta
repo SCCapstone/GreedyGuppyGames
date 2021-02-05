@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/TextMesh Pro/Shaders.meta
 guid: e9f693669af91aa45ad615fc681ed29f
+=======
+guid: a853662e3f0995d45b91e7568d36158c
+>>>>>>> parent of 01c6c51... Please Work:Assets/Polygonal Metalon/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

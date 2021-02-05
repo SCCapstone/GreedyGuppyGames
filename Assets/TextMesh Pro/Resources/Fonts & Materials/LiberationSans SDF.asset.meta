@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset.meta
 guid: 8f586378b4e144a9851e7b34d9b748ee
 timeCreated: 1484171803
 licenseType: Pro
+=======
+guid: 343efc4e4daa6884fb114514185426c9
+>>>>>>> parent of 01c6c51... Please Work:Assets/Polygonal Metalon/Materials/Polygonal Metalon Purple.mat.meta
 NativeFormatImporter:
   userData: 
   assetBundleName: 

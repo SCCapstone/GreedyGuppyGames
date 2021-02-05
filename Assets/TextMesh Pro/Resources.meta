@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/TextMesh Pro/Resources.meta
 guid: 243e06394e614e5d99fab26083b707fa
+=======
+guid: 2c93230623b20a74294d3d84e5f2616b
+>>>>>>> parent of 01c6c51... Please Work:Assets/Polygonal Metalon/FBX.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

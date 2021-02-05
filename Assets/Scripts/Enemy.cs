@@ -105,9 +105,12 @@ public class Enemy : MonoBehaviour, IEnemy {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private void EndPath() {
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 01c6c51... Please Work
     public virtual void EndPath() {
 >>>>>>> parent of 01c6c51... Please Work
 

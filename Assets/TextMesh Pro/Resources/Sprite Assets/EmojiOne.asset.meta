@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta
 guid: c41005c129ba4d66911b75229fd70b45
 timeCreated: 1480316912
 licenseType: Pro
+=======
+guid: eb8fac8d0552e3f499a0eca1d3932a07
+>>>>>>> parent of 01c6c51... Please Work:Assets/Polygonal Metalon/Materials/Polygonal Metalon Green.mat.meta
 NativeFormatImporter:
   userData: 
   assetBundleName: 
