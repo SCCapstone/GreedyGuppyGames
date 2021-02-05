@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: 5d8afad6e1e98844981828dfb9fe8bad
+timeCreated: 1528786314
+licenseType: Store
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Alien Horror
+    100002: //RootNode
+    100004: Rig
+    100006: RigHead
+    100008: RigHeadGizmo
+    100010: RigJaw
+    100012: RigJawGizmo
+    100014: RigLBLeg1
+    100016: RigLBLeg2
+    100018: RigLBLegAnkle
+    100020: RigLBLegPlatform
+    100022: RigLFLeg1
+    100024: RigLFLeg2
+    100026: RigLFLegAnkle
+    100028: RigLFLegPlatform
+    100030: RigLMLeg1
+    100032: RigLMLeg2
+    100034: RigLMLegAnkle
+    100036: RigLMLegPlatform
+    100038: RigNeck
+    100040: RigPelvis
+    100042: RigPelvisGizmo
+    100044: RigRBLeg1
+    100046: RigRBLeg2
+    100048: RigRBLegAnkle
+    100050: RigRBLegPlatform
+    100052: RigRFLeg1
+    100054: RigRFLeg2
+    100056: RigRFLegAnkle
+    100058: RigRFLegPlatform
+    100060: RigRibcage
+    100062: RigRibcageGizmo
+    100064: RigRMLeg1
+    100066: RigRMLeg2
+    100068: RigRMLegAnkle
+    100070: RigRMLegPlatform
+    100072: RigSpine
+    100074: RigTail1
+    100076: RigTail10
+    100078: RigTail10Gizmo
+    100080: RigTail11
+    100082: RigTail11Gizmo
+    100084: RigTail12
+    100086: RigTail12Gizmo
+    100088: RigTail13
+    100090: RigTail13Gizmo
+    100092: RigTail14
+    100094: RigTail14Gizmo
+    100096: RigTail1Gizmo
+    100098: RigTail2
+    100100: RigTail2Gizmo
+    100102: RigTail3
+    100104: RigTail3Gizmo
+    100106: RigTail4
+    100108: RigTail4Gizmo
+    100110: RigTail5
+    100112: RigTail5Gizmo
+    100114: RigTail6
+    100116: RigTail6Gizmo
+    100118: RigTail7
+    100120: RigTail7Gizmo
+    100122: RigTail8
+    100124: RigTail8Gizmo
+    100126: RigTail9
+    100128: RigTail9Gizmo
+    400000: Alien Horror
+    400002: //RootNode
+    400004: Rig
+    400006: RigHead
+    400008: RigHeadGizmo
+    400010: RigJaw
+    400012: RigJawGizmo
+    400014: RigLBLeg1
+    400016: RigLBLeg2
+    400018: RigLBLegAnkle
+    400020: RigLBLegPlatform
+    400022: RigLFLeg1
+    400024: RigLFLeg2
+    400026: RigLFLegAnkle
+    400028: RigLFLegPlatform
+    400030: RigLMLeg1
+    400032: RigLMLeg2
+    400034: RigLMLegAnkle
+    400036: RigLMLegPlatform
+    400038: RigNeck
+    400040: RigPelvis
+    400042: RigPelvisGizmo
+    400044: RigRBLeg1
+    400046: RigRBLeg2
+    400048: RigRBLegAnkle
+    400050: RigRBLegPlatform
+    400052: RigRFLeg1
+    400054: RigRFLeg2
+    400056: RigRFLegAnkle
+    400058: RigRFLegPlatform
+    400060: RigRibcage
+    400062: RigRibcageGizmo
+    400064: RigRMLeg1
+    400066: RigRMLeg2
+    400068: RigRMLegAnkle
+    400070: RigRMLegPlatform
+    400072: RigSpine
+    400074: RigTail1
+    400076: RigTail10
+    400078: RigTail10Gizmo
+    400080: RigTail11
+    400082: RigTail11Gizmo
+    400084: RigTail12
+    400086: RigTail12Gizmo
+    400088: RigTail13
+    400090: RigTail13Gizmo
+    400092: RigTail14
+    400094: RigTail14Gizmo
+    400096: RigTail1Gizmo
+    400098: RigTail2
+    400100: RigTail2Gizmo
+    400102: RigTail3
+    400104: RigTail3Gizmo
+    400106: RigTail4
+    400108: RigTail4Gizmo
+    400110: RigTail5
+    400112: RigTail5Gizmo
+    400114: RigTail6
+    400116: RigTail6Gizmo
+    400118: RigTail7
+    400120: RigTail7Gizmo
+    400122: RigTail8
+    400124: RigTail8Gizmo
+    400126: RigTail9
+    400128: RigTail9Gizmo
+    4300000: Alien Horror
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Alien Horror
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

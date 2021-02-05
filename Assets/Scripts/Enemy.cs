@@ -105,6 +105,7 @@ public class Enemy : MonoBehaviour, IEnemy {
     }
 
     private void EndPath() {
+
         PlayerStats.Lives -= 25;
         Destroy(this.gameObject);
     }

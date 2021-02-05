@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: 4cecc16222019944f917f1eff8d6d3fc
+timeCreated: 1527855290
+licenseType: Store
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Dummy Rotate
+    100002: Polygonal Alien Magantee
+    100004: //RootNode
+    100006: Rig
+    100008: RigHead
+    100010: RigHeadGizmo
+    100012: RigJawL01
+    100014: RigJawL01Gizmo
+    100016: RigJawL02
+    100018: RigJawL02Gizmo
+    100020: RigJawR01
+    100022: RigJawR01Gizmo
+    100024: RigJawR02
+    100026: RigJawR02Gizmo
+    100028: RigLBLeg1
+    100030: RigLBLeg2
+    100032: RigLBLegAnkle
+    100034: RigLBLegPlatform
+    100036: RigLFLeg1
+    100038: RigLFLeg2
+    100040: RigLFLegAnkle
+    100042: RigLFLegPlatform
+    100044: RigLMLeg1
+    100046: RigLMLeg2
+    100048: RigLMLegAnkle
+    100050: RigLMLegPlatform
+    100052: RigNeck
+    100054: RigPelvis
+    100056: RigPelvisGizmo
+    100058: RigRBLeg1
+    100060: RigRBLeg2
+    100062: RigRBLegAnkle
+    100064: RigRBLegPlatform
+    100066: RigRFLeg1
+    100068: RigRFLeg2
+    100070: RigRFLegAnkle
+    100072: RigRFLegPlatform
+    100074: RigRibcage
+    100076: RigRibcageGizmo
+    100078: RigRMLeg1
+    100080: RigRMLeg2
+    100082: RigRMLegAnkle
+    100084: RigRMLegPlatform
+    100086: RigSpine1
+    100088: RigSpine2
+    100090: RigTail1
+    100092: RigTail1Gizmo
+    100094: RigTail2
+    100096: RigTail2Gizmo
+    100098: RigTail3
+    100100: RigTail3Gizmo
+    400000: Dummy Rotate
+    400002: Polygonal Alien Magantee
+    400004: //RootNode
+    400006: Rig
+    400008: RigHead
+    400010: RigHeadGizmo
+    400012: RigJawL01
+    400014: RigJawL01Gizmo
+    400016: RigJawL02
+    400018: RigJawL02Gizmo
+    400020: RigJawR01
+    400022: RigJawR01Gizmo
+    400024: RigJawR02
+    400026: RigJawR02Gizmo
+    400028: RigLBLeg1
+    400030: RigLBLeg2
+    400032: RigLBLegAnkle
+    400034: RigLBLegPlatform
+    400036: RigLFLeg1
+    400038: RigLFLeg2
+    400040: RigLFLegAnkle
+    400042: RigLFLegPlatform
+    400044: RigLMLeg1
+    400046: RigLMLeg2
+    400048: RigLMLegAnkle
+    400050: RigLMLegPlatform
+    400052: RigNeck
+    400054: RigPelvis
+    400056: RigPelvisGizmo
+    400058: RigRBLeg1
+    400060: RigRBLeg2
+    400062: RigRBLegAnkle
+    400064: RigRBLegPlatform
+    400066: RigRFLeg1
+    400068: RigRFLeg2
+    400070: RigRFLegAnkle
+    400072: RigRFLegPlatform
+    400074: RigRibcage
+    400076: RigRibcageGizmo
+    400078: RigRMLeg1
+    400080: RigRMLeg2
+    400082: RigRMLegAnkle
+    400084: RigRMLegPlatform
+    400086: RigSpine1
+    400088: RigSpine2
+    400090: RigTail1
+    400092: RigTail1Gizmo
+    400094: RigTail2
+    400096: RigTail2Gizmo
+    400098: RigTail3
+    400100: RigTail3Gizmo
+    4300000: Polygonal Alien Magantee
+    7400000: Rolled Up Spin Fast
+    9500000: //RootNode
+    13700000: Polygonal Alien Magantee
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Rolled Up Spin Fast
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
