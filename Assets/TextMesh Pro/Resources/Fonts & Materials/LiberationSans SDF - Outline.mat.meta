@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat.meta
 guid: 79459efec17a4d00a321bdcc27bbc385
 timeCreated: 1484172856
 licenseType: Pro
+=======
+guid: a0d2ba5d068c86a4c82d93f2ec431a84
+>>>>>>> parent of 01c6c51... Please Work:Assets/Polygonal Metalon/Animators/Demo.controller.meta
 NativeFormatImporter:
   userData: 
   assetBundleName: 

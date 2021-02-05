@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta
 guid: f952c082cb03451daed3ee968ac6c63e
 timeCreated: 1432805430
+=======
+guid: 0aae032dca142c1458bfb151bb2e2f6a
+timeCreated: 1521615305
+>>>>>>> parent of 01c6c51... Please Work:Assets/Polygonal Metalon/Demo Assets/Demo Ground 1.mat.meta
 licenseType: Store
 NativeFormatImporter:
   userData: 

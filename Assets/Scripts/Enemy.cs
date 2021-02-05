@@ -104,8 +104,17 @@ public class Enemy : MonoBehaviour, IEnemy {
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
     }
 
+<<<<<<< HEAD
     private void EndPath() {
+=======
+<<<<<<< HEAD
+    public virtual void EndPath() {
+>>>>>>> parent of 01c6c51... Please Work
 
+=======
+    public virtual void EndPath()
+    {
+>>>>>>> parent of 2bbccf0... Merge branch 'master' into Chris
         PlayerStats.Lives -= 25;
         Destroy(this.gameObject);
     }
