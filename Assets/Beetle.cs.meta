@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 48a0eb867f608d544b5b4806961c791c
+=======
+guid: 8ab97650b5fff2943b762712a81eec52
+>>>>>>> parent of 2bbccf0... Merge branch 'master' into Chris
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

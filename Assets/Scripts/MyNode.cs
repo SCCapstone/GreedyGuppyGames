@@ -22,8 +22,6 @@ public class MyNode : MonoBehaviour
     public int upgradePathOne = 0;
     [HideInInspector]
     public int upgradePathTwo = 0;
-    [HideInInspector]
-    public int moneySpentOnTurret = 0;
 
 
     private Renderer rend;
@@ -43,7 +41,7 @@ public class MyNode : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //Debug.Log("I ran onmousedown");
+        Debug.Log("I ran onmousedown");
         // If the MyNode script is unchecked then we return
         if (this.gameObject.GetComponent<MyNode>().enabled == false)
         {
@@ -106,7 +104,6 @@ public class MyNode : MonoBehaviour
         }
     }
 
-    // destroys the turret in the game then sets the turret to null
     public void DeleteTurret()
     {
         Destroy(turret);
@@ -154,7 +151,6 @@ public class MyNode : MonoBehaviour
         }
 
         PlayerStats.Money -= blueprint.cost;
-        moneySpentOnTurret += blueprint.cost;
 
         // Build a turret
         // GameObject turretToBuild = buildManager.GetTurretToBuild();
@@ -224,31 +220,12 @@ public class MyNode : MonoBehaviour
         
         DeleteTurret();
         PlayerStats.Money -= upgradePrice;
-        moneySpentOnTurret += upgradePrice;
 
         GameObject turretUpgrade = (GameObject)Instantiate(upgradePrefab, GetBuildPosition(), Quaternion.identity);
-        //Debug.Log("I made it here");
+        Debug.Log("I made it here");
         turret = turretUpgrade;
 
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
-    }
-
-    public void SellTurret()
-    {
-        ResetNode();
-        PlayerStats.Money += (int)(moneySpentOnTurret * Shop.sellPercent);
-        moneySpentOnTurret = 0;
-        
-    }
-
-    //deletes the turret then sets its blueprint and upgrade paths path to default values
-    public void ResetNode()
-    {
-        DeleteTurret();
-        this.turretBlueprint = null;
-        this.upgradePathOne = 0;
-        this.upgradePathTwo = 0;
-        this.ResetColor();
     }
 }

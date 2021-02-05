@@ -8,9 +8,6 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    public static double sellPercent;
-    public double startingSellPercent;
-
     public Button basicTowerButton;
     public Button cannonTowerButton;
     public Button machineGunTowerButton;
@@ -48,7 +45,6 @@ public class Shop : MonoBehaviour
         electricTowerPrice.text = "$" + ElectricTower.cost;
         supportTowerPrice.text = "$" + SupportTower.cost;
         flameThrowerPrice.text = "$" + FlameThrowerTower.cost;
-        sellPercent = this.startingSellPercent;
         
     }
 
