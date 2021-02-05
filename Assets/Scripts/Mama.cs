@@ -31,5 +31,11 @@ public class Mama : Enemy
         }
     }
 
+    public override void EndPath()
+    {
+        PlayerStats.Lives -= 30;
+        Destroy(this.gameObject);
+    }
+
 
 }

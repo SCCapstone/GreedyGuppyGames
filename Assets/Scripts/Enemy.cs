@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
     }
 
-    private void EndPath()
+    public virtual void EndPath()
     {
         PlayerStats.Lives -= 25;
         Destroy(this.gameObject);
