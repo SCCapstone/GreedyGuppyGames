@@ -325,7 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad4632d52a1dbf4ba5fe29f2c53dd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingSellPercent: 0.5
   basicTowerButton: {fileID: 357423501}
   cannonTowerButton: {fileID: 1204990852}
   machineGunTowerButton: {fileID: 1709855646}
@@ -1928,8 +1927,8 @@ RectTransform:
   m_Father: {fileID: 167347428}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2869,7 +2868,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4967,7 +4966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &308246284
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5008,7 +5007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7596ed9f3cd0833408f1ba02c256e2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenuUI: {fileID: 14914577}
 --- !u!114 &308246288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7695,10 +7693,10 @@ RectTransform:
   m_Father: {fileID: 456204395}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -47.262104}
+  m_SizeDelta: {x: 180, y: 94.52421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526819537
 MonoBehaviour:
@@ -9048,8 +9046,8 @@ RectTransform:
   m_Father: {fileID: 501557088}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.08390839, y: 0}
+  m_AnchorMax: {x: 0.08390839, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11411,7 +11409,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.08390839, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -18033,10 +18031,10 @@ RectTransform:
   m_Father: {fileID: 456204395}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 450, y: -47.262104}
+  m_SizeDelta: {x: 180, y: 94.52421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185033682
 MonoBehaviour:
@@ -19625,10 +19623,10 @@ RectTransform:
   m_Father: {fileID: 456204395}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 270, y: -47.262104}
+  m_SizeDelta: {x: 180, y: 94.52421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276016914
 MonoBehaviour:
@@ -20539,7 +20537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1325223114
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20574,11 +20572,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 1742403347}
   transformUI: {fileID: 1325223114}
-  upgradeLeftText: {fileID: 354150769}
-  upgradeRightText: {fileID: 1799587089}
-  upgradeLeftButton: {fileID: 1117874280}
-  upgradeRightButton: {fileID: 797840670}
-  sellText: {fileID: 250226985}
+  upgrade10Text: {fileID: 0}
+  upgrade20Text: {fileID: 0}
+  upgrade30Text: {fileID: 0}
+  upgrade01Text: {fileID: 0}
+  upgrade02Text: {fileID: 0}
+  upgrade03Text: {fileID: 0}
+  upgrade10Button: {fileID: 0}
+  upgrade20Button: {fileID: 0}
+  upgrade30Button: {fileID: 0}
+  upgrade01Button: {fileID: 0}
+  upgrade02Button: {fileID: 0}
+  upgrade03Button: {fileID: 0}
 --- !u!114 &1325223116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30470,6 +30475,7 @@ MonoBehaviour:
     type: 3}
   mamaPrefab: {fileID: 1370186633007649959, guid: 6db0585589cd2984080fa27841456bca,
     type: 3}
+  spawnPoint: {fileID: 1381169643}
   timeBetweenWaves: 7
   countdown: 5
   timeBetweenRounds: 13
@@ -31061,10 +31067,10 @@ RectTransform:
   m_Father: {fileID: 456204395}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 630, y: -47.262104}
+  m_SizeDelta: {x: 180, y: 94.52421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2089628057
 MonoBehaviour:
