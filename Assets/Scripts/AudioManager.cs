@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public Sounds[] gameSFXSounds;
     public Sounds[] menuSFXSounds;
 
+    public Slider musicSlider;
+    public Slider sfxSlider;
 
     //Reference to the AudioManager itself
     public static AudioManager instance;
@@ -77,6 +80,8 @@ public class AudioManager : MonoBehaviour
     {
         // Plays game music
         PlayAudio(gameMusicName);
+        SetMusicVolume(musicSlider.value);
+        SetSFXVolume(sfxSlider.value);
     }
 
     //Plays an audio clip
