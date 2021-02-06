@@ -10,5 +10,5 @@ public class Beetle : Enemy
         base.Start();
     }
 
-    
+
 }

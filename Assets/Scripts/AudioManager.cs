@@ -1,11 +1,17 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     //An array for keep track of audio clips
-    public Sounds[] sounds;
+    public Sounds[] musicSounds;
+    public Sounds[] gameSFXSounds;
+    public Sounds[] menuSFXSounds;
+
+    public Slider musicSlider;
+    public Slider sfxSlider;
 
     //Reference to the AudioManager itself
     public static AudioManager instance;
@@ -41,7 +47,9 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         // Plays game music
-        PlayAudio("GameMusic");
+        PlayAudio(gameMusicName);
+        SetMusicVolume(musicSlider.value);
+        SetSFXVolume(sfxSlider.value);
     }
 
     //Plays an audio clip
@@ -49,7 +57,7 @@ public class AudioManager : MonoBehaviour
     {
         //Searches the array of sounds for the name of the passed in audio clip
         Sounds s = Array.Find(sounds, sound => sound.name == audioName);
-        
+
         //if not found displays a warning
         if(s == null)
         {

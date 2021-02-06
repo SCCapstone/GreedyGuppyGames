@@ -7,7 +7,7 @@ using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
     public Animator anim;
-    
+
     public float speed = 10f;
 
     public int health = 100;
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
         Destroy(this.gameObject);
-        
+
     }
 
     private void Update()
@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
         // Direction pointing to waypoint
         Vector3 dir = this.target.position - this.transform.position;
         this.transform.Translate(dir.normalized * this.speed * Time.deltaTime, Space.World);
-        
+
         // Checks if we are verrrrry close to a waypoint
         if (Vector3.Distance(this.transform.position, this.target.position) <= 0.4f)
         {
@@ -90,7 +90,6 @@ public class Enemy : MonoBehaviour
         // Look at waypoint, rotation stuff
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
     }
-
 
     public virtual void EndPath() {
 
