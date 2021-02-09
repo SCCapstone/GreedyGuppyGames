@@ -50,6 +50,9 @@ crashlytics-build.properties
 # Probuilder settings
 com.unity.probuilder/
 
+# Project Settings
+ProjectSettings/
+
 # Version
 /ProjectSettings/ProjectVersion.txt
 ProjectSettings/Packages/com.unity.probuilder/Settings.json
