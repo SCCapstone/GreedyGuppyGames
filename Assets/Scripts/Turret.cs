@@ -13,7 +13,17 @@ public class Turret : MonoBehaviour
     public float range = 15f;
 
     public float firerate = 1f;
+    public float originalFireRate;
     private float fireCountdown = 0f;
+
+
+    //Below is to be used for buffs from the support tower
+    public bool buffed2XFireRate = false;
+    public bool buffed4XFireRate = false;
+    public bool buffed6XFireRate = false;
+    public bool buffedAim = false;
+    public bool buffedPierce = false;
+    public bool buffedDamage = false;
 
     //Audio file name to be played when turret is firing a bullet
     public string gunShotAudio;
@@ -32,6 +42,7 @@ public class Turret : MonoBehaviour
     private void Start()
     {
         this.InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        this.originalFireRate = this.firerate;
     }
 
     private void UpdateTarget()
