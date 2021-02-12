@@ -421,7 +421,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 234660471}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648115019}
+        m_TargetAssemblyTypeName: Menu, Scripts
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &234660471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,7 +718,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 648115012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d421cda666e747d499d2ace1d58d1602, type: 3}
+  m_Script: {fileID: 11500000, guid: 649b8f6f9f8777a46a736163a41edd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &772361457
@@ -1455,7 +1467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a6ec1fcf2f177464ea5771d9a50eea08, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54ff1fe8a0771d74894061e2b98f4353, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
