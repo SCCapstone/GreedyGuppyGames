@@ -8,6 +8,7 @@ public class UpgradeUI : MonoBehaviour
     [Header("UI")]
     public GameObject ui;
     public RectTransform transformUI;
+    public Image turretImage;
     private bool UIOpen = false;
 
     [Header("Upgrade Text")]
@@ -36,7 +37,9 @@ public class UpgradeUI : MonoBehaviour
         }
         if (nodeToUpgrade != null)
         {
-            sellText.text = "$" + nodeToUpgrade.moneySpentOnTurret * Shop.sellPercent;
+            this.sellText.text = "$" + this.nodeToUpgrade.moneySpentOnTurret * Shop.sellPercent;
+            this.turretImage.sprite = this.nodeToUpgrade.turretBlueprint.turretImage;
+
             if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)
             {
                 upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade10Text;
