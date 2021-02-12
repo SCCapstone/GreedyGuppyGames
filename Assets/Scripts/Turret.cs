@@ -7,6 +7,8 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private Transform target;
+    [HideInInspector]
+    public int killCount = 0;
 
     [Header("Attributes")]
 
@@ -62,20 +64,13 @@ public class Turret : MonoBehaviour
                 //shortestDistanceToTurret = distanceToEnemy;
                 shortestDistanceToEnd = enemyDistanceToEnd;
                 nearestEnemy = enemy;
-                // Debug.Log("Shortest Distance " + shortestDistance);
-                // Debug.Log("nearest enemy "+nearestEnemy);
             }
         }
-
-        // Debug.Log("nearest enemy " + nearestEnemy);
-        // Debug.Log("Shortest Distance to end" + shortestDistanceToEnd);
-        // Debug.Log("Range " + this.range);
 
         // Sets the target to the chosen enemy
         if (nearestEnemy != null)
         {
             this.target = nearestEnemy.transform;
-            // Debug.Log(this.target);
         }
         else
         {
@@ -104,13 +99,14 @@ public class Turret : MonoBehaviour
             this.fireCountdown = 1f / this.firerate;
         }
 
-        
+
     }
 
     private void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(this.bulletPrefab, this.firePoint.position, this.firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
+        bullet.turretThatShotMe = this;
 
         if (bullet != null)
         {
@@ -119,7 +115,6 @@ public class Turret : MonoBehaviour
 
         //Audio for when a "bullet" is fired
         FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
-        // Debug.Log("Audio should have been played");
     }
 
     private void OnDrawGizmosSelected()
