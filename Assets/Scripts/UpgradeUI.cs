@@ -8,8 +8,6 @@ public class UpgradeUI : MonoBehaviour
     [Header("UI")]
     public GameObject ui;
     public RectTransform transformUI;
-    public Image turretImage;
-    public Text killCount;
     private bool UIOpen = false;
 
     [Header("Upgrade Text")]
@@ -38,11 +36,7 @@ public class UpgradeUI : MonoBehaviour
         }
         if (nodeToUpgrade != null)
         {
-            this.sellText.text = "$" + this.nodeToUpgrade.moneySpentOnTurret * Shop.sellPercent;
-            this.turretImage.sprite = this.nodeToUpgrade.turretBlueprint.turretImage;
-            this.killCount.text =  "Kills: " + this.nodeToUpgrade.turret.gameObject.GetComponent<Turret>().killCount.ToString();
-
-
+            sellText.text = "$" + nodeToUpgrade.moneySpentOnTurret * Shop.sellPercent;
             if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)
             {
                 upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade10Text;
@@ -150,6 +144,7 @@ public class UpgradeUI : MonoBehaviour
 
     public void SetTurret(MyNode node)
     {
+        //Debug.Log("Set Turret");
         nodeToUpgrade = node;
         // transform.position = nodeToUpgrade.GetBuildPosition();
         if(!node.leftNode)
@@ -170,12 +165,14 @@ public class UpgradeUI : MonoBehaviour
 
     public void Activate()
     {
+        //Debug.Log("activating");
         UIOpen = true;
         ui.SetActive(true);
     }
 
     public void Hide()
     {
+        Debug.Log("Hiding");
         UIOpen = false;
         ui.SetActive(false);
     }
@@ -186,6 +183,7 @@ public class UpgradeUI : MonoBehaviour
         {
             return;
         }
+        //Debug.Log("UpgradePath1");
         nodeToUpgrade.upgradePathOne++;
         nodeToUpgrade.UpgradeTurret();
 
@@ -198,6 +196,7 @@ public class UpgradeUI : MonoBehaviour
         {
             return;
         }
+        //Debug.Log("UpgradePath2");
         nodeToUpgrade.upgradePathTwo++;
         nodeToUpgrade.UpgradeTurret();
 

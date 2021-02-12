@@ -29,10 +29,6 @@ public class WaveSpawner : MonoBehaviour
     private int TEN = 10;
     private int round = 1;
 
-    //testing
-    private int numGroobers = 0;
-    private int numMilfs = 0;
-
  private void Start() 
     {
         // Locates START(green block) in the scene
@@ -68,9 +64,6 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < this.waveIndex; i++)
             {
                 SpawnEnemy(grubPrefab);
-
-                numGroobers++;
-
                 yield return new WaitForSeconds(0.5f);
             }
 
@@ -78,9 +71,6 @@ public class WaveSpawner : MonoBehaviour
             {
                 // Debug.Log("Spawning a single mama");
                 SpawnEnemy(mamaPrefab); //spawns a single mama
-
-                numMilfs++;
-
                 // Debug.Log("Round 1 over");
                 this.waveIndex = 5;  //will spawn 5 enemies (after waveIndex increments) at the start of round 2
                 //pause the game here, wait for player to resume
@@ -104,9 +94,6 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < this.waveIndex; i++)
             {
                 SpawnEnemy(grubPrefab);
-
-                numGroobers++;
-
                 yield return new WaitForSeconds(0.5f);
             }
 
@@ -119,9 +106,6 @@ public class WaveSpawner : MonoBehaviour
                 for (int i = 0; i < mamaIndex; i++)
                 {
                     SpawnEnemy(mamaPrefab);
-
-                    numMilfs++;
-
                     yield return new WaitForSeconds(1f);
                     
                 }
@@ -150,9 +134,6 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < this.waveIndex; i++)
             {
                 SpawnEnemy(grubPrefab);
-
-                numGroobers++;
-
                 yield return new WaitForSeconds(0.5f);
             }
 
@@ -165,9 +146,6 @@ public class WaveSpawner : MonoBehaviour
                 for (int i = 0; i < mamaIndex; i++)
                 {
                     SpawnEnemy(mamaPrefab);
-
-                    numMilfs++;
-
                     yield return new WaitForSeconds(1f);
 
                 }
@@ -179,10 +157,6 @@ public class WaveSpawner : MonoBehaviour
                 //pause the game here, wait for player to resume
             }
         }
-
-        Debug.Log("milfs = " + numMilfs);
-        Debug.Log("groobers = " + numGroobers);
-        Debug.Log("total enemies = " + (numGroobers + (numMilfs * 2)));
     }
 
     public static void SpawnEnemy(Transform enemy)

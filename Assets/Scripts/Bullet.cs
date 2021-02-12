@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour, IBullet {
     private Transform target;
-    [HideInInspector]
-    public Turret turretThatShotMe;
 
     public float speed = 70f;
     public int damage = 50;
@@ -68,7 +66,6 @@ public class Bullet : MonoBehaviour, IBullet {
         Enemy e = enemy.GetComponent<Enemy>();
 
         if (e != null) {
-            e.bulletWhoShotMe = this;
             e.TakeDamage(this.damage);
         }
     }
