@@ -30663,6 +30663,12 @@ MonoBehaviour:
     pitch: 1.5
     loop: 1
     source: {fileID: 0}
+  - name: GameMusic2
+    audioClip: {fileID: 8300000, guid: 6942fbe8fbf0b374698a70f6b38e40e8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   gameSFXSounds:
   - name: BasicTowerShot
     audioClip: {fileID: 8300000, guid: f82348f044e4641f38816d5c92ce9618, type: 3}
@@ -30692,7 +30698,7 @@ MonoBehaviour:
     type: 2}
   MusicMixerGroupName: MusicVolume
   SFXMixerGroupName: SFXVolume
-  gameMusicName: GameMusic
+  gameMusicName: GameMusic2
 --- !u!4 &2063151235
 Transform:
   m_ObjectHideFlags: 0
