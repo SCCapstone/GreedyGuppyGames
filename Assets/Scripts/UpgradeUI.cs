@@ -8,6 +8,8 @@ public class UpgradeUI : MonoBehaviour
     [Header("UI")]
     public GameObject ui;
     public RectTransform transformUI;
+    public Image turretImage;
+    public Text killCount;
     private bool UIOpen = false;
 
     [Header("Upgrade Text")]
@@ -30,19 +32,23 @@ public class UpgradeUI : MonoBehaviour
     public void Update()
     {
         // if upgrade ui is open and we pause it closes the upgrade ui
-        if(UIOpen && Input.GetKeyDown(KeyCode.Escape))
+        if (UIOpen && Input.GetKeyDown(KeyCode.Escape))
         {
             ui.SetActive(false);
         }
         if (nodeToUpgrade != null)
         {
-            sellText.text = "$" + nodeToUpgrade.moneySpentOnTurret * Shop.sellPercent;
+            this.sellText.text = "$" + this.nodeToUpgrade.moneySpentOnTurret * Shop.sellPercent;
+            this.turretImage.sprite = this.nodeToUpgrade.turretBlueprint.turretImage;
+            this.killCount.text = "Kills: " + this.nodeToUpgrade.turret.gameObject.GetComponent<Turret>().killCount.ToString();
+
+
             if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)
             {
                 upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade10Text;
                 upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade01Text;
 
-                if(nodeToUpgrade.turretBlueprint.upgradeCost01 <= PlayerStats.Money)
+                if (nodeToUpgrade.turretBlueprint.upgradeCost01 <= PlayerStats.Money)
                 {
                     upgradeRightButton.interactable = true;
                 }
@@ -50,7 +56,7 @@ public class UpgradeUI : MonoBehaviour
                 {
                     upgradeRightButton.interactable = false;
                 }
-                if(nodeToUpgrade.turretBlueprint.upgradeCost10 <= PlayerStats.Money)
+                if (nodeToUpgrade.turretBlueprint.upgradeCost10 <= PlayerStats.Money)
                 {
                     upgradeLeftButton.interactable = true;
                 }
@@ -65,7 +71,7 @@ public class UpgradeUI : MonoBehaviour
                 upgradeRightButton.interactable = false;
                 upgradeRightText.text = "Locked";
 
-                if(nodeToUpgrade.turretBlueprint.upgradeCost20 <= PlayerStats.Money)
+                if (nodeToUpgrade.turretBlueprint.upgradeCost20 <= PlayerStats.Money)
                 {
                     upgradeLeftButton.interactable = true;
                 }
@@ -144,10 +150,9 @@ public class UpgradeUI : MonoBehaviour
 
     public void SetTurret(MyNode node)
     {
-        //Debug.Log("Set Turret");
         nodeToUpgrade = node;
         // transform.position = nodeToUpgrade.GetBuildPosition();
-        if(!node.leftNode)
+        if (!node.leftNode)
         {
             transformUI.anchorMin = new Vector2(0, .15f);
             transformUI.anchorMax = new Vector2(.25f, .95f);
@@ -160,30 +165,27 @@ public class UpgradeUI : MonoBehaviour
             this.Activate();
         }
 
-        
+
     }
 
     public void Activate()
     {
-        //Debug.Log("activating");
         UIOpen = true;
         ui.SetActive(true);
     }
 
     public void Hide()
     {
-        Debug.Log("Hiding");
         UIOpen = false;
         ui.SetActive(false);
     }
 
     public void UpgradePathOne()
     {
-        if(nodeToUpgrade.upgradePathTwo > 0)
+        if (nodeToUpgrade.upgradePathTwo > 0)
         {
             return;
         }
-        //Debug.Log("UpgradePath1");
         nodeToUpgrade.upgradePathOne++;
         nodeToUpgrade.UpgradeTurret();
 
@@ -196,7 +198,6 @@ public class UpgradeUI : MonoBehaviour
         {
             return;
         }
-        //Debug.Log("UpgradePath2");
         nodeToUpgrade.upgradePathTwo++;
         nodeToUpgrade.UpgradeTurret();
 
