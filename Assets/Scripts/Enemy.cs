@@ -6,6 +6,9 @@ using UnityEngine;
 using DG.Tweening;
 public class Enemy : MonoBehaviour, IEnemy {
     public Animator anim;
+    [HideInInspector]
+    public Bullet bulletWhoShotMe;
+    bool dead = false;
 
     public float speed = 10f;
 
@@ -52,12 +55,14 @@ public class Enemy : MonoBehaviour, IEnemy {
 
     public void TakeDamage(int amount) {
         this.health -= amount;
-        if (this.health <= 0) {
+        if (this.health <= 0 && !dead) {
             this.Die();
+            this.dead = true;
         }
     }
 
     public virtual void Die() {
+        bulletWhoShotMe.turretThatShotMe.killCount++;
         PlayerStats.Money += this.value;
         GameObject effect = (GameObject)Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);

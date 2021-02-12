@@ -92,7 +92,6 @@ public class BuildManager : MonoBehaviour
         }
         selectedNode = node.GetComponent<MyNode>();
         selectedNode.SelectForUpgradeColor();
-        Debug.Log("selected");
         upgradeUI.SetTurret(selectedNode);
     }
 
