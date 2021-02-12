@@ -43,7 +43,6 @@ public class MyNode : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //Debug.Log("I ran onmousedown");
         // If the MyNode script is unchecked then we return
         if (this.gameObject.GetComponent<MyNode>().enabled == false)
         {
@@ -62,7 +61,6 @@ public class MyNode : MonoBehaviour
 
         if (this.turret != null)
         {
-            // Debug.Log("Can't build there! - TODO: Dispaly on screen.");
             return;
         }
 
@@ -149,7 +147,6 @@ public class MyNode : MonoBehaviour
     {
         if (PlayerStats.Money < blueprint.cost)
         {
-            // Debug.Log("Not enough money to build that!");
             return;
         }
 
@@ -165,22 +162,15 @@ public class MyNode : MonoBehaviour
         Destroy(effect, 5f);
 
         turretBlueprint = blueprint;
-        // Debug.Log("Turret build! Money left: " + PlayerStats.Money);
     }
 
     public void UpgradeTurret()
     {
-        
-        Debug.Log("CalledUpgrade");
         GameObject upgradePrefab;
         int upgradePrice;
 
-        Debug.Log("x:" + upgradePathOne);
-        Debug.Log("y:" + upgradePathTwo);
-
         if (upgradePathOne == 0 && upgradePathTwo == 1)
         {
-            Debug.Log("01 Path Upgrade");
             upgradePrefab = turretBlueprint.prefabUpgrade01;
             upgradePrice = turretBlueprint.upgradeCost01;
         }
@@ -217,18 +207,19 @@ public class MyNode : MonoBehaviour
 
         if (PlayerStats.Money < upgradePrice)
         {
-            // Debug.Log("Not enough money for upgrade");
             return;
         }
-
-        
+        // saves the kill count of the turret
+        int tempKillCount = this.turret.gameObject.GetComponent<Turret>().killCount;
         DeleteTurret();
         PlayerStats.Money -= upgradePrice;
         moneySpentOnTurret += upgradePrice;
 
         GameObject turretUpgrade = (GameObject)Instantiate(upgradePrefab, GetBuildPosition(), Quaternion.identity);
-        //Debug.Log("I made it here");
         turret = turretUpgrade;
+
+        // resets the kill count of the turret
+        this.turret.gameObject.GetComponent<Turret>().killCount = tempKillCount;
 
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);

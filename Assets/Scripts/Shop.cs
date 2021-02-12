@@ -121,19 +121,16 @@ public class Shop : MonoBehaviour
 
     public void SelectBasicTurret()
     {
-        // Debug.Log("Standard Turret Selected");
         this.buildManager.SelectTurretToBuild(this.BasicTower);
     }
 
     public void SelectCannonTurret()
     {
-        // Debug.Log("Cannon Turret Selected");
         this.buildManager.SelectTurretToBuild(this.CannonTower);
     }
 
     public void SelectMachineGunTurret()
     {
-        // Debug.Log("Machine Turret Selected");
         this.buildManager.SelectTurretToBuild(this.MachineGunTower);
     }
 

@@ -32,7 +32,6 @@ public class PauseMenu : MenuFunctions
 
     public void Pause()
     {
-        Debug.Log("Game Paused");
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -40,7 +39,6 @@ public class PauseMenu : MenuFunctions
 
     public void Unpause()
     {
-        Debug.Log("Game unpaused");
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
