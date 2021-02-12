@@ -48,7 +48,10 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Probuilder settings
-/com.unity.probuilder
+com.unity.probuilder/
+
+# Project Settings
+ProjectSettings/
 
 # Version
 /ProjectSettings/ProjectVersion.txt
