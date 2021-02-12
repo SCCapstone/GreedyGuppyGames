@@ -82,6 +82,7 @@ public class Bullet : MonoBehaviour, IBullet
         {
             e.bulletWhoShotMe = this;
             e.TakeDamage(this.damage);
+            e.TakeDamage(this.damage);
         }
     }
 
