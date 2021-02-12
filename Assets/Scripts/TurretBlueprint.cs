@@ -34,4 +34,7 @@ public class TurretBlueprint
     public string upgrade01Text;
     public string upgrade02Text;
     public string upgrade03Text;
+
+    [Header("Turret Sprite")]
+    public Sprite turretImage;
 }
