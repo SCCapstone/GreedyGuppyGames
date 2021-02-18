@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 1217453703370840, guid: abb1aca7f374d4d518e9857a8a14a963, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4791086216502926, guid: abb1aca7f374d4d518e9857a8a14a963, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -21,9 +23,11 @@ public class AudioManager : MonoBehaviour
     public string MusicMixerGroupName;
     public string SFXMixerGroupName;
     public string gameMusicName;
+    public string menuMusicName;
 
     private float sfxVolume = .001f;
     private float musicVolume= .001f;
+    public float fadeTime = 3f;
 
 
 
@@ -147,5 +151,41 @@ public class AudioManager : MonoBehaviour
     public void ChangeSFXVolume()
     {
         audioMixer.SetFloat(SFXMixerGroupName, Mathf.Log10(sfxVolume) * 20);
+    }
+
+    /*
+    // transition from turning off s1 to turning on s2
+    public IEnumerator TransitionMusic(Sounds s1, Sounds s2)
+    {
+        s2.source.volume= Mathf.Log10(.001f) * 20;
+        s2.source.Play();
+        float currentTime = 0;
+        float maxVolume = Mathf.Log10(musicVolume) * 20;
+        float minVolume = Mathf.Log10(.001f) * 20;
+
+        while (currentTime < fadeTime)
+        {
+            currentTime += Time.deltaTime;
+            s2.source.volume = Mathf.Lerp(minVolume, maxVolume, currentTime / fadeTime);
+            s1.source.volume = Mathf.Lerp(maxVolume, minVolume, currentTime / fadeTime);
+            yield return null;
+        }
+        s1.source.Stop();
+        yield break;
+    }
+    */
+
+    public void TransitionMusic(Sounds s1, Sounds s2)
+    {
+        s1.source.Stop();
+        s2.source.Play();
+    }
+
+    public void FadeToMenuMusic()
+    {
+        Sounds menuMusic = Array.Find(musicSounds, sound => sound.name == menuMusicName);
+        Sounds gameMusic = Array.Find(musicSounds, sound => sound.name == gameMusicName);
+        //gameMusic.source.Stop();
+        TransitionMusic(gameMusic, menuMusic);
     }
 }

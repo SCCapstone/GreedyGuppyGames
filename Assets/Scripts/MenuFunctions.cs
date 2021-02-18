@@ -17,6 +17,7 @@ public class MenuFunctions : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("MainMenu");
+        FindObjectOfType<AudioManager>().FadeToMenuMusic();
     }
 
     public void Quit()
