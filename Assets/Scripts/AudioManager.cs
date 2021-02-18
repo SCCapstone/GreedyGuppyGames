@@ -22,6 +22,10 @@ public class AudioManager : MonoBehaviour
     public string SFXMixerGroupName;
     public string gameMusicName;
 
+    private float sfxVolume = .001f;
+    private float musicVolume= .001f;
+
+
 
     void Awake()
     {
@@ -29,6 +33,7 @@ public class AudioManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            GameAudioControl.audioManager = instance;
         }
         //If an instace of AudioManager exists destroy it
         else
@@ -123,12 +128,24 @@ public class AudioManager : MonoBehaviour
     // sets music volume for slider using logarithmic scale
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat(MusicMixerGroupName, Mathf.Log10(volume) * 20);
+        this.musicVolume = volume;
+        ChangeMusicVolume();
     }
 
     // sets sfx volume for slider using logarithmic scale
     public void SetSFXVolume(float volume)
     {
-        audioMixer.SetFloat(SFXMixerGroupName, Mathf.Log10(volume) * 20);
+        this.sfxVolume = volume;
+        ChangeSFXVolume();
+    }
+
+    public void ChangeMusicVolume()
+    {
+        audioMixer.SetFloat(MusicMixerGroupName, Mathf.Log10(musicVolume) * 20);
+    }
+
+    public void ChangeSFXVolume()
+    {
+        audioMixer.SetFloat(SFXMixerGroupName, Mathf.Log10(sfxVolume) * 20);
     }
 }
