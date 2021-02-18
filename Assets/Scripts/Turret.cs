@@ -10,21 +10,32 @@ public class Turret : MonoBehaviour
     [HideInInspector]
     public int killCount = 0;
 
-    [Header("Attributes")]
-
+    [Header("Tower Attributes")]
     public float range = 15f;
-
     public float firerate = 1f;
+    [HideInInspector]
     public float originalFireRate;
     private float fireCountdown = 0f;
 
+    [Header("Bullet Attributes")]
+    public int bulletPierce = 1;
+    public int bulletDamage = 50;
+    public float bulletSpeed = 70;
+    public float bulletExplosionRadius = 0;
+    public int bulletExplosionPierce = 10;
 
     //Below is to be used for buffs from the support tower
+    [HideInInspector]
     public bool buffed2XFireRate = false;
+    [HideInInspector]
     public bool buffed4XFireRate = false;
+    [HideInInspector]
     public bool buffed6XFireRate = false;
+    [HideInInspector]
     public bool buffedAim = false;
+    [HideInInspector]
     public bool buffedPierce = false;
+    [HideInInspector]
     public bool buffedDamage = false;
 
     //Audio file name to be played when turret is firing a bullet
@@ -72,7 +83,6 @@ public class Turret : MonoBehaviour
             // Targets enemy closest to last waypoint
             if (enemyDistanceToEnd < shortestDistanceToEnd && distanceToEnemy <= this.range)
             {
-                //shortestDistanceToTurret = distanceToEnemy;
                 shortestDistanceToEnd = enemyDistanceToEnd;
                 nearestEnemy = enemy;
             }
@@ -117,12 +127,14 @@ public class Turret : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(this.bulletPrefab, this.firePoint.position, this.firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        bullet.turretThatShotMe = this;
-
+        bullet.SetBulletStats(bulletSpeed, bulletDamage, bulletExplosionRadius, bulletPierce, this, bulletExplosionPierce);
+        
+        //not used now?
         if (bullet != null)
         {
             bullet.Seek(this.target);
         }
+        bullet.SetBulletDirection();
 
         //Audio for when a "bullet" is fired
         FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
