@@ -72,7 +72,7 @@ MonoBehaviour:
   bulletWhoShotMe: {fileID: 0}
   speed: 15
   health: 1
-  value: 50
+  value: 20
   deathEffect: {fileID: 6381280154635751659, guid: f5d27d2ee4f46ad46928fd5852816bed,
     type: 3}
 --- !u!95 &9009310777883801294
