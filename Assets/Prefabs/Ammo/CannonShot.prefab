@@ -101,7 +101,8 @@ MonoBehaviour:
   damage: 50
   explosionRadius: 5
   pierce: 1
-  impactEffect: {fileID: 2348217514624612886, guid: 022a432f5f0a04945a35e9739d0be577,
+  explosionPierce: 10
+  impactEffect: {fileID: 6330507170694940493, guid: 022a432f5f0a04945a35e9739d0be577,
     type: 3}
 --- !u!54 &1925139813611916750
 Rigidbody:
