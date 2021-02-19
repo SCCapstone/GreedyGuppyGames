@@ -14518,81 +14518,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 938328402}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &939051949
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2320674459056572109, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_Name
-      value: Scorp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511236109433362373, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: deathEffect
-      value: 
-      objectReference: {fileID: 6381280154635751659, guid: f5d27d2ee4f46ad46928fd5852816bed,
-        type: 3}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -56.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 32.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 950054392c0c3ff4993388b35376b789, type: 3}
 --- !u!1001 &943258556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30787,8 +30712,6 @@ MonoBehaviour:
   MusicMixerGroupName: MusicVolume
   SFXMixerGroupName: SFXVolume
   gameMusicName: GameMusic
-  menuMusicName: MenuMusic
-  fadeTime: 3
 --- !u!4 &2063151235
 Transform:
   m_ObjectHideFlags: 0
