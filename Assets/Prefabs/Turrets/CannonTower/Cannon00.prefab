@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6331034284542184540}
   m_Layer: 0
   m_Name: Cannon00
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,8 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcf16249a19a514fa7d636a0a80a9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killCount: 0
   range: 30
   firerate: 0.5
+  originalFireRate: 0
+  bulletPierce: 1
+  bulletDamage: 50
+  bulletSpeed: 70
+  bulletExplosionRadius: 5
+  bulletExplosionPierce: 3
+  buffed2XFireRate: 0
+  buffed4XFireRate: 0
+  buffed6XFireRate: 0
+  buffedAim: 0
+  buffedPierce: 0
+  buffedDamage: 0
   gunShotAudio: CannonTowerShot
   enemyTag: Enemy
   partToRotate: {fileID: 4925187913377677844}

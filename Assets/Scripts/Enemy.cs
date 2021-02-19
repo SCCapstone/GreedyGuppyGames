@@ -4,9 +4,12 @@
 
 using UnityEngine;
 using DG.Tweening;
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IEnemy
 {
     public Animator anim;
+    [HideInInspector]
+    public Bullet bulletWhoShotMe;
+    bool dead = false;
 
     public float speed = 10f;
 
@@ -14,12 +17,42 @@ public class Enemy : MonoBehaviour
 
     public int value = 50;
 
-    public float splashModifier = 1;
-
     public GameObject deathEffect;
 
     private Transform target;
     protected int wavepointIndex = 0;
+
+    // Getters
+    public float GetSpeed()
+    {
+        return this.speed;
+    }
+
+    public int GetHealth()
+    {
+        return this.health;
+    }
+
+    public int GetValue()
+    {
+        return this.value;
+    }
+
+    // Setters
+    public void SetSpeed(float _speed)
+    {
+        this.speed = _speed;
+    }
+
+    public void SetHealth(int _health)
+    {
+        this.health = _health;
+    }
+
+    public void SetValue(int _value)
+    {
+        this.value = _value;
+    }
 
     public virtual void Start()
     {
@@ -30,15 +63,22 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if(dead)
+        {
+            return;
+        }
         this.health -= amount;
-        if (this.health <= 0)
+        bulletWhoShotMe.ReducePierce();
+        if (this.health <= 0 && !dead)
         {
             this.Die();
+            this.dead = true;
         }
     }
 
     public virtual void Die()
     {
+        bulletWhoShotMe.turretThatShotMe.killCount++;
         PlayerStats.Money += this.value;
         GameObject effect = (GameObject)Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
@@ -90,7 +130,6 @@ public class Enemy : MonoBehaviour
         // Look at waypoint, rotation stuff
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
     }
-
 
     public virtual void EndPath()
     {

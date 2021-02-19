@@ -29,7 +29,11 @@ public class WaveSpawner : MonoBehaviour
     private int TEN = 10;
     private int round = 1;
 
- private void Start() 
+    //testing
+    private int numGroobers = 0;
+    private int numMilfs = 0;
+
+    private void Start()
     {
         // Locates START(green block) in the scene
         Transform spawnTransform = GameObject.Find("START").transform;
@@ -48,7 +52,7 @@ public class WaveSpawner : MonoBehaviour
         this.countdown -= Time.deltaTime;
 
         this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
-        this.roundText.text = ("Round: "+this.round);
+        this.roundText.text = ("Round: " + this.round);
     }
 
     private IEnumerator SpawnWave()
@@ -64,6 +68,9 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < this.waveIndex; i++)
             {
                 SpawnEnemy(grubPrefab);
+
+                numGroobers++;
+
                 yield return new WaitForSeconds(0.5f);
             }
 
@@ -71,6 +78,9 @@ public class WaveSpawner : MonoBehaviour
             {
                 // Debug.Log("Spawning a single mama");
                 SpawnEnemy(mamaPrefab); //spawns a single mama
+
+                numMilfs++;
+
                 // Debug.Log("Round 1 over");
                 this.waveIndex = 5;  //will spawn 5 enemies (after waveIndex increments) at the start of round 2
                 //pause the game here, wait for player to resume
@@ -85,7 +95,7 @@ public class WaveSpawner : MonoBehaviour
         {
             PlayerStats.Rounds++;
             ++round2;
-            if(round2 == 1)
+            if (round2 == 1)
             {
                 yield return new WaitForSeconds(timeBetweenRounds);
             }
@@ -94,6 +104,9 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < this.waveIndex; i++)
             {
                 SpawnEnemy(grubPrefab);
+
+                numGroobers++;
+
                 yield return new WaitForSeconds(0.5f);
             }
 
@@ -106,8 +119,11 @@ public class WaveSpawner : MonoBehaviour
                 for (int i = 0; i < mamaIndex; i++)
                 {
                     SpawnEnemy(mamaPrefab);
+
+                    numMilfs++;
+
                     yield return new WaitForSeconds(1f);
-                    
+
                 }
             }
 
@@ -125,7 +141,7 @@ public class WaveSpawner : MonoBehaviour
         {
             PlayerStats.Rounds++;
             ++round3;
-            if(round3 == 1)
+            if (round3 == 1)
             {
                 yield return new WaitForSeconds(timeBetweenRounds);
             }
@@ -134,6 +150,9 @@ public class WaveSpawner : MonoBehaviour
             for (int i = 0; i < this.waveIndex; i++)
             {
                 SpawnEnemy(grubPrefab);
+
+                numGroobers++;
+
                 yield return new WaitForSeconds(0.5f);
             }
 
@@ -146,6 +165,9 @@ public class WaveSpawner : MonoBehaviour
                 for (int i = 0; i < mamaIndex; i++)
                 {
                     SpawnEnemy(mamaPrefab);
+
+                    numMilfs++;
+
                     yield return new WaitForSeconds(1f);
 
                 }
@@ -157,6 +179,10 @@ public class WaveSpawner : MonoBehaviour
                 //pause the game here, wait for player to resume
             }
         }
+
+        Debug.Log("milfs = " + numMilfs);
+        Debug.Log("groobers = " + numGroobers);
+        Debug.Log("total enemies = " + (numGroobers + (numMilfs * 2)));
     }
 
     public static void SpawnEnemy(Transform enemy)

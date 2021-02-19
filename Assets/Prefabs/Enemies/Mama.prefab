@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1370186633007649959}
-  - component: {fileID: 6026319276698752039}
   - component: {fileID: 8885621521252531626}
+  - component: {fileID: 5135919108474695458}
   m_Layer: 0
   m_Name: Mama
   m_TagString: Enemy
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6026319276698752039
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7593448851829986539}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8885621521252531626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  bulletWhoShotMe: {fileID: 0}
   speed: 10
   health: 100
   value: 50
@@ -66,6 +54,19 @@ MonoBehaviour:
     type: 3}
   bugToSpawn: {fileID: -8999033261841044922, guid: b6d2d797288ab6c4d961167c6968ca55,
     type: 3}
+--- !u!65 &5135919108474695458
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593448851829986539}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 10, z: 7.5}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!1001 &1611263296069507969
 PrefabInstance:
   m_ObjectHideFlags: 0

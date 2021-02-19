@@ -16,7 +16,7 @@ public class MenuFunctions : MonoBehaviour
     //goes to the main menu
     public void Menu()
     {
-        // Debug.Log("Go to menu.");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Quit()

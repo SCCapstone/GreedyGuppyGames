@@ -221,7 +221,8 @@ public class MyNode : MonoBehaviour
             return;
         }
 
-        
+        // saves the kill count of the turret
+        int tempKillCount = this.turret.gameObject.GetComponent<Turret>().killCount;
         DeleteTurret();
         PlayerStats.Money -= upgradePrice;
         moneySpentOnTurret += upgradePrice;
@@ -229,7 +230,8 @@ public class MyNode : MonoBehaviour
         GameObject turretUpgrade = (GameObject)Instantiate(upgradePrefab, GetBuildPosition(), Quaternion.identity);
         //Debug.Log("I made it here");
         turret = turretUpgrade;
-
+        // resets the kill count of the turret
+        this.turret.gameObject.GetComponent<Turret>().killCount = tempKillCount;
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
     }
