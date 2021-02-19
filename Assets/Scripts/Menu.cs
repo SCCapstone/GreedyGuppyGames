@@ -20,13 +20,26 @@ public class Menu : MenuFunctions
         AchievementsPanel.SetActive(false);
         LevelSelectPanel.SetActive(false);
     }
+
+    //Shows the Main menu panel
+    public void ShowMainPanel()
+    {
+        MainPanel.SetActive(true);
+        SettingsPanel.SetActive(false);
+        AchievementsPanel.SetActive(false);
+        LevelSelectPanel.SetActive(false);
+    } 
+
+    //Shows the Settings panel
     public void ShowSettingsPanel()
     {
         MainPanel.SetActive(false);
         SettingsPanel.SetActive(true);
         AchievementsPanel.SetActive(false);
         LevelSelectPanel.SetActive(false);
-    } 
+    }
+
+    //Shows the Achievements panel
     public void ShowAchievementsPanel()
     {
         MainPanel.SetActive(false);
@@ -34,6 +47,8 @@ public class Menu : MenuFunctions
         AchievementsPanel.SetActive(true);
         LevelSelectPanel.SetActive(false);
     }
+
+    //Shows Level Select panel
     public void ShowLevelSelectPanel()
     {
         MainPanel.SetActive(false);
@@ -42,18 +57,10 @@ public class Menu : MenuFunctions
         LevelSelectPanel.SetActive(true);
     }
 
-
-
-
-
-
-
-
-
-
-    //Clicking Play will advance the player to the Level select scene(when it is finished, currently advances to the play scene)
+    //Loads Level One
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //Change to LevelOne when naming convention for levels is implemented
+        SceneManager.LoadScene("MainScene");
     }
 }
