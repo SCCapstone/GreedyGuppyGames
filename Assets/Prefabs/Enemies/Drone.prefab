@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7007813784440090068}
   - component: {fileID: 6737682010520682762}
   - component: {fileID: 6452421922261487845}
+  - component: {fileID: 1873687626401417622}
   m_Layer: 0
   m_Name: Drone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,8 +53,27 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.9900518
+  m_Center: {x: 0, y: 0.12833792, z: -0.31129998}
+--- !u!114 &1873687626401417622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625924625896906475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3121d924bd0684497d6a8b4ff12d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  bulletWhoShotMe: {fileID: 0}
+  speed: 15
+  health: 1
+  value: 50
+  deathEffect: {fileID: 6381280154635751659, guid: f5d27d2ee4f46ad46928fd5852816bed,
+    type: 3}
 --- !u!1001 &3968702093771129621
 PrefabInstance:
   m_ObjectHideFlags: 0
