@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6737682010520682762}
   - component: {fileID: 6452421922261487845}
   - component: {fileID: 1873687626401417622}
+  - component: {fileID: 9009310777883801294}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Enemy
@@ -74,6 +75,25 @@ MonoBehaviour:
   value: 50
   deathEffect: {fileID: 6381280154635751659, guid: f5d27d2ee4f46ad46928fd5852816bed,
     type: 3}
+--- !u!95 &9009310777883801294
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625924625896906475}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4b48c85b769a4e44840435c3819051d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3968702093771129621
 PrefabInstance:
   m_ObjectHideFlags: 0
