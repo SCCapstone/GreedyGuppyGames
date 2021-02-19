@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3350297959693488827}
-  - component: {fileID: 7387893837689890238}
   - component: {fileID: 2511236109433362373}
+  - component: {fileID: 6059285655920142164}
   m_Layer: 0
   m_Name: Scorp
   m_TagString: Enemy
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7387893837689890238
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2320674459056572109}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2511236109433362373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,11 +46,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  bulletWhoShotMe: {fileID: 0}
   speed: 10
   health: 100
   value: 50
-  splashModifier: 1
   deathEffect: {fileID: 0}
+--- !u!65 &6059285655920142164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320674459056572109}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 5, z: 3}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &3094228099238663527
 PrefabInstance:
   m_ObjectHideFlags: 0
