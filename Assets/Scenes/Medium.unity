@@ -19997,6 +19997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 1964033410}
   transformUI: {fileID: 1239568629}
+  turretImage: {fileID: 0}
+  killCount: {fileID: 0}
   upgradeLeftText: {fileID: 698321698}
   upgradeRightText: {fileID: 971293002}
   upgradeLeftButton: {fileID: 744221097}
@@ -28817,13 +28819,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760669970}
-  m_LocalRotation: {x: 0, y: 0.9342512, z: -0.3566157, w: 0}
-  m_LocalPosition: {x: -34.25, y: 59.9, z: 112.1}
+  m_LocalRotation: {x: -0, y: 0.8610913, z: -0.5084504, w: 0}
+  m_LocalPosition: {x: -34.25, y: 96.4, z: 97.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 41.785, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 61.121, y: 180, z: 0}
 --- !u!1001 &1762089296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30372,6 +30374,7 @@ MonoBehaviour:
     upgrade01Text: Faster Fire Rate
     upgrade02Text: More Range
     upgrade03Text: Faster Fire Rate and Projectile Speed
+    turretImage: {fileID: 0}
   CannonTower:
     prefab: {fileID: 1161168588940831137, guid: 40b931dc585d2cd4d80b99a540626b4e,
       type: 3}
@@ -30400,6 +30403,7 @@ MonoBehaviour:
     upgrade01Text: 
     upgrade02Text: 
     upgrade03Text: 
+    turretImage: {fileID: 0}
   MachineGunTower:
     prefab: {fileID: 7829677588344929892, guid: af3ad9e1591ee7e4fac7c3a68426d3d3,
       type: 3}
@@ -30428,6 +30432,7 @@ MonoBehaviour:
     upgrade01Text: 
     upgrade02Text: 
     upgrade03Text: 
+    turretImage: {fileID: 0}
   LaserTower:
     prefab: {fileID: 4662012986798797684, guid: fbcacb17b7adf4644b33d29282b83ed3,
       type: 3}
@@ -30456,6 +30461,7 @@ MonoBehaviour:
     upgrade01Text: 
     upgrade02Text: 
     upgrade03Text: 
+    turretImage: {fileID: 0}
   ElectricTower:
     prefab: {fileID: 2146609321837761950, guid: 8c8c12a9497fc2f44b31cf50f9d9f6ab,
       type: 3}
@@ -30484,6 +30490,7 @@ MonoBehaviour:
     upgrade01Text: 
     upgrade02Text: 
     upgrade03Text: 
+    turretImage: {fileID: 0}
   SupportTower:
     prefab: {fileID: 7450647099808421580, guid: 8c2de8baf9f107346be17639025dcd6e,
       type: 3}
@@ -30512,6 +30519,7 @@ MonoBehaviour:
     upgrade01Text: 
     upgrade02Text: 
     upgrade03Text: 
+    turretImage: {fileID: 0}
   FlameThrowerTower:
     prefab: {fileID: 3106519344991710745, guid: d135d90bce6d44f47a6239f800916eca,
       type: 3}
@@ -30540,6 +30548,7 @@ MonoBehaviour:
     upgrade01Text: 
     upgrade02Text: 
     upgrade03Text: 
+    turretImage: {fileID: 0}
 --- !u!114 &1838352016
 MonoBehaviour:
   m_ObjectHideFlags: 0
