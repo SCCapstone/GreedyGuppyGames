@@ -63,7 +63,12 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void TakeDamage(int amount)
     {
+        if(dead)
+        {
+            return;
+        }
         this.health -= amount;
+        bulletWhoShotMe.ReducePierce();
         if (this.health <= 0 && !dead)
         {
             this.Die();
