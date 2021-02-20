@@ -15,6 +15,10 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public int health = 100;
 
+    int startingHealth;
+
+    bool readytobepooled;
+
     public int value = 50;
 
     public GameObject deathEffect;
@@ -54,6 +58,11 @@ public class Enemy : MonoBehaviour, IEnemy
         this.value = _value;
     }
 
+    public void SetWavepointIndex(int _index)
+    {
+        this.wavepointIndex = _index;
+    }
+
     public virtual void Start()
     {
         this.target = Waypoints.points[wavepointIndex];
@@ -82,7 +91,27 @@ public class Enemy : MonoBehaviour, IEnemy
         PlayerStats.Money += this.value;
         GameObject effect = (GameObject)Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
-        Destroy(this.gameObject);
+        readytobepooled = true;
+        gameObject.SetActive(false);
+        //Destroy(this.gameObject);
+
+    }
+
+    void Awake()
+    {
+        startingHealth = health;
+    }
+
+    public virtual void Onpooled()
+    {
+        if (!readytobepooled)
+            return;
+        dead = false;
+        health = startingHealth;
+        SetWavepointIndex(0);
+        this.target = Waypoints.points[wavepointIndex];
+        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+
 
     }
 
