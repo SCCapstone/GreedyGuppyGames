@@ -363,6 +363,7 @@ MonoBehaviour:
   bulletSpeed: 50
   bulletExplosionRadius: 8
   bulletExplosionPierce: 6
+  makeShrapnel: 0
   buffed2XFireRate: 0
   buffed4XFireRate: 0
   buffed6XFireRate: 0
@@ -373,6 +374,6 @@ MonoBehaviour:
   enemyTag: Enemy
   partToRotate: {fileID: 2169833809475616151}
   turnSpeed: 10
-  bulletPrefab: {fileID: 6039868812258980203, guid: ad9be02a4edabe94faa7da8c01f2f9f0,
+  bulletPrefab: {fileID: 9055028688311915372, guid: 222aebe5459faa44a91ef120bc3412cb,
     type: 3}
   firePoint: {fileID: 6579946814562616063}
