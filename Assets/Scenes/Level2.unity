@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.23236844, g: 0.23554417, b: 0.27230176, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17255,12 +17255,12 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.084
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1778123726}
+        m_TargetAssemblyTypeName: AudioManager, Scripts
         m_MethodName: SetSFXVolume
         m_Mode: 0
         m_Arguments:
@@ -17520,8 +17520,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1778123726}
+        m_TargetAssemblyTypeName: AudioManager, Scripts
         m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -17717,7 +17717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.9999847, y: 0}
+  m_AnchoredPosition: {x: -4.9999695, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1070520624
@@ -26574,7 +26574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.9999847, y: 0}
+  m_AnchoredPosition: {x: -4.9999695, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1612330704
@@ -29489,6 +29489,12 @@ MonoBehaviour:
     pitch: 1.5
     loop: 1
     source: {fileID: 0}
+  - name: GameMusic2
+    audioClip: {fileID: 8300000, guid: 6942fbe8fbf0b374698a70f6b38e40e8, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 1
+    source: {fileID: 0}
   gameSFXSounds:
   - name: BasicTowerShot
     audioClip: {fileID: 8300000, guid: f82348f044e4641f38816d5c92ce9618, type: 3}
@@ -29509,8 +29515,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   menuSFXSounds: []
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 1043390033}
+  sfxSlider: {fileID: 1011125973}
   audioMixer: {fileID: 24100000, guid: c40bed98f23a748f89472abe9c1a6871, type: 2}
   MusicMixerGroup: {fileID: 243581543562908448, guid: c40bed98f23a748f89472abe9c1a6871,
     type: 2}
@@ -29518,7 +29524,7 @@ MonoBehaviour:
     type: 2}
   MusicMixerGroupName: MusicVolume
   SFXMixerGroupName: SFXVolume
-  gameMusicName: MenuMusic
+  gameMusicName: GameMusic2
 --- !u!4 &1778123727
 Transform:
   m_ObjectHideFlags: 0

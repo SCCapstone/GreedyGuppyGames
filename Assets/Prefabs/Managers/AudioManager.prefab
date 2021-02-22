@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2552372677224062496
+--- !u!1 &7336903875735698373
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2552372677224062498}
-  - component: {fileID: 2552372677224062499}
+  - component: {fileID: 7336903875735698375}
+  - component: {fileID: 7336903875735698374}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2552372677224062498
+--- !u!4 &7336903875735698375
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2552372677224062496}
+  m_GameObject: {fileID: 7336903875735698373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 43.4, y: 61.300003, z: 34.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,19 +31,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2552372677224062499
+--- !u!114 &7336903875735698374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2552372677224062496}
+  m_GameObject: {fileID: 7336903875735698373}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e03d35d5b25d1f48a98df14343b8e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  musicSounds:
+  - name: GameMusic
+    audioClip: {fileID: 8300000, guid: 6ce6d7c4d4f6140f68d2c18955f02e8c, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 1
+    source: {fileID: 0}
+  - name: MenuMusic
+    audioClip: {fileID: 8300000, guid: 1e8f5015922b04dd1b862cf76c53775a, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 1
+    source: {fileID: 0}
+  - name: GameMusic2
+    audioClip: {fileID: 8300000, guid: 6942fbe8fbf0b374698a70f6b38e40e8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  gameSFXSounds:
   - name: BasicTowerShot
     audioClip: {fileID: 8300000, guid: f82348f044e4641f38816d5c92ce9618, type: 3}
     volume: 1
@@ -56,15 +75,20 @@ MonoBehaviour:
     pitch: 1.5
     loop: 0
     source: {fileID: 0}
-  - name: CannonTowerShot
-    audioClip: {fileID: 8300000, guid: dbb5d987bb85a4b84aa3a9e48e093e7c, type: 3}
-    volume: 1
-    pitch: 1.5
-    loop: 0
-    source: {fileID: 0}
   - name: MachineGunTowerShot
-    audioClip: {fileID: 8300000, guid: d440c9f7407a04474bf738520785306b, type: 3}
+    audioClip: {fileID: 8300000, guid: eed58edbe19094382b8536c1405fed61, type: 3}
     volume: 1
     pitch: 1.5
     loop: 0
     source: {fileID: 0}
+  menuSFXSounds: []
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: c40bed98f23a748f89472abe9c1a6871, type: 2}
+  MusicMixerGroup: {fileID: 243581543562908448, guid: c40bed98f23a748f89472abe9c1a6871,
+    type: 2}
+  SFXMixerGroup: {fileID: 243855045703281350, guid: c40bed98f23a748f89472abe9c1a6871,
+    type: 2}
+  MusicMixerGroupName: MusicVolume
+  SFXMixerGroupName: SFXVolume
+  gameMusicName: GameMusic
