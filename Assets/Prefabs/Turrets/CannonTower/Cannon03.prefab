@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCount: 0
-  range: 50
+  range: 100
   firerate: 0.75
   originalFireRate: 0
   bulletPierce: 1
@@ -300,6 +300,8 @@ MonoBehaviour:
   bulletSpeed: 80
   bulletExplosionRadius: 5
   bulletExplosionPierce: 3
+  makeShrapnel: 0
+  tracking: 1
   buffed2XFireRate: 0
   buffed4XFireRate: 0
   buffed6XFireRate: 0

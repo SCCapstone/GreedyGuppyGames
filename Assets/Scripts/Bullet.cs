@@ -17,8 +17,19 @@ public class Bullet : MonoBehaviour, IBullet
     public GameObject impactEffect;
     public GameObject shrapnelGameObject;
     public bool makeShrapnel = false;
+    public bool tracking = false;
 
     private Vector3 directionOfTravel;
+
+    public void Track()
+    {
+        if(this.target == null)
+        {
+            tracking = false;
+            return;
+        }
+        this.SetBulletDirection();
+    }
 
     public void Seek(Transform aTarget)
     {
@@ -29,6 +40,10 @@ public class Bullet : MonoBehaviour, IBullet
     private void Update()
     {
         this.CheckOutOfBounds();
+        if(tracking)
+        {
+            Track();
+        }
         Vector3 dir = this.directionOfTravel;
         float distanceThisFrame = this.speed * Time.deltaTime;
 
@@ -92,7 +107,10 @@ public class Bullet : MonoBehaviour, IBullet
                 this.Damage(collider.transform);
             }
         }
-        MakeShrapnel();
+        if (makeShrapnel)
+        {
+            MakeShrapnel();
+        }
     }
 
     //damages an enemy
@@ -148,7 +166,7 @@ public class Bullet : MonoBehaviour, IBullet
     }
 
     //sets all the stats for the bullet based on the tower
-    public void SetBulletStats(float speed, int damage, float explosionRadius, int pierce, Turret turretThatShotMe, int explosionPierce, bool makeShrapnel)
+    public void SetBulletStats(float speed, int damage, float explosionRadius, int pierce, Turret turretThatShotMe, int explosionPierce, bool makeShrapnel, bool tracking)
     {
         this.speed = speed;
         this.damage = damage;
@@ -157,6 +175,7 @@ public class Bullet : MonoBehaviour, IBullet
         this.turretThatShotMe = turretThatShotMe;
         this.explosionPierce = explosionPierce;
         this.makeShrapnel = makeShrapnel;
+        this.tracking = tracking;
     }
 
     //destroys the bullet when it would die normally 
@@ -245,10 +264,6 @@ public class Bullet : MonoBehaviour, IBullet
         bullet8.directionOfTravel = travelDirection;
         bullet8.turretThatShotMe = this.turretThatShotMe;
 
-
-    }
-    private void MakeSingleShrapnel(Quaternion rot, Vector3 pos)
-    {
 
     }
 }

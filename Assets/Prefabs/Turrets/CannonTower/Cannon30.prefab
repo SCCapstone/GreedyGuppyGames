@@ -363,7 +363,7 @@ MonoBehaviour:
   bulletSpeed: 50
   bulletExplosionRadius: 8
   bulletExplosionPierce: 6
-  makeShrapnel: 0
+  makeShrapnel: 1
   buffed2XFireRate: 0
   buffed4XFireRate: 0
   buffed6XFireRate: 0

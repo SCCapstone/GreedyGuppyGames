@@ -24,6 +24,7 @@ public class Turret : MonoBehaviour
     public float bulletExplosionRadius = 0;
     public int bulletExplosionPierce = 10;
     public bool makeShrapnel = false;
+    public bool tracking = false;
 
     //Below is to be used for buffs from the support tower
     [HideInInspector]
@@ -126,7 +127,7 @@ public class Turret : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(this.bulletPrefab, this.firePoint.position, this.firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        bullet.SetBulletStats(bulletSpeed, bulletDamage, bulletExplosionRadius, bulletPierce, this, bulletExplosionPierce, makeShrapnel);
+        bullet.SetBulletStats(bulletSpeed, bulletDamage, bulletExplosionRadius, bulletPierce, this, bulletExplosionPierce, makeShrapnel, tracking);
         
         //not used now?
         if (bullet != null)
