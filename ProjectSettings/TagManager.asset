@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Node
+  - Tower
+  - Ammo
   layers:
   - Default
   - TransparentFX

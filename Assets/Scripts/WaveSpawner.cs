@@ -180,9 +180,9 @@ public class WaveSpawner : MonoBehaviour
             }
         }
 
-        Debug.Log("milfs = " + numMilfs);
-        Debug.Log("groobers = " + numGroobers);
-        Debug.Log("total enemies = " + (numGroobers + (numMilfs * 2)));
+        //Debug.Log("milfs = " + numMilfs);
+        //Debug.Log("groobers = " + numGroobers);
+        //Debug.Log("total enemies = " + (numGroobers + (numMilfs * 2)));
     }
 
     public static void SpawnEnemy(Transform enemy)

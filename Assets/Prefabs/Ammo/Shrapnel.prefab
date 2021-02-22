@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5503022687058836579
+--- !u!1 &263413704799628
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3911639233821363138}
-  - component: {fileID: 3769287408845221283}
-  - component: {fileID: 8490098619483725717}
-  - component: {fileID: -860976684746385471}
-  - component: {fileID: 448958782765832105}
-  - component: {fileID: -7114854438770080326}
+  - component: {fileID: 8797405014460219949}
+  - component: {fileID: 8651824473899623500}
+  - component: {fileID: 4146871733277660794}
+  - component: {fileID: 4058715425218715182}
+  - component: {fileID: 5360765469820165702}
+  - component: {fileID: 5844744315783122005}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Shrapnel
   m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3911639233821363138
+--- !u!4 &8797405014460219949
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503022687058836579}
+  m_GameObject: {fileID: 263413704799628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.17, y: 3.05, z: 62.7}
+  m_LocalPosition: {x: -39.56135, y: 2.5, z: 33.005516}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3769287408845221283
+--- !u!33 &8651824473899623500
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503022687058836579}
+  m_GameObject: {fileID: 263413704799628}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8490098619483725717
+--- !u!23 &4146871733277660794
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503022687058836579}
+  m_GameObject: {fileID: 263413704799628}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,35 +84,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-860976684746385471
+--- !u!114 &4058715425218715182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503022687058836579}
+  m_GameObject: {fileID: 263413704799628}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 151a6828a00fe2a4e9040d73db485d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turretThatShotMe: {fileID: 0}
-  speed: 100
+  speed: 70
   damage: 50
   explosionRadius: 0
   pierce: 1
-  explosionPierce: 10
+  explosionPierce: 0
   impactEffect: {fileID: 2220860345030090244, guid: 552376976c794354893d26c863e69a97,
     type: 3}
   shrapnelGameObject: {fileID: 0}
   makeShrapnel: 0
---- !u!64 &448958782765832105
+--- !u!64 &5360765469820165702
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503022687058836579}
+  m_GameObject: {fileID: 263413704799628}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -120,13 +120,13 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &-7114854438770080326
+--- !u!54 &5844744315783122005
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503022687058836579}
+  m_GameObject: {fileID: 263413704799628}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
