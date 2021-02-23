@@ -13,7 +13,7 @@ public class MyNode : MonoBehaviour
     public bool leftNode = true;
     
     public Vector3 positionOffset;
-
+    public float supportTowerReduction;
     [HideInInspector]
     public GameObject turret;
     [HideInInspector]
@@ -163,7 +163,7 @@ public class MyNode : MonoBehaviour
             SupportTurret supportTurret = supportTower.GetComponent<SupportTurret>();
             if (distanceToTower <= supportTurret.range && supportTurret.leftTier2 == true) 
             {
-                PlayerStats.Money += (int)(blueprint.cost * 0.25f);
+                PlayerStats.Money += (int)(blueprint.cost * supportTowerReduction);
             }
         }
         // Build a turret

@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour, IEnemy
     bool readytobepooled;
 
     public int value = 50;
-
+    public float turretValueBuff = 1.25f;
     public GameObject deathEffect;
 
     private Transform target;
@@ -92,6 +92,17 @@ public class Enemy : MonoBehaviour, IEnemy
             bulletWhoShotMe.turretThatShotMe.killCount++;
         }
         PlayerStats.Money += this.value;
+        GameObject[] supportTowers = GameObject.FindGameObjectsWithTag("supportTower");
+        foreach (GameObject supportTower in supportTowers)
+        {
+            float distanceToTower = Vector3.Distance(this.transform.position, supportTower.transform.position);
+            SupportTurret supportTurret = supportTower.GetComponent<SupportTurret>();
+            if (distanceToTower <= supportTurret.range && supportTurret.leftTier3 == true) 
+            {
+                PlayerStats.Money -= this.value;
+                PlayerStats.Money += (int)(this.value * turretValueBuff);
+            }
+        }
         GameObject effect = (GameObject)Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
         readytobepooled = true;

@@ -10,6 +10,7 @@ public class SupportTurret : MonoBehaviour
 { 
     public float range = 15f;
     public float fireRateMultiplier = 2f;
+    [HideInInspector]
     public string towerTag = "Tower";
     public bool leftTier1 = false;
     public bool leftTier2 = false;
@@ -38,14 +39,8 @@ public class SupportTurret : MonoBehaviour
                     {
                         this.range = this.range * 1.25f;
                     }
-                    if (leftTier2 == true) 
-                    {
-
-                    }
-                    if (leftTier3 == true) 
-                    {
-
-                    }
+                    //Cheaper towers handled in MyNode
+                    //Enemies giving more money is handled in the enemies script
                     if (rightTier1 == true) 
                     {
                         turret.range = turret.originalRange * 1.25f;
