@@ -15,6 +15,8 @@ public class Turret : MonoBehaviour
     public float firerate = 1f;
     [HideInInspector]
     public float originalFireRate;
+    [HideInInspector]
+    public float originalRange;
     private float fireCountdown = 0f;
 
     [Header("Bullet Attributes")]
@@ -58,6 +60,7 @@ public class Turret : MonoBehaviour
     {
         this.InvokeRepeating("UpdateTarget", 0f, 0.5f);
         this.originalFireRate = this.firerate;
+        this.originalRange = this.range;
     }
 
     private void UpdateTarget()
