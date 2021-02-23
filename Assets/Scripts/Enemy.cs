@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour, IEnemy
         Destroy(effect, 5f);
         readytobepooled = true;
         gameObject.SetActive(false);
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
 
     }
 

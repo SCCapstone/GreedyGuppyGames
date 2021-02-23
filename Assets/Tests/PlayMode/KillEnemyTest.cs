@@ -33,19 +33,19 @@ namespace Tests
         public IEnumerator DieTest()
         {
             // ARRANGE
-            Transform grub = grubPrefab.transform;
+            GameObject killMe = (GameObject)Instantiate(grubPrefab, pos, rot);
 
             // ACT
             try
             {
                 //WaveSpawner.SpawnEnemy(grub);
-                GameObject killMe = (GameObject)Instantiate(grubPrefab, pos, rot);
+                
                 killMe.GetComponent<Enemy>().Die();
             }
             catch (System.Exception e)
             {
                 Debug.LogException(e);
-                Assert.Fail("Enemy didnt die",grub);
+                Assert.Fail("Enemy didnt die",killMe);
                 throw;
             }
             //Figure out how to call Die() on the spawned enemy here, maybe
@@ -53,7 +53,8 @@ namespace Tests
 
             // ASSERT
             //if no excpetion, passes else fails
-            Assert.Pass("Enemy successfully died",grub);
+            
+            Assert.Pass("Enemy successfully died",killMe);
             //Assert.Fail("SpawnEnemy failed to spawn an enemy",grub);
         }
             
