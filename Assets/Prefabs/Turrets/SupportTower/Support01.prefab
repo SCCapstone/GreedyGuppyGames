@@ -46,13 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836785ebb58f8814295ff6b0f8eb2955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 20
   fireRateMultiplier: 2
   towerTag: Tower
   leftTier1: 0
   leftTier2: 0
   leftTier3: 0
-  rightTier1: 0
+  rightTier1: 1
   rightTier2: 0
   rightTier3: 0
 --- !u!1 &4287839979067441077
