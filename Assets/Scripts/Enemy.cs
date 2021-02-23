@@ -87,7 +87,10 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public virtual void Die()
     {
-        bulletWhoShotMe.turretThatShotMe.killCount++;
+        if(bulletWhoShotMe != null)
+        {
+            bulletWhoShotMe.turretThatShotMe.killCount++;
+        }
         PlayerStats.Money += this.value;
         GameObject effect = (GameObject)Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
