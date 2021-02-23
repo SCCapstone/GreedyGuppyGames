@@ -8,6 +8,7 @@ TagManager:
   - Node
   - Tower
   - Ammo
+  - supportTower
   layers:
   - Default
   - TransparentFX
