@@ -20,7 +20,7 @@ namespace Tests
         [SetUp]
         public void LoadScene()
         {
-            SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("Level1", LoadSceneMode.Single);
         }
         public void SetUp()
         {
