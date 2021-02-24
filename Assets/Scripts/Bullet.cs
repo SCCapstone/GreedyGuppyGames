@@ -203,7 +203,7 @@ public class Bullet : MonoBehaviour, IBullet
     }
 
     // makes shrapnel to be fired from an explosion
-    private void MakeShrapnel()
+    public void MakeShrapnel()
     {
         // direction the shrapnel travels too
         Vector3 travelDirection = new Vector3(this.transform.position.x + 500, this.transform.position.y, this.transform.position.z);
