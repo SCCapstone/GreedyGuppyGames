@@ -43,6 +43,7 @@ public class WaveSpawner : MonoBehaviour
     private int numMilfs = 0;
 
     private int totalSpawned = 0;
+    private bool spawned = false;
 
     private void Start()
     {
@@ -54,6 +55,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        //  ***TODO*** : Need to put for loop here and not in SpawnWave as SpawnWave is only supposed to spwan 1 wave not the whole 15 waves
         if (this.countdown <= 0f)
         {
             this.StartCoroutine(this.SpawnWave());
@@ -72,6 +74,7 @@ public class WaveSpawner : MonoBehaviour
         //15 waves(i), 4 enemy types(j)
         for(int i=0; i < spawnerIndex.GetLength(0); ++i)
         {
+            Debug.Log("Wave "+(i+1));
             for(int j=0; j < spawnerIndex.GetLength(1); ++j)
             {
                 int amountSpanwed = spawnerIndex[i,j];
@@ -81,16 +84,15 @@ public class WaveSpawner : MonoBehaviour
                     case 0: //grub
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
-                            Debug.Log(amountSpanwed+ " Grubs Spawning");
+                            //Debug.Log(amountSpanwed+ " Grubs Spawning");
                             SpawnEnemy(grubPrefab);
                             yield return new WaitForSeconds(1f);
                         }
-                        
                         break;
                     case 1: //scorp
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
-                            Debug.Log(amountSpanwed+ " Scorps Spawning");
+                            //Debug.Log(amountSpanwed+ " Scorps Spawning");
                             SpawnEnemy(scorpPrefab);
                             yield return new WaitForSeconds(1f);
                         }
@@ -98,7 +100,7 @@ public class WaveSpawner : MonoBehaviour
                     case 2: //drone
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
-                            Debug.Log(amountSpanwed+ " Drones Spawning");
+                            //Debug.Log(amountSpanwed+ " Drones Spawning");
                             SpawnEnemy(dronePrefab);
                             yield return new WaitForSeconds(1f);
                         }
@@ -106,14 +108,24 @@ public class WaveSpawner : MonoBehaviour
                     case 3: //mama
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
-                            Debug.Log(amountSpanwed+ " Mamas Spawning");
+                            //Debug.Log(amountSpanwed+ " Mamas Spawning");
                             SpawnEnemy(mamaPrefab);
                             yield return new WaitForSeconds(1f);
                         }
                         break;
                 }
-                Debug.Log("Total spawned: "+totalSpawned);
+                // if(j == spawnerIndex.GetLength(1))
+                // {
+                //     spawned = true;
+                // }
+                //Debug.Log("Total spawned: "+totalSpawned);
             }
+            yield return new WaitForSeconds(3f);
+            // spawned = false;
+            if(i == 4 || i == 9 || i == 14) {
+                ++this.round;
+            }
+            ++PlayerStats.Rounds;
         }
     
         // Debug.Log("milfs = " + numMilfs);
