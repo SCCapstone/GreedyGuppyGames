@@ -13,24 +13,27 @@ public class WaveSpawner : MonoBehaviour
     public Transform scorpPrefab;
     public Transform dronePrefab;
     public Transform mamaPrefab;
+    public Transform carrierPrefab;
     public static Transform spawnPoint;
 
-    //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:mama)
-    private int[,] spawnerIndex = { {1,1,1,0},
-                                    {5,1,1,0},
-                                    {7,2,1,0},
-                                    {7,1,2,0},
-                                    {9,2,1,1},
-                                    {10,3,2,0},
-                                    {10,5,3,1},
-                                    {15,7,5,1},
-                                    {20,10,5,3},
-                                    {15,10,5,5},
-                                    {10,5,1,1},
-                                    {15,10,3,2},
-                                    {20,15,5,3},
-                                    {15,10,7,3},
-                                    {15,10,10,10} };
+    //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:mama, 4:carrier)
+    private int[,] spawnerIndex = { {1,1,1,0,0},
+                                    {5,1,1,0,0},
+                                    {7,2,1,0,0},
+                                    {7,1,2,0,0},
+                                    {9,2,1,1,0},
+                                    {10,3,2,0,0},
+                                    {10,5,3,1,1},
+                                    {15,7,5,1,1},
+                                    {20,10,5,3,1},
+                                    {15,10,5,5,1},
+                                    {10,5,1,1,2},
+                                    {15,10,3,2,3},
+                                    {20,15,5,3,2},
+                                    {15,10,7,3,3},
+                                    {15,10,10,10,5} };
+    
+    private bool allSpawned, grubSpawned, scorpSpawned, droneSpawned, mamaSpawned, carrierSpawned = false;
 
     public float timeBetweenWaves = 5f;
     public float countdown = 11f;
@@ -39,11 +42,13 @@ public class WaveSpawner : MonoBehaviour
     private int round = 1;
 
     //testing
-    private int numGroobers = 0;
-    private int numMilfs = 0;
+    private int grub = 0;
+    private int scorp = 0;
+    private int drone = 0;
+    private int mamas = 0;
+    private int carrier = 0;
 
     private int totalSpawned = 0;
-    private bool spawned = false;
 
     private void Start()
     {
@@ -51,17 +56,11 @@ public class WaveSpawner : MonoBehaviour
         Transform spawnTransform = GameObject.Find("START").transform;
         // Declares that the static spawnPoint takes on the transform of START(green block)
         spawnPoint = spawnTransform;
+        this.StartCoroutine(this.SpawnWave());
     }
-
     private void Update()
     {
         //  ***TODO*** : Need to put for loop here and not in SpawnWave as SpawnWave is only supposed to spwan 1 wave not the whole 15 waves
-        if (this.countdown <= 0f)
-        {
-            this.StartCoroutine(this.SpawnWave());
-            this.countdown = this.timeBetweenWaves;
-        }
-
         this.countdown -= Time.deltaTime;
 
         this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
@@ -84,48 +83,79 @@ public class WaveSpawner : MonoBehaviour
                     case 0: //grub
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
-                            //Debug.Log(amountSpanwed+ " Grubs Spawning");
+                            ++grub;
+                            Debug.Log(amountSpanwed+ " Grubs Spawning");
                             SpawnEnemy(grubPrefab);
                             yield return new WaitForSeconds(1f);
                         }
+                        grubSpawned = true;
                         break;
                     case 1: //scorp
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
-                            //Debug.Log(amountSpanwed+ " Scorps Spawning");
+                            ++scorp;
+                            Debug.Log(amountSpanwed+ " Scorps Spawning");
                             SpawnEnemy(scorpPrefab);
                             yield return new WaitForSeconds(1f);
                         }
+                        scorpSpawned = true;
                         break;
                     case 2: //drone
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
-                            //Debug.Log(amountSpanwed+ " Drones Spawning");
+                            ++drone;
+                            Debug.Log(amountSpanwed+ " Drones Spawning");
                             SpawnEnemy(dronePrefab);
                             yield return new WaitForSeconds(1f);
                         }
+                        droneSpawned = true;
                         break;
                     case 3: //mama
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
-                            //Debug.Log(amountSpanwed+ " Mamas Spawning");
+                            ++mamas;
+                            Debug.Log(amountSpanwed+ " Mamas Spawning");
                             SpawnEnemy(mamaPrefab);
                             yield return new WaitForSeconds(1f);
                         }
+                        mamaSpawned = true;
+                        break;
+                    case 4: //carrier
+                        for (int k = 0; k < amountSpanwed; ++k)
+                        {
+                            ++carrier;
+                            Debug.Log(amountSpanwed+ " Carrier Spawning");
+                            SpawnEnemy(carrierPrefab);
+                            yield return new WaitForSeconds(1f);
+                        }
+                        carrierSpawned = true;
                         break;
                 }
-                // if(j == spawnerIndex.GetLength(1))
-                // {
-                //     spawned = true;
-                // }
-                //Debug.Log("Total spawned: "+totalSpawned);
+                
             }
-            yield return new WaitForSeconds(3f);
-            // spawned = false;
-            if(i == 4 || i == 9 || i == 14) {
+            
+            Debug.Log("Total spawned: "+totalSpawned
+                +"\n Grubs: "+grub
+                +"\n Scorps: "+scorp
+                +"\n Drones: "+drone
+                +"\n Mamas: "+mamas
+                +"\n Carriers: "+carrier);
+            //grub = scorp = drone = mamas = carrier = 0;
+            
+
+            //Increments the round counter
+            
+            if(grubSpawned == true && scorpSpawned == true && droneSpawned == true && mamaSpawned == true && carrierSpawned == true)
+            {
+                allSpawned = true;
+            }
+            yield return new WaitUntil(() => allSpawned == true);
+            if(allSpawned == true)
+            {
+                allSpawned = grubSpawned = scorpSpawned = droneSpawned = mamaSpawned = carrierSpawned = false;
                 ++this.round;
+                ++PlayerStats.Rounds;
             }
-            ++PlayerStats.Rounds;
         }
     
         // Debug.Log("milfs = " + numMilfs);
