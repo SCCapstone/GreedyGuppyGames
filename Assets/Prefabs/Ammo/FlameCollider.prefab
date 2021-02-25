@@ -132,4 +132,5 @@ MonoBehaviour:
   explosionRadius: 0
   pierce: 1000
   explosionPierce: 10
+  lifeSpan: 10
   impactEffect: {fileID: 0}
