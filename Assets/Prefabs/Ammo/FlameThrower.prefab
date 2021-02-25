@@ -14491,5 +14491,4 @@ MonoBehaviour:
   explosionRadius: 0
   pierce: 1000
   explosionPierce: 10
-  lifespan: 2
   impactEffect: {fileID: 0}

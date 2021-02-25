@@ -168,6 +168,7 @@ MonoBehaviour:
   bulletDamage: 50
   bulletSpeed: 70
   bulletExplosionRadius: 0
+  bulletExplosionPierce: 10
   buffed2XFireRate: 0
   buffed4XFireRate: 0
   buffed6XFireRate: 0

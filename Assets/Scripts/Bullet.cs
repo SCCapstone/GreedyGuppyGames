@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour, IBullet
     public float explosionRadius = 0f;
     public int pierce = 1;
     public int explosionPierce = 10;
+    public float lifeSpan = 10f;
     public GameObject impactEffect;
 
     private Vector3 directionOfTravel;
@@ -27,6 +28,7 @@ public class Bullet : MonoBehaviour, IBullet
     private void Update()
     {
         this.CheckOutOfBounds();
+        this.CheckLifeSpan();
         Vector3 dir = this.directionOfTravel;
         float distanceThisFrame = this.speed * Time.deltaTime;
 
@@ -110,6 +112,15 @@ public class Bullet : MonoBehaviour, IBullet
         if(this.transform.position.x >200 || this.transform.position.x < -200 || this.transform.position.z >200 || this.transform.position.z <-200 || this.transform.position.y > 100 || this.transform.position.y < -100)
         {
             this.DespawnThisBullet();
+        }
+    }
+
+    //checks if bullet has run out of time
+    private void CheckLifeSpan() 
+    {
+        lifeSpan -= Time.deltaTime;
+        if (lifeSpan < 0) {
+            DespawnThisBullet();
         }
     }
 

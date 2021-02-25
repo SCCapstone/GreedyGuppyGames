@@ -50,6 +50,10 @@ public class Turret : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public GameObject fireEffect;
+    public GameObject[] fireEffectList;
+    [HideInInspector]
+    private float fireEffectLifespan = 0.5f;
 
     // Start is called before the first frame update
     private void Start()
@@ -114,6 +118,10 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(this.partToRotate.rotation, lookRotation, Time.deltaTime * this.turnSpeed).eulerAngles;
         this.partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
+        if (this.target != null) {
+            this.DrawParticleEffect();
+        }
+
         if (this.fireCountdown <= 0f)
         {
             this.Shoot();
@@ -138,6 +146,14 @@ public class Turret : MonoBehaviour
 
         //Audio for when a "bullet" is fired
         FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
+    }
+
+    private void DrawParticleEffect()
+    {
+        GameObject rightFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[0].transform.position, this.fireEffectList[0].transform.rotation);
+        Destroy(rightFireEffect,fireEffectLifespan);
+        GameObject leftFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[1].transform.position, this.fireEffectList[1].transform.rotation);
+        Destroy(leftFireEffect,fireEffectLifespan);
     }
 
     private void OnDrawGizmosSelected()
