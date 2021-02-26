@@ -1,4 +1,4 @@
-﻿// <copyright file="WaveSpawner.cs" company="GreedyGuppyGames">
+// <copyright file="WaveSpawner.cs" company="GreedyGuppyGames">
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
 
@@ -71,6 +71,7 @@ public class WaveSpawner : MonoBehaviour
     {
         //Extracts the amount of the coresponding enemy to spawn
         //15 waves(i), 4 enemy types(j)
+        yield return new WaitForSeconds(10f);
         for(int i=0; i < spawnerIndex.GetLength(0); ++i)
         {
             Debug.Log("Wave "+(i+1));
@@ -149,7 +150,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 allSpawned = true;
             }
-            yield return new WaitUntil(() => allSpawned == true);
+            yield return new WaitForSeconds(2f);
             if(allSpawned == true)
             {
                 allSpawned = grubSpawned = scorpSpawned = droneSpawned = mamaSpawned = carrierSpawned = false;
