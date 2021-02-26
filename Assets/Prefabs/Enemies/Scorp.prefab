@@ -47,9 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   bulletWhoShotMe: {fileID: 0}
-  speed: 10
-  health: 100
+  speed: 12
+  health: 75
   value: 50
+  turretValueBuff: 1.25
   deathEffect: {fileID: 0}
 --- !u!65 &6059285655920142164
 BoxCollider:
