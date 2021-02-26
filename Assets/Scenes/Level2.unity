@@ -19473,7 +19473,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEnded: 0
+  gameWon: 0
   gameOverUI: {fileID: 1092879902}
+  pauseMenuUI: {fileID: 0}
+  upgradeUI: {fileID: 0}
+  gameWonUI: {fileID: 0}
 --- !u!114 &1188631572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19522,9 +19526,12 @@ MonoBehaviour:
     type: 3}
   dronePrefab: {fileID: 7007813784440090068, guid: 4ffdfc7137637944da03c8085d1e1ec1,
     type: 3}
+  beetlePrefab: {fileID: 2922117608893606390, guid: 9c4a6cfbc93a5c5438cd001580b8d5fd,
+    type: 3}
   mamaPrefab: {fileID: 1370186633007649959, guid: 6db0585589cd2984080fa27841456bca,
     type: 3}
-  carrierPrefab: {fileID: 0}
+  carrierPrefab: {fileID: 602419894539465341, guid: 595cbbd5f42c32f45b73eb97530f0027,
+    type: 3}
   timeBetweenRounds: 5
   countdown: 5
   roundText: {fileID: 1477207127}
@@ -33807,6 +33814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 840757958}
+  gamerManager: {fileID: 0}
 --- !u!222 &1981274764
 CanvasRenderer:
   m_ObjectHideFlags: 0

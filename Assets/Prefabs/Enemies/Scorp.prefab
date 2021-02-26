@@ -51,7 +51,8 @@ MonoBehaviour:
   health: 75
   value: 50
   turretValueBuff: 1.25
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 6381280154635751659, guid: f5d27d2ee4f46ad46928fd5852816bed,
+    type: 3}
 --- !u!65 &6059285655920142164
 BoxCollider:
   m_ObjectHideFlags: 0

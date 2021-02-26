@@ -31709,10 +31709,13 @@ MonoBehaviour:
     type: 3}
   dronePrefab: {fileID: 7007813784440090068, guid: 4ffdfc7137637944da03c8085d1e1ec1,
     type: 3}
+  beetlePrefab: {fileID: 2922117608893606390, guid: 9c4a6cfbc93a5c5438cd001580b8d5fd,
+    type: 3}
   mamaPrefab: {fileID: 1370186633007649959, guid: 6db0585589cd2984080fa27841456bca,
     type: 3}
-  carrierPrefab: {fileID: 0}
-  timeBetweenWaves: 7
+  carrierPrefab: {fileID: 602419894539465341, guid: 595cbbd5f42c32f45b73eb97530f0027,
+    type: 3}
+  timeBetweenRounds: 5
   countdown: 5
   roundText: {fileID: 707000812}
 --- !u!4 &2051447963
