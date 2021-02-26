@@ -45,9 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcf16249a19a514fa7d636a0a80a9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killCount: 0
   range: 15
   firerate: 1
   originalFireRate: 0
+  bulletPierce: 1
+  bulletDamage: 100
+  bulletSpeed: 70
+  bulletExplosionRadius: 0
+  bulletExplosionPierce: 10
   buffed2XFireRate: 0
   buffed4XFireRate: 0
   buffed6XFireRate: 0
@@ -58,7 +64,7 @@ MonoBehaviour:
   enemyTag: Enemy
   partToRotate: {fileID: 7202518617915880317}
   turnSpeed: 10
-  bulletPrefab: {fileID: 8727752630958660250, guid: 7e6a92401ae665044b1273e47aea2e1b,
+  bulletPrefab: {fileID: 5503022687058836579, guid: db20b831d894d4841ae5b57d4084374a,
     type: 3}
   firePoint: {fileID: 4426986520893834370}
 --- !u!1 &2843628343844334332

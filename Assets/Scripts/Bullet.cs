@@ -15,8 +15,21 @@ public class Bullet : MonoBehaviour, IBullet
     public int pierce = 1;
     public int explosionPierce = 10;
     public GameObject impactEffect;
+    public GameObject shrapnelGameObject;
+    public bool makeShrapnel = false;
+    public bool tracking = false;
 
     private Vector3 directionOfTravel;
+
+    public void Track()
+    {
+        if(this.target == null)
+        {
+            tracking = false;
+            return;
+        }
+        this.SetBulletDirection();
+    }
 
     public void Seek(Transform aTarget)
     {
@@ -27,6 +40,10 @@ public class Bullet : MonoBehaviour, IBullet
     private void Update()
     {
         this.CheckOutOfBounds();
+        if(tracking)
+        {
+            Track();
+        }
         Vector3 dir = this.directionOfTravel;
         float distanceThisFrame = this.speed * Time.deltaTime;
 
@@ -90,6 +107,10 @@ public class Bullet : MonoBehaviour, IBullet
                 this.Damage(collider.transform);
             }
         }
+        if (makeShrapnel)
+        {
+            MakeShrapnel();
+        }
     }
 
     //damages an enemy
@@ -128,6 +149,12 @@ public class Bullet : MonoBehaviour, IBullet
     // What happens when the bullet hits something (yes, this mostly replaces HitTarget)
     void OnCollisionEnter(Collision col)
     {
+        /*
+        if (col.gameObject.tag == "ammo")
+        {
+            Physics.IgnoreCollision(this.GetComponent<Collider>(), col.collider);
+        }
+        */
         if (this.explosionRadius > 0f)
         {
             this.Explode();
@@ -139,7 +166,7 @@ public class Bullet : MonoBehaviour, IBullet
     }
 
     //sets all the stats for the bullet based on the tower
-    public void SetBulletStats(float speed, int damage, float explosionRadius, int pierce, Turret turretThatShotMe, int explosionPierce)
+    public void SetBulletStats(float speed, int damage, float explosionRadius, int pierce, Turret turretThatShotMe, int explosionPierce, bool makeShrapnel, bool tracking)
     {
         this.speed = speed;
         this.damage = damage;
@@ -147,6 +174,8 @@ public class Bullet : MonoBehaviour, IBullet
         this.pierce = pierce;
         this.turretThatShotMe = turretThatShotMe;
         this.explosionPierce = explosionPierce;
+        this.makeShrapnel = makeShrapnel;
+        this.tracking = tracking;
     }
 
     //destroys the bullet when it would die normally 
@@ -172,5 +201,69 @@ public class Bullet : MonoBehaviour, IBullet
     {
         this.directionOfTravel = this.target.position - this.transform.position;
     }
-    
+
+    // makes shrapnel to be fired from an explosion
+    public void MakeShrapnel()
+    {
+        // direction the shrapnel travels too
+        Vector3 travelDirection = new Vector3(this.transform.position.x + 500, this.transform.position.y, this.transform.position.z);
+        // where it spawns
+        Vector3 spawnLocation = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
+        //make bullet and set it to shit
+        GameObject bulletGO1 = (GameObject)Instantiate(this.shrapnelGameObject, spawnLocation, this.transform.rotation);
+        Bullet bullet1 = bulletGO1.GetComponent<Bullet>();
+        bullet1.directionOfTravel = travelDirection;
+        bullet1.turretThatShotMe = this.turretThatShotMe;
+
+        travelDirection = new Vector3(this.transform.position.x + 500, this.transform.position.y, this.transform.position.z+500);
+        spawnLocation = new Vector3(this.transform.position.x + .5f, this.transform.position.y, this.transform.position.z + .5f);
+        GameObject bulletGO2 = (GameObject)Instantiate(this.shrapnelGameObject, spawnLocation, this.transform.rotation);
+        Bullet bullet2 = bulletGO2.GetComponent<Bullet>();
+        bullet2.directionOfTravel = travelDirection;
+        bullet2.turretThatShotMe = this.turretThatShotMe;
+
+        travelDirection = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 500);
+        spawnLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 1);
+        GameObject bulletGO3 = (GameObject)Instantiate(this.shrapnelGameObject, spawnLocation, this.transform.rotation);
+        Bullet bullet3 = bulletGO3.GetComponent<Bullet>();
+        bullet3.directionOfTravel = travelDirection;
+        bullet3.turretThatShotMe = this.turretThatShotMe;
+
+        travelDirection = new Vector3(this.transform.position.x -500, this.transform.position.y, this.transform.position.z + 500);
+        spawnLocation = new Vector3(this.transform.position.x - .5f, this.transform.position.y, this.transform.position.z + .5f);
+        GameObject bulletGO4 = (GameObject)Instantiate(this.shrapnelGameObject, spawnLocation, this.transform.rotation);
+        Bullet bullet4 = bulletGO4.GetComponent<Bullet>();
+        bullet4.directionOfTravel = travelDirection;
+        bullet4.turretThatShotMe = this.turretThatShotMe;
+
+        travelDirection = new Vector3(this.transform.position.x - 500, this.transform.position.y, this.transform.position.z);
+        spawnLocation = new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
+        GameObject bulletGO5 = (GameObject)Instantiate(this.shrapnelGameObject, spawnLocation, this.transform.rotation);
+        Bullet bullet5 = bulletGO5.GetComponent<Bullet>();
+        bullet5.directionOfTravel = travelDirection;
+        bullet5.turretThatShotMe = this.turretThatShotMe;
+
+        travelDirection = new Vector3(this.transform.position.x - 500, this.transform.position.y, this.transform.position.z -500);
+        spawnLocation = new Vector3(this.transform.position.x - .5f, this.transform.position.y, this.transform.position.z - .5f);
+        GameObject bulletGO6 = (GameObject)Instantiate(this.shrapnelGameObject, spawnLocation, this.transform.rotation);
+        Bullet bullet6 = bulletGO6.GetComponent<Bullet>();
+        bullet6.directionOfTravel = travelDirection;
+        bullet6.turretThatShotMe = this.turretThatShotMe;
+
+        travelDirection = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - 500);
+        spawnLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - 1);
+        GameObject bulletGO7 = (GameObject)Instantiate(this.shrapnelGameObject, spawnLocation, this.transform.rotation);
+        Bullet bullet7 = bulletGO7.GetComponent<Bullet>();
+        bullet7.directionOfTravel = travelDirection;
+        bullet7.turretThatShotMe = this.turretThatShotMe;
+
+        travelDirection = new Vector3(this.transform.position.x + 500, this.transform.position.y, this.transform.position.z - 500);
+        spawnLocation = new Vector3(this.transform.position.x + .5f, this.transform.position.y, this.transform.position.z - .5f);
+        GameObject bulletGO8 = (GameObject)Instantiate(this.shrapnelGameObject, spawnLocation, this.transform.rotation);
+        Bullet bullet8 = bulletGO8.GetComponent<Bullet>();
+        bullet8.directionOfTravel = travelDirection;
+        bullet8.turretThatShotMe = this.turretThatShotMe;
+
+
+    }
 }
