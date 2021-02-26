@@ -12963,7 +12963,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 805745140}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2051447962}
+        m_TargetAssemblyTypeName: WaveSpawner, Scripts
+        m_MethodName: StartWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &805745140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31693,11 +31705,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grubPrefab: {fileID: 1811356957786347753, guid: b6d2d797288ab6c4d961167c6968ca55,
     type: 3}
+  scorpPrefab: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
+    type: 3}
+  dronePrefab: {fileID: 7007813784440090068, guid: 4ffdfc7137637944da03c8085d1e1ec1,
+    type: 3}
   mamaPrefab: {fileID: 1370186633007649959, guid: 6db0585589cd2984080fa27841456bca,
     type: 3}
+  carrierPrefab: {fileID: 0}
   timeBetweenWaves: 7
   countdown: 5
-  timeBetweenRounds: 13
   roundText: {fileID: 707000812}
 --- !u!4 &2051447963
 Transform:
