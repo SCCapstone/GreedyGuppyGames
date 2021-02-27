@@ -322,18 +322,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCount: 0
-  range: 40
-  firerate: 2
+  range: 25
+  firerate: 1.5
   originalFireRate: 0
   originalRange: 0
   bulletPierce: 1
-  bulletDamage: 50
-  bulletSpeed: 100
+  bulletDamage: 10
+  bulletSpeed: 70
   bulletExplosionRadius: 0
   bulletExplosionPierce: 10
   makeShrapnel: 0
   tracking: 0
-  sprayAmount: 15
+  sprayAmount: 20
   buffed2XFireRate: 0
   buffed4XFireRate: 0
   buffed6XFireRate: 0

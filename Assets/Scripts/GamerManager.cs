@@ -20,6 +20,7 @@ public class GamerManager : MonoBehaviour
         this.gameEnded = false;
         this.gameWon = false;
         this.buildManager = BuildManager.instance;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
