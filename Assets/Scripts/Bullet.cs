@@ -19,23 +19,10 @@ public class Bullet : MonoBehaviour, IBullet
     public GameObject shrapnelGameObject;
     public bool makeShrapnel = false;
     public bool tracking = false;
+    public float sprayAmount = 0f;
 
     private Vector3 directionOfTravel;
 
-    public void Track()
-    {
-        if(this.target == null)
-        {
-            tracking = false;
-            return;
-        }
-        this.SetBulletDirection();
-    }
-
-    public void Seek(Transform aTarget)
-    {
-        this.target = aTarget;
-    }
 
     // Update is called once per frame
     private void Update()
@@ -49,17 +36,41 @@ public class Bullet : MonoBehaviour, IBullet
         Vector3 dir = this.directionOfTravel;
         float distanceThisFrame = this.speed * Time.deltaTime;
 
-        //old hit detection
-        /*if (dir.magnitude <= distanceThisFrame)
-        {
-            this.HitTarget();
-            return;
-        }*/
         dir = checkY(dir);
+        //dir = addSpray(dir);
 
         this.transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         this.transform.LookAt(this.directionOfTravel);
     }
+        public void Track()
+    {
+        if(this.target == null)
+        {
+            tracking = false;
+            return;
+        }
+        this.SetBulletDirection();
+    }
+
+
+    public Vector3 addSpray(Vector3 dir)
+    {
+        dir = dir.normalized;
+        float randDegree = Random.Range(-sprayAmount,sprayAmount);
+        Debug.Log(randDegree);
+        float radians = randDegree * Mathf.Deg2Rad;
+        float x = dir.x * Mathf.Cos(radians) - dir.z * Mathf.Sin(radians);
+        float z = dir.x * Mathf.Sin(radians) + dir.z * Mathf.Cos(radians);
+
+        dir.x = x;
+        dir.z = z;
+        return dir;
+    }
+    public void Seek(Transform aTarget)
+    {
+        this.target = aTarget;
+    }
+
 
     // if y of a bullet is too high or low it causes the bullet to not change y direction anymore
     private Vector3 checkY(Vector3 dir)
@@ -177,7 +188,7 @@ public class Bullet : MonoBehaviour, IBullet
     }
 
     //sets all the stats for the bullet based on the tower
-    public void SetBulletStats(float speed, int damage, float explosionRadius, int pierce, Turret turretThatShotMe, int explosionPierce, bool makeShrapnel, bool tracking)
+    public void SetBulletStats(float speed, int damage, float explosionRadius, int pierce, Turret turretThatShotMe, int explosionPierce, bool makeShrapnel, bool tracking, float sprayAmount)
     {
         this.speed = speed;
         this.damage = damage;
@@ -187,6 +198,7 @@ public class Bullet : MonoBehaviour, IBullet
         this.explosionPierce = explosionPierce;
         this.makeShrapnel = makeShrapnel;
         this.tracking = tracking;
+        this.sprayAmount = sprayAmount;
     }
 
     //destroys the bullet when it would die normally 
@@ -210,7 +222,7 @@ public class Bullet : MonoBehaviour, IBullet
     // sets direction the bullet goes
     public void SetBulletDirection()
     {
-        this.directionOfTravel = this.target.position - this.transform.position;
+        this.directionOfTravel = addSpray(this.target.position - this.transform.position);
     }
 
     // makes shrapnel to be fired from an explosion
