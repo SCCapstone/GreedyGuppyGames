@@ -52,8 +52,7 @@ public class Turret : MonoBehaviour
     public Transform firePoint;
     public GameObject fireEffect;
     public GameObject[] fireEffectList;
-    [HideInInspector]
-    private float fireEffectLifespan = 0.5f;
+    public float fireEffectLifespan = 0.5f;
 
     // Start is called before the first frame update
     private void Start()

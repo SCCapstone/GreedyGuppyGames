@@ -118,7 +118,7 @@ MonoBehaviour:
   firerate: 1
   originalFireRate: 0
   bulletPierce: 1
-  bulletDamage: 50
+  bulletDamage: 100
   bulletSpeed: 70
   bulletExplosionRadius: 0
   bulletExplosionPierce: 10
@@ -142,6 +142,7 @@ MonoBehaviour:
   - {fileID: 4579860533757730262}
   - {fileID: 6936378961129377113}
   - {fileID: 3802925465693684107}
+  fireEffectLifespan: 0.5
 --- !u!1 &2086538337918444331
 GameObject:
   m_ObjectHideFlags: 0

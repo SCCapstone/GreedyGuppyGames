@@ -306,12 +306,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCount: 0
-  range: 15
+  range: 10
   firerate: 1
   originalFireRate: 0
   bulletPierce: 1
   bulletDamage: 50
-  bulletSpeed: 70
+  bulletSpeed: 1
   bulletExplosionRadius: 0
   bulletExplosionPierce: 10
   buffed2XFireRate: 0
@@ -332,6 +332,7 @@ MonoBehaviour:
   fireEffectList:
   - {fileID: 8531221250340536176}
   - {fileID: 876414285687952236}
+  fireEffectLifespan: 0.5
 --- !u!1 &3598154960571865264
 GameObject:
   m_ObjectHideFlags: 0
