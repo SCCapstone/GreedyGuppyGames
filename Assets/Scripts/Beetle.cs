@@ -9,6 +9,6 @@ public class Beetle : Enemy
     {
         base.Start();
     }
-
+    //this is for later when i want to implement more
 
 }
