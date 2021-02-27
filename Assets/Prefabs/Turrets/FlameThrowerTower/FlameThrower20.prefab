@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &194267711455901118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5974551359939676399}
+  m_Layer: 0
+  m_Name: FireEffectPointTopLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5974551359939676399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194267711455901118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.07, y: 1.566, z: 3.3598}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3944688431178029450}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615309044000437536
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +142,7 @@ Transform:
   - {fileID: 4525969128252392942}
   - {fileID: 6504522965610510791}
   - {fileID: 33273038984498022}
+  - {fileID: 3944688431178029450}
   m_Father: {fileID: 2446104508097300298}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,9 +191,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcf16249a19a514fa7d636a0a80a9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killCount: 0
   range: 15
   firerate: 1
   originalFireRate: 0
+  bulletPierce: 1
+  bulletDamage: 125
+  bulletSpeed: 70
+  bulletExplosionRadius: 0
+  bulletExplosionPierce: 10
   buffed2XFireRate: 0
   buffed4XFireRate: 0
   buffed6XFireRate: 0
@@ -172,9 +209,18 @@ MonoBehaviour:
   gunShotAudio: 
   enemyTag: Enemy
   partToRotate: {fileID: 8673536476076269851}
-  turnSpeed: 10
-  bulletPrefab: {fileID: 0}
+  turnSpeed: 3
+  bulletPrefab: {fileID: 990797363841223560, guid: 098e2673033e52541acdbae8ae2c887c,
+    type: 3}
   firePoint: {fileID: 33273038984498022}
+  fireEffect: {fileID: 5264905433878416581, guid: d9800d7a236f2ec40a5bf920814e1d42,
+    type: 3}
+  fireEffectList:
+  - {fileID: 6822266719084372578}
+  - {fileID: 5354035080097615056}
+  - {fileID: 194267711455901118}
+  - {fileID: 4522257958310678020}
+  fireEffectLifespan: 0.5
 --- !u!1 &3418908542357998177
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +250,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8673536476076269851}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4522257958310678020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3407317390913672043}
+  m_Layer: 0
+  m_Name: FireEffectPointTopRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3407317390913672043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4522257958310678020}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.783, y: 1.579, z: 3.3598}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3944688431178029450}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5354035080097615056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239050477229548206}
+  m_Layer: 0
+  m_Name: FireEffectPointBotLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1239050477229548206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354035080097615056}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.712, y: 1.138, z: 3.362}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3944688431178029450}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5426859541068404802
 GameObject:
@@ -287,6 +393,70 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6822266719084372578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2687963906511041540}
+  m_Layer: 0
+  m_Name: FireEffectPointBotRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2687963906511041540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822266719084372578}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.137, y: 1.136, z: 3.362}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3944688431178029450}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8722012003842792018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3944688431178029450}
+  m_Layer: 0
+  m_Name: FireEffectPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3944688431178029450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8722012003842792018}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.4264812, y: 0, z: -2.5190563}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2687963906511041540}
+  - {fileID: 1239050477229548206}
+  - {fileID: 5974551359939676399}
+  - {fileID: 3407317390913672043}
+  m_Father: {fileID: 8673536476076269851}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8796058153962298750
 GameObject:
   m_ObjectHideFlags: 0
