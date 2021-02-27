@@ -31008,12 +31008,12 @@ MonoBehaviour:
     upgradeCost10: 0
     upgradeCost20: 0
     upgradeCost30: 0
-    upgrade10Text: 
-    upgrade20Text: 
-    upgrade30Text: 
-    upgrade01Text: 
-    upgrade02Text: 
-    upgrade03Text: 
+    upgrade10Text: More Damage
+    upgrade20Text: Even More Damage
+    upgrade30Text: UNLEASH THE FIRES OF WAR
+    upgrade01Text: More Range
+    upgrade02Text: Even More Range
+    upgrade03Text: Long Range Napalm Thrower
     turretImage: {fileID: 21300000, guid: 29bfb22b0c243b546b9fb244ae22ab2c, type: 3}
 --- !u!114 &1838352016
 MonoBehaviour:
