@@ -111,5 +111,32 @@ MonoBehaviour:
   hoverColor: {r: 0.56136525, g: 0.8207547, b: 0.8182409, a: 0}
   nodeSelectedToUpgradeColor: {r: 0, g: 0, b: 1, a: 1}
   errorColor: {r: 0.7735849, g: 0.032840855, b: 0.032840855, a: 0}
+  leftNode: 1
   positionOffset: {x: 0, y: 0.5, z: 0}
+  supportTowerReduction: 0.25
   turret: {fileID: 0}
+  turretBlueprint:
+    prefab: {fileID: 0}
+    prefabUpgrade01: {fileID: 0}
+    prefabUpgrade02: {fileID: 0}
+    prefabUpgrade03: {fileID: 0}
+    prefabUpgrade10: {fileID: 0}
+    prefabUpgrade20: {fileID: 0}
+    prefabUpgrade30: {fileID: 0}
+    cost: 0
+    upgradeCost01: 0
+    upgradeCost02: 0
+    upgradeCost03: 0
+    upgradeCost10: 0
+    upgradeCost20: 0
+    upgradeCost30: 0
+    upgrade10Text: 
+    upgrade20Text: 
+    upgrade30Text: 
+    upgrade01Text: 
+    upgrade02Text: 
+    upgrade03Text: 
+    turretImage: {fileID: 0}
+  upgradePathOne: 0
+  upgradePathTwo: 0
+  moneySpentOnTurret: 0

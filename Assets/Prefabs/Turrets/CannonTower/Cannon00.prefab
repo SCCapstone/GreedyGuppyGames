@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCount: 0
-  range: 30
+  range: 25
   firerate: 0.5
   originalFireRate: 0
   bulletPierce: 1
   bulletDamage: 50
-  bulletSpeed: 70
+  bulletSpeed: 50
   bulletExplosionRadius: 5
   bulletExplosionPierce: 3
   buffed2XFireRate: 0

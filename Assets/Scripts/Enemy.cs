@@ -15,8 +15,12 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public int health = 100;
 
-    public int value = 50;
+    int startingHealth;
 
+    bool readytobepooled;
+
+    public int value = 50;
+    public float turretValueBuff = 1.25f;
     public GameObject deathEffect;
 
     private Transform target;
@@ -54,6 +58,11 @@ public class Enemy : MonoBehaviour, IEnemy
         this.value = _value;
     }
 
+    public void SetWavepointIndex(int _index)
+    {
+        this.wavepointIndex = _index;
+    }
+
     public virtual void Start()
     {
         this.target = Waypoints.points[wavepointIndex];
@@ -78,11 +87,45 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public virtual void Die()
     {
-        bulletWhoShotMe.turretThatShotMe.killCount++;
+        if(bulletWhoShotMe != null)
+        {
+            bulletWhoShotMe.turretThatShotMe.killCount++;
+        }
         PlayerStats.Money += this.value;
+        GameObject[] supportTowers = GameObject.FindGameObjectsWithTag("supportTower");
+        foreach (GameObject supportTower in supportTowers)
+        {
+            float distanceToTower = Vector3.Distance(this.transform.position, supportTower.transform.position);
+            SupportTurret supportTurret = supportTower.GetComponent<SupportTurret>();
+            if (distanceToTower <= supportTurret.range && supportTurret.leftTier3 == true) 
+            {
+                PlayerStats.Money -= this.value;
+                PlayerStats.Money += (int)(this.value * turretValueBuff);
+            }
+        }
         GameObject effect = (GameObject)Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
         Destroy(effect, 5f);
+        readytobepooled = true;
+        gameObject.SetActive(false);
         Destroy(this.gameObject);
+
+    }
+
+    void Awake()
+    {
+        startingHealth = health;
+    }
+
+    public virtual void Onpooled()
+    {
+        if (!readytobepooled)
+            return;
+        dead = false;
+        health = startingHealth;
+        SetWavepointIndex(0);
+        this.target = Waypoints.points[wavepointIndex];
+        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+
 
     }
 

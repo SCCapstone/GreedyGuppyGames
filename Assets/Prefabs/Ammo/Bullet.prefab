@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7114854438770080326}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +105,8 @@ MonoBehaviour:
   lifeSpan: 10
   impactEffect: {fileID: 2220860345030090244, guid: 552376976c794354893d26c863e69a97,
     type: 3}
+  shrapnelGameObject: {fileID: 0}
+  makeShrapnel: 0
 --- !u!64 &448958782765832105
 MeshCollider:
   m_ObjectHideFlags: 0
