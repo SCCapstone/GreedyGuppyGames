@@ -1,4 +1,4 @@
-﻿// <copyright file="WaveSpawner.cs" company="GreedyGuppyGames">
+// <copyright file="WaveSpawner.cs" company="GreedyGuppyGames">
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
 
@@ -8,30 +8,48 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
+    //Enemy Prefabs
     public Transform grubPrefab;
+    public Transform scorpPrefab;
+    public Transform dronePrefab;
+    public Transform beetlePrefab;
     public Transform mamaPrefab;
-
+    public Transform carrierPrefab;
     public static Transform spawnPoint;
 
+    //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:beetle, 4:mama, 5:carrier)
+    private int[,] spawnerIndex = { {1,1,1,0,0,0},
+                                    {5,1,1,1,0,0},
+                                    {7,2,1,1,0,0},
+                                    {7,1,2,2,0,0},
+                                    {9,2,1,1,1,0},
+                                    {10,3,2,2,0,0},
+                                    {10,5,3,3,1,1},
+                                    {15,7,5,3,1,1},
+                                    {20,10,5,4,3,1},
+                                    {15,10,5,4,5,1},
+                                    {10,5,1,3,1,2},
+                                    {15,10,3,4,2,3},
+                                    {20,15,5,6,3,2},
+                                    {15,10,7,10,3,3},
+                                    {15,10,10,10,10,5} };
+    
+    
 
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenRounds = 5f;
     public float countdown = 11f;
-    public float timeBetweenRounds = 13f;
 
     public Text roundText;
-
-    private int waveIndex = 0;
-    private int mamaIndex = 0;
-
-    private int round1 = 0;
-    private int round2 = 0;
-    private int round3 = 0;
-    private int TEN = 10;
     private int round = 1;
 
     //testing
-    private int numGroobers = 0;
-    private int numMilfs = 0;
+    // private int grub = 0;
+    // private int scorp = 0;
+    // private int drone = 0;
+    // private int mamas = 0;
+    // private int carrier = 0;
+    // private bool allSpawned, grubSpawned, scorpSpawned, droneSpawned, mamaSpawned, carrierSpawned = false;
+    // private int totalSpawned = 0;
 
     private void Start()
     {
@@ -40,149 +58,109 @@ public class WaveSpawner : MonoBehaviour
         // Declares that the static spawnPoint takes on the transform of START(green block)
         spawnPoint = spawnTransform;
     }
-
     private void Update()
     {
-        if (this.countdown <= 0f)
-        {
-            this.StartCoroutine(this.SpawnWave());
-            this.countdown = this.timeBetweenWaves;
-        }
-
         this.countdown -= Time.deltaTime;
 
         this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
         this.roundText.text = ("Round: " + this.round);
     }
 
+    //Pressing the play button calls the SpawnWave function
+    public void StartWave()
+    {
+        Debug.Log("Play button pressed, starting SpawnWave");
+        this.StartCoroutine(this.SpawnWave());
+    }
+
     private IEnumerator SpawnWave()
     {
-        if (round1 < TEN)  //Round 1: 10 waves
+        //Extracts the amount of the coresponding enemy to spawn
+        //15 waves(i), 6 enemy types(j)
+        for(int i=0; i < spawnerIndex.GetLength(0); ++i)
         {
-            ++round1;
-            ++this.waveIndex; //adds a single enemy(Grub) per wave
-            PlayerStats.Rounds++;
-            // Debug.Log("Grubs to spawn: " + this.waveIndex);
-
-            //spawns 1 Grub per loop
-            for (int i = 0; i < this.waveIndex; i++)
+            Debug.Log("Wave "+(i+1));
+            for(int j=0; j < spawnerIndex.GetLength(1); ++j)
             {
-                SpawnEnemy(grubPrefab);
-
-                numGroobers++;
-
-                yield return new WaitForSeconds(0.5f);
-            }
-
-            if (round1 == TEN)
-            {
-                // Debug.Log("Spawning a single mama");
-                SpawnEnemy(mamaPrefab); //spawns a single mama
-
-                numMilfs++;
-
-                // Debug.Log("Round 1 over");
-                this.waveIndex = 5;  //will spawn 5 enemies (after waveIndex increments) at the start of round 2
-                //pause the game here, wait for player to resume
-                //Moves the round text to round 2
-                ++round;
-            }
-        }
-
-        //need to pause the spawning of new enemies until all the enemies of the previous round have been spawned
-
-        else if (round2 < TEN)  //Round 2: 20 waves  (way too long, will shorten for now)
-        {
-            PlayerStats.Rounds++;
-            ++round2;
-            if (round2 == 1)
-            {
-                yield return new WaitForSeconds(timeBetweenRounds);
-            }
-            // Debug.Log("Grubs to spawn: " + this.waveIndex);
-
-            for (int i = 0; i < this.waveIndex; i++)
-            {
-                SpawnEnemy(grubPrefab);
-
-                numGroobers++;
-
-                yield return new WaitForSeconds(0.5f);
-            }
-
-            this.waveIndex += 2; //adds 2 enemies(Grub) per wave
-
-            if (round2 >= 5)
-            {
-                ++mamaIndex; //adds a single mama to spawn per wave
-                // Debug.Log("Spawn "+mamaIndex+" mama(s)");
-                for (int i = 0; i < mamaIndex; i++)
+                int amountSpanwed = spawnerIndex[i,j];
+                //totalSpawned += amountSpanwed;
+                switch(j)
                 {
-                    SpawnEnemy(mamaPrefab);
-
-                    numMilfs++;
-
-                    yield return new WaitForSeconds(1f);
-
+                    case 0: //grub
+                        for (int k = 0; k < amountSpanwed; ++k)
+                        {
+                            //++grub;
+                            //Debug.Log(amountSpanwed+ " Grubs Spawning");
+                            SpawnEnemy(grubPrefab);
+                            yield return new WaitForSeconds(1f);
+                        }
+                        //grubSpawned = true;
+                        break;
+                    case 1: //scorp
+                        for (int k = 0; k < amountSpanwed; ++k)
+                        {
+                            //++scorp;
+                            //Debug.Log(amountSpanwed+ " Scorps Spawning");
+                            SpawnEnemy(scorpPrefab);
+                            yield return new WaitForSeconds(1f);
+                        }
+                        //scorpSpawned = true;
+                        break;
+                    case 2: //drone
+                        for (int k = 0; k < amountSpanwed; ++k)
+                        {
+                            //++drone;
+                            //Debug.Log(amountSpanwed+ " Drones Spawning");
+                            SpawnEnemy(dronePrefab);
+                            yield return new WaitForSeconds(1f);
+                        }
+                        //droneSpawned = true;
+                        break;
+                    case 3: //beetle
+                        for (int k = 0; k < amountSpanwed; ++k)
+                        {
+                            //Debug.Log(amountSpanwed+ " Beetle Spawning");
+                            SpawnEnemy(beetlePrefab);
+                            yield return new WaitForSeconds(1f);
+                        }
+                            //carrierSpawned = true;
+                        break;   
+                    case 4: //mama
+                        for (int k = 0; k < amountSpanwed; ++k)
+                        {
+                            //++mamas;
+                            //Debug.Log(amountSpanwed+ " Mamas Spawning");
+                            SpawnEnemy(mamaPrefab);
+                            yield return new WaitForSeconds(1f);
+                        }
+                        //mamaSpawned = true;
+                        break;
+                    case 5: //carrier
+                        for (int k = 0; k < amountSpanwed; ++k)
+                        {
+                            //++carrier;
+                            //Debug.Log(amountSpanwed+ " Carrier Spawning");
+                            SpawnEnemy(carrierPrefab);
+                            yield return new WaitForSeconds(1f);
+                        }
+                            //carrierSpawned = true;
+                        break;
                 }
             }
+            //Testing
+            // Debug.Log("Total spawned: "+totalSpawned
+            //     +"\n Grubs: "+grub
+            //     +"\n Scorps: "+scorp
+            //     +"\n Drones: "+drone
+            //     +"\n Mamas: "+mamas
+            //     +"\n Carriers: "+carrier);
 
-            if (round2 == TEN)
-            {
-                // Debug.Log("Round 2 over");
-                this.waveIndex = 10;
-                this.mamaIndex = 3;
-                //pause the game here, wait for player to resume
-                //Moves the round text to round 3
-                ++round;
-            }
+            //Time between rounds
+            yield return new WaitForSeconds(2f);
+            //Increments the round counter
+            ++this.round;
+            ++PlayerStats.Rounds;
         }
-        else if (round3 < TEN)  //Round 3: 30 waves  (way too long, will shorten for now)
-        {
-            PlayerStats.Rounds++;
-            ++round3;
-            if (round3 == 1)
-            {
-                yield return new WaitForSeconds(timeBetweenRounds);
-            }
-            // Debug.Log("Grubs to spawn: " + this.waveIndex);
-
-            for (int i = 0; i < this.waveIndex; i++)
-            {
-                SpawnEnemy(grubPrefab);
-
-                numGroobers++;
-
-                yield return new WaitForSeconds(0.5f);
-            }
-
-            this.waveIndex += 3; //adds 3 enemies(Grub) per wave
-
-            if (round2 >= 5)
-            {
-                this.mamaIndex += 2; //adds 2 more mamas to spawn per wave
-                // Debug.Log("Spawn " + mamaIndex + " mama(s)");
-                for (int i = 0; i < mamaIndex; i++)
-                {
-                    SpawnEnemy(mamaPrefab);
-
-                    numMilfs++;
-
-                    yield return new WaitForSeconds(1f);
-
-                }
-            }
-
-            if (round3 == TEN)
-            {
-                // Debug.Log("Round 3 over");
-                //pause the game here, wait for player to resume
-            }
-        }
-
-        Debug.Log("milfs = " + numMilfs);
-        Debug.Log("groobers = " + numGroobers);
-        Debug.Log("total enemies = " + (numGroobers + (numMilfs * 2)));
     }
 
     public static void SpawnEnemy(Transform enemy)
