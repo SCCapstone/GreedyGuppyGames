@@ -321,9 +321,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcf16249a19a514fa7d636a0a80a9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  killCount: 0
+  range: 40
   firerate: 2
   originalFireRate: 0
+  originalRange: 0
+  bulletPierce: 1
+  bulletDamage: 50
+  bulletSpeed: 100
+  bulletExplosionRadius: 0
+  bulletExplosionPierce: 10
+  makeShrapnel: 0
+  tracking: 0
+  sprayAmount: 15
   buffed2XFireRate: 0
   buffed4XFireRate: 0
   buffed6XFireRate: 0
