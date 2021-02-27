@@ -139,7 +139,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3481009559661011739}
-  m_LocalRotation: {x: 0, y: -0.004328352, z: 0, w: 0.99999064}
+  m_LocalRotation: {x: -0, y: -0.0043257205, z: -0, w: 0.9999907}
   m_LocalPosition: {x: 0.3649299, y: 9.95, z: -0.00044316053}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
@@ -164,7 +164,7 @@ MonoBehaviour:
   range: 15
   firerate: 1
   originalFireRate: 0
-  bulletPierce: 1
+  bulletPierce: 2
   bulletDamage: 50
   bulletSpeed: 70
   bulletExplosionRadius: 0

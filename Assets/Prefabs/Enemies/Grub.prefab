@@ -48,9 +48,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   bulletWhoShotMe: {fileID: 0}
   speed: 10
-  health: 75
+  health: 1
   value: 50
-  turretValueBuff: 1.25
   deathEffect: {fileID: 6381280154635751659, guid: f5d27d2ee4f46ad46928fd5852816bed,
     type: 3}
 --- !u!65 &704432606058310987

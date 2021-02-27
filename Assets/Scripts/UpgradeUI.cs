@@ -40,10 +40,7 @@ public class UpgradeUI : MonoBehaviour
         {
             this.sellText.text = "$" + this.nodeToUpgrade.moneySpentOnTurret * Shop.sellPercent;
             this.turretImage.sprite = this.nodeToUpgrade.turretBlueprint.turretImage;
-            if (this.nodeToUpgrade.turret.gameObject.CompareTag("Tower"))
-            {
-                this.killCount.text = "Kills: " + this.nodeToUpgrade.turret.gameObject.GetComponent<Turret>().killCount.ToString();
-            }
+            this.killCount.text = "Kills: " + this.nodeToUpgrade.turret.gameObject.GetComponent<Turret>().killCount.ToString();
 
 
             if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)

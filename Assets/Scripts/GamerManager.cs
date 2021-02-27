@@ -7,18 +7,13 @@ using UnityEngine;
 public class GamerManager : MonoBehaviour
 {
     public bool gameEnded;
-    public bool gameWon;
 
     private BuildManager buildManager;
     public GameObject gameOverUI;
-    public PauseMenu pauseMenuUI;
-    public UpgradeUI upgradeUI;
-    public GameObject gameWonUI;
 
     private void Start()
     {
         this.gameEnded = false;
-        this.gameWon = false;
         this.buildManager = BuildManager.instance;
     }
 
@@ -27,11 +22,7 @@ public class GamerManager : MonoBehaviour
     {
         // actually stops the game so it doesn't loop after ending
         if (this.gameEnded)
-        { 
-            pauseMenuUI.Unpause();
-            upgradeUI.Hide();
-            Time.timeScale = 0;
-
+        {
             return;
         }
 
@@ -60,10 +51,5 @@ public class GamerManager : MonoBehaviour
 
         // Turns on the game over UI when game is over
         this.gameOverUI.SetActive(true);
-    }
-    private void WinGame()
-    {
-        this.gameWon = true;
-        this.gameWonUI.SetActive(true);
     }
 }

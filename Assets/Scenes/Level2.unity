@@ -17255,12 +17255,12 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.084
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1778123726}
-        m_TargetAssemblyTypeName: AudioManager, Scripts
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: SetSFXVolume
         m_Mode: 0
         m_Arguments:
@@ -17520,8 +17520,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1778123726}
-        m_TargetAssemblyTypeName: AudioManager, Scripts
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -19473,11 +19473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEnded: 0
-  gameWon: 0
   gameOverUI: {fileID: 1092879902}
-  pauseMenuUI: {fileID: 0}
-  upgradeUI: {fileID: 0}
-  gameWonUI: {fileID: 0}
 --- !u!114 &1188631572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19522,18 +19518,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grubPrefab: {fileID: 1811356957786347753, guid: b6d2d797288ab6c4d961167c6968ca55,
     type: 3}
-  scorpPrefab: {fileID: 3350297959693488827, guid: 950054392c0c3ff4993388b35376b789,
-    type: 3}
-  dronePrefab: {fileID: 7007813784440090068, guid: 4ffdfc7137637944da03c8085d1e1ec1,
-    type: 3}
-  beetlePrefab: {fileID: 2922117608893606390, guid: 9c4a6cfbc93a5c5438cd001580b8d5fd,
-    type: 3}
   mamaPrefab: {fileID: 1370186633007649959, guid: 6db0585589cd2984080fa27841456bca,
     type: 3}
-  carrierPrefab: {fileID: 602419894539465341, guid: 595cbbd5f42c32f45b73eb97530f0027,
-    type: 3}
-  timeBetweenRounds: 5
+  timeBetweenWaves: 7
   countdown: 5
+  timeBetweenRounds: 13
   roundText: {fileID: 1477207127}
 --- !u!4 &1188631575
 Transform:
@@ -29419,19 +29408,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1776154431}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1188631574}
-        m_TargetAssemblyTypeName: WaveSpawner, Scripts
-        m_MethodName: StartWave
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1776154431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29512,12 +29489,6 @@ MonoBehaviour:
     pitch: 1.5
     loop: 1
     source: {fileID: 0}
-  - name: GameMusic2
-    audioClip: {fileID: 8300000, guid: 6942fbe8fbf0b374698a70f6b38e40e8, type: 3}
-    volume: 1
-    pitch: 1.5
-    loop: 1
-    source: {fileID: 0}
   gameSFXSounds:
   - name: BasicTowerShot
     audioClip: {fileID: 8300000, guid: f82348f044e4641f38816d5c92ce9618, type: 3}
@@ -29538,8 +29509,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   menuSFXSounds: []
-  musicSlider: {fileID: 1043390033}
-  sfxSlider: {fileID: 1011125973}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: c40bed98f23a748f89472abe9c1a6871, type: 2}
   MusicMixerGroup: {fileID: 243581543562908448, guid: c40bed98f23a748f89472abe9c1a6871,
     type: 2}
@@ -29547,7 +29518,7 @@ MonoBehaviour:
     type: 2}
   MusicMixerGroupName: MusicVolume
   SFXMixerGroupName: SFXVolume
-  gameMusicName: GameMusic2
+  gameMusicName: MenuMusic
 --- !u!4 &1778123727
 Transform:
   m_ObjectHideFlags: 0
@@ -33814,7 +33785,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 840757958}
-  gamerManager: {fileID: 0}
 --- !u!222 &1981274764
 CanvasRenderer:
   m_ObjectHideFlags: 0

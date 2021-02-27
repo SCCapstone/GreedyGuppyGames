@@ -1,8 +1,4 @@
-﻿// <copyright file="AudioManager.cs" company="GreedyGuppyGames">
-// Copyright (c) GreedyGuppyGames. All rights reserved.
-// </copyright>
-
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -14,7 +10,6 @@ public class AudioManager : MonoBehaviour
     public Sounds[] gameSFXSounds;
     public Sounds[] menuSFXSounds;
 
-    //Sliders
     public Slider musicSlider;
     public Slider sfxSlider;
 
@@ -42,9 +37,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        //Allows the AudioManager to transition between scenes and prevents the manager in the next scene to take over (no audio control in the pause screen)
-        //Leave commented out unitl a better audio solution is found
-        //DontDestroyOnLoad(gameObject);
+        //Allows the AudioManager to transition between scenes
+        DontDestroyOnLoad(gameObject);
 
         /**
          * Constructor for internal array for each sound in sounds
@@ -95,20 +89,17 @@ public class AudioManager : MonoBehaviour
     {
         //Searches the array of sounds for the name of the passed in audio clip
         Sounds s = Array.Find(musicSounds, sound => sound.name == audioName);
+        
         //if not found displays a warning
         if(s != null)
         {
             //if found plays the audio
             s.source.Play();
             return;
-        } 
-        else 
-        {
-            Debug.Log("Music Sound not found");
         }
-
 
         s = Array.Find(gameSFXSounds, sound => sound.name == audioName);
+
         //if not found displays a warning
         if (s != null)
         {
@@ -116,13 +107,9 @@ public class AudioManager : MonoBehaviour
             s.source.Play();
             return;
         }
-        else 
-        {
-            Debug.Log("Game SFX Sound not found");
-        }
-
 
         s = Array.Find(menuSFXSounds, sound => sound.name == audioName);
+
         //if not found displays a warning
         if (s != null)
         {
@@ -130,10 +117,7 @@ public class AudioManager : MonoBehaviour
             s.source.Play();
             return;
         }
-        else 
-        {
-            Debug.Log("Menu SFX Sound not found");
-        }
+        Debug.Log("Sound not found");
     }
 
     // sets music volume for slider using logarithmic scale

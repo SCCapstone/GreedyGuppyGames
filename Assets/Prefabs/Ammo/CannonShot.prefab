@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 659455420681546337}
   m_Layer: 0
   m_Name: CannonShot
-  m_TagString: Ammo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,11 +101,8 @@ MonoBehaviour:
   damage: 50
   explosionRadius: 5
   pierce: 1
-  explosionPierce: 10
-  impactEffect: {fileID: 6330507170694940493, guid: 022a432f5f0a04945a35e9739d0be577,
+  impactEffect: {fileID: 2348217514624612886, guid: 022a432f5f0a04945a35e9739d0be577,
     type: 3}
-  shrapnelGameObject: {fileID: 0}
-  makeShrapnel: 0
 --- !u!54 &1925139813611916750
 Rigidbody:
   m_ObjectHideFlags: 0

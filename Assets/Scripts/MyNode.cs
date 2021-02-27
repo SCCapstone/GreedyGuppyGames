@@ -13,7 +13,7 @@ public class MyNode : MonoBehaviour
     public bool leftNode = true;
     
     public Vector3 positionOffset;
-    public float supportTowerReduction;
+
     [HideInInspector]
     public GameObject turret;
     [HideInInspector]
@@ -155,17 +155,7 @@ public class MyNode : MonoBehaviour
 
         PlayerStats.Money -= blueprint.cost;
         moneySpentOnTurret += blueprint.cost;
-        // refund money back to the player if a lefTier2 tower is in range
-        GameObject[] supportTowers = GameObject.FindGameObjectsWithTag("supportTower");
-        foreach (GameObject supportTower in supportTowers)
-        {
-            float distanceToTower = Vector3.Distance(this.transform.position, supportTower.transform.position);
-            SupportTurret supportTurret = supportTower.GetComponent<SupportTurret>();
-            if (distanceToTower <= supportTurret.range && supportTurret.leftTier2 == true) 
-            {
-                PlayerStats.Money += (int)(blueprint.cost * supportTowerReduction);
-            }
-        }
+
         // Build a turret
         // GameObject turretToBuild = buildManager.GetTurretToBuild();
         GameObject aTurret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
@@ -232,11 +222,7 @@ public class MyNode : MonoBehaviour
         }
 
         // saves the kill count of the turret
-        int tempKillCount = 0;
-        if (this.turret.gameObject.CompareTag("Tower")) 
-        {
-            tempKillCount = this.turret.gameObject.GetComponent<Turret>().killCount;
-        }
+        int tempKillCount = this.turret.gameObject.GetComponent<Turret>().killCount;
         DeleteTurret();
         PlayerStats.Money -= upgradePrice;
         moneySpentOnTurret += upgradePrice;
@@ -245,10 +231,7 @@ public class MyNode : MonoBehaviour
         //Debug.Log("I made it here");
         turret = turretUpgrade;
         // resets the kill count of the turret
-        if (this.turret.gameObject.CompareTag("Tower")) 
-        {
-            this.turret.gameObject.GetComponent<Turret>().killCount = tempKillCount;
-        }
+        this.turret.gameObject.GetComponent<Turret>().killCount = tempKillCount;
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
     }

@@ -10,7 +10,6 @@ public class SupportTurret : MonoBehaviour
 { 
     public float range = 15f;
     public float fireRateMultiplier = 2f;
-    [HideInInspector]
     public string towerTag = "Tower";
     public bool leftTier1 = false;
     public bool leftTier2 = false;
@@ -32,35 +31,35 @@ public class SupportTurret : MonoBehaviour
         {
             // find all towers within range
             float distanceToTower = Vector3.Distance(this.transform.position, tower.transform.position);
-                if (distanceToTower <= this.range) 
-                {
-                    Turret turret = tower.GetComponent<Turret>();
-                    if (leftTier1 == true) 
-                    {
-                        this.range = this.range * 1.25f;
+                if (distanceToTower <= this.range)
+               {
+                  Turret turret = tower.GetComponent<Turret>();
+                  if (turret.buffed2XFireRate == false && turret.buffed4XFireRate == false && turret.buffed6XFireRate == false)
+                  {
+                      turret.buffed2XFireRate = true;
+                      turret.firerate = fireRateMultiplier * turret.originalFireRate;
+                  }
+                  if (turret.buffed4XFireRate == false && turret.buffed6XFireRate == false)
+                  {
+                      turret.buffed2XFireRate = false;
+                      turret.buffed4XFireRate = true;
+                      turret.firerate = fireRateMultiplier * turret.originalFireRate;
+                  }
+                  if (turret.buffed6XFireRate == false)
+                  {
+                      turret.buffed2XFireRate = false;
+                      turret.buffed4XFireRate = false;
+                      turret.buffed6XFireRate = true;
+                      turret.firerate = fireRateMultiplier * turret.originalFireRate;
                     }
-                    //Cheaper towers handled in MyNode
-                    //Enemies giving more money is handled in the enemies script
-                    if (rightTier1 == true) 
-                    {
-                        turret.range = turret.originalRange * 1.25f;
-                    }
-                    if (rightTier2 == true) 
-                    {
-                        turret.firerate = turret.originalFireRate * 1.25f;
-                    }
-                    if (rightTier3 == true) 
-                    {
-
-                    }
-                }
+               }
         }
 
     }
-    // Runs when called from MyNode.cs in BuildTurret()
-    private void buffLeftTier2()
+    // To apply the buffs in the tower radius
+    private void Buff()
     {
-        
+
     }
     //This is to be used when the tower is sold, it will clean out all the buffs it is currently applying
     private void Cleanup()
