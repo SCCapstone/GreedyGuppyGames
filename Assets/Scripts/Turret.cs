@@ -150,11 +150,20 @@ public class Turret : MonoBehaviour
 
     private void DrawParticleEffect()
     {
-        if(fireEffectList.GetLength(0)>0) {
+        if(fireEffectList.GetLength(0)<=0)
+        {
+            return;
+        }
         GameObject rightFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[0].transform.position, this.fireEffectList[0].transform.rotation);
         Destroy(rightFireEffect,fireEffectLifespan);
         GameObject leftFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[1].transform.position, this.fireEffectList[1].transform.rotation);
         Destroy(leftFireEffect,fireEffectLifespan);
+        if(fireEffectList.GetLength(0)>2)
+        {
+            GameObject topRightFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[2].transform.position, this.fireEffectList[2].transform.rotation);
+            Destroy(topRightFireEffect,fireEffectLifespan);
+            GameObject topLeftFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[3].transform.position, this.fireEffectList[3].transform.rotation);
+            Destroy(topLeftFireEffect,fireEffectLifespan);
         }
     }
 
