@@ -53,6 +53,10 @@ public class GamerManager : MonoBehaviour
         {
             this.EndGame();
         }
+        if (WaveSpawner.gameWon)
+        {
+            this.WinGame();
+        }
     }
 
     private void EndGame()
@@ -62,7 +66,7 @@ public class GamerManager : MonoBehaviour
         // Turns on the game over UI when game is over
         this.gameOverUI.SetActive(true);
     }
-    private void WinGame()
+    public void WinGame()
     {
         this.gameWon = true;
         this.gameWonUI.SetActive(true);

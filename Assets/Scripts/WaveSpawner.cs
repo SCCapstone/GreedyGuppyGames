@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static bool gameWon = false;
     //Enemy Prefabs
     public Transform grubPrefab;
     public Transform scorpPrefab;
@@ -16,6 +17,9 @@ public class WaveSpawner : MonoBehaviour
     public Transform mamaPrefab;
     public Transform carrierPrefab;
     public static Transform spawnPoint;
+    private int index = -1;
+    public string enemyTag = "Enemy";
+    private bool spawning = false;
 
     //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:beetle, 4:mama, 5:carrier)
     private int[,] spawnerIndex = { {1,1,1,0,0,0},
@@ -36,11 +40,12 @@ public class WaveSpawner : MonoBehaviour
     
     
 
+    private int maxRounds = 0;
     public float timeBetweenRounds = 5f;
     public float countdown = 11f;
 
     public Text roundText;
-    private int round = 1;
+    private int round = 0;
 
     //testing
     // private int grub = 0;
@@ -57,32 +62,44 @@ public class WaveSpawner : MonoBehaviour
         Transform spawnTransform = GameObject.Find("START").transform;
         // Declares that the static spawnPoint takes on the transform of START(green block)
         spawnPoint = spawnTransform;
+        this.maxRounds = this.spawnerIndex.GetLength(0);
+        this.roundText.text = ("Round: " + this.round);
+        PlayerStats.Rounds = 0;;
+        // Debug.Log(maxRounds);
     }
     private void Update()
     {
-        this.countdown -= Time.deltaTime;
-
-        this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
-        this.roundText.text = ("Round: " + this.round);
+        if(index == maxRounds - 1 && this.checkForEnemies() && !spawning)
+        {
+            gameWon = true;
+        }
     }
 
     //Pressing the play button calls the SpawnWave function
     public void StartWave()
     {
         Debug.Log("Play button pressed, starting SpawnWave");
-        this.StartCoroutine(this.SpawnWave());
+        if(this.checkForEnemies())
+        {
+            ++this.index;
+            ++this.round;
+            this.roundText.text = ("Round: " + this.round);
+            ++PlayerStats.Rounds;
+            this.StartCoroutine(this.SpawnWave(index));
+        }
     }
 
-    private IEnumerator SpawnWave()
+    private IEnumerator SpawnWave(int index)
     {
         //Extracts the amount of the coresponding enemy to spawn
         //15 waves(i), 6 enemy types(j)
-        for(int i=0; i < spawnerIndex.GetLength(0); ++i)
-        {
-            Debug.Log("Wave "+(i+1));
+        //for(int i=0; i < spawnerIndex.GetLength(0); ++i)
+        //{
+            spawning = true;
+            Debug.Log("Wave "+(index+1));
             for(int j=0; j < spawnerIndex.GetLength(1); ++j)
             {
-                int amountSpanwed = spawnerIndex[i,j];
+                int amountSpanwed = spawnerIndex[index,j];
                 //totalSpawned += amountSpanwed;
                 switch(j)
                 {
@@ -147,6 +164,7 @@ public class WaveSpawner : MonoBehaviour
                         break;
                 }
             }
+            spawning = false;
             //Testing
             // Debug.Log("Total spawned: "+totalSpawned
             //     +"\n Grubs: "+grub
@@ -156,15 +174,28 @@ public class WaveSpawner : MonoBehaviour
             //     +"\n Carriers: "+carrier);
 
             //Time between rounds
-            yield return new WaitForSeconds(2f);
+            //yield return new WaitForSeconds(2f);
             //Increments the round counter
-            ++this.round;
-            ++PlayerStats.Rounds;
-        }
+            //++this.round;
+            //++PlayerStats.Rounds;
+        //}
     }
 
     public static void SpawnEnemy(Transform enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+    }
+    // returns true if no enemies in scene
+    public bool checkForEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(this.enemyTag);
+        if(enemies.Length == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
