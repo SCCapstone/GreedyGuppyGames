@@ -67,7 +67,6 @@ public class WaveSpawner : MonoBehaviour
         this.maxRounds = this.spawnerIndex.GetLength(0);
         this.roundText.text = ("Round: " + this.round);
         PlayerStats.Rounds = 0;;
-        // Debug.Log(maxRounds);
     }
     private void Update()
     {
@@ -80,7 +79,7 @@ public class WaveSpawner : MonoBehaviour
     //Pressing the play button calls the SpawnWave function
     public void StartWave()
     {
-        Debug.Log("Play button pressed, starting SpawnWave");
+        //Debug.Log("Play button pressed, starting SpawnWave");
         if(this.checkForEnemies())
         {
             ++this.index;
@@ -98,7 +97,7 @@ public class WaveSpawner : MonoBehaviour
         //for(int i=0; i < spawnerIndex.GetLength(0); ++i)
         //{
             spawning = true;
-            Debug.Log("Wave "+(index+1));
+            //Debug.Log("Wave "+(index+1));
             for(int j=0; j < spawnerIndex.GetLength(1); ++j)
             {
                 int amountSpanwed = spawnerIndex[index,j];
