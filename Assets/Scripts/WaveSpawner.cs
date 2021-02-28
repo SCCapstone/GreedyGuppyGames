@@ -24,7 +24,6 @@ public class WaveSpawner : MonoBehaviour
     private bool spawning = false;
     private int waveSpawnerToUse = 0;
 
-
     //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:beetle, 4:mama, 5:carrier)
     private int[,] spawnerIndex = { 
                                     {1,1,1,0,0,0},
@@ -51,10 +50,7 @@ public class WaveSpawner : MonoBehaviour
     public float countdown = 11f;
 
     public Text roundText;
-
-=======
     private int round = 0;
-
 
     //testing
     // private int grub = 0;
@@ -78,10 +74,10 @@ public class WaveSpawner : MonoBehaviour
     }
     private void Update()
     {
-        this.countdown -= Time.deltaTime;
-        this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
-        this.roundText.text = ("Round: " + this.round);
-
+        if(index == maxRounds - 1 && this.checkForEnemies() && !spawning)
+        {
+            gameWon = true;
+        }
     }
 
     //Pressing the play button calls the SpawnWave function
@@ -195,21 +191,18 @@ public class WaveSpawner : MonoBehaviour
             //     +"\n Mamas: "+mamas
             //     +"\n Carriers: "+carrier);
 
-
-            // Time between rounds
-            yield return new WaitForSeconds(2f);
-            // Increments the round counter
-            ++this.round;
-            ++PlayerStats.Rounds;
-        }
-
+            //Time between rounds
+            //yield return new WaitForSeconds(2f);
+            //Increments the round counter
+            //++this.round;
+            //++PlayerStats.Rounds;
+        //}
     }
 
     public void SpawnEnemy(Transform enemy)
     {
         enemy.GetComponent<Enemy>().waypoints = waypoints[waveSpawnerToUse];
         Instantiate(enemy, spawnPoint[waveSpawnerToUse].position, spawnPoint[waveSpawnerToUse].rotation);
-
     }
     // returns true if no enemies in scene
     public bool checkForEnemies()
