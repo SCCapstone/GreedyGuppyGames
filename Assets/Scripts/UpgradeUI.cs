@@ -48,8 +48,8 @@ public class UpgradeUI : MonoBehaviour
 
             if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)
             {
-                upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade10Text;
-                upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade01Text;
+                upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade10Text + "\n$" + nodeToUpgrade.turretBlueprint.upgradeCost10;
+                upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade01Text + "\n$" + nodeToUpgrade.turretBlueprint.upgradeCost01;
 
                 if (nodeToUpgrade.turretBlueprint.upgradeCost01 <= PlayerStats.Money)
                 {
@@ -70,7 +70,7 @@ public class UpgradeUI : MonoBehaviour
             }
             else if (nodeToUpgrade.upgradePathOne == 1 && nodeToUpgrade.upgradePathTwo == 0)
             {
-                upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade20Text;
+                upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade20Text + "\n$" + nodeToUpgrade.turretBlueprint.upgradeCost20;
                 upgradeRightButton.interactable = false;
                 upgradeRightText.text = "Locked";
 
@@ -85,7 +85,7 @@ public class UpgradeUI : MonoBehaviour
             }
             else if (nodeToUpgrade.upgradePathOne == 2 && nodeToUpgrade.upgradePathTwo == 0)
             {
-                upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade30Text;
+                upgradeLeftText.text = nodeToUpgrade.turretBlueprint.upgrade30Text + "\n$" + nodeToUpgrade.turretBlueprint.upgradeCost30;
                 upgradeRightButton.interactable = false;
                 upgradeRightText.text = "Locked";
 
@@ -108,7 +108,7 @@ public class UpgradeUI : MonoBehaviour
             }
             else if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 1)
             {
-                upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade02Text;
+                upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade02Text + "\n$" + nodeToUpgrade.turretBlueprint.upgradeCost02;
                 upgradeLeftButton.interactable = false;
                 upgradeLeftText.text = "Locked";
 
@@ -123,7 +123,7 @@ public class UpgradeUI : MonoBehaviour
             }
             else if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 2)
             {
-                upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade03Text;
+                upgradeRightText.text = nodeToUpgrade.turretBlueprint.upgrade03Text + "\n$" + nodeToUpgrade.turretBlueprint.upgradeCost03;
                 upgradeLeftButton.interactable = false;
                 upgradeLeftText.text = "Locked";
 

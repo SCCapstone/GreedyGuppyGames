@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +8,7 @@ public class PauseMenu : MenuFunctions
     public static bool GameIsPaused = false;
 
     public GameObject PauseMenuUI;
+    public GamerManager gamerManager;
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class PauseMenu : MenuFunctions
     // Update is called once per frame
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !gamerManager.gameEnded)
         {
             if(GameIsPaused)
             {
