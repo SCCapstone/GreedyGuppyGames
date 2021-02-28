@@ -69,7 +69,8 @@ public class WaveSpawner : MonoBehaviour
         //spawnPoint = spawnTransform;
         this.maxRounds = this.spawnerIndex.GetLength(0);
         this.roundText.text = ("Round: " + this.round);
-        PlayerStats.Rounds = 0;;
+        PlayerStats.Rounds = 0;
+
     }
     private void Update()
     {
