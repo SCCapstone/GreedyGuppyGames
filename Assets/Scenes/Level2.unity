@@ -17807,7 +17807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.9999695, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1070520624
@@ -19622,6 +19622,11 @@ MonoBehaviour:
     type: 3}
   carrierPrefab: {fileID: 602419894539465341, guid: 595cbbd5f42c32f45b73eb97530f0027,
     type: 3}
+  spawnPoint:
+  - {fileID: 437416769}
+  waypoints:
+  - {fileID: 2142153699}
+  enemyTag: Enemy
   timeBetweenRounds: 5
   countdown: 5
   roundText: {fileID: 1477207127}
@@ -26675,7 +26680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.9999695, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1612330704
@@ -37044,6 +37049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed307d0625e9f04b8ef54a5dd5ef10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  points: []
 --- !u!4 &2142153700
 Transform:
   m_ObjectHideFlags: 0
