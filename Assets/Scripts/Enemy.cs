@@ -242,7 +242,7 @@ public class Enemy : MonoBehaviour, IEnemy
             ++this.indexThree;
             this.targetOne = Waypoints.pointsOne[this.indexOne];
             this.targetTwo = Waypoints.pointsTwo[this.indexTwo];
-            this.targetThree = Waypoints.poinstThree[this.indexThree];
+            this.targetThree = Waypoints.pointsThree[this.indexThree];
             // Look at waypoint, rotation stuff
             transform.DOLookAt(new Vector3(targetOne.position.x, transform.position.y, targetOne.position.z), .25f);
             transform.DOLookAt(new Vector3(targetTwo.position.x, transform.position.y, targetTwo.position.z), .25f);
@@ -293,7 +293,7 @@ public class Enemy : MonoBehaviour, IEnemy
             this.indexThree = index;
             this.targetOne = Waypoints.pointsOne[this.indexOne];
             this.targetTwo = Waypoints.pointsTwo[this.indexTwo];
-            this.targetThree = Waypoints.poinstThree[this.indexThree];
+            this.targetThree = Waypoints.pointsThree[this.indexThree];
             // Look at waypoint, rotation stuff
             transform.DOLookAt(new Vector3(targetOne.position.x, transform.position.y, targetOne.position.z), .25f);
             transform.DOLookAt(new Vector3(targetTwo.position.x, transform.position.y, targetTwo.position.z), .25f);
