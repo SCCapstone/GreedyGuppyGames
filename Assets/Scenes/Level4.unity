@@ -22412,6 +22412,36 @@ PrefabInstance:
       propertyPath: gamerManager
       value: 
       objectReference: {fileID: 1572337695}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: LaserTower.upgrade10Text
+      value: More Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: LaserTower.upgrade20Text
+      value: Pierce
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: LaserTower.upgrade30Text
+      value: Even More Pierce
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: LaserTower.upgrade01Text
+      value: Faster Fire Rate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: LaserTower.upgrade02Text
+      value: Even Faster Fire Rate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: LaserTower.upgrade03Text
+      value: More Damage
+      objectReference: {fileID: 0}
     - target: {fileID: 6508861434483178004, guid: 5e9fe2de1e92a8f438b3db6a89734151,
         type: 3}
       propertyPath: m_AnchorMin.y
