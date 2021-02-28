@@ -211,21 +211,21 @@ public class Enemy : MonoBehaviour, IEnemy
             this.EndPath();
             return; // makes sure the code doesn't skip into next node segment (yes this happens)
         }
-        else if (this.indexOne >= Waypoints.pointsOne.Length - 1)
-        {
-            this.EndPath();
-            return;
-        }
-        else if (this.indexTwo >= Waypoints.pointsTwo.Length - 1)
-        {
-            this.EndPath();
-            return;
-        }
-        else if (this.indexThree >= Waypoints.pointsThree.Length - 1)
-        {
-            this.EndPath();
-            return;
-        }
+        // else if (this.indexOne >= Waypoints.pointsOne.Length - 1)
+        // {
+        //     this.EndPath();
+        //     return;
+        // }
+        // else if (this.indexTwo >= Waypoints.pointsTwo.Length - 1)
+        // {
+        //     this.EndPath();
+        //     return;
+        // }
+        // else if (this.indexThree >= Waypoints.pointsThree.Length - 1)
+        // {
+        //     this.EndPath();
+        //     return;
+        // }
 
         // Not at the end, find next waypoint
         if(Waypoints.points != null)
@@ -263,21 +263,21 @@ public class Enemy : MonoBehaviour, IEnemy
             this.EndPath();
             return; // makes sure the code doesn't skip into next node segment (yes this happens)
         }
-        else if (this.indexOne >= Waypoints.pointsOne.Length - 1)
-        {
-            this.EndPath();
-            return;
-        }
-        else if (this.indexTwo >= Waypoints.pointsTwo.Length - 1)
-        {
-            this.EndPath();
-            return;
-        }
-        else if (this.indexThree >= Waypoints.pointsThree.Length - 1)
-        {
-            this.EndPath();
-            return;
-        }
+        // else if (this.indexOne >= Waypoints.pointsOne.Length - 1)
+        // {
+        //     this.EndPath();
+        //     return;
+        // }
+        // else if (this.indexTwo >= Waypoints.pointsTwo.Length - 1)
+        // {
+        //     this.EndPath();
+        //     return;
+        // }
+        // else if (this.indexThree >= Waypoints.pointsThree.Length - 1)
+        // {
+        //     this.EndPath();
+        //     return;
+        // }
 
         if(Waypoints.points != null)
         {

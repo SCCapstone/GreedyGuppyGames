@@ -19,7 +19,7 @@ public class Waypoints : MonoBehaviour
         }
         catch
         {
-            Debug.Log("No 'Waypoints' game object");
+            Debug.Log("No 'Waypoints' game object, searching for 'Path' game objects");
             try
             {
                 pathOneTrans = GameObject.Find("PathOne").transform;
