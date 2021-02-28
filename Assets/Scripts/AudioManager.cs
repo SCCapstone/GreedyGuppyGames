@@ -104,7 +104,7 @@ public class AudioManager : MonoBehaviour
         } 
         else 
         {
-            Debug.Log("Music Sound not found");
+            //Debug.Log("Music Sound not found");
         }
 
 

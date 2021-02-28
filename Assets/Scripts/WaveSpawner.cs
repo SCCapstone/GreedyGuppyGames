@@ -26,7 +26,7 @@ public class WaveSpawner : MonoBehaviour
 
     //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:beetle, 4:mama, 5:carrier)
     private int[,] spawnerIndex = { 
-                                    {1,1,1,0,0,1},
+                                    {1,1,1,0,0,0},
                                     {5,1,1,1,0,0},
                                     {7,2,1,1,0,0},
                                     {7,1,2,2,0,0},
@@ -136,7 +136,7 @@ public class WaveSpawner : MonoBehaviour
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
                             waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
-                            Debug.Log(waveSpawnerToUse);
+                            //Debug.Log(waveSpawnerToUse);
                             //++drone;
                             //Debug.Log(amountSpanwed+ " Drones Spawning");
                             SpawnEnemy(dronePrefab);
@@ -148,7 +148,7 @@ public class WaveSpawner : MonoBehaviour
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
                             waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
-                            Debug.Log(waveSpawnerToUse);
+                            //Debug.Log(waveSpawnerToUse);
                             //Debug.Log(amountSpanwed+ " Beetle Spawning");
                             SpawnEnemy(beetlePrefab);
                             yield return new WaitForSeconds(1f);
@@ -159,7 +159,7 @@ public class WaveSpawner : MonoBehaviour
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
                             waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
-                            Debug.Log(waveSpawnerToUse);
+                            //Debug.Log(waveSpawnerToUse);
                             //++mamas;
                             //Debug.Log(amountSpanwed+ " Mamas Spawning");
                             SpawnEnemy(mamaPrefab);
@@ -171,7 +171,7 @@ public class WaveSpawner : MonoBehaviour
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
                             waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
-                            Debug.Log(waveSpawnerToUse);
+                            //Debug.Log(waveSpawnerToUse);
                             //++carrier;
                             //Debug.Log(amountSpanwed+ " Carrier Spawning");
                             SpawnEnemy(carrierPrefab);
