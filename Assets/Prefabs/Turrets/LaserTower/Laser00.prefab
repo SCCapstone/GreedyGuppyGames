@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &942090438416832615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4788916627113239080}
+  m_Layer: 0
+  m_Name: FireEffectPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4788916627113239080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942090438416832615}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7725381022870779120}
+  m_Father: {fileID: 2152040209254734193}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1394313935279099616
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,6 +113,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2941368188348039189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7725381022870779120}
+  m_Layer: 0
+  m_Name: FireEffectPointRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7725381022870779120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941368188348039189}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4788916627113239080}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3126569805079026939
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,22 +269,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcf16249a19a514fa7d636a0a80a9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killCount: 0
   range: 15
-  firerate: 1
+  firerate: 10
   originalFireRate: 0
-  buffed2XFireRate: 0
-  buffed4XFireRate: 0
-  buffed6XFireRate: 0
+  originalRange: 0
+  bulletPierce: 1
+  DoTDamage: 1
+  bulletDamage: 10
+  bulletSpeed: 70
+  bulletExplosionRadius: 0
+  DoTTime: 5
+  speedDebuff: 0.75
+  bulletExplosionPierce: 10
+  makeShrapnel: 0
+  tracking: 0
+  permaSlow: 0
+  sprayAmount: 0
+  buffedFireRate: 0
+  buffedRange: 0
   buffedAim: 0
   buffedPierce: 0
   buffedDamage: 0
+  electricTower: 0
+  electricDoT: 0
+  slow: 0
   gunShotAudio: 
   enemyTag: Enemy
   partToRotate: {fileID: 2152040209254734193}
   turnSpeed: 10
-  bulletPrefab: {fileID: 5503022687058836579, guid: db20b831d894d4841ae5b57d4084374a,
+  bulletPrefab: {fileID: 6539328116074389142, guid: ec303a716336f244c8c73adeb8f14f9c,
     type: 3}
   firePoint: {fileID: 7519943679383949124}
+  fireEffect: {fileID: 1000011210275196, guid: 61a6b3a108030e54ba372fe7097916d0, type: 3}
+  fireEffectList: []
+  fireEffectLifespan: 0.25
 --- !u!1 &4890036415453826610
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +364,7 @@ Transform:
   - {fileID: 4483245361612775230}
   - {fileID: 8187252330426856779}
   - {fileID: 7519943679383949124}
+  - {fileID: 4788916627113239080}
   m_Father: {fileID: 5474438368225274318}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
