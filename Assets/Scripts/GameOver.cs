@@ -12,6 +12,7 @@ public class GameOver : MenuFunctions
 
     private void OnEnable()
     {
+        PlayerStats.Rounds--;
         this.roundsText.text = "You survived for " + PlayerStats.Rounds.ToString() + " rounds";
     }
 
