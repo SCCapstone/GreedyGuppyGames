@@ -15516,7 +15516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 1194343940}
-  gamerManager: {fileID: 0}
+  gamerManager: {fileID: 1572337695}
 --- !u!222 &1074913774
 CanvasRenderer:
   m_ObjectHideFlags: 0
