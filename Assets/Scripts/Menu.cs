@@ -141,6 +141,7 @@ public class Menu : MenuFunctions
     //Loads Level Three
     public void LoadLevelThree()
     {
-        SceneManager.LoadScene("Level3");
+        //Actually Level 4
+        SceneManager.LoadScene("Level4");
     }
 }
