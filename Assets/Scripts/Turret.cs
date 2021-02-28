@@ -3,6 +3,7 @@
 // </copyright>
 
 using UnityEngine;
+
 // comment
 public class Turret : MonoBehaviour
 {
@@ -21,26 +22,33 @@ public class Turret : MonoBehaviour
 
     [Header("Bullet Attributes")]
     public int bulletPierce = 1;
+    public int DoTDamage = 1;
     public int bulletDamage = 50;
     public float bulletSpeed = 70;
-    public float bulletExplosionRadius = 0;
+    public float bulletExplosionRadius = 0f;
+    public float DoTTime = 5f;
+    public float speedDebuff = 0.75f;
     public int bulletExplosionPierce = 10;
     public bool makeShrapnel = false;
     public bool tracking = false;
+    public bool permaSlow = false;
 
     //Below is to be used for buffs from the support tower
     [HideInInspector]
-    public bool buffed2XFireRate = false;
+    public bool buffedFireRate = false;
     [HideInInspector]
-    public bool buffed4XFireRate = false;
-    [HideInInspector]
-    public bool buffed6XFireRate = false;
+    public bool buffedRange = false;
     [HideInInspector]
     public bool buffedAim = false;
     [HideInInspector]
     public bool buffedPierce = false;
     [HideInInspector]
     public bool buffedDamage = false;
+    //[HideInInspector]
+    public bool electricTower;
+    public bool electricDoT;
+    public bool slow = false;
+
 
     //Audio file name to be played when turret is firing a bullet
     public string gunShotAudio;
@@ -54,11 +62,16 @@ public class Turret : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public GameObject electricEffect;
 
     // Start is called before the first frame update
     private void Start()
     {
-        this.InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        if(true) 
+        {
+            this.InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        }
+
         this.originalFireRate = this.firerate;
         this.originalRange = this.range;
     }
@@ -112,16 +125,24 @@ public class Turret : MonoBehaviour
         {
             return;
         }
+        // Target lockon if not electric tower
+        if (!electricTower)
+        {
+             Vector3 dir = this.target.position - this.transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            Vector3 rotation = Quaternion.Lerp(this.partToRotate.rotation, lookRotation, Time.deltaTime * this.turnSpeed).eulerAngles;
+            this.partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        }
 
-        // Target lockon
-        Vector3 dir = this.target.position - this.transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(this.partToRotate.rotation, lookRotation, Time.deltaTime * this.turnSpeed).eulerAngles;
-        this.partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-
-        if (this.fireCountdown <= 0f)
+        if (this.fireCountdown <= 0f && electricTower == false)
         {
             this.Shoot();
+            this.fireCountdown = 1f / this.firerate;
+        }
+        if (this.fireCountdown <= 0f && electricTower == true)
+        {
+            this.ShootVolley();
+            this.drawElectricEffect();
             this.fireCountdown = 1f / this.firerate;
         }
     }
@@ -143,6 +164,41 @@ public class Turret : MonoBehaviour
         FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
     }
 
+
+    private void ShootVolley()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(this.enemyTag);
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
+            Enemy enemyToHurt = enemy.GetComponent<Enemy>();
+            if (distanceToEnemy <= this.range)
+            {
+                enemyToHurt.ElectricDamage(bulletDamage);
+            }
+            if (distanceToEnemy <= this.range && electricDoT)
+            {
+                enemyToHurt.DoTDamage = this.DoTDamage;
+                enemyToHurt.DoTTime = this.DoTTime;
+                enemyToHurt.electricDoT = true;
+            }            
+            if (distanceToEnemy <= this.range && slow)
+            {
+                enemyToHurt.speedDebuff = this.speedDebuff;
+                enemyToHurt.DoTTime = this.DoTTime;
+                enemyToHurt.slow = true;
+                if(permaSlow)
+                {
+                    enemyToHurt.permaSlow = true;
+                }
+            }
+        }
+    }
+    private void drawElectricEffect()
+    {
+        GameObject effect = (GameObject)Instantiate(this.electricEffect, this.firePoint);
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
