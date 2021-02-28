@@ -49,7 +49,8 @@ MonoBehaviour:
   bulletWhoShotMe: {fileID: 0}
   speed: 12
   health: 75
-  value: 50
+  damageToBaseValue: 1
+  value: 5
   turretValueBuff: 1.25
   deathEffect: {fileID: 6381280154635751659, guid: f5d27d2ee4f46ad46928fd5852816bed,
     type: 3}

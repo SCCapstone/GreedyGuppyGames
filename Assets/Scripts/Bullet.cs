@@ -57,7 +57,7 @@ public class Bullet : MonoBehaviour, IBullet
     {
         dir = dir.normalized;
         float randDegree = Random.Range(-sprayAmount,sprayAmount);
-        Debug.Log(randDegree);
+        //Debug.Log(randDegree);
         float radians = randDegree * Mathf.Deg2Rad;
         float x = dir.x * Mathf.Cos(radians) - dir.z * Mathf.Sin(radians);
         float z = dir.x * Mathf.Sin(radians) + dir.z * Mathf.Cos(radians);
