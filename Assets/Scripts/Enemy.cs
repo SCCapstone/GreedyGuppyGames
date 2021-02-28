@@ -23,8 +23,8 @@ public class Enemy : MonoBehaviour, IEnemy
     public float turretValueBuff = 1.25f;
     public GameObject deathEffect;
 
-    private Transform target;
-    protected int wavepointIndex = 0;
+    private Transform target, targetOne, targetTwo, targetThree;
+    protected int wavepointIndex, indexOne, indexTwo, indexThree = 0;
 
     // Getters
     public float GetSpeed()
@@ -65,8 +65,23 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public virtual void Start()
     {
-        this.target = Waypoints.points[wavepointIndex];
-        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        //this.target = Waypoints.points[wavepointIndex];
+        // Sets the appropriate array of waypoints index zero to the apporpriate target
+        if(Waypoints.points != null)
+        {
+            this.target = Waypoints.points[wavepointIndex];
+            transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        }
+        else
+        {
+            this.targetOne = Waypoints.pointsOne[indexOne];
+            this.targetTwo = Waypoints.pointsTwo[indexTwo];
+            this.targetThree = Waypoints.pointsThree[indexThree];
+            transform.DOLookAt(new Vector3(targetOne.position.x, transform.position.y, targetOne.position.z), .25f);
+            transform.DOLookAt(new Vector3(targetTwo.position.x, transform.position.y, targetTwo.position.z), .25f);
+            transform.DOLookAt(new Vector3(targetThree.position.x, transform.position.y, targetThree.position.z), .25f);
+        }
+        //transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
         //anim.Play("Walk Forward Slow WO Root", -1, 0);
     }
 
@@ -123,25 +138,71 @@ public class Enemy : MonoBehaviour, IEnemy
         dead = false;
         health = startingHealth;
         SetWavepointIndex(0);
-        this.target = Waypoints.points[wavepointIndex];
-        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        // this.target = Waypoints.points[wavepointIndex];
+        // transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        if(Waypoints.points != null)
+        {
+            this.target = Waypoints.points[wavepointIndex];
+            transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        }
 
 
+
+        //          *************************Need to "transform" them individually*************************
+        else
+        {
+            this.targetOne = Waypoints.pointsOne[indexOne];
+            this.targetTwo = Waypoints.pointsTwo[indexTwo];
+            this.targetThree = Waypoints.pointsThree[indexThree];
+            transform.DOLookAt(new Vector3(targetOne.position.x, transform.position.y, targetOne.position.z), .25f);
+            transform.DOLookAt(new Vector3(targetTwo.position.x, transform.position.y, targetTwo.position.z), .25f);
+            transform.DOLookAt(new Vector3(targetThree.position.x, transform.position.y, targetThree.position.z), .25f);
+        }
     }
 
     private void Update()
     {
         // Direction pointing to waypoint
-        Vector3 dir = this.target.position - this.transform.position;
-        this.transform.Translate(dir.normalized * this.speed * Time.deltaTime, Space.World);
-
-        // Checks if we are verrrrry close to a waypoint
-        if (Vector3.Distance(this.transform.position, this.target.position) <= 0.4f)
+        if(Waypoints.points != null)
         {
-            this.GetNextWaypoint();
+            Vector3 dir = this.target.position - this.transform.position;
+            this.transform.Translate(dir.normalized * this.speed * Time.deltaTime, Space.World);
+            // Checks if we are verrrrry close to a waypoint
+            if (Vector3.Distance(this.transform.position, this.target.position) <= 0.4f)
+            {
+                this.GetNextWaypoint();
+            }
+        }
+
+
+
+        //          *************************Need to "Translate" them individually*************************
+
+        else 
+        {
+            Vector3 dirOne = this.targetOne.position - this.transform.position;
+            this.transform.Translate(dirOne.normalized * this.speed * Time.deltaTime, Space.World);
+
+            Vector3 dirTwo = this.targetTwo.position - this.transform.position;
+            this.transform.Translate(dirTwo.normalized * this.speed * Time.deltaTime, Space.World);
+
+            Vector3 dirThree = this.targetThree.position - this.transform.position;
+            this.transform.Translate(dirThree.normalized * this.speed * Time.deltaTime, Space.World);
+
+            if (Vector3.Distance(this.transform.position, this.targetOne.position) <= 0.4f || Vector3.Distance(this.transform.position, this.targetTwo.position) <= 0.4f || Vector3.Distance(this.transform.position, this.targetThree.position) <= 0.4f)
+            {
+                this.GetNextWaypoint();
+            }
+
         }
     }
 
+
+
+
+    //          *************************Need to end only that specific path not all of them*************************
+
+    
     private void GetNextWaypoint()
     {
         // Enemy has reached the end
@@ -150,14 +211,50 @@ public class Enemy : MonoBehaviour, IEnemy
             this.EndPath();
             return; // makes sure the code doesn't skip into next node segment (yes this happens)
         }
+        else if (this.indexOne >= Waypoints.pointsOne.Length - 1)
+        {
+            this.EndPath();
+            return;
+        }
+        else if (this.indexTwo >= Waypoints.pointsTwo.Length - 1)
+        {
+            this.EndPath();
+            return;
+        }
+        else if (this.indexThree >= Waypoints.pointsThree.Length - 1)
+        {
+            this.EndPath();
+            return;
+        }
 
         // Not at the end, find next waypoint
-        this.wavepointIndex++;
-        this.target = Waypoints.points[this.wavepointIndex];
-        // Look at waypoint, rotation stuff
-        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        if(Waypoints.points != null)
+        {
+            this.wavepointIndex++;
+            this.target = Waypoints.points[this.wavepointIndex];
+            // Look at waypoint, rotation stuff
+            transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        }
+        else
+        {
+            ++this.indexOne;
+            ++this.indexTwo;
+            ++this.indexThree;
+            this.targetOne = Waypoints.pointsOne[this.indexOne];
+            this.targetTwo = Waypoints.pointsTwo[this.indexTwo];
+            this.targetThree = Waypoints.poinstThree[this.indexThree];
+            // Look at waypoint, rotation stuff
+            transform.DOLookAt(new Vector3(targetOne.position.x, transform.position.y, targetOne.position.z), .25f);
+            transform.DOLookAt(new Vector3(targetTwo.position.x, transform.position.y, targetTwo.position.z), .25f);
+            transform.DOLookAt(new Vector3(targetThree.position.x, transform.position.y, targetThree.position.z), .25f);
+        }
     }
 
+
+
+    //          *************************Need to end only that specific path not all of them*************************
+
+    // Probably used by the mama enemy when it spawns a grub
     public void SetWaypoint(int index)
     {
         // Enemy has reached the end
@@ -166,12 +263,42 @@ public class Enemy : MonoBehaviour, IEnemy
             this.EndPath();
             return; // makes sure the code doesn't skip into next node segment (yes this happens)
         }
+        else if (this.indexOne >= Waypoints.pointsOne.Length - 1)
+        {
+            this.EndPath();
+            return;
+        }
+        else if (this.indexTwo >= Waypoints.pointsTwo.Length - 1)
+        {
+            this.EndPath();
+            return;
+        }
+        else if (this.indexThree >= Waypoints.pointsThree.Length - 1)
+        {
+            this.EndPath();
+            return;
+        }
 
-        // Not at the end, find next waypoint
-        this.wavepointIndex = index;
-        this.target = Waypoints.points[this.wavepointIndex];
-        // Look at waypoint, rotation stuff
-        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        if(Waypoints.points != null)
+        {
+            this.wavepointIndex = index;
+            this.target = Waypoints.points[this.wavepointIndex];
+            // Look at waypoint, rotation stuff
+            transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        }
+        else
+        {
+            this.indexOne = index;
+            this.indexTwo = index;
+            this.indexThree = index;
+            this.targetOne = Waypoints.pointsOne[this.indexOne];
+            this.targetTwo = Waypoints.pointsTwo[this.indexTwo];
+            this.targetThree = Waypoints.poinstThree[this.indexThree];
+            // Look at waypoint, rotation stuff
+            transform.DOLookAt(new Vector3(targetOne.position.x, transform.position.y, targetOne.position.z), .25f);
+            transform.DOLookAt(new Vector3(targetTwo.position.x, transform.position.y, targetTwo.position.z), .25f);
+            transform.DOLookAt(new Vector3(targetThree.position.x, transform.position.y, targetThree.position.z), .25f);
+        }
     }
 
     public virtual void EndPath()

@@ -21460,6 +21460,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1547665396}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1553138959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 576398488568646109, guid: b56df2b012b9cf84397a87821285ff51,
+    type: 3}
+  m_PrefabInstance: {fileID: 946026331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1556333498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21874,7 +21880,7 @@ MonoBehaviour:
   upgradeUI: {fileID: 1820377227}
   buildEffect: {fileID: 3991452686141096322, guid: 4afb09e773137274bafb9ad7366afcaa,
     type: 3}
-  hitObject: {fileID: 0}
+  hitObject: {fileID: 1553138959}
 --- !u!114 &1572337698
 MonoBehaviour:
   m_ObjectHideFlags: 0
