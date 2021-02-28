@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class Waypoints : MonoBehaviour
 {
-    public static Transform[] points, pointsOne, pointsTwo, pointsThree;
-    private Transform waypointsTransform, pathOneTrans, pathTwoTrans, pathThreeTrans;
+    public Transform[] points;
 
     private void Awake()
     {

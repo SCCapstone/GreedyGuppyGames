@@ -10,9 +10,12 @@ namespace Tests
 {
     public class EnemyPlayTest
     {
+        //Spawn location
+        private Vector3 pos = new Vector3(-44,5,67);
         private GameObject grubPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemies/Grub.prefab");
 
         private GameObject grubObject;
+
 
         [SetUp]
         public void LoadScene()
@@ -22,7 +25,8 @@ namespace Tests
         public void SetUp()
         {
             // Declares grubObject as the grubPrefab
-            grubObject = grubPrefab;
+            grubObject = grubPrefab;  
+
         }
         // Working, now need to assert that it actually happens
         [UnityTest]
@@ -34,7 +38,8 @@ namespace Tests
             // ACT
             try
             {
-                WaveSpawner.SpawnEnemy(grub);
+                //GameObject.FindGameObjectWithTag("wavespawner").GetComponent<WaveSpawner>().SpawnEnemy(grub);
+                GameObject.Find("GameMaster").GetComponent<WaveSpawner>().SpawnEnemy(grub);
             }
             catch (System.Exception e)
             {
@@ -44,6 +49,7 @@ namespace Tests
             }
             //Figure out how to call Die() on the spawned enemy here, maybe
             yield return null;
+            //yield return new WaitForSeconds(3);
 
             // ASSERT
             //if no excpetion, passes else fails

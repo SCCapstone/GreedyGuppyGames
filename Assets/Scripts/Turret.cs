@@ -6,6 +6,7 @@ using UnityEngine;
 // comment
 public class Turret : MonoBehaviour
 {
+    //public Waypoints[] waypoints;
     private Transform target;
     [HideInInspector]
     public int killCount = 0;
@@ -73,12 +74,13 @@ public class Turret : MonoBehaviour
         float shortestDistanceToEnd = Mathf.Infinity;
         //float shortestDistanceToTurret = Mathf.Infinity;
         GameObject nearestEnemy = null;
-        int finalWaypointIndex = Waypoints.points.Length - 1;
+        //int finalWaypointIndex = waypoints[0].points.Length - 1;
 
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(this.transform.position, enemy.transform.position); // turret to enemy distance
-            float enemyDistanceToEnd = Vector3.Distance(enemy.transform.position, Waypoints.points[finalWaypointIndex].position); // enemy to end distance
+            float enemyDistanceToEnd = enemy.GetComponent<Enemy>().distanceLeft;
+            //Vector3.Distance(enemy.transform.position, waypoints[0].points[finalWaypointIndex].position); // enemy to end distance
             // Debug.Log("Distance "+enemyDistanceToEnd);
 
             /* Old targeting, targest closest enemy to tower
