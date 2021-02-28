@@ -50,7 +50,7 @@ MonoBehaviour:
   firerate: 10
   originalFireRate: 0
   originalRange: 0
-  bulletPierce: 3
+  bulletPierce: 1
   DoTDamage: 1
   bulletDamage: 15
   bulletSpeed: 70
