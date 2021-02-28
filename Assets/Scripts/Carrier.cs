@@ -20,6 +20,7 @@ public class Carrier : Enemy
         Enemy enemy = EnemyPooler.self.getCarrierEnemy(spawnpoint, EnemyPooler.self.transform, false);
         enemy.Onpooled();
         enemy.SetWavepointIndex(wavepointIndex);
+        enemy.waypoints = this.waypoints;
         enemy.gameObject.SetActive(true);
     }
 

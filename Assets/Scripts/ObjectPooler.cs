@@ -9,12 +9,15 @@ public class ObjectPooler : MonoBehaviour
 
     List<GameObject> pooledObjects = new List<GameObject>();
 
-
-
     public virtual GameObject GetObj(Vector3 pos, Transform parent, bool enableOnPooled)
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
+            // stops calling dead stuff
+            if(pooledObjects[i] == null)
+            {
+                continue;
+            }
             if (!pooledObjects[i].activeInHierarchy)
             {
                 pooledObjects[i].transform.position = pos;

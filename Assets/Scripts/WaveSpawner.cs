@@ -16,10 +16,13 @@ public class WaveSpawner : MonoBehaviour
     public Transform beetlePrefab;
     public Transform mamaPrefab;
     public Transform carrierPrefab;
+    public Transform[] spawnPoint;
+    public Waypoints[] waypoints;
 
-    public static Transform spawnPoint, spawn1, spawn2, spawn3;
-    private Transform spawnTransform, start1, start2, start3;
-
+    private int index = -1;
+    public string enemyTag = "Enemy";
+    private bool spawning = false;
+    private int waveSpawnerToUse = 0;
 
     //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:beetle, 4:mama, 5:carrier)
     private int[,] spawnerIndex = { 
@@ -47,9 +50,7 @@ public class WaveSpawner : MonoBehaviour
     public float countdown = 11f;
 
     public Text roundText;
-
     private int round = 0;
-
 
     //testing
     // private int grub = 0;
@@ -62,50 +63,21 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        // Trys to locate the START(green block) in the scene
-        try
-        {
-            spawnTransform = GameObject.Find("START").transform;
-        }
-        // If not found trys to locate multiple START blocks
-        catch
-        {
-            //Debug.Log("START block not found, searching for START 1, 2, and 3");
-            try
-            {
-                start1 = GameObject.Find("START 1").transform;
-                start2 = GameObject.Find("START 2").transform;
-                start3 = GameObject.Find("START 3").transform;
-            }
-            catch
-            {
-                Debug.LogError("No START block/s found");
-            }
-        }
-        // Declares that the static spawnPoint takes on the transform of START(green block) as long as spawnTransform is not null
-        if(spawnTransform != null)
-        {
-            spawnPoint = spawnTransform;
-            single = true;
-            //Debug.Log("Assigning single as true");
-        }
-        // If spawnTransform is null, declares spawn1, 2, and 3 to their respective transforms
-        else
-        {
-            spawn1 = start1;
-            spawn2 = start2;
-            spawn3 = start3;
-            single = false;
-            //Debug.Log("Assigning single as false");
-        }
-        //Debug.Log("Single value: " +single);
+        // Locates START(green block) in the scene
+        //Transform spawnTransform = GameObject.Find("START").transform;
+        // Declares that the static spawnPoint takes on the transform of START(green block)
+        //spawnPoint = spawnTransform;
+        this.maxRounds = this.spawnerIndex.GetLength(0);
+        this.roundText.text = ("Round: " + this.round);
+        PlayerStats.Rounds = 0;
+
     }
     private void Update()
     {
-        this.countdown -= Time.deltaTime;
-        this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
-        this.roundText.text = ("Round: " + this.round);
-
+        if(index == maxRounds - 1 && this.checkForEnemies() && !spawning)
+        {
+            gameWon = true;
+        }
     }
 
     //Pressing the play button calls the SpawnWave function
@@ -139,6 +111,9 @@ public class WaveSpawner : MonoBehaviour
                     case 0: //grub
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
+                            
+                            waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
+                            //Debug.Log(waveSpawnerToUse);
                             //++grub;
                             //Debug.Log(amountSpanwed+ " Grubs Spawning");
                             SpawnEnemy(grubPrefab);
@@ -149,6 +124,8 @@ public class WaveSpawner : MonoBehaviour
                     case 1: //scorp
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
+                            waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
+                            //Debug.Log(waveSpawnerToUse);
                             //++scorp;
                             //Debug.Log(amountSpanwed+ " Scorps Spawning");
                             SpawnEnemy(scorpPrefab);
@@ -159,6 +136,8 @@ public class WaveSpawner : MonoBehaviour
                     case 2: //drone
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
+                            waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
+                            //Debug.Log(waveSpawnerToUse);
                             //++drone;
                             //Debug.Log(amountSpanwed+ " Drones Spawning");
                             SpawnEnemy(dronePrefab);
@@ -169,6 +148,8 @@ public class WaveSpawner : MonoBehaviour
                     case 3: //beetle
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
+                            waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
+                            //Debug.Log(waveSpawnerToUse);
                             //Debug.Log(amountSpanwed+ " Beetle Spawning");
                             SpawnEnemy(beetlePrefab);
                             yield return new WaitForSeconds(1f);
@@ -178,6 +159,8 @@ public class WaveSpawner : MonoBehaviour
                     case 4: //mama
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
+                            waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
+                            //Debug.Log(waveSpawnerToUse);
                             //++mamas;
                             //Debug.Log(amountSpanwed+ " Mamas Spawning");
                             SpawnEnemy(mamaPrefab);
@@ -188,6 +171,8 @@ public class WaveSpawner : MonoBehaviour
                     case 5: //carrier
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
+                            waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
+                            //Debug.Log(waveSpawnerToUse);
                             //++carrier;
                             //Debug.Log(amountSpanwed+ " Carrier Spawning");
                             SpawnEnemy(carrierPrefab);
@@ -206,7 +191,6 @@ public class WaveSpawner : MonoBehaviour
             //     +"\n Mamas: "+mamas
             //     +"\n Carriers: "+carrier);
 
-
             // Time between rounds
             yield return new WaitForSeconds(2f);
             // Increments the round counter
@@ -215,19 +199,18 @@ public class WaveSpawner : MonoBehaviour
         }
 
     public static void SpawnEnemy(Transform enemy)
+            //Time between rounds
+            //yield return new WaitForSeconds(2f);
+            //Increments the round counter
+            //++this.round;
+            //++PlayerStats.Rounds;
+        //}
+    }
+
+    public void SpawnEnemy(Transform enemy)
     {
-        // If single is true there is only one START block
-        if(single)
-        {
-            Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        }
-        // If single is false there are multiple START blocks
-        else 
-        {
-            Instantiate(enemy, spawn1.position, spawn1.rotation);
-            Instantiate(enemy, spawn2.position, spawn2.rotation);
-            Instantiate(enemy, spawn3.position, spawn3.rotation);
-        }
+        enemy.GetComponent<Enemy>().waypoints = waypoints[waveSpawnerToUse];
+        Instantiate(enemy, spawnPoint[waveSpawnerToUse].position, spawnPoint[waveSpawnerToUse].rotation);
     }
     // returns true if no enemies in scene
     public bool checkForEnemies()
