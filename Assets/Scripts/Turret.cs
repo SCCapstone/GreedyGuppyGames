@@ -153,7 +153,7 @@ public class Turret : MonoBehaviour
         if (this.fireCountdown <= 0f && electricTower == true)
         {
             this.ShootVolley();
-            this.drawElectricEffect();
+            this.DrawParticleEffect();
             this.fireCountdown = 1f / this.firerate;
         }
     }

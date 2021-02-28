@@ -198,15 +198,6 @@ public class WaveSpawner : MonoBehaviour
             ++PlayerStats.Rounds;
         }
 
-    public static void SpawnEnemy(Transform enemy)
-            //Time between rounds
-            //yield return new WaitForSeconds(2f);
-            //Increments the round counter
-            //++this.round;
-            //++PlayerStats.Rounds;
-        //}
-    }
-
     public void SpawnEnemy(Transform enemy)
     {
         enemy.GetComponent<Enemy>().waypoints = waypoints[waveSpawnerToUse];

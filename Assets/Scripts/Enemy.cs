@@ -92,21 +92,8 @@ public class Enemy : MonoBehaviour, IEnemy
         this.originalSpeed = speed;
         //this.target = Waypoints.points[wavepointIndex];
         // Sets the appropriate array of waypoints index zero to the apporpriate target
-        if(Waypoints.points != null)
-        {
-            this.target = Waypoints.points[wavepointIndex];
-            transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
-        }
-        else
-        {
-            this.targetOne = Waypoints.pointsOne[indexOne];
-            this.targetTwo = Waypoints.pointsTwo[indexTwo];
-            this.targetThree = Waypoints.pointsThree[indexThree];
-            transform.DOLookAt(new Vector3(targetOne.position.x, transform.position.y, targetOne.position.z), .25f);
-            transform.DOLookAt(new Vector3(targetTwo.position.x, transform.position.y, targetTwo.position.z), .25f);
-            transform.DOLookAt(new Vector3(targetThree.position.x, transform.position.y, targetThree.position.z), .25f);
-        }
-        //transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        this.target = waypoints.points[wavepointIndex];
+        transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
         //Debug.Log(this + " " + distanceLeft);
         //anim.Play("Walk Forward Slow WO Root", -1, 0);
 
