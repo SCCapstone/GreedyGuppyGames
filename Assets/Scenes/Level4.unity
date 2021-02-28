@@ -22441,6 +22441,33 @@ PrefabInstance:
         type: 3}
       propertyPath: LaserTower.upgrade03Text
       value: More Damage
+      propertyPath: FlameThrowerTower.upgrade10Text
+      value: 'More Damage '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: FlameThrowerTower.upgrade20Text
+      value: 'Even More Damage '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: FlameThrowerTower.upgrade30Text
+      value: 'Hyper Potent Flames '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: FlameThrowerTower.upgrade01Text
+      value: 'More Range '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: FlameThrowerTower.upgrade02Text
+      value: 'Even more range '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6508861434420995645, guid: 5e9fe2de1e92a8f438b3db6a89734151,
+        type: 3}
+      propertyPath: FlameThrowerTower.upgrade03Text
+      value: 'Long Range Napalm Thrower '
       objectReference: {fileID: 0}
     - target: {fileID: 6508861434483178004, guid: 5e9fe2de1e92a8f438b3db6a89734151,
         type: 3}
