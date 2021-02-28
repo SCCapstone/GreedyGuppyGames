@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour, IEnemy
     public float speed = 10f;
 
     public int health = 100;
+    public int damageToBaseValue = 1;
 
     int startingHealth;
 
@@ -25,6 +26,8 @@ public class Enemy : MonoBehaviour, IEnemy
 
     private Transform target;
     protected int wavepointIndex = 0;
+
+    
 
     // Getters
     public float GetSpeed()
@@ -177,7 +180,7 @@ public class Enemy : MonoBehaviour, IEnemy
     public virtual void EndPath()
     {
 
-        PlayerStats.Lives -= 25;
+        PlayerStats.Lives -= damageToBaseValue;
         Destroy(this.gameObject);
     }
 }

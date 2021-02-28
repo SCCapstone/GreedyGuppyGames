@@ -31715,6 +31715,7 @@ MonoBehaviour:
     type: 3}
   carrierPrefab: {fileID: 602419894539465341, guid: 595cbbd5f42c32f45b73eb97530f0027,
     type: 3}
+  enemyTag: Enemy
   timeBetweenRounds: 5
   countdown: 5
   roundText: {fileID: 707000812}
@@ -31761,7 +31762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 200
-  startLives: 100
+  startLives: 20
 --- !u!114 &2051447966
 MonoBehaviour:
   m_ObjectHideFlags: 0
