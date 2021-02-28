@@ -194,8 +194,8 @@ public class WaveSpawner : MonoBehaviour
             // Time between rounds
             yield return new WaitForSeconds(2f);
             // Increments the round counter
-            ++this.round;
-            ++PlayerStats.Rounds;
+            //++this.round;
+            //++PlayerStats.Rounds;
         }
 
     public void SpawnEnemy(Transform enemy)
