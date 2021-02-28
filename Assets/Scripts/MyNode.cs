@@ -175,22 +175,15 @@ public class MyNode : MonoBehaviour
         Destroy(effect, 5f);
 
         turretBlueprint = blueprint;
-        // Debug.Log("Turret build! Money left: " + PlayerStats.Money);
     }
 
     public void UpgradeTurret()
     {
-        
-        Debug.Log("CalledUpgrade");
         GameObject upgradePrefab;
         int upgradePrice;
 
-        Debug.Log("x:" + upgradePathOne);
-        Debug.Log("y:" + upgradePathTwo);
-
         if (upgradePathOne == 0 && upgradePathTwo == 1)
         {
-            Debug.Log("01 Path Upgrade");
             upgradePrefab = turretBlueprint.prefabUpgrade01;
             upgradePrice = turretBlueprint.upgradeCost01;
         }

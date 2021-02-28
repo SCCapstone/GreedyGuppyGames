@@ -27,6 +27,7 @@ public class Turret : MonoBehaviour
     public int bulletExplosionPierce = 10;
     public bool makeShrapnel = false;
     public bool tracking = false;
+    public float sprayAmount = 0f;
 
     //Below is to be used for buffs from the support tower
     [HideInInspector]
@@ -54,6 +55,9 @@ public class Turret : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public GameObject fireEffect;
+    public GameObject[] fireEffectList;
+    public float fireEffectLifespan = 0.5f;
 
     // Start is called before the first frame update
     private void Start()
@@ -119,6 +123,10 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(this.partToRotate.rotation, lookRotation, Time.deltaTime * this.turnSpeed).eulerAngles;
         this.partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
+        if (this.target != null) {
+            this.DrawParticleEffect();
+        }
+
         if (this.fireCountdown <= 0f)
         {
             this.Shoot();
@@ -130,7 +138,7 @@ public class Turret : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(this.bulletPrefab, this.firePoint.position, this.firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        bullet.SetBulletStats(bulletSpeed, bulletDamage, bulletExplosionRadius, bulletPierce, this, bulletExplosionPierce, makeShrapnel, tracking);
+        bullet.SetBulletStats(bulletSpeed, bulletDamage, bulletExplosionRadius, bulletPierce, this, bulletExplosionPierce, makeShrapnel, tracking, sprayAmount);
         
         //not used now?
         if (bullet != null)
@@ -141,6 +149,25 @@ public class Turret : MonoBehaviour
 
         //Audio for when a "bullet" is fired
         FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
+    }
+
+    private void DrawParticleEffect()
+    {
+        if(fireEffectList.GetLength(0)<=0)
+        {
+            return;
+        }
+        GameObject rightFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[0].transform.position, this.fireEffectList[0].transform.rotation);
+        Destroy(rightFireEffect,fireEffectLifespan);
+        GameObject leftFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[1].transform.position, this.fireEffectList[1].transform.rotation);
+        Destroy(leftFireEffect,fireEffectLifespan);
+        if(fireEffectList.GetLength(0)>2)
+        {
+            GameObject topRightFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[2].transform.position, this.fireEffectList[2].transform.rotation);
+            Destroy(topRightFireEffect,fireEffectLifespan);
+            GameObject topLeftFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[3].transform.position, this.fireEffectList[3].transform.rotation);
+            Destroy(topLeftFireEffect,fireEffectLifespan);
+        }
     }
 
     private void OnDrawGizmosSelected()

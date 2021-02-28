@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static bool gameWon = false;
     //Enemy Prefabs
     public Transform grubPrefab;
     public Transform scorpPrefab;
@@ -15,11 +16,14 @@ public class WaveSpawner : MonoBehaviour
     public Transform beetlePrefab;
     public Transform mamaPrefab;
     public Transform carrierPrefab;
+
     public static Transform spawnPoint, spawn1, spawn2, spawn3;
     private Transform spawnTransform, start1, start2, start3;
 
+
     //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:beetle, 4:mama, 5:carrier)
-    private int[,] spawnerIndex = { {1,1,1,0,0,0},
+    private int[,] spawnerIndex = { 
+                                    {1,1,1,0,0,0},
                                     {5,1,1,1,0,0},
                                     {7,2,1,1,0,0},
                                     {7,1,2,2,0,0},
@@ -33,17 +37,20 @@ public class WaveSpawner : MonoBehaviour
                                     {15,10,3,4,2,3},
                                     {20,15,5,6,3,2},
                                     {15,10,7,10,3,3},
-                                    {15,10,10,10,10,5} };
+                                    {15,10,10,10,10,5} 
+                                    };
     
     
 
+    private int maxRounds = 0;
     public float timeBetweenRounds = 5f;
     public float countdown = 11f;
 
     public Text roundText;
-    private int round = 1;
-    //Determines if there is more than one spawn point
-    private static bool single;
+
+=======
+    private int round = 0;
+
 
     //testing
     // private int grub = 0;
@@ -99,25 +106,34 @@ public class WaveSpawner : MonoBehaviour
         this.countdown -= Time.deltaTime;
         this.countdown = Mathf.Clamp(this.countdown, 0f, Mathf.Infinity);
         this.roundText.text = ("Round: " + this.round);
+
     }
 
     //Pressing the play button calls the SpawnWave function
     public void StartWave()
     {
-        Debug.Log("Play button pressed, starting SpawnWave");
-        this.StartCoroutine(this.SpawnWave());
+        //Debug.Log("Play button pressed, starting SpawnWave");
+        if(this.checkForEnemies())
+        {
+            ++this.index;
+            ++this.round;
+            this.roundText.text = ("Round: " + this.round);
+            ++PlayerStats.Rounds;
+            this.StartCoroutine(this.SpawnWave(index));
+        }
     }
 
-    private IEnumerator SpawnWave()
+    private IEnumerator SpawnWave(int index)
     {
         //Extracts the amount of the coresponding enemy to spawn
         //15 waves(i), 6 enemy types(j)
-        for(int i=0; i < spawnerIndex.GetLength(0); ++i)
-        {
-            Debug.Log("Wave "+(i+1));
+        //for(int i=0; i < spawnerIndex.GetLength(0); ++i)
+        //{
+            spawning = true;
+            //Debug.Log("Wave "+(index+1));
             for(int j=0; j < spawnerIndex.GetLength(1); ++j)
             {
-                int amountSpanwed = spawnerIndex[i,j];
+                int amountSpanwed = spawnerIndex[index,j];
                 //totalSpawned += amountSpanwed;
                 switch(j)
                 {
@@ -182,6 +198,7 @@ public class WaveSpawner : MonoBehaviour
                         break;
                 }
             }
+            spawning = false;
             //Testing
             // Debug.Log("Total spawned: "+totalSpawned
             //     +"\n Grubs: "+grub
@@ -190,12 +207,14 @@ public class WaveSpawner : MonoBehaviour
             //     +"\n Mamas: "+mamas
             //     +"\n Carriers: "+carrier);
 
+
             // Time between rounds
             yield return new WaitForSeconds(2f);
             // Increments the round counter
             ++this.round;
             ++PlayerStats.Rounds;
         }
+
     }
 
     public static void SpawnEnemy(Transform enemy)
@@ -211,6 +230,19 @@ public class WaveSpawner : MonoBehaviour
             Instantiate(enemy, spawn1.position, spawn1.rotation);
             Instantiate(enemy, spawn2.position, spawn2.rotation);
             Instantiate(enemy, spawn3.position, spawn3.rotation);
+        }
+    }
+    // returns true if no enemies in scene
+    public bool checkForEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(this.enemyTag);
+        if(enemies.Length == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

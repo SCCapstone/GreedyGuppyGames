@@ -3065,8 +3065,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 308246287}
-        m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
+      - m_Target: {fileID: 833113568}
+        m_TargetAssemblyTypeName: MenuFunctions, Scripts
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -8110,8 +8110,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 308246287}
-        m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
+      - m_Target: {fileID: 833113568}
+        m_TargetAssemblyTypeName: MenuFunctions, Scripts
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
@@ -11093,7 +11093,7 @@ PrefabInstance:
     - target: {fileID: 5470235093270810362, guid: b56df2b012b9cf84397a87821285ff51,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5470235093270810362, guid: b56df2b012b9cf84397a87821285ff51,
         type: 3}
@@ -13292,7 +13292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &833113568
@@ -13685,7 +13685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &888343732
@@ -14515,8 +14515,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 308246287}
-        m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
+      - m_Target: {fileID: 833113568}
+        m_TargetAssemblyTypeName: MenuFunctions, Scripts
         m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
@@ -31028,7 +31028,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1994279980
 PrefabInstance:
@@ -31715,6 +31715,7 @@ MonoBehaviour:
     type: 3}
   carrierPrefab: {fileID: 602419894539465341, guid: 595cbbd5f42c32f45b73eb97530f0027,
     type: 3}
+  enemyTag: Enemy
   timeBetweenRounds: 5
   countdown: 5
   roundText: {fileID: 707000812}
@@ -31761,7 +31762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 200
-  startLives: 100
+  startLives: 20
 --- !u!114 &2051447966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31949,7 +31950,7 @@ MonoBehaviour:
     type: 2}
   MusicMixerGroupName: MusicVolume
   SFXMixerGroupName: SFXVolume
-  gameMusicName: GameMusic
+  gameMusicName: GameMusic2
 --- !u!4 &2063151235
 Transform:
   m_ObjectHideFlags: 0

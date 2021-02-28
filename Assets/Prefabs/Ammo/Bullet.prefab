@@ -102,6 +102,7 @@ MonoBehaviour:
   explosionRadius: 0
   pierce: 1
   explosionPierce: 10
+  lifeSpan: 10
   impactEffect: {fileID: 2220860345030090244, guid: 552376976c794354893d26c863e69a97,
     type: 3}
   shrapnelGameObject: {fileID: 0}
