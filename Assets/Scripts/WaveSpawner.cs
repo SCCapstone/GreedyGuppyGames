@@ -191,13 +191,12 @@ public class WaveSpawner : MonoBehaviour
             //     +"\n Mamas: "+mamas
             //     +"\n Carriers: "+carrier);
 
-            //Time between rounds
-            //yield return new WaitForSeconds(2f);
-            //Increments the round counter
-            //++this.round;
-            //++PlayerStats.Rounds;
-        //}
-    }
+            // Time between rounds
+            yield return new WaitForSeconds(2f);
+            // Increments the round counter
+            ++this.round;
+            ++PlayerStats.Rounds;
+        }
 
     public void SpawnEnemy(Transform enemy)
     {

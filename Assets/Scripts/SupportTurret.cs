@@ -32,39 +32,52 @@ public class SupportTurret : MonoBehaviour
         {
             // find all towers within range
             float distanceToTower = Vector3.Distance(this.transform.position, tower.transform.position);
-                if (distanceToTower <= this.range) 
+            if (distanceToTower <= this.range) 
+            {
+                Turret turret = tower.GetComponent<Turret>();
+                if (leftTier1 == true) 
                 {
-                    Turret turret = tower.GetComponent<Turret>();
-                    if (leftTier1 == true) 
-                    {
-                        this.range = this.range * 1.25f;
-                    }
-                    //Cheaper towers handled in MyNode
-                    //Enemies giving more money is handled in the enemies script
-                    if (rightTier1 == true) 
-                    {
-                        turret.range = turret.originalRange * 1.25f;
-                    }
-                    if (rightTier2 == true) 
-                    {
-                        turret.firerate = turret.originalFireRate * 1.25f;
-                    }
-                    if (rightTier3 == true) 
-                    {
-
-                    }
+                    this.range = this.range * 1.25f;
                 }
+                //Cheaper towers handled in MyNode
+                //Enemies giving more money is handled in the enemies script
+                if (rightTier1 == true && turret.buffedRange == false) 
+                {
+                    turret.range = turret.originalRange * 1.25f;
+                    turret.buffedRange = true;
+                }
+                if (rightTier2 == true && turret.buffedFireRate == false) 
+                {
+                    turret.firerate = turret.originalFireRate * 1.25f;
+                    turret.buffedFireRate = true;
+                }
+
+            }
         }
 
     }
-    // Runs when called from MyNode.cs in BuildTurret()
-    private void buffLeftTier2()
-    {
-        
-    }
     //This is to be used when the tower is sold, it will clean out all the buffs it is currently applying
-    private void Cleanup()
+    public void Cleanup()
     {
-
+        GameObject[] towers = GameObject.FindGameObjectsWithTag(this.towerTag);
+        
+        foreach (GameObject tower in towers)
+        {
+            // find all towers within range
+            float distanceToTower = Vector3.Distance(this.transform.position, tower.transform.position);
+            if (distanceToTower <= this.range) 
+            {
+                Turret turret = tower.GetComponent<Turret>();
+                if (turret.buffedRange == true)                     {
+                    turret.range = turret.originalRange;
+                    turret.buffedRange = false;
+                }
+                if (turret.buffedFireRate == false) 
+                {
+                    turret.firerate = turret.originalFireRate;
+                    turret.buffedFireRate = false;
+                }
+            }
+        }
     }
 }

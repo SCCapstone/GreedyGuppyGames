@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
 public class Enemy : MonoBehaviour, IEnemy
 {
     public Animator anim;
@@ -24,10 +25,26 @@ public class Enemy : MonoBehaviour, IEnemy
     public int value = 50;
     public float turretValueBuff = 1.25f;
     public GameObject deathEffect;
-
-    private Transform target;
-    protected int wavepointIndex = 0;
-
+    [HideInInspector]
+    public float originalSpeed;
+    [HideInInspector]
+    public bool electricDoT = false;
+    [HideInInspector]
+    public bool DoTRunning = false;
+    [HideInInspector]
+    public bool slow = false;
+    [HideInInspector]
+    public bool permaSlow;
+    [HideInInspector]
+    public bool alreadySlowed = false;
+    [HideInInspector]
+    public int DoTDamage;
+    [HideInInspector]
+    public float DoTTime;
+    [HideInInspector]
+    public float speedDebuff;
+    private Transform target, targetOne, targetTwo, targetThree;
+    protected int wavepointIndex, indexOne, indexTwo, indexThree = 0;
     public float distanceLeft = 0f;
 
     
@@ -71,9 +88,12 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public virtual void Start()
     {
+		//KEEP REGARDLESS OF MERGE
+        this.originalSpeed = speed;
+        //this.target = Waypoints.points[wavepointIndex];
+        // Sets the appropriate array of waypoints index zero to the apporpriate target
         this.target = waypoints.points[wavepointIndex];
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
-        
         //Debug.Log(this + " " + distanceLeft);
         //anim.Play("Walk Forward Slow WO Root", -1, 0);
 
@@ -93,6 +113,61 @@ public class Enemy : MonoBehaviour, IEnemy
             this.Die();
             this.dead = true;
         }
+    }
+    // Electric damage (since I'm not using a bullet, just subtracting the damage directly)
+    public void ElectricDamage(int amount)
+    {
+        if(dead)
+        {
+            return;
+        }
+        this.health -= amount;
+        if (electricDoT && !DoTRunning) 
+        {
+            this.DoTRunning = true;
+            StartCoroutine(ElectricDoT());
+        }
+        if (permaSlow && !alreadySlowed)
+        {
+            this.originalSpeed = this.originalSpeed * speedDebuff;
+            this.speed = this.originalSpeed;
+            permaSlow = false;
+            alreadySlowed = true;
+        }
+        if (slow)
+        {
+            StartCoroutine(Slow());
+        }
+        if (this.health <= 0 && !dead)
+        {
+            this.Die();
+            this.dead = true;
+        }
+
+    }
+    private IEnumerator Slow()
+    {
+        this.speed = originalSpeed * speedDebuff;
+        yield return new WaitForSeconds(DoTTime);
+        this.speed = originalSpeed;
+        yield return null;
+    }
+    private IEnumerator ElectricDoT()
+    {
+        float timePassed = 0f;
+        while (timePassed < DoTTime) 
+        {
+            yield return new WaitForSeconds(1f);
+            ElectricDamage(DoTDamage);
+            if(this.dead == true)
+            {
+                yield return null;
+            }
+            timePassed++;
+        }
+        this.electricDoT = false;
+        this.DoTRunning = false;
+        yield return null;
     }
 
     public virtual void Die()

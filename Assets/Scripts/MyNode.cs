@@ -248,6 +248,7 @@ public class MyNode : MonoBehaviour
 
     public void SellTurret()
     {
+        
         ResetNode();
         PlayerStats.Money += (int)(moneySpentOnTurret * Shop.sellPercent);
         moneySpentOnTurret = 0;
@@ -257,6 +258,12 @@ public class MyNode : MonoBehaviour
     //deletes the turret then sets its blueprint and upgrade paths path to default values
     public void ResetNode()
     {
+        if (this.turret.gameObject.CompareTag("supportTower")) 
+        {
+            SupportTurret tower = turret.GetComponent<SupportTurret>();
+            tower.Cleanup();
+
+        }
         DeleteTurret();
         this.turretBlueprint = null;
         this.upgradePathOne = 0;
