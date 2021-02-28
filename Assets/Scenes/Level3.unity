@@ -4287,12 +4287,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275460174}
   m_CullTransparentMesh: 0
---- !u!1 &291577422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8436639523667197964, guid: 0727f8490be00dd4cacdf039fe61d3e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 896593984}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &292876471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4929,12 +4923,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5470235093270810362, guid: b56df2b012b9cf84397a87821285ff51,
     type: 3}
   m_PrefabInstance: {fileID: 349186393}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &359827550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8436639523667197964, guid: 0727f8490be00dd4cacdf039fe61d3e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2063846880}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &380227988
 GameObject:
@@ -8074,12 +8062,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589402855}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &593453892 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8436639523667197964, guid: 0727f8490be00dd4cacdf039fe61d3e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 899162601}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &602475296
 GameObject:
   m_ObjectHideFlags: 0
@@ -9491,7 +9473,7 @@ Transform:
   - {fileID: 42922983}
   - {fileID: 2046933545}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &663032114
 PrefabInstance:
@@ -10761,7 +10743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed307d0625e9f04b8ef54a5dd5ef10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPoint: {fileID: 593453892}
+  points: []
 --- !u!1 &772230762
 GameObject:
   m_ObjectHideFlags: 0
@@ -13656,7 +13638,7 @@ PrefabInstance:
     - target: {fileID: 5470235093270810362, guid: b56df2b012b9cf84397a87821285ff51,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5470235093270810362, guid: b56df2b012b9cf84397a87821285ff51,
         type: 3}
@@ -21905,6 +21887,15 @@ MonoBehaviour:
     type: 3}
   carrierPrefab: {fileID: 602419894539465341, guid: 595cbbd5f42c32f45b73eb97530f0027,
     type: 3}
+  spawnPoint:
+  - {fileID: 1638720844}
+  - {fileID: 572361285}
+  - {fileID: 2120829077}
+  waypoints:
+  - {fileID: 1641918303}
+  - {fileID: 1935386664}
+  - {fileID: 760468877}
+  enemyTag: Enemy
   timeBetweenRounds: 5
   countdown: 5
   roundText: {fileID: 204012857}
@@ -22874,7 +22865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed307d0625e9f04b8ef54a5dd5ef10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPoint: {fileID: 359827550}
+  points: []
 --- !u!4 &1641918304
 Transform:
   m_ObjectHideFlags: 0
@@ -24407,7 +24398,7 @@ Transform:
   - {fileID: 450555698}
   - {fileID: 866795326}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1760124414
 GameObject:
@@ -26787,7 +26778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed307d0625e9f04b8ef54a5dd5ef10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPoint: {fileID: 291577422}
+  points: []
 --- !u!1001 &1935709775
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using DG.Tweening;
 public class Enemy : MonoBehaviour, IEnemy
 {
     public Animator anim;
+    public Waypoints waypoints;
     [HideInInspector]
     public Bullet bulletWhoShotMe;
     bool dead = false;
@@ -26,6 +27,8 @@ public class Enemy : MonoBehaviour, IEnemy
 
     private Transform target;
     protected int wavepointIndex = 0;
+
+    public float distanceLeft = 0f;
 
     
 
@@ -68,9 +71,13 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public virtual void Start()
     {
-        this.target = Waypoints.points[wavepointIndex];
+        this.target = waypoints.points[wavepointIndex];
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
+        
+        //Debug.Log(this + " " + distanceLeft);
         //anim.Play("Walk Forward Slow WO Root", -1, 0);
+
+        getTotalDistance();
     }
 
     public void TakeDamage(int amount)
@@ -126,7 +133,7 @@ public class Enemy : MonoBehaviour, IEnemy
         dead = false;
         health = startingHealth;
         SetWavepointIndex(0);
-        this.target = Waypoints.points[wavepointIndex];
+        this.target = waypoints.points[wavepointIndex];
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
 
 
@@ -137,6 +144,11 @@ public class Enemy : MonoBehaviour, IEnemy
         // Direction pointing to waypoint
         Vector3 dir = this.target.position - this.transform.position;
         this.transform.Translate(dir.normalized * this.speed * Time.deltaTime, Space.World);
+        //Debug.Log(Vector3.Magnitude(dir.normalized * this.speed * Time.deltaTime));
+        distanceLeft -= Vector3.Magnitude(dir.normalized * this.speed * Time.deltaTime);
+        //getTotalDistance();
+        //Debug.Log(this + " " + distanceLeft);
+
 
         // Checks if we are verrrrry close to a waypoint
         if (Vector3.Distance(this.transform.position, this.target.position) <= 0.4f)
@@ -147,8 +159,9 @@ public class Enemy : MonoBehaviour, IEnemy
 
     private void GetNextWaypoint()
     {
+        getTotalDistance();
         // Enemy has reached the end
-        if (this.wavepointIndex >= Waypoints.points.Length - 1)
+        if (this.wavepointIndex >= waypoints.points.Length - 1)
         {
             this.EndPath();
             return; // makes sure the code doesn't skip into next node segment (yes this happens)
@@ -156,15 +169,16 @@ public class Enemy : MonoBehaviour, IEnemy
 
         // Not at the end, find next waypoint
         this.wavepointIndex++;
-        this.target = Waypoints.points[this.wavepointIndex];
+        this.target = waypoints.points[this.wavepointIndex];
         // Look at waypoint, rotation stuff
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
     }
 
     public void SetWaypoint(int index)
     {
+        getTotalDistance();
         // Enemy has reached the end
-        if (this.wavepointIndex >= Waypoints.points.Length - 1)
+        if (this.wavepointIndex >= waypoints.points.Length - 1)
         {
             this.EndPath();
             return; // makes sure the code doesn't skip into next node segment (yes this happens)
@@ -172,7 +186,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
         // Not at the end, find next waypoint
         this.wavepointIndex = index;
-        this.target = Waypoints.points[this.wavepointIndex];
+        this.target = waypoints.points[this.wavepointIndex];
         // Look at waypoint, rotation stuff
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
     }
@@ -182,5 +196,24 @@ public class Enemy : MonoBehaviour, IEnemy
 
         PlayerStats.Lives -= damageToBaseValue;
         Destroy(this.gameObject);
+    }
+
+    public void getTotalDistance()
+    {
+        this.distanceLeft = Vector3.Distance(this.transform.position,waypoints.points[wavepointIndex].position);
+        //Debug.Log(this.transform.position);
+        //Debug.Log(waypoints.points[wavepointIndex].position);
+        //Debug.Log("I did this" + distanceLeft);
+
+        //Debug.Log("wpi: " + wavepointIndex + " length: " + waypoints.points.Length);
+        for (int i = wavepointIndex; i < waypoints.points.Length; ++i)
+        {
+            if(i +1 < waypoints.points.Length)
+            {
+                //Debug.Log("distance left " + distanceLeft);
+                this.distanceLeft += Vector3.Distance(waypoints.points[i].position,waypoints.points[i+1].position);
+            }
+        }
+        //Debug.Log("starting distance left " + distanceLeft);
     }
 }

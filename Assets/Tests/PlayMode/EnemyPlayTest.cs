@@ -10,10 +10,12 @@ namespace Tests
 {
     public class EnemyPlayTest
     {
+        
         private Enemy newEnemy;
         //Spawn location
         private Vector3 pos = new Vector3(-44,5,67);
         private GameObject grubPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Enemies/Grub.prefab");
+        public WaveSpawner waveSpawner;
 
         private GameObject grubObject;
 
@@ -37,7 +39,7 @@ namespace Tests
             // ACT
             try
             {
-                WaveSpawner.SpawnEnemy(grub);
+                //WaveSpawner.SpawnEnemy(grub);
             }
             catch (System.Exception e)
             {

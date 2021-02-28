@@ -23021,6 +23021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed307d0625e9f04b8ef54a5dd5ef10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  points: []
 --- !u!1001 &1444470527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31715,6 +31716,10 @@ MonoBehaviour:
     type: 3}
   carrierPrefab: {fileID: 602419894539465341, guid: 595cbbd5f42c32f45b73eb97530f0027,
     type: 3}
+  spawnPoint:
+  - {fileID: 1381169643}
+  waypoints:
+  - {fileID: 1436846176}
   enemyTag: Enemy
   timeBetweenRounds: 5
   countdown: 5
