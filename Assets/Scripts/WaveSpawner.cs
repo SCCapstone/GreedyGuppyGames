@@ -48,7 +48,6 @@ public class WaveSpawner : MonoBehaviour
 
     public Text roundText;
 
-=======
     private int round = 0;
 
 
@@ -214,8 +213,6 @@ public class WaveSpawner : MonoBehaviour
             ++this.round;
             ++PlayerStats.Rounds;
         }
-
-    }
 
     public static void SpawnEnemy(Transform enemy)
     {

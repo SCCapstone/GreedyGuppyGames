@@ -129,20 +129,15 @@ public class Turret : MonoBehaviour
         {
             return;
         }
-        // Target lockon if not electric tower
+        // Target lockon
         if (!electricTower)
         {
-             Vector3 dir = this.target.position - this.transform.position;
+            Vector3 dir = this.target.position - this.transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir);
             Vector3 rotation = Quaternion.Lerp(this.partToRotate.rotation, lookRotation, Time.deltaTime * this.turnSpeed).eulerAngles;
             this.partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
 
-        // Target lockon
-        Vector3 dir = this.target.position - this.transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(this.partToRotate.rotation, lookRotation, Time.deltaTime * this.turnSpeed).eulerAngles;
-        this.partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         if (this.target != null) {
             this.DrawParticleEffect();
@@ -207,10 +202,6 @@ public class Turret : MonoBehaviour
                 }
             }
         }
-    }
-    private void drawElectricEffect()
-    {
-        GameObject effect = (GameObject)Instantiate(this.electricEffect, this.firePoint);
     }
     private void DrawParticleEffect()
     {

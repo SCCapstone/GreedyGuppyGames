@@ -42,8 +42,6 @@ public class Enemy : MonoBehaviour, IEnemy
     public float DoTTime;
     [HideInInspector]
     public float speedDebuff;
-    private Transform target;
-    protected int wavepointIndex = 0;
     private Transform target, targetOne, targetTwo, targetThree;
     protected int wavepointIndex, indexOne, indexTwo, indexThree = 0;
 
