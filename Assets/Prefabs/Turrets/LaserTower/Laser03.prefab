@@ -127,22 +127,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcf16249a19a514fa7d636a0a80a9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killCount: 0
   range: 15
-  firerate: 1
+  firerate: 20
   originalFireRate: 0
-  buffed2XFireRate: 0
-  buffed4XFireRate: 0
-  buffed6XFireRate: 0
+  originalRange: 0
+  bulletPierce: 1
+  DoTDamage: 1
+  bulletDamage: 10
+  bulletSpeed: 70
+  bulletExplosionRadius: 0
+  DoTTime: 5
+  speedDebuff: 0.75
+  bulletExplosionPierce: 10
+  makeShrapnel: 0
+  tracking: 0
+  permaSlow: 0
+  sprayAmount: 0
+  buffedFireRate: 0
+  buffedRange: 0
   buffedAim: 0
   buffedPierce: 0
   buffedDamage: 0
+  electricTower: 0
+  electricDoT: 0
+  slow: 0
   gunShotAudio: 
   enemyTag: Enemy
   partToRotate: {fileID: 7988275142219587699}
   turnSpeed: 10
-  bulletPrefab: {fileID: 5503022687058836579, guid: db20b831d894d4841ae5b57d4084374a,
+  bulletPrefab: {fileID: 6539328116074389142, guid: ec303a716336f244c8c73adeb8f14f9c,
     type: 3}
   firePoint: {fileID: 9040131085936221004}
+  fireEffect: {fileID: 0}
+  fireEffectList: []
+  fireEffectLifespan: 0.5
 --- !u!1 &4790868085917440042
 GameObject:
   m_ObjectHideFlags: 0
