@@ -61,6 +61,7 @@ MonoBehaviour:
   makeShrapnel: 0
   tracking: 0
   permaSlow: 0
+  sprayAmount: 0
   buffedFireRate: 0
   buffedRange: 0
   buffedAim: 0
@@ -77,6 +78,9 @@ MonoBehaviour:
   firePoint: {fileID: 3298761331633556827}
   electricEffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c,
     type: 3}
+  fireEffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  fireEffectList: []
+  fireEffectLifespan: 0.5
 --- !u!1 &8122247724915930198
 GameObject:
   m_ObjectHideFlags: 0

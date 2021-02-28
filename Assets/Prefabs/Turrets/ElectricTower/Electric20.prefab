@@ -129,12 +129,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killCount: 0
   range: 15
-  firerate: 1
+  firerate: 0.5
   originalFireRate: 0
   originalRange: 0
   bulletPierce: 1
-  DoTDamage: 1
-  bulletDamage: 2
+  DoTDamage: 5
+  bulletDamage: 75
   bulletSpeed: 70
   bulletExplosionRadius: 0
   DoTTime: 5
@@ -143,6 +143,7 @@ MonoBehaviour:
   makeShrapnel: 0
   tracking: 0
   permaSlow: 0
+  sprayAmount: 0
   buffedFireRate: 0
   buffedRange: 0
   buffedAim: 0
@@ -157,6 +158,10 @@ MonoBehaviour:
   turnSpeed: 10
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 4655684999751526640}
+  electricEffect: {fileID: 0}
+  fireEffect: {fileID: 0}
+  fireEffectList: []
+  fireEffectLifespan: 0.5
 --- !u!1 &4989000885022555853
 GameObject:
   m_ObjectHideFlags: 0

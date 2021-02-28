@@ -64,7 +64,6 @@ public class Turret : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public GameObject electricEffect;
     public GameObject fireEffect;
     public GameObject[] fireEffectList;
     public float fireEffectLifespan = 0.5f;
@@ -145,7 +144,7 @@ public class Turret : MonoBehaviour
             this.DrawParticleEffect();
         }
 
-        if (this.fireCountdown <= 0f)
+        if (this.fireCountdown <= 0f && !electricTower)
         {
             this.Shoot();
             this.fireCountdown = 1f / this.firerate;
