@@ -92,6 +92,10 @@ public class WaveSpawner : MonoBehaviour
             ++PlayerStats.Rounds;
             this.StartCoroutine(this.SpawnWave(index));
         }
+        else
+        {
+            
+        }
     }
 
     private IEnumerator SpawnWave(int index)
