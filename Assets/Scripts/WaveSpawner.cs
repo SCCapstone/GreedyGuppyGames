@@ -28,7 +28,6 @@ public class WaveSpawner : MonoBehaviour
     //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:beetle, 4:mama, 5:carrier)
     private int[,] spawnerIndex = { 
                                     {1,1,1,0,0,0},
-                                    /*
                                     {5,1,1,1,0,0},
                                     {7,2,1,1,0,0},
                                     {7,1,2,2,0,0},
@@ -43,7 +42,6 @@ public class WaveSpawner : MonoBehaviour
                                     {20,15,5,6,3,2},
                                     {15,10,7,10,3,3},
                                     {15,10,10,10,10,5} 
-                                    */
                                     };
     
     
