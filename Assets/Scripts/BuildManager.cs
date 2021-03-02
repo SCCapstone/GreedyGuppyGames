@@ -84,7 +84,10 @@ public class BuildManager : MonoBehaviour
     
     public void SelectNode(GameObject node)
     {
-        
+        if(selectedNode != null)
+        {
+            selectedNode.GetComponent<MyNode>().HideRangeIndicator();
+        }
         //node.GetComponent<MyNode>().SelectForUpgradeColor();
         if(node == null)
         {
@@ -94,13 +97,16 @@ public class BuildManager : MonoBehaviour
         selectedNode.SelectForUpgradeColor();
         Debug.Log("selected");
         upgradeUI.SetTurret(selectedNode);
+        node.GetComponent<MyNode>().ShowRangeIndicator();
     }
 
     public void DeselectNode()
     {
         selectedNode.ResetColor();
+        selectedNode.HideRangeIndicator();
         selectedNode = null;
         upgradeUI.Hide();
+        
     }
 
     public TurretBlueprint GetTurretBlueprint()

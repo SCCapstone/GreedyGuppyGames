@@ -69,7 +69,8 @@ public class WaveSpawner : MonoBehaviour
         // Declares that the static spawnPoint takes on the transform of START(green block)
         //spawnPoint = spawnTransform;
         this.maxRounds = this.spawnerIndex.GetLength(0);
-        this.roundText.text = ("Round: " + this.round);
+        this.roundText.text = ("Round: " + this.round + "/" + this.maxRounds);
+        
         PlayerStats.Rounds = 0;
         index = -1;
         gameWon = false;
@@ -92,7 +93,7 @@ public class WaveSpawner : MonoBehaviour
         {
             ++this.index;
             ++this.round;
-            this.roundText.text = ("Round: " + this.round);
+            this.roundText.text = ("Round: " + this.round + "/" + this.maxRounds);
             ++PlayerStats.Rounds;
             this.StartCoroutine(this.SpawnWave(index));
         }
