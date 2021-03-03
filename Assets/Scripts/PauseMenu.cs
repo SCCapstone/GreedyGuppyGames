@@ -31,6 +31,7 @@ public class PauseMenu : MenuFunctions
         }
     }
 
+
     public void Pause()
     {
         Debug.Log("Game Paused");
