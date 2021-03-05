@@ -47,6 +47,10 @@ public class UpgradeUI : MonoBehaviour
             {
                 this.killCount.text = "Kills: " + this.nodeToUpgrade.turret.gameObject.GetComponent<Turret>().killCount.ToString();
             }
+            else
+            {
+                this.killCount.text = "";
+            }
 
 
             if (nodeToUpgrade.upgradePathOne == 0 && nodeToUpgrade.upgradePathTwo == 0)
