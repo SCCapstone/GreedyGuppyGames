@@ -1,8 +1,6 @@
 ﻿// <copyright file="Shop.cs" company="GreedyGuppyGames">
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +16,13 @@ public class Shop : MonoBehaviour
     public Button electricTowerButton;
     public Button supportTowerButton;
     public Button flameThrowerTowerButton;
+    public GameObject basicTowerDescription;
+    public GameObject cannonTowerDescription;
+    public GameObject machineGunTowerDescription;
+    public GameObject laserTowerDescription;
+    public GameObject electricTowerDescription;
+    public GameObject supportTowerDescription;
+    public GameObject flameThrowerTowerDescription;
 
     public Text basicTowerPrice;
     public Text cannonTowerPrice;
@@ -118,6 +123,7 @@ public class Shop : MonoBehaviour
             flameThrowerTowerButton.interactable = false;
         }
     }
+
 
     public void SelectBasicTurret()
     {
