@@ -285,6 +285,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14914577}
   m_CullTransparentMesh: 0
+--- !u!1 &15036849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4039042182233643419, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &15036855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15036849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1736872749}
 --- !u!1 &43092706
 GameObject:
   m_ObjectHideFlags: 0
@@ -10063,6 +10082,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 725501198}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &727496313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 727496313, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731170714
 GameObject:
   m_ObjectHideFlags: 0
@@ -12659,6 +12684,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 936347253}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &938190049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2085558117859641689, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &938328402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13452,9 +13483,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1325223114}
   - {fileID: 1862820417}
   - {fileID: 1326678341}
-  - {fileID: 1325223114}
   - {fileID: 308246284}
   - {fileID: 2068982083}
   - {fileID: 888343731}
@@ -13875,6 +13906,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5470235093270810362, guid: b56df2b012b9cf84397a87821285ff51,
     type: 3}
   m_PrefabInstance: {fileID: 1019139249}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1027076938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1027076938, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1028370577
 PrefabInstance:
@@ -15789,6 +15826,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1137310152}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1142590636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4039042183537854621, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1142590642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142590636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1829174350}
 --- !u!1001 &1151260644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17196,6 +17252,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231638641}
   m_CullTransparentMesh: 0
+--- !u!1 &1239086931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4039042183114975747, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1239086937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239086931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 727496313}
 --- !u!1001 &1252768881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18733,7 +18808,7 @@ RectTransform:
   m_Children:
   - {fileID: 1742403348}
   m_Father: {fileID: 969640527}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.15}
   m_AnchorMax: {x: 0.25, y: 0.95}
@@ -18833,7 +18908,7 @@ RectTransform:
   - {fileID: 415822504}
   - {fileID: 707000811}
   m_Father: {fileID: 969640527}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.95}
   m_AnchorMax: {x: 1, y: 1}
@@ -19156,6 +19231,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1359450473}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1363981815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4039042182455835045, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1363981821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363981815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 938190049}
 --- !u!1001 &1372932143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20798,6 +20892,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5470235093270810362, guid: b56df2b012b9cf84397a87821285ff51,
     type: 3}
   m_PrefabInstance: {fileID: 1470092257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1471983431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1471983431, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1481120806
 PrefabInstance:
@@ -23359,6 +23459,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1620268211}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1627084399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4039042182245751722, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1627084405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627084399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1471983431}
 --- !u!1001 &1634213184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24341,6 +24460,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5470235093270810362, guid: b56df2b012b9cf84397a87821285ff51,
     type: 3}
   m_PrefabInstance: {fileID: 1719587622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1736872749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1736872749, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1741658126
 GameObject:
@@ -25420,6 +25545,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822565598}
   m_CullTransparentMesh: 0
+--- !u!1 &1829174350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1829174350, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1832113891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25809,7 +25940,7 @@ RectTransform:
   - {fileID: 12488787}
   - {fileID: 805745138}
   m_Father: {fileID: 969640527}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.15}
@@ -27759,6 +27890,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2023005674}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2023696079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4039042183600318787, guid: 3df51ff53534c714a908da56be33be9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725987706722787331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2023696085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023696079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1027076938}
 --- !u!1 &2030602544
 GameObject:
   m_ObjectHideFlags: 0
@@ -29620,6 +29770,86 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1862820417}
     m_Modifications:
+    - target: {fileID: 306853375, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Text
+      value: 'Support Tower
+
+
+        A tower that can buff or reduce the cost of
+        existing and future towers.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 360620379, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Text
+      value: 'FlameThrower Tower
+
+
+        A high damage, mid range tower that shoots
+        fire at enemies.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 727496313, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Name
+      value: SupportTowerDescriptionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 727496313, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 755131681, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Text
+      value: 'Machine Gun Tower
+
+
+        A high fire rate, low accuracy, low damage
+        tower.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 774818191, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Text
+      value: 'Laser Tower
+
+
+        A high damage, quick firing tower. that evaporates
+        enemies in its path.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027076938, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Name
+      value: MGTowerDescriptionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027076938, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471983431, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Name
+      value: FlameThrowerTowerDescriptionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471983431, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507632761, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Text
+      value: 'Electric Tower
+
+
+        A tower that shoots bursts of electricity
+        from itself.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736872749, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Name
+      value: LaserTowerDescriptionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736872749, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829174350, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_Name
+      value: ElectricTowerDescriptionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829174350, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1725987706713518160, guid: 3df51ff53534c714a908da56be33be9e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29760,6 +29990,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2085558117859641689, guid: 3df51ff53534c714a908da56be33be9e,
+        type: 3}
+      propertyPath: m_Name
+      value: CannonTowerDescriptionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2085558117859641689, guid: 3df51ff53534c714a908da56be33be9e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4039042182233643418, guid: 3df51ff53534c714a908da56be33be9e,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -29939,6 +30179,15 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812815424478930074, guid: 3df51ff53534c714a908da56be33be9e,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Cannon Tower
+
+
+        A slow firing, cheap tower, that shoots explosive
+        projectiles.'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3df51ff53534c714a908da56be33be9e, type: 3}
