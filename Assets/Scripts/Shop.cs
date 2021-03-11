@@ -16,13 +16,6 @@ public class Shop : MonoBehaviour
     public Button electricTowerButton;
     public Button supportTowerButton;
     public Button flameThrowerTowerButton;
-    public GameObject basicTowerDescription;
-    public GameObject cannonTowerDescription;
-    public GameObject machineGunTowerDescription;
-    public GameObject laserTowerDescription;
-    public GameObject electricTowerDescription;
-    public GameObject supportTowerDescription;
-    public GameObject flameThrowerTowerDescription;
 
     public Text basicTowerPrice;
     public Text cannonTowerPrice;
