@@ -87,6 +87,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: LaserTowerShot
+    audioClip: {fileID: 8300000, guid: d0a62505046723944ad81662ae508196, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   menuSFXSounds: []
   musicSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
