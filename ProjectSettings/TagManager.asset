@@ -11,6 +11,7 @@ TagManager:
   - supportTower
   - Fire
   - Ground
+  - Road
   layers:
   - Default
   - TransparentFX
