@@ -20,8 +20,6 @@ public class GamerManager : MonoBehaviour
         this.gameEnded = false;
         this.gameWon = false;
         this.buildManager = BuildManager.instance;
-        this.gameOverUI.SetActive(false);
-        this.gameWonUI.SetActive(false);
         Time.timeScale = 1f;
     }
 
@@ -29,7 +27,7 @@ public class GamerManager : MonoBehaviour
     private void Update()
     {
         // actually stops the game so it doesn't loop after ending
-        if (this.gameEnded || this.gameWon)
+        if (this.gameEnded)
         { 
             pauseMenuUI.Unpause();
             upgradeUI.Hide();

@@ -24,8 +24,6 @@ public class MyNode : MonoBehaviour
     public int upgradePathTwo = 0;
     [HideInInspector]
     public int moneySpentOnTurret = 0;
-    public GameObject rangeObjectPrefab;
-    private GameObject rangeObject;
 
 
     private Renderer rend;
@@ -246,7 +244,6 @@ public class MyNode : MonoBehaviour
         }
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
-        ShowRangeIndicator();
     }
 
     public void SellTurret()
@@ -254,7 +251,8 @@ public class MyNode : MonoBehaviour
         
         ResetNode();
         PlayerStats.Money += (int)(moneySpentOnTurret * Shop.sellPercent);
-        moneySpentOnTurret = 0;        
+        moneySpentOnTurret = 0;
+        
     }
 
     //deletes the turret then sets its blueprint and upgrade paths path to default values
@@ -271,28 +269,5 @@ public class MyNode : MonoBehaviour
         this.upgradePathOne = 0;
         this.upgradePathTwo = 0;
         this.ResetColor();
-        HideRangeIndicator();
-    }
-
-    public void ShowRangeIndicator()
-    {
-        if(turret == null)
-        {
-            return;
-        }
-        Vector3 pos = new Vector3(0f,4f,0f);
-        pos.x = this.turret.transform.position.x;
-        pos.z = this.turret.transform.position.z;
-        float scaleSize = this.turret.GetComponent<Turret>().range * 2;
-        if(rangeObject == null)
-        {
-            rangeObject = GameObject.Instantiate(rangeObjectPrefab, pos, Quaternion.identity);
-        }
-        rangeObject.gameObject.transform.localScale = new Vector3(scaleSize,2f,scaleSize);
-    }
-
-    public void HideRangeIndicator()
-    {
-        Destroy(rangeObject);
     }
 }

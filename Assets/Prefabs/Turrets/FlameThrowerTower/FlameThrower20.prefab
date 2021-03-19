@@ -195,28 +195,18 @@ MonoBehaviour:
   range: 15
   firerate: 1
   originalFireRate: 0
-  originalRange: 0
   bulletPierce: 1
-  DoTDamage: 1
   bulletDamage: 125
   bulletSpeed: 70
   bulletExplosionRadius: 0
-  DoTTime: 5
-  speedDebuff: 0.75
   bulletExplosionPierce: 10
-  makeShrapnel: 0
-  tracking: 0
-  permaSlow: 0
-  sprayAmount: 0
-  buffedFireRate: 0
-  buffedRange: 0
+  buffed2XFireRate: 0
+  buffed4XFireRate: 0
+  buffed6XFireRate: 0
   buffedAim: 0
   buffedPierce: 0
   buffedDamage: 0
-  electricTower: 0
-  electricDoT: 0
-  slow: 0
-  gunShotAudio: FlameTowerShot
+  gunShotAudio: 
   enemyTag: Enemy
   partToRotate: {fileID: 8673536476076269851}
   turnSpeed: 3

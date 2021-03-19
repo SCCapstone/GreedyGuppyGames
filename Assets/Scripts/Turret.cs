@@ -184,7 +184,6 @@ public class Turret : MonoBehaviour
             Enemy enemyToHurt = enemy.GetComponent<Enemy>();
             if (distanceToEnemy <= this.range)
             {
-                enemyToHurt.electricTowerAffectingMe = this;
                 enemyToHurt.ElectricDamage(bulletDamage);
             }
             if (distanceToEnemy <= this.range && electricDoT)

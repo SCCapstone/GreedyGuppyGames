@@ -358,27 +358,18 @@ MonoBehaviour:
   range: 25
   firerate: 0.5
   originalFireRate: 0
-  originalRange: 0
   bulletPierce: 1
-  DoTDamage: 1
-  bulletDamage: 75
+  bulletDamage: 50
   bulletSpeed: 50
   bulletExplosionRadius: 8
-  DoTTime: 5
-  speedDebuff: 0.75
   bulletExplosionPierce: 6
   makeShrapnel: 1
-  tracking: 0
-  permaSlow: 0
-  sprayAmount: 0
-  buffedFireRate: 0
-  buffedRange: 0
+  buffed2XFireRate: 0
+  buffed4XFireRate: 0
+  buffed6XFireRate: 0
   buffedAim: 0
   buffedPierce: 0
   buffedDamage: 0
-  electricTower: 0
-  electricDoT: 0
-  slow: 0
   gunShotAudio: CannonTowerShot
   enemyTag: Enemy
   partToRotate: {fileID: 2169833809475616151}
@@ -386,6 +377,3 @@ MonoBehaviour:
   bulletPrefab: {fileID: 9055028688311915372, guid: 222aebe5459faa44a91ef120bc3412cb,
     type: 3}
   firePoint: {fileID: 6579946814562616063}
-  fireEffect: {fileID: 0}
-  fireEffectList: []
-  fireEffectLifespan: 0.5

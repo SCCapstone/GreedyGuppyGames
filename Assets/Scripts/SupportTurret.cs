@@ -5,8 +5,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class SupportTurret : Turret
+public class SupportTurret : MonoBehaviour
 { 
+    public float range = 15f;
     public float fireRateMultiplier = 2f;
     [HideInInspector]
     public string towerTag = "Tower";
