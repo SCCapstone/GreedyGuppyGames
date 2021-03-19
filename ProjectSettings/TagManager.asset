@@ -10,6 +10,7 @@ TagManager:
   - Ammo
   - supportTower
   - Fire
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Raycast
   - 
   - 
   - 
