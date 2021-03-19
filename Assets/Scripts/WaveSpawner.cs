@@ -18,6 +18,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform carrierPrefab;
     public Transform[] spawnPoint;
     public Waypoints[] waypoints;
+    //public GamerManager gamerManager;
 
     private int index = -1;
     public string enemyTag = "Enemy";
@@ -68,12 +69,16 @@ public class WaveSpawner : MonoBehaviour
         // Declares that the static spawnPoint takes on the transform of START(green block)
         //spawnPoint = spawnTransform;
         this.maxRounds = this.spawnerIndex.GetLength(0);
-        this.roundText.text = ("Round: " + this.round);
+        this.roundText.text = ("Round: " + this.round + "/" + this.maxRounds);
+        
         PlayerStats.Rounds = 0;
+        index = -1;
+        gameWon = false;
 
     }
     private void Update()
     {
+        
         if(index == maxRounds - 1 && this.checkForEnemies() && !spawning)
         {
             gameWon = true;
@@ -88,7 +93,7 @@ public class WaveSpawner : MonoBehaviour
         {
             ++this.index;
             ++this.round;
-            this.roundText.text = ("Round: " + this.round);
+            this.roundText.text = ("Round: " + this.round + "/" + this.maxRounds);
             ++PlayerStats.Rounds;
             this.StartCoroutine(this.SpawnWave(index));
         }

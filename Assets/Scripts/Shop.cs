@@ -1,8 +1,6 @@
 ﻿// <copyright file="Shop.cs" company="GreedyGuppyGames">
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -118,6 +116,7 @@ public class Shop : MonoBehaviour
             flameThrowerTowerButton.interactable = false;
         }
     }
+
 
     public void SelectBasicTurret()
     {

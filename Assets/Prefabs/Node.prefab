@@ -140,3 +140,5 @@ MonoBehaviour:
   upgradePathOne: 0
   upgradePathTwo: 0
   moneySpentOnTurret: 0
+  rangeObjectPrefab: {fileID: 8885319408338383377, guid: 84b14b81cc6c0a74c829cce13eda55fa,
+    type: 3}

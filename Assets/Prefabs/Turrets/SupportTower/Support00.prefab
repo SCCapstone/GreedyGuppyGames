@@ -174,7 +174,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7795120328611482742}
   - component: {fileID: 3426484649235083184}
-  - component: {fileID: 3953679944561014205}
   m_Layer: 0
   m_Name: Support00
   m_TagString: supportTower
@@ -211,28 +210,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836785ebb58f8814295ff6b0f8eb2955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killCount: 0
   range: 20
-  fireRateMultiplier: 2
-  towerTag: Tower
-  leftTier1: 0
-  leftTier2: 0
-  leftTier3: 0
-  rightTier1: 0
-  rightTier2: 0
-  rightTier3: 0
---- !u!114 &3953679944561014205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7450647099808421580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836785ebb58f8814295ff6b0f8eb2955, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 15
+  firerate: 0
+  originalFireRate: 0
+  originalRange: 0
+  bulletPierce: 1
+  DoTDamage: 1
+  bulletDamage: 50
+  bulletSpeed: 70
+  bulletExplosionRadius: 0
+  DoTTime: 5
+  speedDebuff: 0.75
+  bulletExplosionPierce: 10
+  makeShrapnel: 0
+  tracking: 0
+  permaSlow: 0
+  sprayAmount: 0
+  buffedFireRate: 0
+  buffedRange: 0
+  buffedAim: 0
+  buffedPierce: 0
+  buffedDamage: 0
+  electricTower: 0
+  electricDoT: 0
+  slow: 0
+  gunShotAudio: 
+  enemyTag: Enemy
+  partToRotate: {fileID: 0}
+  turnSpeed: 10
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  fireEffect: {fileID: 0}
+  fireEffectList: []
+  fireEffectLifespan: 0.5
   fireRateMultiplier: 2
   towerTag: Tower
   leftTier1: 0

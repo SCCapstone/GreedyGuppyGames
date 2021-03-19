@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public int value = 50;
     public float turretValueBuff = 1.25f;
+    [HideInInspector]
+    public Turret turretThatShotMe;
+    public Turret electricTowerAffectingMe;
     public GameObject deathEffect;
     [HideInInspector]
     public float originalSpeed;
@@ -111,6 +114,7 @@ public class Enemy : MonoBehaviour, IEnemy
             bulletWhoShotMe.ReducePierce();
         if (this.health <= 0 && !dead)
         {
+            this.turretThatShotMe=bulletWhoShotMe.turretThatShotMe;
             this.Die();
             this.dead = true;
         }
@@ -141,6 +145,7 @@ public class Enemy : MonoBehaviour, IEnemy
         }
         if (this.health <= 0 && !dead)
         {
+            this.turretThatShotMe = this.electricTowerAffectingMe;
             this.Die();
             this.dead = true;
         }
@@ -173,9 +178,9 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public virtual void Die()
     {
-        if(bulletWhoShotMe != null)
+        if(turretThatShotMe != null)
         {
-            bulletWhoShotMe.turretThatShotMe.killCount++;
+            this.turretThatShotMe.killCount++;
         }
         PlayerStats.Money += this.value;
         GameObject[] supportTowers = GameObject.FindGameObjectsWithTag("supportTower");

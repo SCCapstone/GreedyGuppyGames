@@ -10,6 +10,7 @@ public class UpgradeUI : MonoBehaviour
     public RectTransform transformUI;
     public Image turretImage;
     public Text killCount;
+
     private bool UIOpen = false;
 
     [Header("Upgrade Text")]
@@ -34,7 +35,9 @@ public class UpgradeUI : MonoBehaviour
         // if upgrade ui is open and we pause it closes the upgrade ui
         if (UIOpen && Input.GetKeyDown(KeyCode.Escape))
         {
-            ui.SetActive(false);
+            Hide();
+            this.nodeToUpgrade.GetComponent<MyNode>().ResetColor();
+            this.nodeToUpgrade.GetComponent<MyNode>().HideRangeIndicator();
         }
         if (nodeToUpgrade != null)
         {
@@ -43,6 +46,10 @@ public class UpgradeUI : MonoBehaviour
             if (this.nodeToUpgrade.turret.gameObject.CompareTag("Tower"))
             {
                 this.killCount.text = "Kills: " + this.nodeToUpgrade.turret.gameObject.GetComponent<Turret>().killCount.ToString();
+            }
+            else
+            {
+                this.killCount.text = "";
             }
 
 
