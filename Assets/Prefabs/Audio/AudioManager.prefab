@@ -88,8 +88,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: LaserTowerShot
-    audioClip: {fileID: 8300000, guid: d0a62505046723944ad81662ae508196, type: 3}
-    volume: 1
+    audioClip: {fileID: 8300000, guid: f7f2b958b23574551b561f7e871a8306, type: 3}
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
