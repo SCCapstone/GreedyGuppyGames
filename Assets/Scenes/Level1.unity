@@ -29639,6 +29639,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
         type: 3}
+      propertyPath: gameSFXSounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
       propertyPath: musicSlider
       value: 
       objectReference: {fileID: 1846353219}
@@ -29647,6 +29652,41 @@ PrefabInstance:
       propertyPath: sfxSlider
       value: 
       objectReference: {fileID: 783212940}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
+      propertyPath: gameSFXSounds.Array.data[5].name
+      value: LaserTowerShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
+      propertyPath: gameSFXSounds.Array.data[5].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f7f2b958b23574551b561f7e871a8306, type: 3}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
+      propertyPath: gameSFXSounds.Array.data[5].volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
+      propertyPath: gameSFXSounds.Array.data[5].pitch
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
+      propertyPath: gameSFXSounds.Array.data[3].volume
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
+      propertyPath: gameSFXSounds.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d410a07dc504a147822ac4a890c3519, type: 3}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
+      propertyPath: gameSFXSounds.Array.data[3].name
+      value: FlameTowerShot
+      objectReference: {fileID: 0}
     - target: {fileID: 7336903875735698375, guid: b1e26fbb641dbc14db5a85bd1c511e00,
         type: 3}
       propertyPath: m_LocalPosition.x
