@@ -10,6 +10,8 @@ TagManager:
   - Ammo
   - supportTower
   - Fire
+  - Ground
+  - Road
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Raycast
   - 
   - 
   - 
