@@ -1376,9 +1376,9 @@ RectTransform:
   - {fileID: 4039042182455835044}
   - {fileID: 4039042183600318786}
   - {fileID: 4039042183537854620}
+  - {fileID: 4039042182245751723}
   - {fileID: 4039042182233643418}
   - {fileID: 4039042183114975746}
-  - {fileID: 4039042182245751723}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2717,6 +2717,7 @@ GameObject:
   - component: {fileID: 4039042182233643417}
   - component: {fileID: 1725987706991373825}
   - component: {fileID: 15036855}
+  - component: {fileID: 1938452449729268263}
   m_Layer: 5
   m_Name: LaserTurret
   m_TagString: Untagged
@@ -2738,7 +2739,7 @@ RectTransform:
   - {fileID: 1725987706095029265}
   - {fileID: 1736872750}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2871,6 +2872,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hidePanel: {fileID: 1736872749}
+--- !u!114 &1938452449729268263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042182233643419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1736872749}
 --- !u!1 &4039042182245751722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2885,6 +2899,7 @@ GameObject:
   - component: {fileID: 4039042182245751720}
   - component: {fileID: 1725987706444112570}
   - component: {fileID: 1627084405}
+  - component: {fileID: 2561447057452441872}
   m_Layer: 5
   m_Name: FlameThrowerTurret
   m_TagString: Untagged
@@ -2906,7 +2921,7 @@ RectTransform:
   - {fileID: 1725987706838972231}
   - {fileID: 1471983432}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3039,6 +3054,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hidePanel: {fileID: 1471983431}
+--- !u!114 &2561447057452441872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042182245751722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1471983431}
 --- !u!1 &4039042182455835045
 GameObject:
   m_ObjectHideFlags: 0
@@ -3053,6 +3081,7 @@ GameObject:
   - component: {fileID: 4039042182455835047}
   - component: {fileID: 1725987707868779392}
   - component: {fileID: 1363981821}
+  - component: {fileID: 6076085595198346386}
   m_Layer: 5
   m_Name: CannonTurret
   m_TagString: Untagged
@@ -3207,6 +3236,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hidePanel: {fileID: 2085558117859641689}
+--- !u!114 &6076085595198346386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042182455835045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 2085558117859641689}
 --- !u!1 &4039042183114975747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,6 +3263,7 @@ GameObject:
   - component: {fileID: 4039042183114975745}
   - component: {fileID: 1725987707033425111}
   - component: {fileID: 1239086937}
+  - component: {fileID: 6008451223055077712}
   m_Layer: 5
   m_Name: SupportTurret
   m_TagString: Untagged
@@ -3242,7 +3285,7 @@ RectTransform:
   - {fileID: 1725987707643237350}
   - {fileID: 727496314}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3375,6 +3418,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hidePanel: {fileID: 727496313}
+--- !u!114 &6008451223055077712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042183114975747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 727496313}
 --- !u!1 &4039042183537854621
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,6 +3445,7 @@ GameObject:
   - component: {fileID: 4039042183537854623}
   - component: {fileID: 1725987705941773728}
   - component: {fileID: 1142590642}
+  - component: {fileID: 9218584229237237800}
   m_Layer: 5
   m_Name: ElectricTurret
   m_TagString: Untagged
@@ -3543,6 +3600,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hidePanel: {fileID: 1829174350}
+--- !u!114 &9218584229237237800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042183537854621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1829174350}
 --- !u!1 &4039042183600318787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3557,6 +3627,7 @@ GameObject:
   - component: {fileID: 4039042183600318785}
   - component: {fileID: 1725987707295724446}
   - component: {fileID: 2023696085}
+  - component: {fileID: 6695316912693428740}
   m_Layer: 5
   m_Name: MachineGunTurret
   m_TagString: Untagged
@@ -3699,6 +3770,19 @@ MonoBehaviour:
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
 --- !u!114 &2023696085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042183600318787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1027076938}
+--- !u!114 &6695316912693428740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
