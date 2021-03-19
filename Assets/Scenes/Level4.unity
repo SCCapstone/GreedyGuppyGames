@@ -1223,6 +1223,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 6508861434147864599}
+    - target: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+        type: 3}
+      propertyPath: sfxSlider
+      value: 
+      objectReference: {fileID: 6508861435215117528}
     - target: {fileID: 7336903875735698375, guid: b1e26fbb641dbc14db5a85bd1c511e00,
         type: 3}
       propertyPath: m_LocalPosition.x
