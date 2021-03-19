@@ -110,8 +110,7 @@ public class Enemy : MonoBehaviour, IEnemy
             return;
         }
         this.health -= amount;
-        if (bulletWhoShotMe != null)
-            bulletWhoShotMe.ReducePierce();
+        bulletWhoShotMe.ReducePierce();
         if (this.health <= 0 && !dead)
         {
             this.turretThatShotMe=bulletWhoShotMe.turretThatShotMe;
