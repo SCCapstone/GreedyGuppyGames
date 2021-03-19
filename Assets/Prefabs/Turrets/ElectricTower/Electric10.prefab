@@ -184,7 +184,7 @@ MonoBehaviour:
   electricTower: 1
   electricDoT: 0
   slow: 0
-  gunShotAudio: 
+  gunShotAudio: ElectricTowerShot
   enemyTag: Enemy
   partToRotate: {fileID: 4054439579727263451}
   turnSpeed: 10

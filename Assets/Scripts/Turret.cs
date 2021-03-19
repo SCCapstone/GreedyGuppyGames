@@ -139,16 +139,18 @@ public class Turret : MonoBehaviour
             this.partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
 
-
         if (this.target != null) {
             this.DrawParticleEffect();
         }
 
+        //Not electric tower
         if (this.fireCountdown <= 0f && !electricTower)
         {
             this.Shoot();
             this.fireCountdown = 1f / this.firerate;
         }
+
+        //Electric tower
         if (this.fireCountdown <= 0f && electricTower == true)
         {
             this.ShootVolley();
@@ -174,6 +176,7 @@ public class Turret : MonoBehaviour
         FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
     }
 
+    //Only for the Electric tower
     private void ShootVolley()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(this.enemyTag);
@@ -204,6 +207,7 @@ public class Turret : MonoBehaviour
                 }
             }
         }
+        FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
     }
     private void DrawParticleEffect()
     {
