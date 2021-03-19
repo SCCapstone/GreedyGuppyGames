@@ -78,11 +78,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Basic Tower
+  m_Text: 'Support Tower
 
 
-    A single shot, low damage, low pierce tower. The go
-    to cheap tower.'
+    A tower that can buff or reduce the cost of existing
+    and future towers.'
 --- !u!1 &360620377
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,11 +161,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Basic Tower
+  m_Text: 'FlameThrower Tower
 
 
-    A single shot, low damage, low pierce tower. The go
-    to cheap tower.'
+    A high damage, mid range tower that shoots fire
+    at enemies.'
 --- !u!1 &727496313
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,12 +178,12 @@ GameObject:
   - component: {fileID: 727496316}
   - component: {fileID: 727496315}
   m_Layer: 5
-  m_Name: BasicTowerDescriptionPanel
+  m_Name: SupportTowerDescriptionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &727496314
 RectTransform:
   m_ObjectHideFlags: 0
@@ -320,11 +320,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Basic Tower
+  m_Text: 'Machine Gun Tower
 
 
-    A single shot, low damage, low pierce tower. The go
-    to cheap tower.'
+    A high fire rate, low accuracy, low damage tower.'
 --- !u!1 &774818189
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,11 +402,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Basic Tower
+  m_Text: 'Laser Tower
 
 
-    A single shot, low damage, low pierce tower. The go
-    to cheap tower.'
+    A high damage, quick firing tower. that evaporates enemies
+    in its path.'
 --- !u!1 &1027076938
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,12 +419,12 @@ GameObject:
   - component: {fileID: 1027076941}
   - component: {fileID: 1027076940}
   m_Layer: 5
-  m_Name: BasicTowerDescriptionPanel
+  m_Name: MGTowerDescriptionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1027076939
 RectTransform:
   m_ObjectHideFlags: 0
@@ -496,12 +495,12 @@ GameObject:
   - component: {fileID: 1471983434}
   - component: {fileID: 1471983433}
   m_Layer: 5
-  m_Name: BasicTowerDescriptionPanel
+  m_Name: FlameThrowerTowerDescriptionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1471983432
 RectTransform:
   m_ObjectHideFlags: 0
@@ -638,11 +637,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Basic Tower
+  m_Text: 'Electric Tower
 
 
-    A single shot, low damage, low pierce tower. The go
-    to cheap tower.'
+    A tower that shoots bursts of electricity from itself.'
 --- !u!1 &1736872749
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,12 +653,12 @@ GameObject:
   - component: {fileID: 1736872752}
   - component: {fileID: 1736872751}
   m_Layer: 5
-  m_Name: BasicTowerDescriptionPanel
+  m_Name: LaserTowerDescriptionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1736872750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -731,12 +729,12 @@ GameObject:
   - component: {fileID: 1829174353}
   - component: {fileID: 1829174352}
   m_Layer: 5
-  m_Name: BasicTowerDescriptionPanel (1)
+  m_Name: ElectricTowerDescriptionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1829174351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1378,9 +1376,9 @@ RectTransform:
   - {fileID: 4039042182455835044}
   - {fileID: 4039042183600318786}
   - {fileID: 4039042183537854620}
-  - {fileID: 4039042182245751723}
   - {fileID: 4039042182233643418}
   - {fileID: 4039042183114975746}
+  - {fileID: 4039042182245751723}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1473,13 +1471,6 @@ MonoBehaviour:
   electricTowerButton: {fileID: 4039042183537854623}
   supportTowerButton: {fileID: 4039042183114975745}
   flameThrowerTowerButton: {fileID: 4039042182245751720}
-  basicTowerDescription: {fileID: 3843095186047854478}
-  cannonTowerDescription: {fileID: 0}
-  machineGunTowerDescription: {fileID: 0}
-  laserTowerDescription: {fileID: 0}
-  electricTowerDescription: {fileID: 0}
-  supportTowerDescription: {fileID: 0}
-  flameThrowerTowerDescription: {fileID: 0}
   basicTowerPrice: {fileID: 1725987705961892135}
   cannonTowerPrice: {fileID: 1725987706819437201}
   machineTowerPrice: {fileID: 1725987707293699933}
@@ -1503,12 +1494,12 @@ MonoBehaviour:
     prefabUpgrade30: {fileID: 2149617567416882211, guid: de751c0f902e2ac4ca051f139e4314e7,
       type: 3}
     cost: 100
-    upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
+    upgradeCost01: 100
+    upgradeCost02: 150
+    upgradeCost03: 150
     upgradeCost10: 50
     upgradeCost20: 50
-    upgradeCost30: 50
+    upgradeCost30: 100
     upgrade10Text: More Damage
     upgrade20Text: More Pierce
     upgrade30Text: Even More Pierce
@@ -2556,11 +2547,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Basic Tower
+  m_Text: 'Cannon Tower
 
 
-    A single shot, low damage, low pierce tower. The go
-    to cheap tower.'
+    A slow firing, cheap tower, that shoots explosive projectiles.'
 --- !u!1 &2085558117859641689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,12 +2563,12 @@ GameObject:
   - component: {fileID: 3490505685305523515}
   - component: {fileID: 4126430381342299701}
   m_Layer: 5
-  m_Name: BasicTowerDescriptionPanel
+  m_Name: CannonTowerDescriptionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5395906352528098689
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2726,6 +2716,7 @@ GameObject:
   - component: {fileID: 4039042182233643416}
   - component: {fileID: 4039042182233643417}
   - component: {fileID: 1725987706991373825}
+  - component: {fileID: 15036855}
   m_Layer: 5
   m_Name: LaserTurret
   m_TagString: Untagged
@@ -2747,7 +2738,7 @@ RectTransform:
   - {fileID: 1725987706095029265}
   - {fileID: 1736872750}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2867,6 +2858,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &15036855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042182233643419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1736872749}
 --- !u!1 &4039042182245751722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,6 +2884,7 @@ GameObject:
   - component: {fileID: 4039042182245751721}
   - component: {fileID: 4039042182245751720}
   - component: {fileID: 1725987706444112570}
+  - component: {fileID: 1627084405}
   m_Layer: 5
   m_Name: FlameThrowerTurret
   m_TagString: Untagged
@@ -2901,7 +2906,7 @@ RectTransform:
   - {fileID: 1725987706838972231}
   - {fileID: 1471983432}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3021,6 +3026,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1627084405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042182245751722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1471983431}
 --- !u!1 &4039042182455835045
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,6 +3052,7 @@ GameObject:
   - component: {fileID: 4039042182455835046}
   - component: {fileID: 4039042182455835047}
   - component: {fileID: 1725987707868779392}
+  - component: {fileID: 1363981821}
   m_Layer: 5
   m_Name: CannonTurret
   m_TagString: Untagged
@@ -3175,6 +3194,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1363981821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042182455835045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 2085558117859641689}
 --- !u!1 &4039042183114975747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3188,6 +3220,7 @@ GameObject:
   - component: {fileID: 4039042183114975744}
   - component: {fileID: 4039042183114975745}
   - component: {fileID: 1725987707033425111}
+  - component: {fileID: 1239086937}
   m_Layer: 5
   m_Name: SupportTurret
   m_TagString: Untagged
@@ -3209,7 +3242,7 @@ RectTransform:
   - {fileID: 1725987707643237350}
   - {fileID: 727496314}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3329,6 +3362,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1239086937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042183114975747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 727496313}
 --- !u!1 &4039042183537854621
 GameObject:
   m_ObjectHideFlags: 0
@@ -3342,6 +3388,7 @@ GameObject:
   - component: {fileID: 4039042183537854622}
   - component: {fileID: 4039042183537854623}
   - component: {fileID: 1725987705941773728}
+  - component: {fileID: 1142590642}
   m_Layer: 5
   m_Name: ElectricTurret
   m_TagString: Untagged
@@ -3483,6 +3530,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1142590642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042183537854621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1829174350}
 --- !u!1 &4039042183600318787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,6 +3556,7 @@ GameObject:
   - component: {fileID: 4039042183600318784}
   - component: {fileID: 4039042183600318785}
   - component: {fileID: 1725987707295724446}
+  - component: {fileID: 2023696085}
   m_Layer: 5
   m_Name: MachineGunTurret
   m_TagString: Untagged
@@ -3637,3 +3698,16 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2023696085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039042183600318787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810134b40afa53c42b342fa9fc6951c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidePanel: {fileID: 1027076938}
