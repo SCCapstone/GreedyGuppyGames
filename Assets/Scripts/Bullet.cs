@@ -20,11 +20,16 @@ public class Bullet : MonoBehaviour, IBullet
     public bool makeShrapnel = false;
     public bool tracking = false;
     public float sprayAmount = 0f;
-
+    
+    private Quaternion rotate;
     private Vector3 directionOfTravel;
 
 
     // Update is called once per frame
+    private void Start()
+    {
+        rotate = this.transform.rotation;
+    }
     private void Update()
     {
         this.CheckOutOfBounds();
@@ -41,6 +46,7 @@ public class Bullet : MonoBehaviour, IBullet
 
         this.transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         this.transform.LookAt(this.directionOfTravel);
+        this.transform.rotation = rotate;
     }
         public void Track()
     {
