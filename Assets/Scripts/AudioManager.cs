@@ -113,7 +113,8 @@ public class AudioManager : MonoBehaviour
         if (s != null)
         {
             //if found plays the audio
-            s.source.Play();
+            s.source.PlayOneShot(s.audioClip,1f);
+            //s.source.Play();
             return;
         }
         else 
