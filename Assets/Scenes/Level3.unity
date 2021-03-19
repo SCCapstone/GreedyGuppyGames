@@ -9452,6 +9452,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1e26fbb641dbc14db5a85bd1c511e00, type: 3}
+--- !u!114 &772510271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7336903875735698374, guid: b1e26fbb641dbc14db5a85bd1c511e00,
+    type: 3}
+  m_PrefabInstance: {fileID: 772510270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e03d35d5b25d1f48a98df14343b8e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &777249619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22608,7 +22620,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 772510271}
         m_TargetAssemblyTypeName: AudioManager, Scripts
         m_MethodName: SetMusicVolume
         m_Mode: 0
@@ -23846,7 +23858,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 772510271}
         m_TargetAssemblyTypeName: AudioManager, Scripts
         m_MethodName: SetSFXVolume
         m_Mode: 0
