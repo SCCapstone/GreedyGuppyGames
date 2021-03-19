@@ -2798,9 +2798,9 @@ GameObject:
   - component: {fileID: 246218344}
   - component: {fileID: 246218343}
   - component: {fileID: 246218342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7440,9 +7440,9 @@ GameObject:
   - component: {fileID: 542041961}
   - component: {fileID: 542041960}
   - component: {fileID: 542041959}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11518,9 +11518,9 @@ GameObject:
   - component: {fileID: 812003824}
   - component: {fileID: 812003823}
   - component: {fileID: 812003822}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12922,9 +12922,9 @@ GameObject:
   - component: {fileID: 955891740}
   - component: {fileID: 955891739}
   - component: {fileID: 955891738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13017,9 +13017,9 @@ GameObject:
   - component: {fileID: 957355177}
   - component: {fileID: 957355176}
   - component: {fileID: 957355175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13112,9 +13112,9 @@ GameObject:
   - component: {fileID: 962559221}
   - component: {fileID: 962559220}
   - component: {fileID: 962559219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16033,9 +16033,9 @@ GameObject:
   - component: {fileID: 1162789087}
   - component: {fileID: 1162789086}
   - component: {fileID: 1162789085}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (12)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17005,9 +17005,9 @@ GameObject:
   - component: {fileID: 1217082552}
   - component: {fileID: 1217082551}
   - component: {fileID: 1217082550}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (10)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19073,9 +19073,9 @@ GameObject:
   - component: {fileID: 1356230609}
   - component: {fileID: 1356230608}
   - component: {fileID: 1356230607}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21156,9 +21156,9 @@ GameObject:
   - component: {fileID: 1493345168}
   - component: {fileID: 1493345167}
   - component: {fileID: 1493345166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23745,9 +23745,9 @@ GameObject:
   - component: {fileID: 1657226634}
   - component: {fileID: 1657226633}
   - component: {fileID: 1657226632}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24090,9 +24090,9 @@ GameObject:
   - component: {fileID: 1687922265}
   - component: {fileID: 1687922264}
   - component: {fileID: 1687922263}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28935,9 +28935,9 @@ GameObject:
   - component: {fileID: 2100853608}
   - component: {fileID: 2100853607}
   - component: {fileID: 2100853606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29676,9 +29676,9 @@ GameObject:
   - component: {fileID: 5581264043223493802}
   - component: {fileID: 7615287249770946525}
   - component: {fileID: 8641016748589586012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundPlane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
