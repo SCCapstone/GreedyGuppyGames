@@ -59,14 +59,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  waypoints: {fileID: 0}
   bulletWhoShotMe: {fileID: 0}
   speed: 7
-  health: 200
+  health: 300
   damageToBaseValue: 1
   value: 5
   turretValueBuff: 1.25
+  turretThatShotMe: {fileID: 0}
+  electricTowerAffectingMe: {fileID: 0}
   deathEffect: {fileID: 6381280154635751659, guid: f5d27d2ee4f46ad46928fd5852816bed,
     type: 3}
+  originalSpeed: 0
+  electricDoT: 0
+  DoTRunning: 0
+  slow: 0
+  permaSlow: 0
+  alreadySlowed: 0
+  DoTDamage: 0
+  DoTTime: 0
+  speedDebuff: 0
+  distanceLeft: 0
 --- !u!1001 &4137066518160318869
 PrefabInstance:
   m_ObjectHideFlags: 0

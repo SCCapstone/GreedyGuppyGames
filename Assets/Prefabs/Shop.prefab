@@ -1497,9 +1497,9 @@ MonoBehaviour:
     upgradeCost01: 100
     upgradeCost02: 150
     upgradeCost03: 150
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 100
+    upgradeCost10: 125
+    upgradeCost20: 150
+    upgradeCost30: 150
     upgrade10Text: More Damage
     upgrade20Text: More Pierce
     upgrade30Text: Even More Pierce
@@ -1523,12 +1523,12 @@ MonoBehaviour:
     prefabUpgrade30: {fileID: 6405735178075819066, guid: f1a90a9458f4f6a4fae6b9df4174726a,
       type: 3}
     cost: 150
-    upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    upgradeCost01: 75
+    upgradeCost02: 125
+    upgradeCost03: 200
+    upgradeCost10: 75
+    upgradeCost20: 125
+    upgradeCost30: 200
     upgrade10Text: Bigger Bombs
     upgrade20Text: More Damage
     upgrade30Text: Frag Bomb
@@ -1609,13 +1609,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 4053436145358553499, guid: d1072a25763709a409ed89d283d07d0f,
       type: 3}
-    cost: 150
-    upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    cost: 300
+    upgradeCost01: 100
+    upgradeCost02: 150
+    upgradeCost03: 200
+    upgradeCost10: 100
+    upgradeCost20: 150
+    upgradeCost30: 200
     upgrade10Text: More Damage
     upgrade20Text: DoT Damage
     upgrade30Text: Even More Damage
