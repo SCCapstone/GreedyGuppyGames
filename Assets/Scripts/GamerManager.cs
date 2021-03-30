@@ -3,17 +3,20 @@
 // </copyright>
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamerManager : MonoBehaviour
 {
     public bool gameEnded;
     public bool gameWon;
+    
 
     private BuildManager buildManager;
     public GameObject gameOverUI;
     public PauseMenu pauseMenuUI;
     public UpgradeUI upgradeUI;
     public GameObject gameWonUI;
+    private Scene activeScene;
 
     private void Start()
     {
@@ -23,6 +26,7 @@ public class GamerManager : MonoBehaviour
         this.gameOverUI.SetActive(false);
         this.gameWonUI.SetActive(false);
         Time.timeScale = 1f;
+        activeScene = SceneManager.GetActiveScene();
     }
 
     // Update is called once per frame
@@ -72,5 +76,21 @@ public class GamerManager : MonoBehaviour
     {
         this.gameWon = true;
         this.gameWonUI.SetActive(true);
+
+        //comparing the name of the active scene
+        string name = activeScene.name;
+        if(name == "Level1")
+        {
+            PlayerStats.CompleteLevel(1);
+        }
+        else if(name == "Level2")
+        {
+            PlayerStats.CompleteLevel(2);
+        }
+        // Our naming convention is weird, renaming scenes leads to huge merge conflicts
+        else if(name == "Level4")
+        {
+            PlayerStats.CompleteLevel(3);
+        }
     }
 }

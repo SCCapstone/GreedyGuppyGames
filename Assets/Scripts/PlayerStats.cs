@@ -14,10 +14,57 @@ public class PlayerStats : MonoBehaviour
 
     public static int Rounds;
 
+    //Bools for help keeping track of which levels the player has won
+    public bool levelOne, levelTwo, levelThree;
+    public static bool completeLevelOne, completeLevelTwo, completeLevelThree = false;
+
     private void Start()
     {
         Money = this.startMoney;
         Lives = this.startLives;
         Rounds = 0;
+
+        if(Save.LoadPlayerData() != null){
+            LoadPlayerData();
+        }
+        else
+        {
+            Debug.Log("No save data found");
+            levelOne = levelTwo = levelThree = false;
+        }
+
+        //Testing
+        Debug.Log("Level one complete: " +levelOne);
+        Debug.Log("Level two complete: " +levelTwo);
+        Debug.Log("Level three complete: " +levelThree);
+    }
+    
+    //Saves data when player wins a level
+    public static void CompleteLevel(int level)
+    {
+        switch(level)
+        {
+            case 1:
+                completeLevelOne = true;
+                break;
+            case 2:
+                completeLevelTwo = true;
+                break;
+            case 3:
+                completeLevelThree = true;
+                break;
+        }
+        Save.SavePlayerData(completeLevelOne, completeLevelTwo, completeLevelThree);
+        Debug.Log("Saving player data...");
+    }
+
+    //Loads player data
+    public void LoadPlayerData()
+    {
+        SaveData saveData = Save.LoadPlayerData();
+        levelOne = saveData.level1;
+        levelTwo = saveData.level2;
+        levelThree = saveData.level3;
+        Debug.Log("Loading player data...");
     }
 }
