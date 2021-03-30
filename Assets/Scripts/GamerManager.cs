@@ -72,6 +72,7 @@ public class GamerManager : MonoBehaviour
         // Turns on the game over UI when game is over
         this.gameOverUI.SetActive(true);
     }
+    
     public void WinGame()
     {
         this.gameWon = true;
