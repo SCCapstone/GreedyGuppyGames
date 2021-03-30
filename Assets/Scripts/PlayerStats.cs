@@ -29,7 +29,6 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
-            Debug.Log("No save data found");
             levelOne = levelTwo = levelThree = false;
         }
 
@@ -38,7 +37,7 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Level two complete: " +levelTwo);
         Debug.Log("Level three complete: " +levelThree);
     }
-    
+
     //Saves data when player wins a level
     public static void CompleteLevel(int level)
     {
@@ -66,5 +65,11 @@ public class PlayerStats : MonoBehaviour
         levelTwo = saveData.level2;
         levelThree = saveData.level3;
         Debug.Log("Loading player data...");
+    }
+
+    public void Delete()
+    {
+        Debug.Log("Deleting save data...");
+        Save.Delete();
     }
 }

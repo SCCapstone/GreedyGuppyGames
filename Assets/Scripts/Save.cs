@@ -40,8 +40,24 @@ public static class Save
         //No save file exists
         else
         {
-            Debug.LogError("Save file not found in "+ savePath);
+            Debug.LogError("Save file not found in " + savePath);
             return null;
+        }
+    }
+
+    public static void Delete()
+    {   
+        //Path where save file is located
+        string savePath = Application.persistentDataPath + "/player";
+        try
+        {   
+            //Attempts to delete save file
+            File.Delete(savePath);
+        }
+        catch
+        {   
+            //Logs error if failed
+            Debug.LogError("Save file not found in " + savePath);
         }
     }
 }
