@@ -1,5 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+// <copyright file="PauseMenu.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 using UnityEngine;
 using UnityEngine.UI;
 

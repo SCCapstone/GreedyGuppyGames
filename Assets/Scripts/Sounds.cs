@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿// <copyright file="Sounds.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using UnityEngine;
 using UnityEngine.Audio;
 
 //Allows other scripts to reference it

@@ -1,6 +1,7 @@
 ﻿// <copyright file="Shop.cs" company="GreedyGuppyGames">
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
+
 using UnityEngine;
 using UnityEngine.UI;
 

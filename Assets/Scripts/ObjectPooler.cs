@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿// <copyright file="ObjectPooler.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 using System.Collections.Generic;
 using UnityEngine;
 
