@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class Save
 {
+    //Saves player data
     public static void SavePlayerData(bool one, bool two, bool three)
     {   
         // formatter here turns our save data into a binary file
@@ -23,6 +24,7 @@ public static class Save
         fileStream.Close();
     }
 
+    //Loads player data
     public static SaveData LoadPlayerData()
     {
         //Where the save data was be saved on the machine (if it exists)
@@ -45,7 +47,8 @@ public static class Save
         }
     }
 
-    public static void Delete()
+    //Deletes player data
+    public static void DeletePlayerData()
     {   
         //Path where save file is located
         string savePath = Application.persistentDataPath + "/player";

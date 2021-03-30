@@ -67,9 +67,10 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Loading player data...");
     }
 
+    //Deletes player data
     public void Delete()
     {
         Debug.Log("Deleting save data...");
-        Save.Delete();
+        Save.DeletePlayerData();
     }
 }
