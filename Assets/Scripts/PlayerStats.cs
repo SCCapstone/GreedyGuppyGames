@@ -13,10 +13,13 @@ public class PlayerStats : MonoBehaviour
     public int startLives = 20;
 
     public static int Rounds;
-
+    //Locally used
     //Bools for help keeping track of which levels the player has won
     public bool levelOne, levelTwo, levelThree;
     public static bool completeLevelOne, completeLevelTwo, completeLevelThree = false;
+
+    //Global variables
+    public static bool globalLevel1, globalLevel2, globalLevel3;
 
     private void Start()
     {
@@ -30,12 +33,13 @@ public class PlayerStats : MonoBehaviour
         else
         {
             levelOne = levelTwo = levelThree = false;
+            globalLevel1 = globalLevel2 = globalLevel3 = false;
         }
 
         //Testing
-        Debug.Log("Level one complete: " +levelOne);
-        Debug.Log("Level two complete: " +levelTwo);
-        Debug.Log("Level three complete: " +levelThree);
+        // Debug.Log("Level one complete: " +levelOne);
+        // Debug.Log("Level two complete: " +levelTwo);
+        // Debug.Log("Level three complete: " +levelThree);
     }
 
     //Saves data when player wins a level
@@ -61,9 +65,9 @@ public class PlayerStats : MonoBehaviour
     public void LoadPlayerData()
     {
         SaveData saveData = Save.LoadPlayerData();
-        levelOne = saveData.level1;
-        levelTwo = saveData.level2;
-        levelThree = saveData.level3;
+        levelOne = globalLevel1 = saveData.level1;
+        levelTwo = globalLevel2 = saveData.level2;
+        levelThree = globalLevel3 = saveData.level3;
         Debug.Log("Loading player data...");
     }
 
@@ -71,6 +75,18 @@ public class PlayerStats : MonoBehaviour
     public void Delete()
     {
         Debug.Log("Deleting save data...");
+        //Deletes save
         Save.DeletePlayerData();
+        //Resets varaibles that are not updated when save is deleted
+        Reset();
+    }
+
+    //Resets variables to defaults
+    public void Reset()
+    {
+        Debug.Log("Resetting data...");
+        levelOne = completeLevelOne = globalLevel1 = false;
+        levelTwo = completeLevelTwo = globalLevel2 = false;
+        levelThree = completeLevelThree = globalLevel3 = false;
     }
 }
