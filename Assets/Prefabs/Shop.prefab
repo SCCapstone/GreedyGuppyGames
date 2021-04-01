@@ -1373,11 +1373,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1725987706777201778}
-  - {fileID: 4039042182455835044}
   - {fileID: 4039042183600318786}
+  - {fileID: 4039042182455835044}
+  - {fileID: 4039042182233643418}
   - {fileID: 4039042183537854620}
   - {fileID: 4039042182245751723}
-  - {fileID: 4039042182233643418}
   - {fileID: 4039042183114975746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1494,10 +1494,10 @@ MonoBehaviour:
     prefabUpgrade30: {fileID: 2149617567416882211, guid: de751c0f902e2ac4ca051f139e4314e7,
       type: 3}
     cost: 100
-    upgradeCost01: 100
-    upgradeCost02: 150
+    upgradeCost01: 50
+    upgradeCost02: 125
     upgradeCost03: 150
-    upgradeCost10: 125
+    upgradeCost10: 100
     upgradeCost20: 150
     upgradeCost30: 150
     upgrade10Text: More Damage
@@ -1551,13 +1551,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 6696892587271786379, guid: 5773d4ef6a6a0d84fbdc859e97494b87,
       type: 3}
-    cost: 150
-    upgradeCost01: 50
+    cost: 125
+    upgradeCost01: 25
     upgradeCost02: 50
-    upgradeCost03: 50
-    upgradeCost10: 50
+    upgradeCost03: 100
+    upgradeCost10: 25
     upgradeCost20: 50
-    upgradeCost30: 50
+    upgradeCost30: 100
     upgrade10Text: 2x Fire Rate
     upgrade20Text: Better Aim
     upgrade30Text: More Damage
@@ -1580,13 +1580,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 3425407377294115104, guid: d05e9cf41f0be9f44a767c57781fe5cc,
       type: 3}
-    cost: 200
+    cost: 250
     upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
+    upgradeCost02: 100
+    upgradeCost03: 150
     upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    upgradeCost20: 100
+    upgradeCost30: 150
     upgrade10Text: More Damage
     upgrade20Text: Pierce
     upgrade30Text: Even More Pierce
@@ -1640,11 +1640,11 @@ MonoBehaviour:
       type: 3}
     cost: 300
     upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
+    upgradeCost02: 75
+    upgradeCost03: 100
     upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    upgradeCost20: 75
+    upgradeCost30: 100
     upgrade10Text: Bigger Range
     upgrade20Text: Cheaper Towers in Range
     upgrade30Text: Make more money
@@ -1669,11 +1669,11 @@ MonoBehaviour:
       type: 3}
     cost: 300
     upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
+    upgradeCost02: 100
+    upgradeCost03: 150
     upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    upgradeCost20: 100
+    upgradeCost30: 150
     upgrade10Text: More Damage
     upgrade20Text: Even More Damage
     upgrade30Text: Hyper Potent Flames
@@ -2739,7 +2739,7 @@ RectTransform:
   - {fileID: 1725987706095029265}
   - {fileID: 1736872750}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2921,7 +2921,7 @@ RectTransform:
   - {fileID: 1725987706838972231}
   - {fileID: 1471983432}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3103,7 +3103,7 @@ RectTransform:
   - {fileID: 1725987706629700447}
   - {fileID: 5395906352528098689}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3467,7 +3467,7 @@ RectTransform:
   - {fileID: 1725987706572716351}
   - {fileID: 1829174351}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3649,7 +3649,7 @@ RectTransform:
   - {fileID: 1725987707878905502}
   - {fileID: 1027076939}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
