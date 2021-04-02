@@ -7,7 +7,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SupportTurret : Turret
 { 
-    public float fireRateMultiplier = 2f;
+    public float fireRateMultiplier = 1.25f;
+    public float rangeMultiplier = 1.25f;
     [HideInInspector]
     public string towerTag = "Tower";
     public bool leftTier1 = false;
@@ -33,20 +34,16 @@ public class SupportTurret : Turret
             if (distanceToTower <= this.range) 
             {
                 Turret turret = tower.GetComponent<Turret>();
-                if (leftTier1 == true) 
-                {
-                    this.range = this.range * 1.25f;
-                }
                 //Cheaper towers handled in MyNode
                 //Enemies giving more money is handled in the enemies script
                 if (rightTier1 == true && turret.buffedRange == false) 
                 {
-                    turret.range = turret.originalRange * 1.25f;
+                    turret.range = turret.originalRange * rangeMultiplier;
                     turret.buffedRange = true;
                 }
                 if (rightTier2 == true && turret.buffedFireRate == false) 
                 {
-                    turret.firerate = turret.originalFireRate * 1.25f;
+                    turret.firerate = turret.originalFireRate * fireRateMultiplier;
                     turret.buffedFireRate = true;
                 }
 

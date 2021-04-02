@@ -244,12 +244,13 @@ MonoBehaviour:
   fireEffect: {fileID: 0}
   fireEffectList: []
   fireEffectLifespan: 0.5
-  fireRateMultiplier: 2
+  fireRateMultiplier: 1.25
+  rangeMultiplier: 1.25
   towerTag: Tower
   leftTier1: 0
   leftTier2: 0
   leftTier3: 0
-  rightTier1: 0
+  rightTier1: 1
   rightTier2: 0
   rightTier3: 0
 --- !u!1 &8055703283684610788
