@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombpowerup: {fileID: 851602599175535197, guid: c2c4116e1b1afb945a7709357dd3c1c1,
     type: 3}
-  spikepowerup: {fileID: 8652352319967343897, guid: 7a4d16513541ba7409c698a0dde81cbf,
+  spikepowerup: {fileID: 3944479455619676394, guid: c0a66ca6e97514f4ca4aaeadcdcadaf3,
     type: 3}
