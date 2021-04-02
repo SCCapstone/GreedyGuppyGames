@@ -1553,11 +1553,11 @@ MonoBehaviour:
       type: 3}
     cost: 125
     upgradeCost01: 75
-    upgradeCost02: 100
-    upgradeCost03: 200
+    upgradeCost02: 200
+    upgradeCost03: 500
     upgradeCost10: 50
-    upgradeCost20: 100
-    upgradeCost30: 150
+    upgradeCost20: 200
+    upgradeCost30: 350
     upgrade10Text: 2x Fire Rate
     upgrade20Text: Better Aim
     upgrade30Text: More Damage
