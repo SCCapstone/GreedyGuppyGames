@@ -1494,7 +1494,7 @@ MonoBehaviour:
     prefabUpgrade30: {fileID: 2149617567416882211, guid: de751c0f902e2ac4ca051f139e4314e7,
       type: 3}
     cost: 150
-    upgradeCost01: 100
+    upgradeCost01: 150
     upgradeCost02: 250
     upgradeCost03: 350
     upgradeCost10: 150
@@ -1580,7 +1580,7 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 3425407377294115104, guid: d05e9cf41f0be9f44a767c57781fe5cc,
       type: 3}
-    cost: 300
+    cost: 350
     upgradeCost01: 250
     upgradeCost02: 375
     upgradeCost03: 450
