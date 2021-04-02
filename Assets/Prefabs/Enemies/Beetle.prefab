@@ -64,7 +64,7 @@ MonoBehaviour:
   speed: 7
   health: 300
   damageToBaseValue: 1
-  value: 5
+  value: 25
   turretValueBuff: 1.25
   turretThatShotMe: {fileID: 0}
   electricTowerAffectingMe: {fileID: 0}
