@@ -1,7 +1,5 @@
-﻿// <copyright file="PowerupManager".cs" company="GreedyGuppyGames">
-// Copyright (c) GreedyGuppyGames. All rights reserved.
-// </copyright>
-
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerupManager : MonoBehaviour
