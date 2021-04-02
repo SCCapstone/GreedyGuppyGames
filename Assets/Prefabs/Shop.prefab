@@ -1552,12 +1552,12 @@ MonoBehaviour:
     prefabUpgrade30: {fileID: 6696892587271786379, guid: 5773d4ef6a6a0d84fbdc859e97494b87,
       type: 3}
     cost: 125
-    upgradeCost01: 25
-    upgradeCost02: 50
-    upgradeCost03: 100
-    upgradeCost10: 25
-    upgradeCost20: 50
-    upgradeCost30: 100
+    upgradeCost01: 75
+    upgradeCost02: 100
+    upgradeCost03: 200
+    upgradeCost10: 50
+    upgradeCost20: 100
+    upgradeCost30: 150
     upgrade10Text: 2x Fire Rate
     upgrade20Text: Better Aim
     upgrade30Text: More Damage
