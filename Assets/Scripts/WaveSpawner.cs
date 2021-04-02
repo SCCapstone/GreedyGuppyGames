@@ -26,16 +26,16 @@ public class WaveSpawner : MonoBehaviour
     private int waveSpawnerToUse = 0;
 
     //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:beetle, 3:drone, 4:mama, 5:carrier)
-    private int[,] spawnerIndex = { 
-                                    {1,1,0,1,0,0},
-                                    {5,1,1,1,0,0},
-                                    {7,2,1,1,0,0},
-                                    {7,1,2,2,0,0},
-                                    {9,2,1,1,1,0},
+    private int[,] spawnerIndex = {//G,S,B,D,M,C
+                                    {1,0,0,1,0,0},
+                                    {5,0,0,1,0,0},
+                                    {5,1,0,2,0,0},
+                                    {7,1,0,2,0,0},
+                                    {9,2,1,1,0,0},
                                     {10,3,2,2,0,0},
-                                    {10,5,3,3,1,1},
-                                    {15,7,3,5,1,1},
-                                    {20,10,4,5,3,1},
+                                    {10,5,3,3,1,0},
+                                    {15,7,3,5,1,0},
+                                    {20,10,4,5,3,0},
                                     {15,10,4,5,5,1},
                                     {10,5,3,1,1,2},
                                     {15,10,4,3,2,3},

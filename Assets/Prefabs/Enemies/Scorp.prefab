@@ -48,7 +48,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   waypoints: {fileID: 0}
   bulletWhoShotMe: {fileID: 0}
-  speed: 12
+  speed: 10
   health: 150
   damageToBaseValue: 1
   value: 10
