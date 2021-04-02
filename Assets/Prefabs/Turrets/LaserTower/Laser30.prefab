@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killCount: 0
   range: 15
-  firerate: 20
+  firerate: 15
   originalFireRate: 0
   originalRange: 0
   bulletPierce: 1
@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3443895640732336739}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.7, z: 2.203}
+  m_LocalPosition: {x: 0, y: 1.7, z: 1.498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7970440076161120649}
