@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
+// A central location for settings up and housing the info about a tower
 public class TurretBlueprint
 {
     [Header("Turret Prefabs")]

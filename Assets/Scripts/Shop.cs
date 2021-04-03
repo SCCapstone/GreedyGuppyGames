@@ -5,6 +5,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// Handles shop functionality
 public class Shop : MonoBehaviour
 {
     public static double sellPercent;
@@ -118,7 +119,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-
+    // Next several methods are for selecting differnt types of turrets
     public void SelectBasicTurret()
     {
         // Debug.Log("Standard Turret Selected");

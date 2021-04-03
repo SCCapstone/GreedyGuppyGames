@@ -4,6 +4,7 @@
 
 using UnityEngine;
 
+// An array that holds all the waypoints that enemies use to navigate
 public class Waypoints : MonoBehaviour
 {
     public Transform[] points;

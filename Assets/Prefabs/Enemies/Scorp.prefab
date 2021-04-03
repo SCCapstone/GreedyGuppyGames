@@ -48,11 +48,13 @@ MonoBehaviour:
   anim: {fileID: 0}
   waypoints: {fileID: 0}
   bulletWhoShotMe: {fileID: 0}
-  speed: 12
-  health: 75
+  speed: 10
+  health: 150
   damageToBaseValue: 1
-  value: 5
+  value: 10
   turretValueBuff: 1.25
+  turretThatShotMe: {fileID: 0}
+  electricTowerAffectingMe: {fileID: 0}
   deathEffect: {fileID: 6381280154635751659, guid: f5d27d2ee4f46ad46928fd5852816bed,
     type: 3}
   originalSpeed: 0

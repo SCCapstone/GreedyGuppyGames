@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Controls what waves consist of
 public class WaveSpawner : MonoBehaviour
 {
     public static bool gameWon = false;
@@ -25,22 +26,22 @@ public class WaveSpawner : MonoBehaviour
     private bool spawning = false;
     private int waveSpawnerToUse = 0;
 
-    //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:drone, 3:beetle, 4:mama, 5:carrier)
-    private int[,] spawnerIndex = { 
-                                    {1,1,1,0,0,0},
-                                    {5,1,1,1,0,0},
-                                    {7,2,1,1,0,0},
-                                    {7,1,2,2,0,0},
-                                    {9,2,1,1,1,0},
+    //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:beetle, 3:drone, 4:mama, 5:carrier)
+    private int[,] spawnerIndex = {//G,S,B,D,M,C
+                                    {1,0,0,1,0,0},
+                                    {5,0,0,1,0,0},
+                                    {5,1,0,2,0,0},
+                                    {7,1,0,2,0,0},
+                                    {9,2,1,1,0,0},
                                     {10,3,2,2,0,0},
-                                    {10,5,3,3,1,1},
-                                    {15,7,5,3,1,1},
-                                    {20,10,5,4,3,1},
-                                    {15,10,5,4,5,1},
-                                    {10,5,1,3,1,2},
-                                    {15,10,3,4,2,3},
-                                    {20,15,5,6,3,2},
-                                    {15,10,7,10,3,3},
+                                    {10,5,3,3,1,0},
+                                    {15,7,3,5,1,0},
+                                    {20,10,4,5,3,0},
+                                    {15,10,4,5,5,1},
+                                    {10,5,3,1,1,2},
+                                    {15,10,4,3,2,3},
+                                    {20,15,6,5,3,2},
+                                    {15,10,10,7,3,3},
                                     {15,10,10,10,10,5} 
                                     };
     
@@ -62,6 +63,7 @@ public class WaveSpawner : MonoBehaviour
     // private bool allSpawned, grubSpawned, scorpSpawned, droneSpawned, mamaSpawned, carrierSpawned = false;
     // private int totalSpawned = 0;
 
+    // Runs before first frame, starts the rounds from the start
     private void Start()
     {
         // Locates START(green block) in the scene
@@ -76,6 +78,8 @@ public class WaveSpawner : MonoBehaviour
         gameWon = false;
 
     }
+
+    // Constantly checks if the game is done
     private void Update()
     {
         
@@ -103,6 +107,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    // Logic for sending each wave out of the spawn room
     private IEnumerator SpawnWave(int index)
     {
         //Extracts the amount of the coresponding enemy to spawn
@@ -142,28 +147,28 @@ public class WaveSpawner : MonoBehaviour
                         }
                         //scorpSpawned = true;
                         break;
-                    case 2: //drone
+                    case 2: //beetle
                         for (int k = 0; k < amountSpanwed; ++k)
                         {
                             waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
                             //Debug.Log(waveSpawnerToUse);
                             //++drone;
-                            //Debug.Log(amountSpanwed+ " Drones Spawning");
-                            SpawnEnemy(dronePrefab);
-                            yield return new WaitForSeconds(1f);
-                        }
-                        //droneSpawned = true;
-                        break;
-                    case 3: //beetle
-                        for (int k = 0; k < amountSpanwed; ++k)
-                        {
-                            waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
-                            //Debug.Log(waveSpawnerToUse);
                             //Debug.Log(amountSpanwed+ " Beetle Spawning");
                             SpawnEnemy(beetlePrefab);
                             yield return new WaitForSeconds(1f);
                         }
-                            //carrierSpawned = true;
+                            //beelteSpawned = true;
+                        break;
+                    case 3: //drone
+                        for (int k = 0; k < amountSpanwed; ++k)
+                        {
+                            waveSpawnerToUse = (waveSpawnerToUse + 1) % waypoints.Length;
+                            //Debug.Log(waveSpawnerToUse);
+                            //Debug.Log(amountSpanwed+ " Drones Spawning");
+                            SpawnEnemy(dronePrefab);
+                            yield return new WaitForSeconds(1f);
+                        }
+                            //droneSpawned = true;
                         break;   
                     case 4: //mama
                         for (int k = 0; k < amountSpanwed; ++k)
@@ -207,11 +212,13 @@ public class WaveSpawner : MonoBehaviour
             //++PlayerStats.Rounds;
         }
 
+    // Logic for spawning each individual enemy within a wave
     public void SpawnEnemy(Transform enemy)
     {
         enemy.GetComponent<Enemy>().waypoints = waypoints[waveSpawnerToUse];
         Instantiate(enemy, spawnPoint[waveSpawnerToUse].position, spawnPoint[waveSpawnerToUse].rotation);
     }
+    
     // returns true if no enemies in scene
     public bool checkForEnemies()
     {

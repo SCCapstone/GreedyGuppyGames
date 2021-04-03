@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// The logic for the mama enemy, spawns grubs when dies
 public class Mama : Enemy
 {
     public Enemy bugToSpawn;
@@ -15,13 +16,15 @@ public class Mama : Enemy
     {
         base.Start();
     }
+
+    // Spawn her babies then die
     public override void Die()
     {
         SpawnGrub();
         base.Die();
-        
-
     }
+
+    // Spawns a certain amount of grubs, decided by numberToSpawn
     public void SpawnGrub()
     {
         for (int i = 0; i < numberToSpawn; i++)
@@ -36,9 +39,10 @@ public class Mama : Enemy
         }
     }
 
+    // What happens when the mama hits the end
     public override void EndPath()
     {
-        PlayerStats.Lives -= 30;
+        //PlayerStats.Lives -= 30;
         Destroy(this.gameObject);
     }
 

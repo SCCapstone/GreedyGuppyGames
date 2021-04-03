@@ -2,6 +2,8 @@
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
 
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Powerupbomb : Powerupbase

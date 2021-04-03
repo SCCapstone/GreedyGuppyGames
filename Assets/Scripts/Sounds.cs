@@ -8,6 +8,7 @@ using UnityEngine.Audio;
 //Allows other scripts to reference it
 [System.Serializable]
 
+// Attributes for every sound in the game
 public class Sounds
 {
     [Header("Attributes")]

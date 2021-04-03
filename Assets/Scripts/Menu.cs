@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// Renders all the menu components
 public class Menu : MenuFunctions
 {
 
@@ -25,14 +26,15 @@ public class Menu : MenuFunctions
         Level3Panel.SetActive(false);
         ErasePanel.SetActive(false);
     }
-
+    
+    // Shows the Main menu panel
     void Update()
     {
         UpdateLevels();
         UpdateButtons();
     }
 
-    //Updates the bools keeping track of which levels 
+    // Updates the bools keeping track of which levels 
     void UpdateLevels()
     {
         level1 = PlayerStats.globalLevel1;
@@ -40,11 +42,11 @@ public class Menu : MenuFunctions
         level3 = PlayerStats.globalLevel3;
     }
 
-    //Updates the locked/unlocked levels on level select
+    // Updates the locked/unlocked levels on level select
     void UpdateButtons()
     {   
-        //Player has not beaten level 1
-        //Levels 2 and 3 are locked
+        // Player has not beaten level 1
+        // Levels 2 and 3 are locked
         if(level1 == false)
         {
             level1Button.interactable = true;
@@ -52,16 +54,16 @@ public class Menu : MenuFunctions
             level3Button.interactable = false;
             
         }
-        //Player has beaten level 1
-        //Level 3 is locked
+        // Player has beaten level 1
+        // Level 3 is locked
         else if(level1 == true && level2 == false)
         {
             level1Button.interactable = true;
             level2Button.interactable = true;
             level3Button.interactable = false;
         }
-        //Player has beaten level 1 and 2
-        //All levels are now unlocked
+        // Player has beaten level 1 and 2
+        // All levels are now unlocked
         else if(level1 == true && level2 == true)
         {
             level1Button.interactable = true;
@@ -70,7 +72,7 @@ public class Menu : MenuFunctions
         }
     }
 
-    //Shows the Main menu panel
+    // Shows the Main menu panel
     public void ShowMainPanel()
     {
         MainPanel.SetActive(true);
@@ -83,7 +85,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     } 
 
-    //Shows the Settings panel
+    // Shows the Settings panel
     public void ShowSettingsPanel()
     {
         MainPanel.SetActive(false);
@@ -96,7 +98,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows the Achievements panel
+    // Shows the Achievements panel
     public void ShowAchievementsPanel()
     {
         MainPanel.SetActive(false);
@@ -109,7 +111,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows Level Select panel
+    // Shows Level Select panel
     public void ShowLevelSelectPanel()
     {
         MainPanel.SetActive(false);
@@ -122,7 +124,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows Level One panel
+    // Shows Level One panel
     public void ShowLevel1Panel()
     {
         MainPanel.SetActive(false);
@@ -135,7 +137,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows Level Two panel
+    // Shows Level Two panel
     public void ShowLevel2Panel()
     {
         MainPanel.SetActive(false);
@@ -148,7 +150,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows Level Three panel
+    // Shows Level Three panel
     public void ShowLevel3Panel()
     {
         MainPanel.SetActive(false);
@@ -161,6 +163,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
+    // Shows the erase save panel
     public void ShowErasePanel()
     {
         MainPanel.SetActive(false);
@@ -172,22 +175,22 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(true);
     }
 
-    //Loads Level One
+    // Loads Level One
     public void LoadLevelOne()
     {
         SceneManager.LoadScene("Level1");
     }
 
-    //Loads Level Two
+    // Loads Level Two
     public void LoadLevelTwo()
     {
         SceneManager.LoadScene("Level2");
     }
 
-    //Loads Level Three
+    // Loads Level Three
     public void LoadLevelThree()
     {
-        //Actually Level 4
+        // Actually Level 4
         SceneManager.LoadScene("Level4");
     }
 }

@@ -948,7 +948,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 7
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1103,7 +1103,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 7
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1182,7 +1182,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 7
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1373,12 +1373,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1725987706777201778}
-  - {fileID: 4039042182455835044}
   - {fileID: 4039042183600318786}
-  - {fileID: 4039042183537854620}
-  - {fileID: 4039042182245751723}
+  - {fileID: 4039042182455835044}
   - {fileID: 4039042182233643418}
+  - {fileID: 4039042183537854620}
   - {fileID: 4039042183114975746}
+  - {fileID: 4039042182245751723}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1493,13 +1493,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 2149617567416882211, guid: de751c0f902e2ac4ca051f139e4314e7,
       type: 3}
-    cost: 100
-    upgradeCost01: 100
-    upgradeCost02: 150
-    upgradeCost03: 150
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 100
+    cost: 150
+    upgradeCost01: 150
+    upgradeCost02: 250
+    upgradeCost03: 350
+    upgradeCost10: 150
+    upgradeCost20: 275
+    upgradeCost30: 350
     upgrade10Text: More Damage
     upgrade20Text: More Pierce
     upgrade30Text: Even More Pierce
@@ -1522,13 +1522,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 6405735178075819066, guid: f1a90a9458f4f6a4fae6b9df4174726a,
       type: 3}
-    cost: 150
-    upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    cost: 200
+    upgradeCost01: 150
+    upgradeCost02: 200
+    upgradeCost03: 275
+    upgradeCost10: 175
+    upgradeCost20: 200
+    upgradeCost30: 275
     upgrade10Text: Bigger Bombs
     upgrade20Text: More Damage
     upgrade30Text: Frag Bomb
@@ -1551,13 +1551,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 6696892587271786379, guid: 5773d4ef6a6a0d84fbdc859e97494b87,
       type: 3}
-    cost: 150
-    upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    cost: 200
+    upgradeCost01: 300
+    upgradeCost02: 200
+    upgradeCost03: 500
+    upgradeCost10: 150
+    upgradeCost20: 200
+    upgradeCost30: 500
     upgrade10Text: 2x Fire Rate
     upgrade20Text: Better Aim
     upgrade30Text: More Damage
@@ -1580,13 +1580,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 3425407377294115104, guid: d05e9cf41f0be9f44a767c57781fe5cc,
       type: 3}
-    cost: 200
-    upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    cost: 350
+    upgradeCost01: 250
+    upgradeCost02: 375
+    upgradeCost03: 450
+    upgradeCost10: 250
+    upgradeCost20: 350
+    upgradeCost30: 400
     upgrade10Text: More Damage
     upgrade20Text: Pierce
     upgrade30Text: Even More Pierce
@@ -1609,13 +1609,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 4053436145358553499, guid: d1072a25763709a409ed89d283d07d0f,
       type: 3}
-    cost: 150
-    upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    cost: 400
+    upgradeCost01: 200
+    upgradeCost02: 300
+    upgradeCost03: 400
+    upgradeCost10: 175
+    upgradeCost20: 230
+    upgradeCost30: 300
     upgrade10Text: More Damage
     upgrade20Text: DoT Damage
     upgrade30Text: Even More Damage
@@ -1638,13 +1638,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 2963452243191024466, guid: ddf8ef3dd2295584e9a79c3f806dc4f4,
       type: 3}
-    cost: 300
-    upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    cost: 400
+    upgradeCost01: 250
+    upgradeCost02: 350
+    upgradeCost03: 400
+    upgradeCost10: 300
+    upgradeCost20: 375
+    upgradeCost30: 450
     upgrade10Text: Bigger Range
     upgrade20Text: Cheaper Towers in Range
     upgrade30Text: Make more money
@@ -1667,13 +1667,13 @@ MonoBehaviour:
       type: 3}
     prefabUpgrade30: {fileID: 7111381667259261679, guid: cb379b7ae55ed5245b833a52fb49f08c,
       type: 3}
-    cost: 300
-    upgradeCost01: 50
-    upgradeCost02: 50
-    upgradeCost03: 50
-    upgradeCost10: 50
-    upgradeCost20: 50
-    upgradeCost30: 50
+    cost: 500
+    upgradeCost01: 350
+    upgradeCost02: 400
+    upgradeCost03: 500
+    upgradeCost10: 350
+    upgradeCost20: 400
+    upgradeCost30: 500
     upgrade10Text: More Damage
     upgrade20Text: Even More Damage
     upgrade30Text: Hyper Potent Flames
@@ -1921,7 +1921,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 7
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2155,7 +2155,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 7
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2386,7 +2386,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 7
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2739,7 +2739,7 @@ RectTransform:
   - {fileID: 1725987706095029265}
   - {fileID: 1736872750}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2921,7 +2921,7 @@ RectTransform:
   - {fileID: 1725987706838972231}
   - {fileID: 1471983432}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3103,7 +3103,7 @@ RectTransform:
   - {fileID: 1725987706629700447}
   - {fileID: 5395906352528098689}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3285,7 +3285,7 @@ RectTransform:
   - {fileID: 1725987707643237350}
   - {fileID: 727496314}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3467,7 +3467,7 @@ RectTransform:
   - {fileID: 1725987706572716351}
   - {fileID: 1829174351}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3649,7 +3649,7 @@ RectTransform:
   - {fileID: 1725987707878905502}
   - {fileID: 1027076939}
   m_Father: {fileID: 1725987706713518160}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

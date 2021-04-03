@@ -355,13 +355,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCount: 0
-  range: 25
+  range: 20
   firerate: 0.5
   originalFireRate: 0
   originalRange: 0
   bulletPierce: 1
   DoTDamage: 1
-  bulletDamage: 75
+  bulletDamage: 100
   bulletSpeed: 50
   bulletExplosionRadius: 8
   DoTTime: 5

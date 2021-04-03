@@ -2,6 +2,7 @@
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
 
+// interface used in edit mode test
 public interface IEnemy {
     void Die();
     void SetWaypoint(int index);

@@ -7,6 +7,7 @@ using DG.Tweening;
 using System.Collections;
 public class Enemy : MonoBehaviour, IEnemy
 {
+    // Setup fields and globals
     public Animator anim;
     public Waypoints waypoints;
     [HideInInspector]
@@ -89,6 +90,7 @@ public class Enemy : MonoBehaviour, IEnemy
         this.wavepointIndex = _index;
     }
 
+    // Runs when enemy spawns
     public virtual void Start()
     {
 		//KEEP REGARDLESS OF MERGE
@@ -103,6 +105,7 @@ public class Enemy : MonoBehaviour, IEnemy
         getTotalDistance();
     }
 
+    // Reduces the enemy's health pool
     public void TakeDamage(int amount)
     {
         if(dead)
@@ -150,6 +153,8 @@ public class Enemy : MonoBehaviour, IEnemy
         }
 
     }
+
+    // Rudeces enemy movement speed
     private IEnumerator Slow()
     {
         this.speed = originalSpeed * speedDebuff;
@@ -157,6 +162,8 @@ public class Enemy : MonoBehaviour, IEnemy
         this.speed = originalSpeed;
         yield return null;
     }
+
+    // Applies a damage over time effect that slowly hurts the enemy
     private IEnumerator ElectricDoT()
     {
         float timePassed = 0f;
@@ -175,6 +182,7 @@ public class Enemy : MonoBehaviour, IEnemy
         yield return null;
     }
 
+    // Removes the enemy from the scene and gives the player money
     public virtual void Die()
     {
         if(turretThatShotMe != null)
@@ -201,11 +209,13 @@ public class Enemy : MonoBehaviour, IEnemy
 
     }
 
+    // Runs when enemy spawns, sets health
     void Awake()
     {
         startingHealth = health;
     }
 
+    // Pools multiple enemies to be spawned
     public virtual void Onpooled()
     {
         if (!readytobepooled)
@@ -219,6 +229,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
     }
 
+    // Runs every frame, handles where the enemy needs to go/look
     private void Update()
     {
         // Direction pointing to waypoint
@@ -271,6 +282,7 @@ public class Enemy : MonoBehaviour, IEnemy
         transform.DOLookAt(new Vector3(target.position.x, transform.position.y, target.position.z), .25f);
     }
 
+    // Runs when enemy hits the player's base, reduces player lives
     public virtual void EndPath()
     {
 
@@ -278,6 +290,7 @@ public class Enemy : MonoBehaviour, IEnemy
         Destroy(this.gameObject);
     }
 
+    // Determines how far an enemy is from the player base, used for turret targeting
     public void getTotalDistance()
     {
         this.distanceLeft = Vector3.Distance(this.transform.position,waypoints.points[wavepointIndex].position);

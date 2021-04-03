@@ -5,6 +5,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+// Special logic just for the support turret, see Turret.cs for further details
 public class SupportTurret : Turret
 { 
     public float fireRateMultiplier = 1.25f;
@@ -23,6 +25,7 @@ public class SupportTurret : Turret
         this.InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
+    // Updates what tower this is buffing
     void UpdateTarget()
     {
         GameObject[] towers = GameObject.FindGameObjectsWithTag(this.towerTag);

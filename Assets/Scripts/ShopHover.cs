@@ -2,9 +2,12 @@
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
 
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+// Just for changing panels states depending if the mouse is hovering over them
 public class ShopHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject hidePanel;
