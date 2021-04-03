@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour, IEnemy
 
     bool readytobepooled;
 
+    public string deathSound;
+
     public int value = 50;
     public float turretValueBuff = 1.25f;
     [HideInInspector]
@@ -205,6 +207,8 @@ public class Enemy : MonoBehaviour, IEnemy
         Destroy(effect, 5f);
         readytobepooled = true;
         gameObject.SetActive(false);
+        FindObjectOfType<AudioManager>().PlayAudio(deathSound);
+        
         Destroy(this.gameObject);
 
     }
