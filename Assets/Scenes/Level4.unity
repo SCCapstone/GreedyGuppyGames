@@ -16061,7 +16061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372ff79df9fb64246821956033ecf209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 200
+  startMoney: 300
   startLives: 20
 --- !u!114 &1572337697
 MonoBehaviour:
@@ -24942,7 +24942,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Wonnered
+  m_Text: Victory
 --- !u!222 &6508861433894861198
 CanvasRenderer:
   m_ObjectHideFlags: 0
