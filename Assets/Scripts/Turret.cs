@@ -224,6 +224,10 @@ public class Turret : MonoBehaviour
         if(fireEffectList.GetLength(0)==1)
         {
             GameObject rightFireEffect = (GameObject)Instantiate(this.fireEffect, this.fireEffectList[0].transform.position, this.fireEffectList[0].transform.rotation);
+            if(electricTower)
+            {
+                rightFireEffect.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
+            }
             Destroy(rightFireEffect,fireEffectLifespan);
         }
         if(fireEffectList.GetLength(0)==2)
