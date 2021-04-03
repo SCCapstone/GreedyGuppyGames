@@ -5,6 +5,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Renders all the menu components
 public class Menu : MenuFunctions
 {
 
@@ -22,7 +23,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows the Main menu panel
+    // Shows the Main menu panel
     public void ShowMainPanel()
     {
         MainPanel.SetActive(true);
@@ -35,7 +36,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     } 
 
-    //Shows the Settings panel
+    // Shows the Settings panel
     public void ShowSettingsPanel()
     {
         MainPanel.SetActive(false);
@@ -48,7 +49,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows the Achievements panel
+    // Shows the Achievements panel
     public void ShowAchievementsPanel()
     {
         MainPanel.SetActive(false);
@@ -61,7 +62,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows Level Select panel
+    // Shows Level Select panel
     public void ShowLevelSelectPanel()
     {
         MainPanel.SetActive(false);
@@ -74,7 +75,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows Level One panel
+    // Shows Level One panel
     public void ShowLevel1Panel()
     {
         MainPanel.SetActive(false);
@@ -87,7 +88,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows Level Two panel
+    // Shows Level Two panel
     public void ShowLevel2Panel()
     {
         MainPanel.SetActive(false);
@@ -100,7 +101,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
-    //Shows Level Three panel
+    // Shows Level Three panel
     public void ShowLevel3Panel()
     {
         MainPanel.SetActive(false);
@@ -113,6 +114,7 @@ public class Menu : MenuFunctions
         ErasePanel.SetActive(false);
     }
 
+    // Shows the erase save panel
     public void ShowErasePanel()
     {
         MainPanel.SetActive(false);

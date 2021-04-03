@@ -4,6 +4,7 @@
 
 using UnityEngine;
 
+// Initializes everything that defines a player (their stats!)
 public class PlayerStats : MonoBehaviour
 {
     public static int Money;

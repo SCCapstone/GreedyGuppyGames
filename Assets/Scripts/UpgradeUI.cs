@@ -1,8 +1,13 @@
-﻿using System.Collections;
+﻿// <copyright file="UpgradeUI.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Renders and handles the functionality of the upgrade side panel that pops up when selecting a tower
 public class UpgradeUI : MonoBehaviour
 {
     [Header("UI")]
@@ -26,6 +31,7 @@ public class UpgradeUI : MonoBehaviour
 
     private MyNode nodeToUpgrade;
 
+    // Makes sure the sidepanel is off on frame 0
     private void Start()
     {
         ui.SetActive(false);
@@ -158,6 +164,7 @@ public class UpgradeUI : MonoBehaviour
         }
     }
 
+    // Sets what turret is active on the current node
     public void SetTurret(MyNode node)
     {
         nodeToUpgrade = node;
@@ -178,18 +185,21 @@ public class UpgradeUI : MonoBehaviour
 
     }
 
+    // Opens the side menu
     public void Activate()
     {
         UIOpen = true;
         ui.SetActive(true);
     }
 
+    // Hides the side menu
     public void Hide()
     {
         UIOpen = false;
         ui.SetActive(false);
     }
 
+    // The button for the left upgrade path
     public void UpgradePathOne()
     {
         if (nodeToUpgrade.upgradePathTwo > 0)
@@ -202,6 +212,7 @@ public class UpgradeUI : MonoBehaviour
         this.SetTurret(nodeToUpgrade);
     }
 
+    // The button for the right upgrade path
     public void UpgradePathTwo()
     {
         if (nodeToUpgrade.upgradePathOne > 0)
@@ -214,6 +225,7 @@ public class UpgradeUI : MonoBehaviour
         this.SetTurret(nodeToUpgrade);
     }
 
+    // Sells the currently selected turret
     public void Sell()
     {
         this.nodeToUpgrade.SellTurret();

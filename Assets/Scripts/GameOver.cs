@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// What happens when you die
 public class GameOver : MenuFunctions
 {
     public Text roundsText;

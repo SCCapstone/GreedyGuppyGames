@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour, IBullet
 {
+    // Setup fields and globals
     private Transform target;
     [HideInInspector]
     public Turret turretThatShotMe;
@@ -25,16 +26,18 @@ public class Bullet : MonoBehaviour, IBullet
     private Vector3 directionOfTravel;
 
 
-    // Update is called once per frame
+    // Runs when bullet spawns, points it in the right direction
     private void Start()
     {
         rotate = this.transform.rotation;
     }
+
+    // Runs every frame, moves the bullet forward and checks the lifespan and if it is still in bounds
     private void Update()
     {
         this.CheckOutOfBounds();
         this.CheckLifeSpan();
-        if(tracking)
+        if(tracking)  // used for cannon upgrade
         {
             Track();
         }
@@ -58,7 +61,7 @@ public class Bullet : MonoBehaviour, IBullet
         this.SetBulletDirection();
     }
 
-
+    // Adds a cone of fire to a turret, selects a random vector within a cone to send a bullet down
     public Vector3 addSpray(Vector3 dir)
     {
         dir = dir.normalized;
@@ -168,6 +171,7 @@ public class Bullet : MonoBehaviour, IBullet
         Destroy(this.gameObject);
     }
 
+    // Turret aoe 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -238,7 +242,7 @@ public class Bullet : MonoBehaviour, IBullet
         Vector3 travelDirection = new Vector3(this.transform.position.x + 500, this.transform.position.y, this.transform.position.z);
         // where it spawns
         Vector3 spawnLocation = new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
-        //make bullet and set it to shit
+        //make bullet and sets it up
         GameObject bulletGO1 = (GameObject)Instantiate(this.shrapnelGameObject, spawnLocation, this.transform.rotation);
         Bullet bullet1 = bulletGO1.GetComponent<Bullet>();
         bullet1.directionOfTravel = travelDirection;

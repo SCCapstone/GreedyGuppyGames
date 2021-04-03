@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+// Handles the playing of all audio
 public class AudioManager : MonoBehaviour
 {
     //An array for keep track of audio clips

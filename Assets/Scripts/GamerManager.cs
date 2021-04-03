@@ -4,6 +4,7 @@
 
 using UnityEngine;
 
+// Controls everything in the scene, like a robot dungeon master
 public class GamerManager : MonoBehaviour
 {
     public bool gameEnded;
@@ -15,6 +16,7 @@ public class GamerManager : MonoBehaviour
     public UpgradeUI upgradeUI;
     public GameObject gameWonUI;
 
+    // Runs before frame 1, sets up status
     private void Start()
     {
         this.gameEnded = false;
@@ -61,6 +63,7 @@ public class GamerManager : MonoBehaviour
         }
     }
 
+    // Halts the game
     private void EndGame()
     {
         this.gameEnded = true;
@@ -68,6 +71,8 @@ public class GamerManager : MonoBehaviour
         // Turns on the game over UI when game is over
         this.gameOverUI.SetActive(true);
     }
+
+    // Determines what happens when the win condition is set
     public void WinGame()
     {
         this.gameWon = true;

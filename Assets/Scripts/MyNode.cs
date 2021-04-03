@@ -5,8 +5,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+// The logic that is house within every node. If an action involves a node, it comes through here.
 public class MyNode : MonoBehaviour
 {
+    // Setup fields and globals
     public Color hoverColor;
     public Color nodeSelectedToUpgradeColor;
     public Color errorColor;
@@ -32,17 +34,21 @@ public class MyNode : MonoBehaviour
     private Color startColor;
     private BuildManager buildManager;
 
+    // Runs before frame 1, setup each node
     private void Start()
     {
         this.rend = this.GetComponent<Renderer>();
         this.startColor = this.rend.material.color;
         this.buildManager = BuildManager.instance;
     }
+
+    // Decides where on the node to build stuff
     public Vector3 GetBuildPosition()
     {
         return this.transform.position + this.positionOffset;
     }
 
+    // What happens when the player clicks on a node
     private void OnMouseDown()
     {
         //Debug.Log("I ran onmousedown");
@@ -73,6 +79,7 @@ public class MyNode : MonoBehaviour
         this.rend.material.color = this.startColor;
     }
 
+    // What happens when a mouse enters a node (just goes over it, not click)
     private void OnMouseEnter()
     {
         // If the MyNode script is unchecked then we return
@@ -114,15 +121,20 @@ public class MyNode : MonoBehaviour
         Destroy(turret);
         turret = null;
     }
+
+    // Changes the color of the node when you click one with a turret on it
     public void SelectForUpgradeColor()
     {
         this.rend.material.color = this.nodeSelectedToUpgradeColor;
     }
+
+    // Returns the color of the node to the default
     public void ResetColor()
     {
         this.rend.material.color = this.startColor;
     }
 
+    // What happens when a mouse leaves node, see OnMouseEnter for more info
     private void OnMouseExit()
     {
         // If the MyNode script is unchecked then we return
@@ -137,6 +149,7 @@ public class MyNode : MonoBehaviour
         this.ResetColor();
     }
 
+    // Just here for deselecting towers by clicking on them
     private void OnMouseOver()
     {
         // changes the color back if right clicked to deselect tower on the node
@@ -146,7 +159,7 @@ public class MyNode : MonoBehaviour
         }
     }
 
-
+    // Builds a turret on a node
     private void BuildTurret(TurretBlueprint blueprint)
     {
         if (PlayerStats.Money < blueprint.cost)
@@ -179,11 +192,13 @@ public class MyNode : MonoBehaviour
         turretBlueprint = blueprint;
     }
 
+    // Upgrades the turret on this node
     public void UpgradeTurret()
     {
         GameObject upgradePrefab;
         int upgradePrice;
 
+        // Controls what upgraded tower gets built based off of what the player chose
         if (upgradePathOne == 0 && upgradePathTwo == 1)
         {
             upgradePrefab = turretBlueprint.prefabUpgrade01;
@@ -249,6 +264,7 @@ public class MyNode : MonoBehaviour
         ShowRangeIndicator();
     }
 
+    // Removes the turret and gives the player some money
     public void SellTurret()
     {
         
@@ -274,6 +290,7 @@ public class MyNode : MonoBehaviour
         HideRangeIndicator();
     }
 
+    // Renders a ring around the node to show the range of the tower that is on it
     public void ShowRangeIndicator()
     {
         if(turret == null)
@@ -291,6 +308,7 @@ public class MyNode : MonoBehaviour
         rangeObject.gameObject.transform.localScale = new Vector3(scaleSize,2f,scaleSize);
     }
 
+    // Hides the above range indicator
     public void HideRangeIndicator()
     {
         Destroy(rangeObject);

@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿// <copyright file="Powerupbase.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

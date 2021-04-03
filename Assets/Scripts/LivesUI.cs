@@ -5,6 +5,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// Renders the player's health on screen
 public class LivesUI : MonoBehaviour
 {
     public Text livesText;

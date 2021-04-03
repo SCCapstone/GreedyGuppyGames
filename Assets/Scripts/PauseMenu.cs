@@ -1,8 +1,13 @@
+// <copyright file="PauseMenu.cs" company="GreedyGuppyGames">
+// Copyright (c) GreedyGuppyGames. All rights reserved.
+// </copyright>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Pauses time when the player clicks pause
 public class PauseMenu : MenuFunctions
 {
     public static bool GameIsPaused = false;
@@ -31,6 +36,7 @@ public class PauseMenu : MenuFunctions
         }
     }
 
+    // Stops time
     public void Pause()
     {
         Debug.Log("Game Paused");
@@ -39,6 +45,7 @@ public class PauseMenu : MenuFunctions
         GameIsPaused = true;
     }
 
+    // Resumes time
     public void Unpause()
     {
         Debug.Log("Game unpaused");

@@ -5,6 +5,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// Renders the player's money
 public class MoneyUI : MonoBehaviour
 {
     public Text moneyText;

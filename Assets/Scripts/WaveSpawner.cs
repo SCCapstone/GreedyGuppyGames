@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Controls what waves consist of
 public class WaveSpawner : MonoBehaviour
 {
     public static bool gameWon = false;
@@ -62,6 +63,7 @@ public class WaveSpawner : MonoBehaviour
     // private bool allSpawned, grubSpawned, scorpSpawned, droneSpawned, mamaSpawned, carrierSpawned = false;
     // private int totalSpawned = 0;
 
+    // Runs before first frame, starts the rounds from the start
     private void Start()
     {
         // Locates START(green block) in the scene
@@ -76,6 +78,8 @@ public class WaveSpawner : MonoBehaviour
         gameWon = false;
 
     }
+
+    // Constantly checks if the game is done
     private void Update()
     {
         
@@ -103,6 +107,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    // Logic for sending each wave out of the spawn room
     private IEnumerator SpawnWave(int index)
     {
         //Extracts the amount of the coresponding enemy to spawn
@@ -207,11 +212,13 @@ public class WaveSpawner : MonoBehaviour
             //++PlayerStats.Rounds;
         }
 
+    // Logic for spawning each individual enemy within a wave
     public void SpawnEnemy(Transform enemy)
     {
         enemy.GetComponent<Enemy>().waypoints = waypoints[waveSpawnerToUse];
         Instantiate(enemy, spawnPoint[waveSpawnerToUse].position, spawnPoint[waveSpawnerToUse].rotation);
     }
+    
     // returns true if no enemies in scene
     public bool checkForEnemies()
     {

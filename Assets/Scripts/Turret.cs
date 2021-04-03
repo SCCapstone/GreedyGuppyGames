@@ -5,6 +5,7 @@
 using UnityEngine;
 
 // comment
+// Basic turret logic, if a tower is placed it at least extends this
 public class Turret : MonoBehaviour
 {
     //public Waypoints[] waypoints;
@@ -80,6 +81,7 @@ public class Turret : MonoBehaviour
         this.originalRange = this.range;
     }
 
+    // Keeps track of who the turret is currently trying to hit
     private void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(this.enemyTag);
@@ -159,6 +161,7 @@ public class Turret : MonoBehaviour
         }
     }
 
+    // What happens when a turret "shoots" (the meaning of this can change depending on the turret)
     private void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(this.bulletPrefab, this.firePoint.position, this.firePoint.rotation);
@@ -209,6 +212,8 @@ public class Turret : MonoBehaviour
         }
         FindObjectOfType<AudioManager>().PlayAudio(gunShotAudio);
     }
+
+    // Renders the effect for tower shooting (mainly flamethrower)
     private void DrawParticleEffect()
     {
         // reorganize into switch statment later
