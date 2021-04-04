@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCount: 0
-  range: 15
+  range: 10
   firerate: 1
   originalFireRate: 0
   originalRange: 0
