@@ -9,6 +9,7 @@ using UnityEngine;
 public class Powerupbase : MonoBehaviour
 {
     public PowerupManager.PowerUpType type;
+    public GameObject explosionEffect;
     [SerializeField] protected float lifespan = 5;
     public virtual void Activate()
     {
