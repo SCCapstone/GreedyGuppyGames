@@ -232,6 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8b9f4e526269a4c8b2c9f17b389921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 2392831318547554462, guid: 5c0319efd20e20b4dbeebd8d354145b4,
+    type: 3}
   powerUpPrice: 50
   bombpowerup: {fileID: 851602599175535197, guid: c2c4116e1b1afb945a7709357dd3c1c1,
     type: 3}
