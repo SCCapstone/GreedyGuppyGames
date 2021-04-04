@@ -55,7 +55,7 @@ public class PowerupManager : MonoBehaviour
             int layer_mask = LayerMask.GetMask("Raycast");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100, layer_mask) && (hit.collider.tag == "Road" ))
+            if (Physics.Raycast(ray, out hit, 200, layer_mask) && (hit.collider.tag == "Road" ))
             {
                 
                 placepowerup(hit.point);
