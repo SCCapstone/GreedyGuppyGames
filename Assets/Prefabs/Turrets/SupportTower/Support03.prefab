@@ -326,7 +326,7 @@ MonoBehaviour:
   fireEffect: {fileID: 0}
   fireEffectList: []
   fireEffectLifespan: 0.5
-  fireRateMultiplier: 2
+  fireRateMultiplier: 2.5
   rangeMultiplier: 1.5
   towerTag: Tower
   leftTier1: 0
