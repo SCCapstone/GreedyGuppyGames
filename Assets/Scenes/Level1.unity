@@ -1610,6 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8b9f4e526269a4c8b2c9f17b389921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpPrice: 50
   bombpowerup: {fileID: 851602599175535197, guid: c2c4116e1b1afb945a7709357dd3c1c1,
     type: 3}
   spikepowerup: {fileID: 3944479455619676394, guid: c0a66ca6e97514f4ca4aaeadcdcadaf3,
@@ -26959,7 +26960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HelpMenuUI: {fileID: 215153659}
-  gamerManager: {fileID: 0}
+  gamerManager: {fileID: 2051447966}
 --- !u!114 &1836200270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31294,6 +31295,11 @@ PrefabInstance:
       propertyPath: spikeButton
       value: 
       objectReference: {fileID: 285407742}
+    - target: {fileID: 1725987706713518171, guid: 3df51ff53534c714a908da56be33be9e,
+        type: 3}
+      propertyPath: powerupManager
+      value: 
+      objectReference: {fileID: 111144937}
     - target: {fileID: 1725987706777201778, guid: 3df51ff53534c714a908da56be33be9e,
         type: 3}
       propertyPath: m_AnchorMin.y
