@@ -13,6 +13,7 @@ public class PauseMenu : MenuFunctions
     public static bool GameIsPaused = false;
 
     public GameObject PauseMenuUI;
+    public GameObject HelpMenuUI;
     public GamerManager gamerManager;
 
     private void Start()
@@ -25,6 +26,7 @@ public class PauseMenu : MenuFunctions
     {
         if(Input.GetKeyDown(KeyCode.Escape) && !gamerManager.gameEnded)
         {
+            HelpMenuUI.SetActive(false);
             if(GameIsPaused)
             {
                 Unpause();
