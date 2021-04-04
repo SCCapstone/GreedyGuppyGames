@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &762948245465839387
+--- !u!1 &27267315489653201
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 762948245465839385}
-  - component: {fileID: 762948245465839384}
+  - component: {fileID: 1116778989274495791}
+  - component: {fileID: 6653478657052273019}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &762948245465839385
+--- !u!4 &1116778989274495791
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762948245465839387}
+  m_GameObject: {fileID: 27267315489653201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 43.4, y: 61.300003, z: 34.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &762948245465839384
+--- !u!114 &6653478657052273019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762948245465839387}
+  m_GameObject: {fileID: 27267315489653201}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e03d35d5b25d1f48a98df14343b8e28, type: 3}
@@ -82,14 +82,56 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: FlameTowerShot
-    audioClip: {fileID: 8300000, guid: e18c45d6c3a272a47b27ce7bf20be07c, type: 3}
+    audioClip: {fileID: 8300000, guid: 1d410a07dc504a147822ac4a890c3519, type: 3}
+    volume: 0.17
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: ElectricTowerShot
+    audioClip: {fileID: 8300000, guid: ba8f91cf12e427f418ab0f0a321b32ff, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 1.5
     loop: 0
     source: {fileID: 0}
   - name: LaserTowerShot
     audioClip: {fileID: 8300000, guid: f7f2b958b23574551b561f7e871a8306, type: 3}
-    volume: 0.31
+    volume: 0.8
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: BeetDeath
+    audioClip: {fileID: 8300000, guid: cb785104fd8574748a8b09b2b89713af, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CarrierDeath
+    audioClip: {fileID: 8300000, guid: 912826c99713f2f40b08923959ee6dec, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DroneDeath
+    audioClip: {fileID: 8300000, guid: 222db570a6cd4ba4f81010062dc72545, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GrubDeath
+    audioClip: {fileID: 8300000, guid: ff034708458104748aaffa8dcbb99d9a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MamaDeath
+    audioClip: {fileID: 8300000, guid: 1cbdcdd98c5d3b14cb883eb60a8f83a9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ScorpDeath
+    audioClip: {fileID: 8300000, guid: 708008118baccf24abb4dcd3b4d6a51b, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -103,4 +145,4 @@ MonoBehaviour:
     type: 2}
   MusicMixerGroupName: MusicVolume
   SFXMixerGroupName: SFXVolume
-  gameMusicName: GameMusic2
+  gameMusicName: GameMusic

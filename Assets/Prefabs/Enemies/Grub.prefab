@@ -51,6 +51,7 @@ MonoBehaviour:
   speed: 7
   health: 75
   damageToBaseValue: 1
+  deathSound: GrubDeath
   value: 5
   turretValueBuff: 1.25
   turretThatShotMe: {fileID: 0}
