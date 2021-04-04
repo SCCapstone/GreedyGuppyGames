@@ -72,7 +72,7 @@ MonoBehaviour:
   waypoints: {fileID: 0}
   bulletWhoShotMe: {fileID: 0}
   speed: 15
-  health: 1
+  health: 50
   damageToBaseValue: 1
   deathSound: DroneDeath
   value: 5
