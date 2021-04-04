@@ -3889,7 +3889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.1}
   m_AnchorMax: {x: 1, y: 0.4}
-  m_AnchoredPosition: {x: 192, y: 10}
+  m_AnchoredPosition: {x: 238, y: 10}
   m_SizeDelta: {x: -411.40607, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &251723380
@@ -16256,8 +16256,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -60, y: 0.50219727}
-  m_SizeDelta: {x: -144.83176, y: -1.0044098}
+  m_AnchoredPosition: {x: -109.2, y: 0.50219727}
+  m_SizeDelta: {x: -243.20291, y: -1.0043945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1207120493
 MonoBehaviour:
@@ -16281,11 +16281,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 029e15f62b0388d4a9eb0b9c7df72a94, type: 3}
-    m_FontSize: 17
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 56
+    m_MaxSize: 58
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -20610,7 +20610,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HelpMenuUI: {fileID: 252562815}
-  gamerManager: {fileID: 0}
 --- !u!114 &1535811827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23858,8 +23857,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 53.947052, y: -34.026978}
-  m_SizeDelta: {x: 107.894104, y: 68.053955}
+  m_AnchoredPosition: {x: 154.29727, y: -47.197212}
+  m_SizeDelta: {x: 308.59454, y: 94.394424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796286198
 MonoBehaviour:
