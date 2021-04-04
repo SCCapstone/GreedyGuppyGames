@@ -10,8 +10,7 @@ public class Shop : MonoBehaviour
 {
     public static double sellPercent;
     public double startingSellPercent;
-    public int bombPrice = 50;
-    public int spikePrice = 50;
+    public PowerupManager powerupManager;
 
     public Button basicTowerButton;
     public Button cannonTowerButton;
@@ -121,19 +120,19 @@ public class Shop : MonoBehaviour
         {
             flameThrowerTowerButton.interactable = false;
         }
-        if (spikePrice <= PlayerStats.Money)
+        if (powerupManager.powerUpPrice <= PlayerStats.Money)
         {
             spikeButton.interactable = true;
         }
-        else if (spikePrice > PlayerStats.Money)
+        else if (powerupManager.powerUpPrice > PlayerStats.Money)
         {
             spikeButton.interactable = false;
         }
-        if (bombPrice <= PlayerStats.Money)
+        if (powerupManager.powerUpPrice <= PlayerStats.Money)
         {
             bombButton.interactable = true;
         }
-        else if (bombPrice > PlayerStats.Money)
+        else if (powerupManager.powerUpPrice > PlayerStats.Money)
         {
             bombButton.interactable = false;
         }

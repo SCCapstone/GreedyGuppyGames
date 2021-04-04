@@ -28,7 +28,6 @@ public class Powerupspike : Powerupbase
             // if it hits an enemy it damages it and reduces the amount of things it can still hit
             if (collider.tag == "Enemy" && ! Enemieswhodamaged.Contains(collider.GetComponent<Enemy>()))
             {
-                Debug.Log("I hit");
                 collider.GetComponent<Enemy>().TakeDamage(75);
                 Enemieswhodamaged.Add(collider.GetComponent<Enemy>());
                 life--;
