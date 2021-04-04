@@ -13,7 +13,7 @@ public class HelpButton : MenuFunctions
     public static bool GameIsPaused = false;
 
     public GameObject HelpMenuUI;
-    public GamerManager gamerManager;
+    //public GamerManager gamerManager;
 
     private void Start()
     {
@@ -23,17 +23,17 @@ public class HelpButton : MenuFunctions
     // Update is called once per frame
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && !gamerManager.gameEnded)
-        {
-            if(GameIsPaused)
-            {
-                Unpause();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        // if(Input.GetKeyDown(KeyCode.Escape) && !gamerManager.gameEnded)
+        // {
+        //     if(GameIsPaused)
+        //     {
+        //         Unpause();
+        //     }
+        //     else
+        //     {
+        //         Pause();
+        //     }
+        // }
     }
 
     // Stops time

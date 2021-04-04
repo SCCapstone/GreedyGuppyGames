@@ -4071,8 +4071,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.00018310547, y: 0}
+  m_SizeDelta: {x: 223.00049, y: 125.24896}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252562817
 MonoBehaviour:
@@ -32377,6 +32377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 6508861434235746490}
+  HelpMenuUI: {fileID: 252562815}
   gamerManager: {fileID: 1188631571}
 --- !u!222 &6508861434462509989
 CanvasRenderer:
