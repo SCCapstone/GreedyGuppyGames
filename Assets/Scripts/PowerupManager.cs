@@ -53,6 +53,7 @@ public class PowerupManager : MonoBehaviour
     }
     void placepowerup(Vector3 position)
     {
+        position.y = position.y + 1;
         activepowerup.transform.position = position;
         activepowerup.Activate();
         activepowerup = null;

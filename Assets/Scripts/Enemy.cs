@@ -115,12 +115,19 @@ public class Enemy : MonoBehaviour, IEnemy
             return;
         }
         this.health -= amount;
-        bulletWhoShotMe.ReducePierce();
+        if(bulletWhoShotMe != null)
+        {
+            bulletWhoShotMe.ReducePierce();
+        }
         if (this.health <= 0 && !dead)
         {
-            this.turretThatShotMe=bulletWhoShotMe.turretThatShotMe;
-            this.Die();
-            this.dead = true;
+            if(bulletWhoShotMe != null)
+            {
+                this.turretThatShotMe=bulletWhoShotMe.turretThatShotMe;
+                this.Die();
+                this.dead = true;
+            }
+            
         }
     }
     // Electric damage (since I'm not using a bullet, just subtracting the damage directly)
