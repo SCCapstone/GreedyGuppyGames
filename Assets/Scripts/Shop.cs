@@ -10,6 +10,8 @@ public class Shop : MonoBehaviour
 {
     public static double sellPercent;
     public double startingSellPercent;
+    public int bombPrice = 50;
+    public int spikePrice = 50;
 
     public Button basicTowerButton;
     public Button cannonTowerButton;
@@ -18,6 +20,8 @@ public class Shop : MonoBehaviour
     public Button electricTowerButton;
     public Button supportTowerButton;
     public Button flameThrowerTowerButton;
+    public Button bombButton;
+    public Button spikeButton;
 
     public Text basicTowerPrice;
     public Text cannonTowerPrice;
@@ -117,6 +121,23 @@ public class Shop : MonoBehaviour
         {
             flameThrowerTowerButton.interactable = false;
         }
+        if (spikePrice <= PlayerStats.Money)
+        {
+            spikeButton.interactable = true;
+        }
+        else if (spikePrice > PlayerStats.Money)
+        {
+            spikeButton.interactable = false;
+        }
+        if (bombPrice <= PlayerStats.Money)
+        {
+            bombButton.interactable = true;
+        }
+        else if (bombPrice > PlayerStats.Money)
+        {
+            bombButton.interactable = false;
+        }
+
     }
 
     // Next several methods are for selecting differnt types of turrets

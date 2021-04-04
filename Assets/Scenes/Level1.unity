@@ -174,18 +174,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 0.5764706, g: 0.76862746, b: 0.49019608, a: 1}
+    m_HighlightedColor: {r: 0.5267327, g: 0.7, b: 0.45049506, a: 1}
+    m_PressedColor: {r: 0.45000005, g: 0.6, b: 0.3826531, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.91764706, g: 0.6, b: 0.6, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4309,18 +4309,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 0.5764706, g: 0.76862746, b: 0.49019608, a: 1}
+    m_HighlightedColor: {r: 0.5267327, g: 0.7, b: 0.45049506, a: 1}
+    m_PressedColor: {r: 0.45000005, g: 0.6, b: 0.3826531, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.91764706, g: 0.6, b: 0.6, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -31284,6 +31284,16 @@ PrefabInstance:
       propertyPath: BasicTower.upgradeCost30
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1725987706713518171, guid: 3df51ff53534c714a908da56be33be9e,
+        type: 3}
+      propertyPath: bombButton
+      value: 
+      objectReference: {fileID: 8701966}
+    - target: {fileID: 1725987706713518171, guid: 3df51ff53534c714a908da56be33be9e,
+        type: 3}
+      propertyPath: spikeButton
+      value: 
+      objectReference: {fileID: 285407742}
     - target: {fileID: 1725987706777201778, guid: 3df51ff53534c714a908da56be33be9e,
         type: 3}
       propertyPath: m_AnchorMin.y
