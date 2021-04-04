@@ -4330,6 +4330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 14914577}
+  HelpMenuUI: {fileID: 1836200267}
   gamerManager: {fileID: 2051447966}
 --- !u!114 &308246288
 MonoBehaviour:
@@ -26476,7 +26477,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HelpMenuUI: {fileID: 215153659}
-  gamerManager: {fileID: 2051447966}
 --- !u!114 &1836200270
 MonoBehaviour:
   m_ObjectHideFlags: 0
