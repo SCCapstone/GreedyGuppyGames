@@ -39,12 +39,5 @@ public class Mama : Enemy
         }
     }
 
-    // What happens when the mama hits the end
-    public override void EndPath()
-    {
-        //PlayerStats.Lives -= 30;
-        Destroy(this.gameObject);
-    }
-
 
 }
