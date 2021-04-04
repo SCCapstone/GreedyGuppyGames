@@ -10,6 +10,8 @@ public class PowerupManager : MonoBehaviour
 {
     public static PowerupManager self;
     public enum PowerUpType { bomb, spiketrap };
+    public int powerUpPrice = 50;
+  
     [SerializeField] Powerupbase bombpowerup;
     [SerializeField] Powerupbase spikepowerup;
     Powerupbase activepowerup;
@@ -21,9 +23,15 @@ public class PowerupManager : MonoBehaviour
     {
         switch (type)
         {
-            case 0: activepowerup = Instantiate(bombpowerup).GetComponent<Powerupbase>(); break;
+            case 0: 
+                activepowerup = Instantiate(bombpowerup).GetComponent<Powerupbase>();
+                
+                break;
 
-            case 1: activepowerup = Instantiate(spikepowerup).GetComponent<Powerupbase>(); break;
+            case 1: 
+                activepowerup = Instantiate(spikepowerup).GetComponent<Powerupbase>();
+                
+                break;
         }
         Vector3 spawnpose = new Vector3(0, -1000 ,0);
         activepowerup.transform.position = spawnpose;
@@ -47,12 +55,15 @@ public class PowerupManager : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100, layer_mask) && (hit.collider.tag == "Road" ))
             {
+                
                 placepowerup(hit.point);
             }
         }
     }
     void placepowerup(Vector3 position)
     {
+        PlayerStats.Money -= powerUpPrice;
+        position.y = position.y + 1;
         activepowerup.transform.position = position;
         activepowerup.Activate();
         activepowerup = null;
