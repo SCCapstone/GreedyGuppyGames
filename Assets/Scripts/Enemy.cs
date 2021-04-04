@@ -124,9 +124,9 @@ public class Enemy : MonoBehaviour, IEnemy
             if(bulletWhoShotMe != null)
             {
                 this.turretThatShotMe=bulletWhoShotMe.turretThatShotMe;
+            }
                 this.Die();
                 this.dead = true;
-            }
             
         }
     }
