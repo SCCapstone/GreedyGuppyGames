@@ -13,7 +13,7 @@ public class HelpButton : MenuFunctions
     public static bool GameIsPaused = false;
 
     public GameObject HelpMenuUI;
-    public GamerManager gamerManager;
+    //public GamerManager gamerManager;
 
     private void Start()
     {
