@@ -2,8 +2,6 @@
 // Copyright (c) GreedyGuppyGames. All rights reserved.
 // </copyright>
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Powerupbomb : Powerupbase
@@ -13,8 +11,9 @@ public class Powerupbomb : Powerupbase
         base.Activate();
         Invoke("explode", lifespan * .25f);
     }
-    void explode()
+    private void explode()
     {
+        GameObject obj = (GameObject)Instantiate(this.explosionEffect, this.transform.position, this.transform.rotation);
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, 10);
         foreach (Collider collider in colliders)
         {
@@ -24,6 +23,7 @@ public class Powerupbomb : Powerupbase
                 collider.GetComponent<Enemy>().TakeDamage(75);
             }
         }
+        Destroy(obj, 3f);
         Deactivate();
     }
 }

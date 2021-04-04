@@ -10,14 +10,16 @@ public class PowerupManager : MonoBehaviour
 {
     public static PowerupManager self;
     public enum PowerUpType { bomb, spiketrap };
+    public GameObject explosionEffect;
     public int powerUpPrice = 50;
   
-    [SerializeField] Powerupbase bombpowerup;
+    [SerializeField] public Powerupbase bombpowerup;
     [SerializeField] Powerupbase spikepowerup;
-    Powerupbase activepowerup;
+    private Powerupbase activepowerup;
     void Awake()
     {
         self = this;
+        
     }
     public void selectpowerup(int type)
     {
@@ -25,7 +27,7 @@ public class PowerupManager : MonoBehaviour
         {
             case 0: 
                 activepowerup = Instantiate(bombpowerup).GetComponent<Powerupbase>();
-                
+                activepowerup.explosionEffect = explosionEffect;
                 break;
 
             case 1: 
@@ -53,7 +55,7 @@ public class PowerupManager : MonoBehaviour
             int layer_mask = LayerMask.GetMask("Raycast");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100, layer_mask) && (hit.collider.tag == "Road" ))
+            if (Physics.Raycast(ray, out hit, 200, layer_mask) && (hit.collider.tag == "Road" ))
             {
                 
                 placepowerup(hit.point);
