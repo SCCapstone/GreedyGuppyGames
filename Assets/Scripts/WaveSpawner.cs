@@ -29,6 +29,7 @@ public class WaveSpawner : MonoBehaviour
     //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:beetle, 3:drone, 4:mama, 5:carrier)
     private int[,] spawnerIndex = {//G,S,B,D,M,C
                                     {1,0,0,1,0,0},
+                                    /*
                                     {5,0,0,1,0,0},
                                     {5,1,0,2,0,0},
                                     {7,1,0,2,0,0},
@@ -43,6 +44,7 @@ public class WaveSpawner : MonoBehaviour
                                     {20,15,6,5,3,2},
                                     {15,10,10,7,3,3},
                                     {15,10,10,10,10,5} 
+                                    */
                                     };
     
     
@@ -83,7 +85,7 @@ public class WaveSpawner : MonoBehaviour
     private void Update()
     {
         
-        if(index == maxRounds - 1 && this.checkForEnemies() && !spawning)
+        if(index >= maxRounds - 1 && this.checkForEnemies() && !spawning)
         {
             gameWon = true;
         }
