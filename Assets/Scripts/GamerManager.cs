@@ -52,11 +52,7 @@ public class GamerManager : MonoBehaviour
             this.buildManager.ResetTurretToBuild();
         }
 
-        // shortcut to end the game quickly for testing
-        if (Input.GetKeyDown("e"))
-        {
-            this.EndGame();
-        }
+
 
         // ends the game if player is dead
         if (PlayerStats.Lives <= 0)
