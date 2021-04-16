@@ -118,7 +118,7 @@ MonoBehaviour:
   firerate: 1
   originalFireRate: 0
   originalRange: 0
-  bulletPierce: 1
+  bulletPierce: 100
   DoTDamage: 1
   bulletDamage: 100
   bulletSpeed: 70
