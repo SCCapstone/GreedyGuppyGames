@@ -49,17 +49,27 @@ MonoBehaviour:
   range: 15
   firerate: 1
   originalFireRate: 0
-  bulletPierce: 1
+  originalRange: 0
+  bulletPierce: 2
+  DoTDamage: 1
   bulletDamage: 100
   bulletSpeed: 70
   bulletExplosionRadius: 0
+  DoTTime: 5
+  speedDebuff: 0.75
   bulletExplosionPierce: 10
-  buffed2XFireRate: 0
-  buffed4XFireRate: 0
-  buffed6XFireRate: 0
+  makeShrapnel: 0
+  tracking: 0
+  permaSlow: 0
+  sprayAmount: 0
+  buffedFireRate: 0
+  buffedRange: 0
   buffedAim: 0
   buffedPierce: 0
   buffedDamage: 0
+  electricTower: 0
+  electricDoT: 0
+  slow: 0
   gunShotAudio: BasicTowerShot
   enemyTag: Enemy
   partToRotate: {fileID: 7202518617915880317}
@@ -67,6 +77,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5503022687058836579, guid: db20b831d894d4841ae5b57d4084374a,
     type: 3}
   firePoint: {fileID: 4426986520893834370}
+  fireEffect: {fileID: 0}
+  fireEffectList: []
+  fireEffectLifespan: 0.5
 --- !u!1 &2843628343844334332
 GameObject:
   m_ObjectHideFlags: 0
