@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killCount: 0
   range: 20
-  firerate: 6
+  firerate: 15
   originalFireRate: 0
   originalRange: 0
   bulletPierce: 3
