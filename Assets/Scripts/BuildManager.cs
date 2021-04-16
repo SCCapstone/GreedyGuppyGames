@@ -40,10 +40,12 @@ public class BuildManager : MonoBehaviour
                 return;
             }
 
+
             if (selectedNode != null)
             {
                 this.DeselectNode();
             }
+            
             //hitObject.GetComponent<MyNode>().ClearUpgradeColor();
             //Debug.Log("Mouse 1 being pressed");
             RaycastHit hitInfo = new RaycastHit();
@@ -92,10 +94,12 @@ public class BuildManager : MonoBehaviour
     // Runs when user clicks on a node, allows users to inspect what is on the node
     public void SelectNode(GameObject node)
     {
+        /*
         if(selectedNode != null)
         {
             selectedNode.GetComponent<MyNode>().HideRangeIndicator();
         }
+        */
         //node.GetComponent<MyNode>().SelectForUpgradeColor();
         if(node == null)
         {
@@ -103,7 +107,6 @@ public class BuildManager : MonoBehaviour
         }
         selectedNode = node.GetComponent<MyNode>();
         selectedNode.SelectForUpgradeColor();
-        Debug.Log("selected");
         upgradeUI.SetTurret(selectedNode);
         node.GetComponent<MyNode>().ShowRangeIndicator();
     }
