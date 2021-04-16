@@ -10,7 +10,9 @@ public class GamerManager : MonoBehaviour
 {
     public bool gameEnded;
     public bool gameWon;
-    
+    public GameObject playButton;
+    public GameObject fastForwardButton;
+    public GameObject regularSpeedButton;
 
     private BuildManager buildManager;
     public GameObject gameOverUI;
@@ -50,11 +52,7 @@ public class GamerManager : MonoBehaviour
             this.buildManager.ResetTurretToBuild();
         }
 
-        // shortcut to end the game quickly for testing
-        if (Input.GetKeyDown("e"))
-        {
-            this.EndGame();
-        }
+
 
         // ends the game if player is dead
         if (PlayerStats.Lives <= 0)
@@ -98,4 +96,36 @@ public class GamerManager : MonoBehaviour
             PlayerStats.CompleteLevel(3);
         }
     }
+
+    public void fastForward()
+    {
+        Time.timeScale = 1.5f;
+        regularSpeedButton.SetActive(true);
+        fastForwardButton.SetActive(false);
+        playButton.SetActive(false);
+    }
+    public void changeToRegularSpeed()
+    {
+        Time.timeScale = 1f;
+        fastForwardButton.SetActive(true);
+        regularSpeedButton.SetActive(false);
+        playButton.SetActive(false);
+
+    }
+
+    public void resetPlayButton()
+    {
+        Time.timeScale = 1f;
+        fastForwardButton.SetActive(false);
+        regularSpeedButton.SetActive(false);
+        playButton.SetActive(true);
+    }
+
+    public void resetFastForwardButton()
+    {
+        playButton.SetActive(false);
+        regularSpeedButton.SetActive(false);
+        fastForwardButton.SetActive(true);
+    }
+    
 }

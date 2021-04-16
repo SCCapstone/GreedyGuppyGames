@@ -19,7 +19,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform carrierPrefab;
     public Transform[] spawnPoint;
     public Waypoints[] waypoints;
-    //public GamerManager gamerManager;
+    public GamerManager gamerManager;
 
     private int index = -1;
     public string enemyTag = "Enemy";
@@ -28,8 +28,7 @@ public class WaveSpawner : MonoBehaviour
 
     //Array[15,4] for Spawning enemies(0:grub, 1:scorp, 2:beetle, 3:drone, 4:mama, 5:carrier)
     private int[,] spawnerIndex = {//G,S,B,D,M,C
-                                    {1,0,0,1,0,0},
-                                    /*
+                                    {1,0,0,1,0,0},   
                                     {5,0,0,1,0,0},
                                     {5,1,0,2,0,0},
                                     {7,1,0,2,0,0},
@@ -44,7 +43,6 @@ public class WaveSpawner : MonoBehaviour
                                     {20,15,6,5,3,2},
                                     {15,10,10,7,3,3},
                                     {15,10,10,10,10,5} 
-                                    */
                                     };
     
     
@@ -84,7 +82,11 @@ public class WaveSpawner : MonoBehaviour
     // Constantly checks if the game is done
     private void Update()
     {
-        
+        if(this.checkForEnemies() && !spawning)
+        {
+            Debug.Log("reset play");
+            gamerManager.resetPlayButton();
+        }
         if(index >= maxRounds - 1 && this.checkForEnemies() && !spawning)
         {
             gameWon = true;
@@ -94,6 +96,7 @@ public class WaveSpawner : MonoBehaviour
     //Pressing the play button calls the SpawnWave function
     public void StartWave()
     {
+        
         //Debug.Log("Play button pressed, starting SpawnWave");
         if(this.checkForEnemies())
         {
@@ -117,6 +120,7 @@ public class WaveSpawner : MonoBehaviour
         //for(int i=0; i < spawnerIndex.GetLength(0); ++i)
         //{
             spawning = true;
+            gamerManager.resetFastForwardButton();
             //Debug.Log("Wave "+(index+1));
             for(int j=0; j < spawnerIndex.GetLength(1); ++j)
             {
@@ -199,6 +203,7 @@ public class WaveSpawner : MonoBehaviour
                 }
             }
             spawning = false;
+            
             //Testing
             // Debug.Log("Total spawned: "+totalSpawned
             //     +"\n Grubs: "+grub
@@ -208,7 +213,7 @@ public class WaveSpawner : MonoBehaviour
             //     +"\n Carriers: "+carrier);
 
             // Time between rounds
-            yield return new WaitForSeconds(2f);
+            //yield return new WaitForSeconds(2f);
             // Increments the round counter
             //++this.round;
             //++PlayerStats.Rounds;
