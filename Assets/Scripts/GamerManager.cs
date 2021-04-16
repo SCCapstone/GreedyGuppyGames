@@ -103,7 +103,7 @@ public class GamerManager : MonoBehaviour
 
     public void fastForward()
     {
-        Time.timeScale = 1.25f;
+        Time.timeScale = 1.5f;
         regularSpeedButton.SetActive(true);
         fastForwardButton.SetActive(false);
         playButton.SetActive(false);
