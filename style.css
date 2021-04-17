@@ -14,8 +14,8 @@ body {
 
 .content {
     height: 200vh;
-    background-color: #333;
-    background-image: href="space-image.jpeg";
+    background-color: rgb(116, 116, 116);
+    background-image: url(https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
     background-blend-mode: multiply;
     background-size: cover;
     display: grid;
