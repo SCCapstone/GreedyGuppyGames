@@ -1,5 +1,5 @@
 :root {
-    --background: #1ca2ab;
+    --background: #1e2fab;
 }
 *, *::before, *::after {
     box-sizing: border-box;
@@ -7,21 +7,29 @@
 
 body {
     margin: 0;
-    background: #222;
+    background-blend-mode: multiply;
+    background-size: cover;
     font-family: sans-serif;
     font-weight: 400;
-    color:white;
-}
-
-.content {
-    height: 150vh;
     background-color: rgb(63, 63, 63);
     background-image: url(https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
-    background-blend-mode: multiply;
+}
+
+.logo {
+    height: 70vh;
     background-size: cover;
     display: grid;
     place-items: center;
 }
+
+.content {
+    place-items: center;
+    color: white;
+    display: grid;
+    place-items: center;
+    height:30vh;
+}
+
 
 
 h2 {
@@ -31,13 +39,8 @@ h2 {
 }
 
 p {
-    font-size: 40;
-    box-sizing: border-box;
+    font-size: 30;
     width: 50%;
-    flex-basis: 30%;
-    border-radius: 20px;
-    padding: 20px;
-
 }
 
 header {
@@ -149,7 +152,7 @@ header {
     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
 }
 
-.logo {
+.title-text {
     color:white;
     grid-column: 2 / 3;
 }
