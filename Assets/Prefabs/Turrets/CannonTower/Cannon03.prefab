@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCount: 0
-  range: 30
+  range: 15
   firerate: 0.75
   originalFireRate: 0
   originalRange: 0
