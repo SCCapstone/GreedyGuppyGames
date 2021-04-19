@@ -4,6 +4,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,6 +53,18 @@ public class PauseMenu : MenuFunctions
     {
         Debug.Log("Game unpaused");
         PauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        GameIsPaused = false;
+    }
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
