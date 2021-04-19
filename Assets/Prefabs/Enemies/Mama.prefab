@@ -52,6 +52,7 @@ MonoBehaviour:
   health: 600
   damageToBaseValue: 2
   deathSound: MamaDeath
+  baseDamage: BaseDamage
   value: 15
   turretValueBuff: 1.25
   turretThatShotMe: {fileID: 0}
