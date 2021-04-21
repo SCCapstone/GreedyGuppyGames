@@ -65,6 +65,7 @@ MonoBehaviour:
   health: 300
   damageToBaseValue: 1
   deathSound: BeetDeath
+  baseDamage: BaseDamage
   value: 25
   turretValueBuff: 1.25
   turretThatShotMe: {fileID: 0}

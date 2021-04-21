@@ -96,6 +96,7 @@ MonoBehaviour:
   health: 400
   damageToBaseValue: 5
   deathSound: CarrierDeath
+  baseDamage: BaseDamage
   value: 50
   turretValueBuff: 1.25
   turretThatShotMe: {fileID: 0}

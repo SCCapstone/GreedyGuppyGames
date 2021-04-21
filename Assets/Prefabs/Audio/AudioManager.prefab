@@ -135,6 +135,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: BaseDamage
+    audioClip: {fileID: 8300000, guid: c1151d354ffeb2c4b92b794d19b1291c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   menuSFXSounds: []
   musicSlider: {fileID: 0}
   sfxSlider: {fileID: 0}

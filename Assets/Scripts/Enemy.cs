@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour, IEnemy
     bool readytobepooled;
 
     public string deathSound;
+    public string baseDamage;
 
     public int value = 50;
     public float turretValueBuff = 1.25f;
@@ -298,6 +299,7 @@ public class Enemy : MonoBehaviour, IEnemy
     {
 
         PlayerStats.Lives -= damageToBaseValue;
+        FindObjectOfType<AudioManager>().PlayAudio(baseDamage);
         Destroy(this.gameObject);
     }
 
