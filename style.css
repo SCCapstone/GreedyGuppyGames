@@ -55,8 +55,13 @@ h2 {
     opacity: 100%;
     font-weight: 700;
 }
+h3 {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
 
 p {
+    padding-top: 60px;
     font-size: 30;
     width: 50%;
     text-align: center;
