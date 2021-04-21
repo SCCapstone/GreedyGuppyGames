@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 3620eae2728605d409d10c1f87449038
+timeCreated: 1475960838
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Circle
+    100002: Circle.001
+    100004: Circle.002
+    100006: Circle.003
+    100008: Circle.004
+    100010: Circle.005
+    100012: Circle.006
+    100014: Circle.007
+    100016: Circle.008
+    100018: Circle.009
+    100020: Plane
+    100022: //RootNode
+    100024: InnerCircle1
+    100026: InnerCircle2
+    100028: InnerCircle3
+    100030: InnerCircle4
+    100032: InnerCircle5
+    100034: InnerCircle6
+    100036: InnerCircle7
+    100038: InnerCircle8
+    100040: InnerCircle9
+    100042: MiddleCircle
+    100044: OuterCircle
+    400000: Circle
+    400002: Circle.001
+    400004: Circle.002
+    400006: Circle.003
+    400008: Circle.004
+    400010: Circle.005
+    400012: Circle.006
+    400014: Circle.007
+    400016: Circle.008
+    400018: Circle.009
+    400020: Plane
+    400022: //RootNode
+    400024: InnerCircle1
+    400026: InnerCircle2
+    400028: InnerCircle3
+    400030: InnerCircle4
+    400032: InnerCircle5
+    400034: InnerCircle6
+    400036: InnerCircle7
+    400038: InnerCircle8
+    400040: InnerCircle9
+    400042: MiddleCircle
+    400044: OuterCircle
+    2300000: Circle
+    2300002: Circle.001
+    2300004: Circle.002
+    2300006: Circle.003
+    2300008: Circle.004
+    2300010: Circle.005
+    2300012: Circle.006
+    2300014: Circle.007
+    2300016: Circle.008
+    2300018: Circle.009
+    2300020: Plane
+    2300022: InnerCircle1
+    2300024: InnerCircle2
+    2300026: InnerCircle3
+    2300028: InnerCircle4
+    2300030: InnerCircle5
+    2300032: InnerCircle6
+    2300034: InnerCircle7
+    2300036: InnerCircle8
+    2300038: InnerCircle9
+    2300040: MiddleCircle
+    2300042: OuterCircle
+    3300000: Circle
+    3300002: Circle.001
+    3300004: Circle.002
+    3300006: Circle.003
+    3300008: Circle.004
+    3300010: Circle.005
+    3300012: Circle.006
+    3300014: Circle.007
+    3300016: Circle.008
+    3300018: Circle.009
+    3300020: Plane
+    3300022: InnerCircle1
+    3300024: InnerCircle2
+    3300026: InnerCircle3
+    3300028: InnerCircle4
+    3300030: InnerCircle5
+    3300032: InnerCircle6
+    3300034: InnerCircle7
+    3300036: InnerCircle8
+    3300038: InnerCircle9
+    3300040: MiddleCircle
+    3300042: OuterCircle
+    4300000: Plane
+    4300002: Circle.009
+    4300004: Circle.008
+    4300006: Circle.007
+    4300008: Circle.006
+    4300010: Circle.005
+    4300012: Circle.004
+    4300014: Circle.003
+    4300016: Circle.002
+    4300018: Circle.001
+    4300020: Circle
+    4300022: InnerCircle1
+    4300024: InnerCircle2
+    4300026: InnerCircle3
+    4300028: InnerCircle4
+    4300030: InnerCircle5
+    4300032: InnerCircle6
+    4300034: InnerCircle7
+    4300036: InnerCircle8
+    4300038: InnerCircle9
+    4300040: MiddleCircle
+    4300042: OuterCircle
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
