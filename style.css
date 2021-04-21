@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    background: var(--background);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    opacity: 100%;
+}
+
 body {
     margin: 0;
     background-blend-mode: multiply;
@@ -13,6 +24,15 @@ body {
     font-weight: 400;
     background-color: rgb(63, 63, 63);
     background-image: url(https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
 }
 
 .logo {
@@ -30,8 +50,6 @@ body {
     height:50vh;
 }
 
-
-
 h2 {
     font-size: 60;
     opacity: 100%;
@@ -42,15 +60,6 @@ p {
     font-size: 30;
     width: 50%;
     text-align: center;
-}
-
-header {
-    background: var(--background);
-    text-align: center;
-    position: fixed;
-    z-index: 999;
-    width: 100%;
-    opacity: 100%;
 }
 
 .nav-toggle {
@@ -98,22 +107,11 @@ header {
     top: 7px;
 }
 
-nav {
-    position: absolute;
-    text-align: left;
-    top: 100%;
-    left: 0;
-    background: var(--background);
-    width: 100%;
-    transform: scale(1, 0);
-    transform-origin: top;
-    transition: transform 400ms ease-in-out;
-}
-
 nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: flex;
 }
 
 nav li {
@@ -147,12 +145,6 @@ nav a:hover {
 .nav-toggle-label {
         display: none;
 }
-
-header {
-    display: grid;
-    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
-}
-
 .title-text {
     color:white;
     grid-column: 2 / 3;
@@ -172,10 +164,6 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
-
-nav ul {
-    display: flex;
 }
 
 nav li {
