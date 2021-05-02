@@ -53,7 +53,7 @@ MonoBehaviour:
   damageToBaseValue: 1
   deathSound: GrubDeath
   baseDamage: BaseDamage
-  value: 5
+  value: 10
   turretValueBuff: 1.25
   turretThatShotMe: {fileID: 0}
   electricTowerAffectingMe: {fileID: 0}

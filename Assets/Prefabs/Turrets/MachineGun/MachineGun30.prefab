@@ -246,7 +246,7 @@ MonoBehaviour:
   originalRange: 0
   bulletPierce: 1
   DoTDamage: 1
-  bulletDamage: 25
+  bulletDamage: 35
   bulletSpeed: 70
   bulletExplosionRadius: 0
   DoTTime: 5

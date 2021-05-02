@@ -2230,7 +2230,7 @@ MonoBehaviour:
     upgrade30Text: Even More Pierce
     upgrade01Text: Faster Fire Rate
     upgrade02Text: More Range
-    upgrade03Text: Faster Fire Rate and Projectile Speed
+    upgrade03Text: Faster Fire Rate and More Range
     turretImage: {fileID: 21300000, guid: 16b0c9c0c5896f3499ccf4079c00493a, type: 3}
   CannonTower:
     prefab: {fileID: 1161168588940831137, guid: 40b931dc585d2cd4d80b99a540626b4e,
